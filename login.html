@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Access | Golden Healing Academy</title>
+    <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #08080A;
+            --secondary-black: #121215;
+            --card-black: #16161A;
+            --gold-primary: #D4AF37;
+            --gold-light: #F9F3E5;
+            --gold-accent: #C59B27;
+            --text-dark: #0A0A0C;
+            --text-muted: #A1A1AA;
+            --white: #FFFFFF;
+            --border-gold: rgba(212, 175, 55, 0.35);
+            --border-subtle: #E4E4E7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: radial-gradient(circle at center, #1A1A22 0%, #08080A 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Top Minimal Header */
+        header {
+            width: 100%;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            height: 48px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .logo-brand-main {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 3px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .logo-brand-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        .back-link {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--white); }
+
+        /* Login Card Wrapper */
+        .login-container {
+            width: 100%;
+            max-width: 460px;
+            padding: 20px;
+            margin: 40px auto;
+        }
+
+        .login-card {
+            background-color: var(--secondary-black);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 45px 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Toggle Tabs */
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--gold-primary);
+            border-bottom-color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: var(--primary-black);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            color: var(--white);
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            margin-bottom: 25px;
+            color: var(--text-muted);
+        }
+
+        .form-actions a {
+            color: var(--gold-primary);
+            text-decoration: none;
+        }
+
+        .form-actions a:hover { text-decoration: underline; }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            border: 1px solid var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-black);
+            color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .form-panel { display: none; }
+        .form-panel.active { display: block; }
+
+        footer {
+            padding: 20px;
+            font-size: 0.75rem;
+            color: #71717A;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <header>
+        <a href="index.html" class="logo-box">
+            <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="250" cy="250" r="235" fill="none" stroke="url(#luxuryGoldHeader)" stroke-width="6"/>
+                <circle cx="250" cy="250" r="222" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <defs>
+                    <linearGradient id="luxuryGoldHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#BF953F"/>
+                        <stop offset="25%" stop-color="#FCF6BA"/>
+                        <stop offset="50%" stop-color="#B38728"/>
+                        <stop offset="75%" stop-color="#FBF5B7"/>
+                        <stop offset="100%" stop-color="#AA771C"/>
+                    </linearGradient>
+                </defs>
+                <text x="250" y="260" font-family="'Cormorant Garamond', serif" font-size="185" font-weight="600" fill="url(#luxuryGoldHeader)" text-anchor="middle" letter-spacing="-5">GH</text>
+                <text x="250" y="355" font-family="'Cormorant Garamond', serif" font-size="70" font-style="italic" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">solutions</text>
+            </svg>
+            <div class="logo-text-container">
+                <div class="logo-brand-main">GOLDEN HEALING ACADEMY</div>
+                <div class="logo-brand-sub">Tech Pathway Accelerator</div>
+            </div>
+        </a>
+        <a href="index.html" class="back-link">← Return To Home</a>
+    </header>
+
+    <!-- Main Login Card -->
+    <main class="login-container">
+        <div class="login-card">
+            <div class="card-header">
+                <h1 id="panelTitle">Welcome Back</h1>
+                <p id="panelSubtitle">Access your self-paced technical curriculum</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('signin')">Sign In</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register Access</button>
+            </div>
+
+            <!-- Sign In Form Panel -->
+            <form id="signinForm" class="form-panel active" onsubmit="handleAuthSubmit(event, 'signin')">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" placeholder="student@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="••••••••••••" required>
+                </div>
+                <div class="form-actions">
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                        <input type="checkbox" checked style="accent-color: var(--gold-primary);"> Remember Me
+                    </label>
+                    <a href="#">Forgot Key?</a>
+                </div>
+                <button type="submit" class="btn-submit">Enter Academy Portal</button>
+            </form>
+
+            <!-- Registration Form Panel -->
+            <form id="registerForm" class="form-panel" onsubmit="handleAuthSubmit(event, 'register')">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="First & Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" placeholder="student@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Create Password</label>
+                    <input type="password" class="form-control" placeholder="Minimum 8 Characters" required minlength="8">
+                </div>
+                <button type="submit" class="btn-submit" style="margin-top: 10px;">Activate Student Access</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        function switchTab(type) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const signinForm = document.getElementById('signinForm');
+            const registerForm = document.getElementById('registerForm');
+            const panelTitle = document.getElementById('panelTitle');
+            const panelSubtitle = document.getElementById('panelSubtitle');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            if (type === 'signin') {
+                tabs[0].classList.add('active');
+                signinForm.classList.add('active');
+                registerForm.classList.remove('active');
+                panelTitle.innerText = "Welcome Back";
+                panelSubtitle.innerText = "Access your self-paced technical curriculum";
+            } else {
+                tabs[1].classList.add('active');
+                registerForm.classList.add('active');
+                signinForm.classList.remove('active');
+                panelTitle.innerText = "Enroll In Academy";
+                panelSubtitle.innerText = "Begin your 6-week technical transformation";
+            }
+        }
+
+        function handleAuthSubmit(e, type) {
+            e.preventDefault();
+            if (type === 'signin') {
+                alert('Authentication successful. Welcome back to Golden Healing Academy!');
+            } else {
+                alert('Registration complete! Welcome to Golden Healing Academy.');
+            }
+            // Automatically log student into course portal
+            window.location.href = 'course.html';
+        }
+    </script>
+</body>
+</html>
