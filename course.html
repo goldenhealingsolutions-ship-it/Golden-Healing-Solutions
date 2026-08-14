@@ -22,6 +22,7 @@
             --white: #FFFFFF;
             --border-gold: rgba(212, 175, 55, 0.35);
             --border-subtle: #E4E4E7;
+            --success-green: #10B981;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,6 +31,7 @@
         h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
         .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
+        /* Header Navigation */
         header {
             background-color: var(--primary-black);
             color: var(--white);
@@ -47,16 +49,7 @@
             text-decoration: none;
         }
 
-        .logo-svg {
-            height: 48px;
-            width: auto;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-        }
-
-        .logo-text-container {
-            display: flex;
-            flex-direction: column;
-        }
+        .logo-svg { height: 44px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
 
         .logo-brand-main {
             font-family: 'Cinzel', serif;
@@ -88,21 +81,19 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             border: 1px solid var(--gold-primary);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
             text-decoration: none;
             transition: all 0.3s;
         }
 
-        .badge:hover {
-            background: var(--white);
-            color: var(--primary-black);
-        }
+        .badge:hover { background: var(--white); color: var(--primary-black); }
 
+        /* Portal Layout */
         .portal-container {
             display: flex;
             min-height: calc(100vh - 78px);
         }
 
+        /* Sidebar Navigation */
         .sidebar {
             width: 380px;
             background-color: var(--white);
@@ -147,7 +138,7 @@
         }
 
         .lesson-item {
-            padding: 16px 24px;
+            padding: 14px 24px;
             font-size: 0.88rem;
             display: flex;
             justify-content: space-between;
@@ -155,103 +146,173 @@
             cursor: pointer;
             transition: all 0.25s ease;
             border-left: 3px solid transparent;
-            font-weight: 400;
         }
 
-        .lesson-item:hover {
-            background-color: var(--gold-light);
-            color: var(--gold-accent);
-        }
+        .lesson-item:hover { background-color: var(--gold-light); color: var(--gold-accent); }
+        .lesson-item.active { background-color: var(--gold-light); font-weight: 600; border-left-color: var(--gold-primary); color: var(--primary-black); }
 
-        .lesson-item.active {
-            background-color: var(--gold-light);
-            font-weight: 600;
-            border-left-color: var(--gold-primary);
-            color: var(--primary-black);
-        }
-
+        /* Main Content Workspace */
         .main-workspace {
             flex-grow: 1;
-            padding: 40px;
-            max-width: 1100px;
+            padding: 35px;
+            max-width: 1150px;
         }
 
         .video-container {
             width: 100%;
-            height: 520px;
+            height: 480px;
             background: radial-gradient(circle at center, #1E1E26 0%, #08080A 100%);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: 1px solid var(--border-gold);
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             overflow: hidden;
         }
 
-        .lesson-details {
+        /* Workflow Navigation Tabs */
+        .workspace-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 25px;
+            overflow-x: auto;
+        }
+
+        .work-tab-btn {
+            padding: 12px 18px;
+            background: none;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            cursor: pointer;
+            text-transform: uppercase;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .work-tab-btn.active {
+            color: var(--gold-accent);
+            border-bottom-color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        .panel-card {
             background: var(--white);
-            padding: 35px;
+            padding: 30px;
             border-radius: 4px;
             border: 1px solid var(--border-subtle);
             box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
         }
 
-        .lesson-details h1 {
+        .panel-card h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--primary-black);
             margin-bottom: 12px;
-            font-weight: 600;
         }
 
-        .lesson-details p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 30px;
+        /* Quiz Box Styling */
+        .quiz-question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .quiz-question h4 {
             font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        .resources-box {
-            background-color: var(--gold-light);
-            border: 1px solid var(--border-gold);
-            padding: 24px;
-            border-radius: 2px;
-        }
-
-        .resources-box h3 {
-            font-size: 0.85rem;
             margin-bottom: 12px;
             color: var(--primary-black);
-            font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
         }
 
-        .download-link {
-            color: var(--gold-accent);
-            font-weight: 600;
-            text-decoration: underline;
+        .option-label {
+            display: block;
+            padding: 12px 16px;
+            background: #FAFAFA;
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            margin-bottom: 8px;
+            cursor: pointer;
             font-size: 0.88rem;
-            display: inline-block;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        .download-link:hover { color: var(--primary-black); }
+        .option-label:hover {
+            border-color: var(--gold-primary);
+            background: var(--gold-light);
+        }
+
+        .option-label input { margin-right: 10px; accent-color: var(--gold-primary); }
+
+        /* Code Editor Sandbox */
+        .code-sandbox {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .code-input-box {
+            width: 100%;
+            height: 250px;
+            background: #08080A;
+            color: #22C55E;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+            font-size: 0.88rem;
+            outline: none;
+            resize: vertical;
+        }
+
+        .preview-box {
+            width: 100%;
+            height: 250px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            padding: 15px;
+            border-radius: 2px;
+            overflow: auto;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            border: 1px solid var(--gold-primary);
+            padding: 12px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover { background: var(--primary-black); color: var(--gold-primary); }
 
         @media (max-width: 950px) {
             .portal-container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; }
-            .video-container { height: 320px; }
-            .main-workspace { padding: 20px; }
+            .sidebar { width: 100%; }
+            .code-sandbox { grid-template-columns: 1fr; }
+            .video-container { height: 300px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
         <a href="index.html" class="logo-box">
             <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -277,24 +338,27 @@
         <a href="profile.html" class="badge">My Profile Dashboard</a>
     </header>
 
+    <!-- Main Portal -->
     <div class="portal-container">
+        
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h3>Academy Curriculum</h3>
-                <p>6-Week Self-Paced Accelerator</p>
+                <p>Interactive Learning Workflow</p>
             </div>
 
             <div class="module-group">
                 <div class="module-title">Module 01: Web Foundations (HTML5)</div>
-                <div class="lesson-item active" onclick="loadLesson('1.1 Welcome & Developer Environment Setup', 'In this opening lesson, we configure your professional VS Code IDE, establish developer extensions, and understand how browsers execute modern HTML5 code.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="lesson-item active" onclick="loadLesson('1.1 Welcome & Environment Setup')">
                     <span>1.1 Welcome & Setup</span>
                     <span>12m</span>
                 </div>
-                <div class="lesson-item" onclick="loadLesson('1.2 Document Anatomy & Core Skeleton', 'Master the required skeleton tags: <!DOCTYPE html>, <html>, <head>, and <body>. Understand how meta tags configure screen responsiveness.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="lesson-item" onclick="loadLesson('1.2 HTML Document Skeleton')">
                     <span>1.2 Document Skeleton</span>
                     <span>18m</span>
                 </div>
-                <div class="lesson-item" onclick="loadLesson('1.3 Semantic Markup & Input Forms', 'Learn semantic HTML structure (<header>, <main>, <section>) and construct high-converting input forms with validation.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="lesson-item" onclick="loadLesson('1.3 Semantic Forms & Inputs')">
                     <span>1.3 Semantic Forms</span>
                     <span>25m</span>
                 </div>
@@ -302,79 +366,304 @@
 
             <div class="module-group">
                 <div class="module-title">Module 02: Visual Layouts (CSS3)</div>
-                <div class="lesson-item" onclick="loadLesson('2.1 Box Model Engineering', 'Deep dive into box dimensions, margins, borders, padding, and border-box sizing calculations.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>2.1 The Box Model</span>
+                <div class="lesson-item" onclick="loadLesson('2.1 Box Model Sizing Rules')">
+                    <span>2.1 Box Model Rules</span>
                     <span>20m</span>
                 </div>
-                <div class="lesson-item" onclick="loadLesson('2.2 Flexbox Rows & Alignment', 'Master flex-direction, justify-content, align-items, and responsive flex wrapping for luxury navigation bars.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="lesson-item" onclick="loadLesson('2.2 Flexbox Alignment Systems')">
                     <span>2.2 Flexbox Systems</span>
                     <span>30m</span>
                 </div>
             </div>
 
             <div class="module-group">
-                <div class="module-title">Module 03: Responsive CSS Grid</div>
-                <div class="lesson-item" onclick="loadLesson('3.1 Multi-Column CSS Grids', 'Construct multi-column product grids and dashboard layouts utilizing repeat(), minmax(), and auto-fit rules.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>3.1 CSS Grid Foundations</span>
+                <div class="module-title">Module 03: Responsive Grid</div>
+                <div class="lesson-item" onclick="loadLesson('3.1 Multi-Column Grids')">
+                    <span>3.1 CSS Grid Layouts</span>
                     <span>22m</span>
-                </div>
-                <div class="lesson-item" onclick="loadLesson('3.2 Media Queries & Mobile Systems', 'Write modern @media CSS queries ensuring mobile-first responsive scaling across all tablet and mobile devices.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>3.2 Media Query Systems</span>
-                    <span>28m</span>
-                </div>
-            </div>
-
-            <div class="module-group">
-                <div class="module-title">Module 04: JavaScript Fundamentals</div>
-                <div class="lesson-item" onclick="loadLesson('4.1 JS Variables, Syntax & Functions', 'Master JavaScript execution, let/const variables, data types, logic operators, and reusable arrow functions.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>4.1 JavaScript Logic</span>
-                    <span>35m</span>
-                </div>
-            </div>
-
-            <div class="module-group">
-                <div class="module-title">Module 05: Dynamic DOM Applications</div>
-                <div class="lesson-item" onclick="loadLesson('5.1 DOM Manipulation & Event Listeners', 'Connect JavaScript to the DOM to update elements live, trigger popups, animate drawers, and process interactive forms.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>5.1 DOM Operations</span>
-                    <span>40m</span>
-                </div>
-            </div>
-
-            <div class="module-group">
-                <div class="module-title">Module 06: Portfolio Launch</div>
-                <div class="lesson-item" onclick="loadLesson('6.1 Git, GitHub Pages & Live Deployment', 'Package your final capstone project, push your source code to GitHub, and deploy your live portfolio onto a custom web domain.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <span>6.1 Portfolio Deployment</span>
-                    <span>25m</span>
                 </div>
             </div>
         </aside>
 
+        <!-- Workspace Area -->
         <main class="main-workspace">
+            
+            <!-- Live Gamification HUD Header Bar -->
+            <div style="background: var(--secondary-black); border: 1px solid var(--border-gold); padding: 15px 25px; border-radius: 4px; color: var(--white); margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <span style="font-family: 'Cinzel', serif; font-size: 0.68rem; color: var(--gold-primary); letter-spacing: 1.5px; text-transform: uppercase; display: block;">Candidate Rank</span>
+                    <strong id="hudLevel" style="font-size: 1.2rem; font-family: 'Cormorant Garamond', serif; color: var(--white);">Level 2</strong>
+                </div>
+                
+                <div style="flex-grow: 1; max-width: 450px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 6px;">
+                        <span id="hudXpText" style="color: #A1A1AA;">1,250 XP</span>
+                        <span style="color: var(--gold-primary); font-family: 'Cinzel', serif; font-size: 0.7rem;">🔥 6-Day Streak</span>
+                    </div>
+                    <div style="width: 100%; height: 8px; background: #27272A; border-radius: 4px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2);">
+                        <div id="hudXpBar" style="width: 25%; height: 100%; background: linear-gradient(90deg, #D4AF37, #C59B27); transition: width 0.4s ease;"></div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; font-size: 1.3rem;">
+                    <span title="First Steps Badge">🏅</span>
+                    <span title="On Fire Streak">🔥</span>
+                    <span title="Code Builder">💻</span>
+                    <span title="Lab Master" style="opacity: 0.3;">🧪</span>
+                </div>
+            </div>
+
+            <!-- Video Lecture Workspace -->
             <div class="video-container">
                 <iframe id="videoPlayer" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="border-radius: 2px;"></iframe>
             </div>
 
-            <div class="lesson-details">
-                <h1 id="lessonTitle">1.1 Welcome & Developer Environment Setup</h1>
-                <p id="lessonDesc">In this opening lesson, we configure your professional VS Code IDE, establish developer extensions, and understand how browsers execute modern HTML5 code.</p>
+            <!-- Learning Workflow Navigation Tabs -->
+            <div class="workspace-tabs">
+                <button class="work-tab-btn active" onclick="switchWorkTab('overview')">1. Objectives & Notes</button>
+                <button class="work-tab-btn" onclick="switchWorkTab('practice')">2. Hands-On Practice</button>
+                <button class="work-tab-btn" onclick="switchWorkTab('quiz')">3. Lesson Quiz (3-5 Qs)</button>
+                <button class="work-tab-btn" onclick="switchWorkTab('lab')">4. Capstone Lab</button>
+                <button class="work-tab-btn" onclick="switchWorkTab('finalquiz')">5. Module Exam (10 Qs)</button>
+            </div>
 
-                <div class="resources-box">
-                    <h3>Lesson Materials & Exercise Code</h3>
-                    <a href="#" class="download-link">📥 Download Module 01 Starter Package (.zip)</a>
+            <!-- TAB 1: OBJECTIVES, DEFINITIONS & NOTES -->
+            <div id="panel-overview" class="tab-panel active">
+                <div class="panel-card">
+                    <h2 id="lessonTitle">1.1 Welcome & Developer Environment Setup</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        Configure your IDE, learn browser execution loops, and master core developer extensions.
+                    </p>
+
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-accent); margin-bottom: 10px;">Competencies & Learning Objectives:</h3>
+                    <ul style="margin-left: 20px; font-size: 0.88rem; color: #3F3F46; margin-bottom: 25px;">
+                        <li>Install and configure VS Code IDE extensions for web development.</li>
+                        <li>Understand how the DOM renders HTML tags in web browsers.</li>
+                        <li>Distinguish between block-level and inline HTML elements.</li>
+                    </ul>
+
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-accent); margin-bottom: 10px;">Note-Taking Station (Key Concepts & Definitions):</h3>
+                    <textarea id="studentNotesInput" class="code-input-box" style="background: #FAFAFA; color: #08080A; height: 120px;" placeholder="Write down key concepts, formulas, and definitions in your own words..."></textarea>
                 </div>
             </div>
+
+            <!-- TAB 2: HANDS-ON PRACTICE SANDBOX -->
+            <div id="panel-practice" class="tab-panel">
+                <div class="panel-card">
+                    <h2>Live Code Sandbox Practice</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Apply what you learned in the lecture without looking at the answer!</p>
+                    
+                    <div class="code-sandbox">
+                        <div>
+                            <label style="font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold-accent);">Write HTML Code Below:</label>
+                            <textarea id="htmlInput" class="code-input-box" placeholder="<h1>Hello Golden Healing Academy</h1>&#10;<p>Type HTML here...</p>"></textarea>
+                            <button class="btn-gold" style="margin-top: 10px; width: 100%;" onclick="runSandboxCode()">Run Live Code (+150 XP)</button>
+                        </div>
+                        <div>
+                            <label style="font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold-accent);">Live Output Preview:</label>
+                            <iframe id="previewFrame" class="preview-box"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: SHORT LESSON QUIZ (3-5 QUESTIONS) -->
+            <div id="panel-quiz" class="tab-panel">
+                <div class="panel-card">
+                    <h2>Lesson Check: 3-5 Question Quick Quiz</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">Test your immediate recall before moving to the next section.</p>
+
+                    <form id="lessonQuizForm" onsubmit="gradeLessonQuiz(event)">
+                        <div class="quiz-question">
+                            <h4>1. Which HTML tag is required to specify the main wrapper of an entire HTML document?</h4>
+                            <label class="option-label"><input type="radio" name="q1" value="a"> &lt;main&gt;</label>
+                            <label class="option-label"><input type="radio" name="q1" value="b"> &lt;html&gt;</label>
+                            <label class="option-label"><input type="radio" name="q1" value="c"> &lt;body&gt;</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>2. True or False: Inline elements start on a brand new line by default.</h4>
+                            <label class="option-label"><input type="radio" name="q2" value="a"> True</label>
+                            <label class="option-label"><input type="radio" name="q2" value="b"> False</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>3. What extension enables live auto-reloading inside the VS Code editor?</h4>
+                            <label class="option-label"><input type="radio" name="q3" value="a"> Live Server</label>
+                            <label class="option-label"><input type="radio" name="q3" value="b"> Prettier</label>
+                            <label class="option-label"><input type="radio" name="q3" value="c"> GitLens</label>
+                        </div>
+
+                        <button type="submit" class="btn-gold">Submit Quiz Answers (+100 XP)</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 4: CAPSTONE LAB ASSIGNMENT -->
+            <div id="panel-lab" class="tab-panel">
+                <div class="panel-card">
+                    <h2>Module Capstone Lab: Build a Responsive Landing Skeleton</h2>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+                        For technical courses, actually build something rather than only watching videos!
+                    </p>
+                    
+                    <div style="background: var(--gold-light); border: 1px solid var(--border-gold); padding: 20px; margin-bottom: 20px;">
+                        <h3 style="font-size: 1.1rem; color: var(--primary-black); margin-bottom: 10px;">Lab Scenario Instructions:</h3>
+                        <ol style="margin-left: 20px; font-size: 0.85rem; line-height: 1.8;">
+                            <li>Create a file named <code>index.html</code>.</li>
+                            <li>Include standard metadata (&lt;meta charset="UTF-8"&gt;).</li>
+                            <li>Construct a semantic header, main section, and footer element.</li>
+                            <li>Push your project to GitHub Pages and submit your live link below.</li>
+                        </ol>
+                    </div>
+
+                    <label style="font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold-accent);">Submit GitHub Repository / Live Project URL:</label>
+                    <input type="url" id="labUrlInput" class="code-input-box" style="height: 45px; color: #08080A; background: #FAFAFA;" placeholder="https://github.com/yourusername/lab1-submission">
+                    <button class="btn-gold" style="margin-top: 15px;" onclick="handleLabSubmission()">Submit Lab Assignment (+500 XP)</button>
+                </div>
+            </div>
+
+            <!-- TAB 5: 10-QUESTION MODULE ASSESSMENT -->
+            <div id="panel-finalquiz" class="tab-panel">
+                <div class="panel-card">
+                    <h2>Module 01 Final Assessment (10 Questions)</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
+                        Comprehensive 10-question exam evaluating your readiness for Module 02.
+                    </p>
+
+                    <form id="finalExamForm" onsubmit="gradeFinalExam(event)">
+                        <div class="quiz-question">
+                            <h4>1. What does the &lt;!DOCTYPE html&gt; declaration tell the browser?</h4>
+                            <label class="option-label"><input type="radio" name="fq1" value="a"> The language of the webpage</label>
+                            <label class="option-label"><input type="radio" name="fq1" value="b"> The version of HTML being rendered (HTML5)</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>2. Which semantic tag represents content independent and reusable across sites?</h4>
+                            <label class="option-label"><input type="radio" name="fq2" value="a"> &lt;article&gt;</label>
+                            <label class="option-label"><input type="radio" name="fq2" value="b"> &lt;div&gt;</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>3. Which attribute links an input label directly to its text field ID?</h4>
+                            <label class="option-label"><input type="radio" name="fq3" value="a"> for</label>
+                            <label class="option-label"><input type="radio" name="fq3" value="b"> src</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>4. What character sequence starts an HTML comment?</h4>
+                            <label class="option-label"><input type="radio" name="fq4" value="a"> &lt;!--</label>
+                            <label class="option-label"><input type="radio" name="fq4" value="b"> //</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>5. Which attribute opens an anchor link in a brand new browser tab?</h4>
+                            <label class="option-label"><input type="radio" name="fq5" value="a"> target="_blank"</label>
+                            <label class="option-label"><input type="radio" name="fq5" value="b"> rel="newtab"</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>6. What tag is used to embed image files into an HTML document?</h4>
+                            <label class="option-label"><input type="radio" name="fq6" value="a"> &lt;img&gt;</label>
+                            <label class="option-label"><input type="radio" name="fq6" value="b"> &lt;picture&gt;</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>7. Which input type creates an interactive checkbox?</h4>
+                            <label class="option-label"><input type="radio" name="fq7" value="a"> type="checkbox"</label>
+                            <label class="option-label"><input type="radio" name="fq7" value="b"> type="radio"</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>8. True or False: &lt;h1&gt; tags should only be used once per page for optimal SEO.</h4>
+                            <label class="option-label"><input type="radio" name="fq8" value="a"> True</label>
+                            <label class="option-label"><input type="radio" name="fq8" value="b"> False</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>9. What is the default display property of a &lt;div&gt; container?</h4>
+                            <label class="option-label"><input type="radio" name="fq9" value="a"> block</label>
+                            <label class="option-label"><input type="radio" name="fq9" value="b"> inline</label>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>10. What tag houses invisible page metadata, scripts, and CSS links?</h4>
+                            <label class="option-label"><input type="radio" name="fq10" value="a"> &lt;head&gt;</label>
+                            <label class="option-label"><input type="radio" name="fq10" value="b"> &lt;header&gt;</label>
+                        </div>
+
+                        <button type="submit" class="btn-gold" style="width: 100%;">Submit Final 10-Question Module Assessment (+500 XP)</button>
+                    </form>
+                </div>
+            </div>
+
         </main>
     </div>
 
+    <!-- JavaScript Navigation & State Management -->
+    <script src="app-state.js"></script>
     <script>
-        function loadLesson(title, desc, videoUrl) {
-            document.getElementById('lessonTitle').innerText = title;
-            document.getElementById('lessonDesc').innerText = desc;
-            document.getElementById('videoPlayer').src = videoUrl;
+        function switchWorkTab(panelName) {
+            const btns = document.querySelectorAll('.work-tab-btn');
+            const panels = document.querySelectorAll('.tab-panel');
 
-            const items = document.querySelectorAll('.lesson-item');
-            items.forEach(item => item.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            btns.forEach(btn => btn.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+
+            if (panelName === 'overview') {
+                btns[0].classList.add('active');
+                document.getElementById('panel-overview').classList.add('active');
+            } else if (panelName === 'practice') {
+                btns[1].classList.add('active');
+                document.getElementById('panel-practice').classList.add('active');
+            } else if (panelName === 'quiz') {
+                btns[2].classList.add('active');
+                document.getElementById('panel-quiz').classList.add('active');
+            } else if (panelName === 'lab') {
+                btns[3].classList.add('active');
+                document.getElementById('panel-lab').classList.add('active');
+            } else if (panelName === 'finalquiz') {
+                btns[4].classList.add('active');
+                document.getElementById('panel-finalquiz').classList.add('active');
+            }
+        }
+
+        function loadLesson(title) {
+            document.getElementById('lessonTitle').innerText = title;
+            switchWorkTab('overview');
+        }
+
+        function runSandboxCode() {
+            const html = document.getElementById('htmlInput').value;
+            const iframe = document.getElementById('previewFrame');
+            iframe.contentWindow.document.open();
+            iframe.contentWindow.document.write(html);
+            iframe.contentWindow.document.close();
+            
+            // Award XP using app-state.js
+            if (typeof awardXP === "function") awardXP(150, "Running Code Sandbox");
+        }
+
+        function gradeLessonQuiz(e) {
+            e.preventDefault();
+            if (typeof awardXP === "function") awardXP(100, "Passing Video Quiz");
+            switchWorkTab('lab');
+        }
+
+        function handleLabSubmission() {
+            const url = document.getElementById('labUrlInput').value;
+            if (!url) {
+                alert("Please input a valid URL first!");
+                return;
+            }
+            if (typeof awardXP === "function") awardXP(500, "Completing Module Capstone Lab");
+            switchWorkTab('finalquiz');
+        }
+
+        function gradeFinalExam(e) {
+            e.preventDefault();
+            if (typeof awardXP === "function") awardXP(500, "Passing Module 01 Final Assessment");
+            window.location.href = 'profile.html';
         }
     </script>
 </body>

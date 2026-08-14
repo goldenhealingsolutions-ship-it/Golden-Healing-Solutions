@@ -294,7 +294,7 @@
                 </div>
             </div>
             <div style="display: flex; gap: 10px;">
-                <a href="course.html" class="btn-gold">Go To Classroom</a>
+                <a href="course.html" class="btn-gold">Go To Classroom Workspace</a>
             </div>
         </section>
 
@@ -368,24 +368,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Aug 10, 2026</td>
-                            <td>Junior Web Developer</td>
-                            <td>TechFlow Digital</td>
-                            <td><span class="status-pill status-interview">Interview Scheduled</span></td>
-                        </tr>
-                        <tr>
-                            <td>Aug 12, 2026</td>
-                            <td>Frontend QA Engineer</td>
-                            <td>Elevate Media</td>
-                            <td><span class="status-pill status-review">In Candidate Review</span></td>
-                        </tr>
-                        <tr>
-                            <td>Aug 14, 2026</td>
-                            <td>Technical Support Specialist</td>
-                            <td>Apex Solutions</td>
-                            <td><span class="status-pill status-submitted">Submitted</span></td>
-                        </tr>
+                        <!-- Dynamically Populated by app-state.js -->
                     </tbody>
                 </table>
             </div>
@@ -488,6 +471,7 @@
         &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
     </footer>
 
+    <script src="app-state.js"></script>
     <script>
         function switchDashTab(tabName) {
             const tabs = document.querySelectorAll('.tab-btn');
@@ -525,20 +509,9 @@
         }
 
         function applyForJob(title, company) {
-            alert(`Application Submitted! Your GH Candidate Profile & Resume have been sent to ${company} for the ${title} position.`);
-            
-            const table = document.getElementById('applicationsTable').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow(0);
-            
-            const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            
-            newRow.innerHTML = `
-                <td>${today}</td>
-                <td>${title}</td>
-                <td>${company}</td>
-                <td><span class="status-pill status-submitted">Submitted</span></td>
-            `;
-
+            if (typeof recordJobApplication === "function") {
+                recordJobApplication(title, company);
+            }
             switchDashTab('applications');
         }
     </script>
