@@ -1,21 +1,279 @@
-<section class="hero-start">
-    <span style="font-family: 'Cinzel', serif; color: var(--gold-primary); letter-spacing: 3px; font-size: 0.8rem;">FLAGSHIP PROGRAM</span>
-    <h1>Web Development</h1>
-    <p style="color: #A1A1AA; max-width: 650px; margin: 0 auto; font-weight: 300;">Master modern HTML5, CSS layout engineering, Flexbox, Grid, and JavaScript logic with hands-on labs and real-world client builds.</p>
-    <a href="toc.html" class="btn-start">Start Course →</a>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development | Golden Healing Academy</title>
+    <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #08080A;
+            --secondary-black: #121215;
+            --gold-primary: #D4AF37;
+            --gold-light: #F9F3E5;
+            --gold-accent: #C59B27;
+            --bg-light: #FAFAFA;
+            --text-dark: #0A0A0C;
+            --text-muted: #71717A;
+            --white: #FFFFFF;
+            --border-gold: rgba(212, 175, 55, 0.35);
+            --border-subtle: #E4E4E7;
+        }
 
-<div class="details-grid">
-    <div class="detail-card">
-        <h3>Course Overview</h3>
-        <p style="font-size: 0.88rem; color: #71717A;">Self-paced intensive technical curriculum designed for career-switchers entering software engineering.</p>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+        h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
+        .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--primary-black);
+            color: var(--white);
+            padding: 16px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-svg { height: 44px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+
+        .logo-brand-main {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 3px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .logo-brand-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        .nav-link {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--white); }
+
+        /* Hero Banner */
+        .hero-start {
+            background: radial-gradient(circle at center, #1E1E26 0%, #08080A 100%);
+            color: var(--white);
+            padding: 90px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-gold);
+            position: relative;
+        }
+
+        .tagline {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .hero-start h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-start p {
+            color: #A1A1AA;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+
+        .btn-start {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            padding: 16px 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 2px;
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-start:hover {
+            background: var(--primary-black);
+            color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Course Overview Grid */
+        .details-grid {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+            transition: border-color 0.3s;
+        }
+
+        .detail-card:hover {
+            border-color: var(--gold-primary);
+        }
+
+        .detail-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .detail-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .cert-highlight {
+            background: var(--gold-light);
+            border: 1px solid var(--border-gold);
+            padding: 30px;
+            border-radius: 4px;
+            max-width: 1100px;
+            margin: 0 auto 60px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cert-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--primary-black);
+            margin-bottom: 6px;
+        }
+
+        .cert-text p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-subtle);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-box">
+            <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="250" cy="250" r="235" fill="none" stroke="url(#goldHeader)" stroke-width="6"/>
+                <circle cx="250" cy="250" r="222" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <defs>
+                    <linearGradient id="goldHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#BF953F"/>
+                        <stop offset="25%" stop-color="#FCF6BA"/>
+                        <stop offset="50%" stop-color="#B38728"/>
+                        <stop offset="75%" stop-color="#FBF5B7"/>
+                        <stop offset="100%" stop-color="#AA771C"/>
+                    </linearGradient>
+                </defs>
+                <text x="250" y="260" font-family="'Cormorant Garamond', serif" font-size="185" font-weight="600" fill="url(#goldHeader)" text-anchor="middle" letter-spacing="-5">GH</text>
+                <text x="250" y="355" font-family="'Cormorant Garamond', serif" font-size="70" font-style="italic" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">solutions</text>
+            </svg>
+            <div class="logo-brand-main">GOLDEN HEALING ACADEMY</div>
+        </a>
+        <a href="profile.html" class="nav-link">My Dashboard</a>
+    </header>
+
+    <section class="hero-start">
+        <span class="tagline">FLAGSHIP TECHNICAL PROGRAM</span>
+        <h1>Web Development</h1>
+        <p>Master modern HTML5 architecture, CSS layout engineering, Flexbox, Grid systems, and JavaScript logic through video instruction, immediate quizzes, and hands-on capstone labs.</p>
+        <a href="toc.html" class="btn-start">Start Course →</a>
+    </section>
+
+    <div class="details-grid">
+        <div class="detail-card">
+            <h3>Course Overview</h3>
+            <p>Self-paced intensive technical curriculum structured to transition candidates into production-ready software development professionals.</p>
+        </div>
+        <div class="detail-card">
+            <h3>Prerequisites & Tools</h3>
+            <p>VS Code IDE, Google Chrome Web Browser, and a GitHub account for live code repository hosting and site deployment.</p>
+        </div>
+        <div class="detail-card">
+            <h3>Estimated Timeline</h3>
+            <p>6 Modules • 18 Sequential Video Lessons • 6 Capstone Labs • Complete at your own pace with lifetime workspace access.</p>
+        </div>
     </div>
-    <div class="detail-card">
-        <h3>Prerequisites & Tools</h3>
-        <p style="font-size: 0.88rem; color: #71717A;">VS Code IDE, Google Chrome Web Browser, and a GitHub account for live portfolio hosting.</p>
+
+    <!-- Official Golden Healing Certificate Highlight Box -->
+    <div style="padding: 0 20px;">
+        <div class="cert-highlight">
+            <div class="cert-text">
+                <h3>Official Golden Healing Certificate</h3>
+                <p>Upon successfully passing all module exams and capstone labs, you will be awarded an official verified credential credentialed directly on your GH candidate profile.</p>
+            </div>
+            <span style="font-size: 3rem;">📜</span>
+        </div>
     </div>
-    <div class="detail-card">
-        <h3>Official Credential</h3>
-        <p style="font-size: 0.88rem; color: #71717A;">Earn an official <strong>Golden Healing Certificate</strong> upon completion + direct candidate submission to the GH Job Board network.</p>
-    </div>
-</div>
+
+    <footer>
+        &copy; 2026 Golden Healing Solutions LLC. All rights reserved.
+    </footer>
+
+    <script src="app-state.js"></script>
+</body>
+</html>
