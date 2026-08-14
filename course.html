@@ -12,9 +12,11 @@
         :root {
             --primary-black: #08080A;
             --secondary-black: #121215;
+            --card-black: #18181C;
             --gold-primary: #D4AF37;
             --gold-light: #F9F3E5;
             --gold-accent: #C59B27;
+            --gold-metallic: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --bg-light: #FAFAFA;
             --text-dark: #0A0A0C;
             --text-muted: #71717A;
@@ -24,9 +26,9 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; }
 
-        h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
         .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
         /* Navigation Header */
@@ -38,6 +40,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--gold-primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo-box {
@@ -75,137 +80,337 @@
         .hero-start {
             background: radial-gradient(circle at center, #1E1E26 0%, #08080A 100%);
             color: var(--white);
-            padding: 90px 20px;
+            padding: 100px 20px 90px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-gold);
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-start::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08), transparent 70%);
+            pointer-events: none;
         }
 
         .tagline {
             font-family: 'Cinzel', serif;
             color: var(--gold-primary);
-            letter-spacing: 3px;
+            letter-spacing: 3.5px;
             font-size: 0.8rem;
             text-transform: uppercase;
-            display: block;
-            margin-bottom: 12px;
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50px;
         }
 
         .hero-start h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--white);
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-weight: 600;
+            line-height: 1.1;
         }
 
         .hero-start p {
             color: #A1A1AA;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            max-width: 720px;
+            margin: 0 auto 35px auto;
             font-weight: 300;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         .btn-start {
             display: inline-block;
-            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
-            color: var(--white);
-            padding: 16px 40px;
+            background: var(--gold-metallic);
+            color: var(--primary-black);
+            padding: 18px 46px;
             font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.88rem;
+            font-weight: 800;
             letter-spacing: 2px;
             text-decoration: none;
             text-transform: uppercase;
             border-radius: 2px;
-            border: 1px solid var(--gold-primary);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+            transition: all 0.35s ease;
         }
 
         .btn-start:hover {
             background: var(--primary-black);
             color: var(--gold-primary);
-            transform: translateY(-2px);
+            border: 1px solid var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        /* Main Container & Sections */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary-black);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .divider-gold {
+            width: 60px;
+            height: 2px;
+            background: var(--gold-primary);
+            margin: 15px auto;
         }
 
         /* Course Overview Grid */
         .details-grid {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
+            margin-bottom: 60px;
         }
 
         .detail-card {
             background: var(--white);
-            padding: 30px;
+            padding: 40px;
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
-            transition: border-color 0.3s;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            transition: all 0.35s ease;
+            position: relative;
         }
 
         .detail-card:hover {
             border-color: var(--gold-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
         }
 
         .detail-card h3 {
             font-family: 'Cinzel', serif;
             font-size: 0.85rem;
             color: var(--gold-accent);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .detail-card h2 {
+            font-size: 2.2rem;
+            color: var(--primary-black);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .detail-card p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
             font-weight: 300;
-            line-height: 1.7;
+            margin-bottom: 18px;
         }
 
-        .cert-highlight {
+        .detail-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .detail-card ul li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-card ul li::before {
+            content: "✦";
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+        }
+
+        blockquote {
             background: var(--gold-light);
+            border-left: 3px solid var(--gold-primary);
+            padding: 20px 24px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--primary-black);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+
+        /* Timeline Stats Cards */
+        .timeline-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .timeline-card {
+            background: var(--secondary-black);
+            color: var(--white);
             border: 1px solid var(--border-gold);
-            padding: 30px;
+            padding: 25px 20px;
             border-radius: 4px;
-            max-width: 1100px;
-            margin: 0 auto 60px auto;
+            text-align: center;
+        }
+
+        .timeline-card span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .timeline-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-card p {
+            font-size: 0.78rem;
+            color: #A1A1AA;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Certificate Banner */
+        .cert-highlight {
+            background: linear-gradient(135deg, #16161A 0%, #08080A 100%);
+            color: var(--white);
+            border: 1px solid var(--border-gold);
+            padding: 45px 50px;
+            border-radius: 4px;
+            margin: 0 0 70px 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .cert-text h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--primary-black);
-            margin-bottom: 6px;
+            font-size: 2.2rem;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
         }
 
         .cert-text p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
+            font-size: 0.95rem;
+            color: #A1A1AA;
             font-weight: 300;
+            max-width: 700px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold-primary);
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--primary-black);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        .faq-toggle {
+            font-size: 1.3rem;
+            color: var(--gold-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 28px;
+            background: #FAFAFA;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.8;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 20px 28px 25px 28px;
+            border-top-color: var(--border-subtle);
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.78rem;
+            padding: 35px 20px;
+            font-size: 0.8rem;
             color: var(--text-muted);
             border-top: 1px solid var(--border-subtle);
+            background-color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .hero-start h1 { font-size: 2.6rem; }
+            .details-grid { grid-template-columns: 1fr; }
+            .cert-highlight { padding: 30px; text-align: center; justify-content: center; }
+            .faq-question { font-size: 0.82rem; padding: 18px 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
         <a href="index.html" class="logo-box">
             <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -228,195 +433,154 @@
         <a href="profile.html" class="nav-link">My Dashboard</a>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero-start">
         <span class="tagline">FLAGSHIP TECHNICAL PROGRAM</span>
         <h1>Web Development</h1>
-        <p>Master modern HTML5 architecture, CSS layout engineering, Flexbox, Grid systems, and JavaScript logic.</p>
+        <p>Learn. Practice. Build. Master. Launch Your Tech Career with high-income modern engineering skills.</p>
         <a href="toc.html" class="btn-start">Start Course →</a>
     </section>
 
-    <div class="details-grid">
-        <div class="detail-card">
-            <h3>Course Overview</h3>
-            <section class="course-overview">
+    <div class="main-container">
 
-    <h1>Learn. Practice. Build. Master. Launch Your Tech Career.</h1>
+        <!-- Course Overview Cards -->
+        <div class="details-grid">
+            
+            <!-- Card 1: Course Overview -->
+            <div class="detail-card">
+                <h3>Flagship Accelerator</h3>
+                <h2>Learn. Practice. Build. Master.</h2>
+                <p>Stop watching endless training videos and hoping the information sticks. This course is designed to help you actually learn the skills employers are looking for through an interactive, hands-on training experience.</p>
 
-    <p>
-        Stop watching endless training videos and hoping the information sticks.
-        This course is designed to help you actually learn the skills employers
-        are looking for through an interactive, hands-on training experience.
-    </p>
+                <p>You won't just sit back and watch lessons. You'll learn through professional training videos, quick knowledge checks, interactive exercises, hands-on labs, real-world challenges, and practical projects designed to turn knowledge into usable skills.</p>
 
-    <p>
-        You won't just sit back and watch lessons. You'll learn through
-        professional training videos, quick knowledge checks, interactive
-        exercises, hands-on labs, real-world challenges, and practical projects
-        designed to turn knowledge into usable skills.
-    </p>
+                <h3 style="margin-top: 25px;">Turn Learning Into a Challenge</h3>
+                <ul>
+                    <li>XP and Experience Points System</li>
+                    <li>Badges and Skill Achievements</li>
+                    <li>Interactive Level Unlocks</li>
+                    <li>Daily Learning Streaks</li>
+                    <li>Practical "Boss Battles"</li>
+                </ul>
 
-    <h2>Turn Learning Into a Challenge</h2>
+                <blockquote>
+                    "Did I finish the course?"<br><br>
+                    We focus on: <strong>"Can I actually do the job?"</strong>
+                </blockquote>
+            </div>
 
-    <p>
-        Stay motivated with a built-in gamified learning experience.
-    </p>
+            <!-- Card 2: Prerequisites & Tools -->
+            <div class="detail-card">
+                <h3>Prerequisites & Tools</h3>
+                <h2>What You Need to Get Started</h2>
+                <p>No extensive technical background is required to get started. You simply need a computer, internet access, and a willingness to learn.</p>
 
-    <ul>
-        <li>XP and experience points</li>
-        <li>Badges and achievements</li>
-        <li>New levels and course content</li>
-        <li>Learning streaks</li>
-        <li>Skill challenges</li>
-        <li>Module "Boss Battles"</li>
-        <li>Progress tracking</li>
-    </ul>
+                <h3 style="margin-top: 25px;">Core Requirements</h3>
+                <ul>
+                    <li>Computer or Laptop (Mac or PC)</li>
+                    <li>Reliable Internet Connection</li>
+                    <li>Modern Web Browser (Chrome/Firefox/Safari)</li>
+                    <li>Basic Keyboard & File Management Skills</li>
+                </ul>
 
-    <h2>Learn by Doing</h2>
+                <h3 style="margin-top: 25px;">Technical Tooling</h3>
+                <ul>
+                    <li>Visual Studio Code IDE</li>
+                    <li>Git & GitHub Repository Hosting</li>
+                    <li>Developer Tools & Command Line Basics</li>
+                </ul>
 
-    <p>
-        Work through interactive environments, complete hands-on labs,
-        solve realistic workplace scenarios, and build projects that
-        demonstrate your abilities.
-    </p>
+                <p style="margin-top: 25px; color: var(--gold-accent); font-weight: 600;">
+                    Start where you are. Learn at your pace. Build skills that move you forward.
+                </p>
+            </div>
 
-    <blockquote>
-        "Did I finish the course?"
-        <br><br>
-        We focus on:
-        <br>
-        <strong>"Can I actually do the job?"</strong>
-    </blockquote>
+            <!-- Card 3: Commitment & Timeline -->
+            <div class="detail-card">
+                <h3>Pacing & Flexible Schedule</h3>
+                <h2>Learn at Your Pace. Progress With Purpose.</h2>
+                <p>Most students complete this course in approximately <strong>4–6 weeks</strong> with a recommended commitment of <strong>5–10 hours per week</strong>.</p>
 
-    <h2>Build Skills You Can Show</h2>
+                <div class="timeline-stats">
+                    <div class="timeline-card">
+                        <span>📅</span>
+                        <h3>4–6 Weeks</h3>
+                        <p>Completion Time</p>
+                    </div>
+                    <div class="timeline-card">
+                        <span>⏰</span>
+                        <h3>5–10 Hrs</h3>
+                        <p>Weekly Commitment</p>
+                    </div>
+                </div>
 
-    <p>
-        By completing the course, you'll have more than a completion screen.
-        You'll have opportunities to build practical projects and demonstrate
-        the skills you've developed, giving you something meaningful to discuss
-        in interviews and showcase in your professional portfolio.
-    </p>
+                <p style="margin-top: 20px;">Whether you move quickly or need additional time to master a concept, the course gives you full flexibility without sacrificing hands-on practice.</p>
 
-    <h2>Designed for Your Success</h2>
+                <p style="font-family: 'Cinzel', serif; color: var(--primary-black); font-size: 0.82rem; margin-top: 25px; font-weight: 700;">
+                    Learn the skills. Practice the skills. Prove the skills.
+                </p>
+            </div>
 
-    <p>
-        Whether you're starting from scratch, changing careers, strengthening
-        your technical skills, or preparing for your next opportunity, this
-        course gives you a structured path to move forward.
-    </p>
-
-    <p>
-        <strong>Learn the concept.</strong><br>
-        <strong>Test your knowledge.</strong><br>
-        <strong>Practice the skill.</strong><br>
-        <strong>Complete the challenge.</strong><br>
-        <strong>Build the project.</strong><br>
-        <strong>Prove what you know.</strong>
-    </p>
-
-    <h2>Your Journey Starts Here</h2>
-
-    <p>
-        Don't just take another online course.
-    </p>
-
-    <p>
-        <strong>Build skills. Build confidence. Build your portfolio. Build your future.</strong>
-    </p>
-    <br>
-    <hl>
-</section>
-        </div>
-        <div class="detail-card">
-            <h3>Prerequisites & Tools</h3>
-            <section class="prerequisites-tools">
-
-    <h2>Prerequisites & Tools</h2>
-
-    <p>
-        No extensive technical background is required to get started.
-        You simply need a computer, internet access, and a willingness to learn.
-    </p>
-
-    <h3>What You'll Need</h3>
-
-    <ul>
-        <li>Computer or laptop</li>
-        <li>Reliable internet connection</li>
-        <li>Modern web browser</li>
-        <li>Ability to watch training videos</li>
-        <li>Keyboard and mouse</li>
-        <li>Willingness to learn and practice</li>
-    </ul>
-
-    <h3>For Technical Courses</h3>
-
-    <ul>
-        <li>Code editor such as Visual Studio Code</li>
-        <li>Basic file and folder management</li>
-        <li>Cloud storage for projects and coursework</li>
-    </ul>
-
-    <p>
-        <strong>Start where you are. Learn at your pace. Build skills that move you forward.</strong>
-    </p>
-    <br>
-    <hl>
-</section>
-        </div>
-        <div class="detail-card">
-            <h2>Learn at Your Pace. Progress With Purpose.</h2>
-
-    <p>
-        Most students can complete this course in approximately
-        <strong>4–6 weeks</strong> with a recommended commitment of
-        <strong>5–10 hours per week</strong>.
-    </p>
-
-    <p>
-        Whether you move quickly or need additional time to master a concept,
-        the course is designed to give you the flexibility to learn without
-        sacrificing hands-on practice.
-    </p>
-
-    <div class="timeline-stats">
-
-        <div class="timeline-card">
-            <span>📅</span>
-            <h3>4–6 Weeks</h3>
-            <p>Estimated completion time</p>
         </div>
 
-        <div class="timeline-card">
-            <span>⏰</span>
-            <h3>5–10 Hours</h3>
-            <p>Recommended weekly commitment</p>
-        </div>
-
-        <div class="timeline-card">
-            <span>🚀</span>
-            <h3>Hands-On</h3>
-            <p>Practice, labs & real-world projects</p>
-        </div>
-
-    </div>
-
-    <p>
-        <strong>
-            Learn the skills. Practice the skills. Prove the skills.
-        </strong>
-    </p>
-        </div>
-    </div>
-
-    <!-- Official Golden Healing Certificate Highlight Box -->
-    <div style="padding: 0 20px;">
+        <!-- Certificate Highlight Banner -->
         <div class="cert-highlight">
             <div class="cert-text">
                 <h3>Official Golden Healing Certificate</h3>
-                <p>Upon successfully passing all module exams and capstone labs, you will be awarded an official verified credential directly on your GH candidate profile.</p>
+                <p>Upon successfully passing all module exams and capstone labs, you will be awarded an official verified credential displayed directly on your GH candidate profile and accessible for recruiter verification.</p>
             </div>
-            <span style="font-size: 3rem;">📜</span>
+            <span style="font-size: 3.5rem;">📜</span>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <div class="divider-gold"></div>
+            <p>Everything you need to know about the Web Development Academy program</p>
+        </div>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    1. Do I need prior coding experience to take this course?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    No! The Web Development course starts from absolute foundations (HTML5 syntax, tags, and document structure) and gradually advances into complex topics like CSS Flexbox, Grid, and JavaScript algorithms.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    2. How does the gamification (XP & Levels) system work?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    As you watch training videos, complete quick quizzes, run live code in the sandbox, and pass lab assignments, you accumulate XP points. Reaching XP thresholds unlocks higher Candidate Levels, badges, and Module Boss Battles on your dashboard.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    3. How do I earn the official Golden Healing Certificate?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    You must complete all sequential video lessons, pass each lesson quiz with an 80%+ score, submit your capstone lab assignment links, and successfully defeat the Module Boss Battle exams. Once verified, your certificate generates on your profile.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    4. Can hiring managers view my course projects?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Your completed capstone labs and sandbox projects can be published directly to your candidate profile portfolio, where corporate recruiters on the GH Job Board actively evaluate candidates for hire.
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <footer>
@@ -424,5 +588,20 @@
     </footer>
 
     <script src="app-state.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            
+            // Close other open FAQ items for clean accordion effect
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle active state on clicked item
+            faqItem.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
