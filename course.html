@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Pathway Accelerator | Golden Healing Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0F172A;
+            --secondary-navy: #1E293B;
+            --gold-primary: #D4AF37;
+            --gold-light: #FBF5DE;
+            --bg-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border-color: #CBD5E1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); }
+
+        /* Top Student Navigation */
+        header {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .brand { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; }
+        .brand span { color: var(--gold-primary); }
+        .badge { background: var(--gold-primary); color: var(--primary-navy); padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+
+        /* Course Layout (Sidebar + Video Workspace) */
+        .portal-container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Sidebar Lesson Menu */
+        .sidebar {
+            width: 350px;
+            background-color: var(--white);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+        }
+        .sidebar-header { padding: 20px; background: var(--secondary-navy); color: var(--white); }
+        .module-group { border-bottom: 1px solid var(--border-color); }
+        .module-title { padding: 15px 20px; background: #F1F5F9; font-weight: 700; font-size: 0.9rem; color: var(--primary-navy); }
+        .lesson-item {
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .lesson-item:hover { background-color: var(--gold-light); }
+        .lesson-item.active { background-color: var(--gold-light); font-weight: 700; border-left: 4px solid var(--gold-primary); }
+
+        /* Main Workspace Area */
+        .main-workspace {
+            flex-grow: 1;
+            padding: 30px;
+            max-width: 1000px;
+        }
+        .video-container {
+            width: 100%;
+            height: 480px;
+            background-color: #000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin-bottom: 20px;
+            border: 2px solid var(--primary-navy);
+        }
+        .lesson-details {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .lesson-details h1 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: var(--primary-navy); margin-bottom: 10px; }
+        .lesson-details p { color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+        
+        .resources-box {
+            background-color: #F8FAFC;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .resources-box h3 { font-size: 0.95rem; margin-bottom: 10px; color: var(--primary-navy); }
+        .download-link { color: var(--gold-primary); font-weight: 700; text-decoration: underline; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">GOLDEN HEALING <span>ACADEMY</span></div>
+        <div class="badge">Tech Pathway Accelerator</div>
+    </header>
+
+    <div class="portal-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Course Modules</h3>
+                <p style="font-size: 0.75rem; color: #94A3B8;">Self-Paced Web Accelerator</p>
+            </div>
+
+            <!-- Module 1 -->
+            <div class="module-group">
+                <div class="module-title">Week 1: Web Foundations (HTML5)</div>
+                <div class="lesson-item active" onclick="loadLesson('Welcome to Tech Pathway', 'In this video, we introduce the course structure, developer setup, and VS Code basics.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <span>1.1 Welcome & Setup</span>
+                    <span>12m</span>
+                </div>
+                <div class="lesson-item" onclick="loadLesson('HTML Skeleton & Document Structure', 'Learn the fundamental skeleton tags: <!DOCTYPE>, <html>, <head>, and <body>.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <span>1.2 Document Anatomy</span>
+                    <span>18m</span>
+                </div>
+                <div class="lesson-item" onclick="loadLesson('Semantic Elements & Forms', 'How to write clean, search-engine-friendly code using semantic tags and user inputs.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <span>1.3 Semantic Markup</span>
+                    <span>25m</span>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-group">
+                <div class="module-title">Week 2: Styling & Layouts (CSS3)</div>
+                <div class="lesson-item" onclick="loadLesson('CSS Selectors & Box Model', 'Understanding margin, border, padding, and content dimensions.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <span>2.1 The Box Model</span>
+                    <span>20m</span>
+                </div>
+                <div class="lesson-item" onclick="loadLesson('Flexbox Deep Dive', 'Master row, column, alignment, and distribution with CSS Flexbox.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <span>2.2 Flexbox Layouts</span>
+                    <span>30m</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Video Workspace -->
+        <main class="main-workspace">
+            <div class="video-container">
+                <iframe id="videoPlayer" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="border-radius: 8px;"></iframe>
+            </div>
+
+            <div class="lesson-details">
+                <h1 id="lessonTitle">1.1 Welcome & Setup</h1>
+                <p id="lessonDesc">In this video, we introduce the course structure, developer setup, and VS Code basics.</p>
+
+                <div class="resources-box">
+                    <h3>Lesson Downloads & Exercises</h3>
+                    <a href="#" class="download-link">📥 Download Lesson Starter Code (.zip)</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript to Swap Videos & Titles Live -->
+    <script>
+        function loadLesson(title, desc, videoUrl) {
+            document.getElementById('lessonTitle').innerText = title;
+            document.getElementById('lessonDesc').innerText = desc;
+            document.getElementById('videoPlayer').src = videoUrl;
+
+            // Highlight active lesson
+            const items = document.querySelectorAll('.lesson-item');
+            items.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
