@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal & Career Dashboard | Golden Healing Academy</title>
+    <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #08080A;
+            --secondary-black: #121215;
+            --card-black: #16161A;
+            --gold-primary: #D4AF37;
+            --gold-light: #F9F3E5;
+            --gold-accent: #C59B27;
+            --bg-light: #FAFAFA;
+            --text-dark: #0A0A0C;
+            --text-muted: #71717A;
+            --white: #FFFFFF;
+            --border-gold: rgba(212, 175, 55, 0.35);
+            --border-subtle: #E4E4E7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+        h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
+        .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--primary-black);
+            color: var(--white);
+            padding: 14px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-svg { height: 44px; width: auto; }
+
+        .logo-brand-main {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 3px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link-gold {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-link-gold:hover { color: var(--white); }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Profile Banner Card */
+        .profile-banner {
+            background: radial-gradient(circle at center, #1E1E26 0%, #08080A 100%);
+            color: var(--white);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .user-details h1 { font-size: 2rem; color: var(--white); margin-bottom: 4px; }
+        .user-details p { color: #A1A1AA; font-size: 0.88rem; font-weight: 300; }
+
+        .career-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-accent);
+            border: 1px solid var(--border-gold);
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1.5px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation Tabs */
+        .dashboard-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 14px 20px;
+            background: none;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            cursor: pointer;
+            text-transform: uppercase;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            color: var(--gold-accent);
+            border-bottom-color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        /* Tab Content Grid */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .dash-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            transition: border-color 0.3s;
+        }
+
+        .dash-card:hover { border-color: var(--gold-primary); }
+
+        .dash-card h2 {
+            font-size: 1.6rem;
+            color: var(--primary-black);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+        }
+
+        /* Progress Bar */
+        .progress-box { margin-bottom: 20px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: 600; }
+        .progress-bar-bg { width: 100%; height: 10px; background-color: #E4E4E7; border-radius: 5px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #D4AF37, #C59B27); width: 66%; transition: width 0.4s ease; }
+
+        /* Checklist Items */
+        .module-checklist { list-style: none; }
+        .module-checklist li { padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; }
+        .module-checklist input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold-primary); cursor: pointer; }
+
+        /* Status Pills */
+        .status-pill {
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .status-review { background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+        .status-interview { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; }
+        .status-submitted { background: #E0E7FF; color: #3730A3; border: 1px solid #6366F1; }
+
+        /* Tables */
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        .data-table th { text-align: left; padding: 12px; background-color: #F4F4F5; font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border-subtle); }
+        .data-table td { padding: 14px 12px; border-bottom: 1px solid var(--border-subtle); }
+
+        /* Portfolio Items */
+        .portfolio-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #FAFAFA;
+        }
+
+        .portfolio-card h3 { font-size: 1.2rem; color: var(--primary-black); margin-bottom: 6px; }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            border: 1px solid var(--gold-primary);
+            padding: 10px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover { background: var(--primary-black); color: var(--gold-primary); }
+
+        .input-control { width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: 2px; font-family: 'Montserrat', sans-serif; font-size: 0.88rem; outline: none; margin-bottom: 15px; }
+        .input-control:focus { border-color: var(--gold-primary); }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header>
+        <a href="index.html" class="logo-box">
+            <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="250" cy="250" r="235" fill="none" stroke="url(#goldHeader)" stroke-width="6"/>
+                <circle cx="250" cy="250" r="222" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <defs>
+                    <linearGradient id="goldHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#BF953F"/>
+                        <stop offset="25%" stop-color="#FCF6BA"/>
+                        <stop offset="50%" stop-color="#B38728"/>
+                        <stop offset="75%" stop-color="#FBF5B7"/>
+                        <stop offset="100%" stop-color="#AA771C"/>
+                    </linearGradient>
+                </defs>
+                <text x="250" y="260" font-family="'Cormorant Garamond', serif" font-size="185" font-weight="600" fill="url(#goldHeader)" text-anchor="middle" letter-spacing="-5">GH</text>
+                <text x="250" y="355" font-family="'Cormorant Garamond', serif" font-size="70" font-style="italic" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">solutions</text>
+            </svg>
+            <div class="logo-brand-main">GOLDEN HEALING ACADEMY</div>
+        </a>
+
+        <div class="nav-actions">
+            <a href="course.html" class="nav-link-gold">Classroom</a>
+            <a href="login.html" class="nav-link-gold" style="opacity: 0.8;">Sign Out</a>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+
+        <!-- User Profile Banner -->
+        <section class="profile-banner">
+            <div class="user-info">
+                <div class="avatar-circle">JD</div>
+                <div class="user-details">
+                    <h1>Jane Doe</h1>
+                    <p>jane.doe@example.com • Candidate Ref: #GHA-8092</p>
+                    <span class="career-badge">Career Placement Ready</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <a href="course.html" class="btn-gold">Go To Classroom</a>
+            </div>
+        </section>
+
+        <!-- Dashboard Navigation Tabs -->
+        <div class="dashboard-tabs">
+            <button class="tab-btn active" onclick="switchDashTab('courses')">My Progress & Certs</button>
+            <button class="tab-btn" onclick="switchDashTab('portfolio')">My Live Portfolio</button>
+            <button class="tab-btn" onclick="switchDashTab('jobboard')">Academy Job Board</button>
+            <button class="tab-btn" onclick="switchDashTab('applications')">Application Tracker</button>
+        </div>
+
+        <!-- TAB 1: COURSES & CERTIFICATIONS -->
+        <div id="tab-courses" class="tab-content active">
+            <div class="card-grid">
+                
+                <!-- Progress Tracking -->
+                <div class="dash-card">
+                    <h2>Tech Pathway Accelerator</h2>
+                    <div class="progress-box">
+                        <div class="progress-label">
+                            <span>Curriculum Progress</span>
+                            <span id="progressText">66%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progressBar" style="width: 66%;"></div>
+                        </div>
+                    </div>
+
+                    <ul class="module-checklist">
+                        <li><span>Module 01: Web Foundations (HTML5)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Module 02: Visual Layouts (CSS3 & Flexbox)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Module 03: Responsive CSS Grid Systems</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Module 04: JavaScript Logic & Syntax</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Module 05: DOM Manipulation & State</span> <input type="checkbox" onchange="updateProgress()"></li>
+                        <li><span>Module 06: Capstone & Deployment</span> <input type="checkbox" onchange="updateProgress()"></li>
+                    </ul>
+                </div>
+
+                <!-- Verified Certificates Hub -->
+                <div class="dash-card">
+                    <h2>Verified Certifications</h2>
+                    
+                    <div style="background: var(--gold-light); border: 1px solid var(--border-gold); padding: 20px; border-radius: 4px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3 style="font-size: 1.2rem; color: var(--primary-black);">HTML5 & CSS3 Specialist</h3>
+                                <p style="font-size: 0.78rem; color: var(--text-muted);">Issued: Aug 2026 • Credential #GHA-CERT-102</p>
+                            </div>
+                            <span style="font-size: 2rem;">📜</span>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button onclick="alert('Downloading Verified PDF Certificate...')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;">Download PDF</button>
+                            <button onclick="alert('Public Verification Link copied to clipboard!')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem; background: var(--primary-black);">Share Link</button>
+                        </div>
+                    </div>
+
+                    <div style="border: 1px dashed var(--border-subtle); padding: 20px; text-align: center;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Full Stack Software Engineering Certificate unlockable at 100% curriculum completion.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TAB 2: INTERACTIVE PORTFOLIO SHOWCASE -->
+        <div id="tab-portfolio" class="tab-content">
+            <div class="card-grid">
+                
+                <div class="dash-card">
+                    <h2>Manage Portfolio Projects</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+                        Add your live projects below. Hiring managers directly review this portfolio when evaluating your application!
+                    </p>
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Project Title</label>
+                    <input type="text" class="input-control" placeholder="e.g. Luxury E-Commerce Website">
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Live Project Demo URL</label>
+                    <input type="url" class="input-control" placeholder="https://yourname.github.io/project">
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Technologies Used</label>
+                    <input type="text" class="input-control" placeholder="HTML5, CSS Flexbox, JavaScript DOM">
+
+                    <button class="btn-gold" style="width: 100%; margin-top: 10px;" onclick="alert('Project added to your public Candidate Portfolio!')">Publish To Portfolio</button>
+                </div>
+
+                <div class="dash-card">
+                    <h2>Live Portfolio Preview</h2>
+                    <div class="portfolio-card">
+                        <h3>Golden Healing Solutions Portal</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">High-fashion responsive web portal engineered with custom CSS Flexbox and DOM manipulation.</p>
+                        <span class="status-pill status-submitted">HTML5 / CSS3 / JS</span>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <h3>E-Commerce Checkout Application</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">Interactive cart calculation engine with form validation and dynamic pricing state.</p>
+                        <span class="status-pill status-submitted">JavaScript Logic</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TAB 3: ACADEMY JOB BOARD -->
+        <div id="tab-jobboard" class="tab-content">
+            <div class="dash-card">
+                <h2>Curated Partner Openings</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
+                    Positions listed here actively hire directly from Golden Healing Academy graduates.
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Compensation</th>
+                            <th>Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Junior Web Developer</strong></td>
+                            <td>TechFlow Digital</td>
+                            <td>$55,000 - $65,000 / yr</td>
+                            <td>Remote</td>
+                            <td><button class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;" onclick="applyForJob('Junior Web Developer', 'TechFlow Digital')">1-Click Apply</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical Support Specialist</strong></td>
+                            <td>Apex Solutions</td>
+                            <td>$48,000 - $58,000 / yr</td>
+                            <td>Hybrid</td>
+                            <td><button class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;" onclick="applyForJob('Technical Support Specialist', 'Apex Solutions')">1-Click Apply</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frontend QA Engineer</strong></td>
+                            <td>Elevate Media</td>
+                            <td>$30 / hr</td>
+                            <td>Contract</td>
+                            <td><button class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;" onclick="applyForJob('Frontend QA Engineer', 'Elevate Media')">1-Click Apply</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 4: APPLICATION TRACKER -->
+        <div id="tab-applications" class="tab-content">
+            <div class="dash-card">
+                <h2>Live Application Pipeline</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
+                    Track real-time candidate review updates from partner hiring team recruiters.
+                </p>
+
+                <table class="data-table" id="applicationsTable">
+                    <thead>
+                        <tr>
+                            <th>Date Applied</th>
+                            <th>Position Title</th>
+                            <th>Company</th>
+                            <th>Pipeline Stage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aug 10, 2026</td>
+                            <td>Junior Web Developer</td>
+                            <td>TechFlow Digital</td>
+                            <td><span class="status-pill status-interview">Interview Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td>Aug 12, 2026</td>
+                            <td>Frontend QA Engineer</td>
+                            <td>Elevate Media</td>
+                            <td><span class="status-pill status-review">In Candidate Review</span></td>
+                        </tr>
+                        <tr>
+                            <td>Aug 14, 2026</td>
+                            <td>Technical Support Specialist</td>
+                            <td>Apex Solutions</td>
+                            <td><span class="status-pill status-submitted">Submitted</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        function switchDashTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            if (tabName === 'courses') {
+                tabs[0].classList.add('active');
+                document.getElementById('tab-courses').classList.add('active');
+            } else if (tabName === 'portfolio') {
+                tabs[1].classList.add('active');
+                document.getElementById('tab-portfolio').classList.add('active');
+            } else if (tabName === 'jobboard') {
+                tabs[2].classList.add('active');
+                document.getElementById('tab-jobboard').classList.add('active');
+            } else if (tabName === 'applications') {
+                tabs[3].classList.add('active');
+                document.getElementById('tab-applications').classList.add('active');
+            }
+        }
+
+        // Live Course Completion Percentage Updates
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.module-checklist input[type="checkbox"]');
+            let checkedCount = 0;
+
+            checkboxes.forEach(box => {
+                if (box.checked) checkedCount++;
+            });
+
+            const percent = Math.round((checkedCount / checkboxes.length) * 100);
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').innerText = percent + '%';
+        }
+
+        // 1-Click Application Functionality
+        function applyForJob(title, company) {
+            alert(`Application Submitted! Your Golden Healing Academy Candidate Profile & Resume have been sent to ${company} for the ${title} position.`);
+            
+            // Add to Application Tracker Table automatically
+            const table = document.getElementById('applicationsTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow(0);
+            
+            const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            
+            newRow.innerHTML = `
+                <td>${today}</td>
+                <td>${title}</td>
+                <td>${company}</td>
+                <td><span class="status-pill status-submitted">Submitted</span></td>
+            `;
+
+            // Switch to Application Tracker Tab
+            switchDashTab('applications');
+        }
+    </script>
+</body>
+</html>
