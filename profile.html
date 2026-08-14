@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal & Career Dashboard | Golden Healing Academy</title>
+    <title>Candidate Portal & Career Dashboard | GH Job Board</title>
     <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -283,11 +283,11 @@
                 <text x="250" y="260" font-family="'Cormorant Garamond', serif" font-size="185" font-weight="600" fill="url(#goldHeader)" text-anchor="middle" letter-spacing="-5">GH</text>
                 <text x="250" y="355" font-family="'Cormorant Garamond', serif" font-size="70" font-style="italic" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">solutions</text>
             </svg>
-            <div class="logo-brand-main">GOLDEN HEALING ACADEMY</div>
+            <div class="logo-brand-main">GH JOB BOARD</div>
         </a>
 
         <div class="nav-actions">
-            <a href="course.html" class="nav-link-gold">Classroom</a>
+            <a href="index.html" class="nav-link-gold">Main Site</a>
             <a href="login.html" class="nav-link-gold" style="opacity: 0.8;">Sign Out</a>
         </div>
     </header>
@@ -301,122 +301,29 @@
                 <div class="avatar-circle">JD</div>
                 <div class="user-details">
                     <h1>Jane Doe</h1>
-                    <p>jane.doe@example.com • Candidate Ref: #GHA-8092</p>
-                    <span class="career-badge">Career Placement Ready</span>
+                    <p>jane.doe@example.com • Candidate Ref: #GH-8092</p>
+                    <span class="career-badge">Verified GH Candidate</span>
                 </div>
             </div>
             <div style="display: flex; gap: 10px;">
-                <a href="course.html" class="btn-gold">Go To Classroom</a>
+                <a href="#tab-jobboard" onclick="switchDashTab('jobboard')" class="btn-gold">Explore Open Positions</a>
             </div>
         </section>
 
         <!-- Dashboard Navigation Tabs -->
         <div class="dashboard-tabs">
-            <button class="tab-btn active" onclick="switchDashTab('courses')">My Progress & Certs</button>
-            <button class="tab-btn" onclick="switchDashTab('portfolio')">My Live Portfolio</button>
-            <button class="tab-btn" onclick="switchDashTab('jobboard')">Academy Job Board</button>
+            <button class="tab-btn active" onclick="switchDashTab('jobboard')">GH Job Board</button>
             <button class="tab-btn" onclick="switchDashTab('applications')">Application Tracker</button>
+            <button class="tab-btn" onclick="switchDashTab('portfolio')">Candidate Portfolio & Resume</button>
+            <button class="tab-btn" onclick="switchDashTab('courses')">Skills & Certifications</button>
         </div>
 
-        <!-- TAB 1: COURSES & CERTIFICATIONS -->
-        <div id="tab-courses" class="tab-content active">
-            <div class="card-grid">
-                
-                <!-- Progress Tracking -->
-                <div class="dash-card">
-                    <h2>Tech Pathway Accelerator</h2>
-                    <div class="progress-box">
-                        <div class="progress-label">
-                            <span>Curriculum Progress</span>
-                            <span id="progressText">66%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" id="progressBar" style="width: 66%;"></div>
-                        </div>
-                    </div>
-
-                    <ul class="module-checklist">
-                        <li><span>Module 01: Web Foundations (HTML5)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
-                        <li><span>Module 02: Visual Layouts (CSS3 & Flexbox)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
-                        <li><span>Module 03: Responsive CSS Grid Systems</span> <input type="checkbox" checked onchange="updateProgress()"></li>
-                        <li><span>Module 04: JavaScript Logic & Syntax</span> <input type="checkbox" checked onchange="updateProgress()"></li>
-                        <li><span>Module 05: DOM Manipulation & State</span> <input type="checkbox" onchange="updateProgress()"></li>
-                        <li><span>Module 06: Capstone & Deployment</span> <input type="checkbox" onchange="updateProgress()"></li>
-                    </ul>
-                </div>
-
-                <!-- Verified Certificates Hub -->
-                <div class="dash-card">
-                    <h2>Verified Certifications</h2>
-                    
-                    <div style="background: var(--gold-light); border: 1px solid var(--border-gold); padding: 20px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <h3 style="font-size: 1.2rem; color: var(--primary-black);">HTML5 & CSS3 Specialist</h3>
-                                <p style="font-size: 0.78rem; color: var(--text-muted);">Issued: Aug 2026 • Credential #GHA-CERT-102</p>
-                            </div>
-                            <span style="font-size: 2rem;">📜</span>
-                        </div>
-                        <div style="margin-top: 15px; display: flex; gap: 10px;">
-                            <button onclick="alert('Downloading Verified PDF Certificate...')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;">Download PDF</button>
-                            <button onclick="alert('Public Verification Link copied to clipboard!')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem; background: var(--primary-black);">Share Link</button>
-                        </div>
-                    </div>
-
-                    <div style="border: 1px dashed var(--border-subtle); padding: 20px; text-align: center;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Full Stack Software Engineering Certificate unlockable at 100% curriculum completion.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- TAB 2: INTERACTIVE PORTFOLIO SHOWCASE -->
-        <div id="tab-portfolio" class="tab-content">
-            <div class="card-grid">
-                
-                <div class="dash-card">
-                    <h2>Manage Portfolio Projects</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
-                        Add your live projects below. Hiring managers directly review this portfolio when evaluating your application!
-                    </p>
-
-                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Project Title</label>
-                    <input type="text" class="input-control" placeholder="e.g. Luxury E-Commerce Website">
-
-                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Live Project Demo URL</label>
-                    <input type="url" class="input-control" placeholder="https://yourname.github.io/project">
-
-                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Technologies Used</label>
-                    <input type="text" class="input-control" placeholder="HTML5, CSS Flexbox, JavaScript DOM">
-
-                    <button class="btn-gold" style="width: 100%; margin-top: 10px;" onclick="alert('Project added to your public Candidate Portfolio!')">Publish To Portfolio</button>
-                </div>
-
-                <div class="dash-card">
-                    <h2>Live Portfolio Preview</h2>
-                    <div class="portfolio-card">
-                        <h3>Golden Healing Solutions Portal</h3>
-                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">High-fashion responsive web portal engineered with custom CSS Flexbox and DOM manipulation.</p>
-                        <span class="status-pill status-submitted">HTML5 / CSS3 / JS</span>
-                    </div>
-
-                    <div class="portfolio-card">
-                        <h3>E-Commerce Checkout Application</h3>
-                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">Interactive cart calculation engine with form validation and dynamic pricing state.</p>
-                        <span class="status-pill status-submitted">JavaScript Logic</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- TAB 3: ACADEMY JOB BOARD -->
-        <div id="tab-jobboard" class="tab-content">
+        <!-- TAB 1: GH JOB BOARD -->
+        <div id="tab-jobboard" class="tab-content active">
             <div class="dash-card">
-                <h2>Curated Partner Openings</h2>
+                <h2>Executive Job Opportunities</h2>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
-                    Positions listed here actively hire directly from Golden Healing Academy graduates.
+                    Positions listed here actively recruit through Golden Healing Solutions candidate network.
                 </p>
 
                 <table class="data-table">
@@ -456,12 +363,12 @@
             </div>
         </div>
 
-        <!-- TAB 4: APPLICATION TRACKER -->
+        <!-- TAB 2: APPLICATION TRACKER -->
         <div id="tab-applications" class="tab-content">
             <div class="dash-card">
                 <h2>Live Application Pipeline</h2>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
-                    Track real-time candidate review updates from partner hiring team recruiters.
+                    Track real-time candidate review updates from GH Solutions corporate recruiting team.
                 </p>
 
                 <table class="data-table" id="applicationsTable">
@@ -497,6 +404,99 @@
             </div>
         </div>
 
+        <!-- TAB 3: CANDIDATE PORTFOLIO & RESUME -->
+        <div id="tab-portfolio" class="tab-content">
+            <div class="card-grid">
+                
+                <div class="dash-card">
+                    <h2>Manage Candidate Portfolio</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+                        Add your live projects below. Hiring managers directly review this portfolio when evaluating your application!
+                    </p>
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Project Title</label>
+                    <input type="text" class="input-control" placeholder="e.g. Luxury E-Commerce Website">
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Live Project Demo URL</label>
+                    <input type="url" class="input-control" placeholder="https://yourname.github.io/project">
+
+                    <label style="font-size: 0.7rem; font-family: 'Cinzel', serif; color: var(--gold-accent);">Technologies Used</label>
+                    <input type="text" class="input-control" placeholder="HTML5, CSS Flexbox, JavaScript DOM">
+
+                    <button class="btn-gold" style="width: 100%; margin-top: 10px;" onclick="alert('Project added to your public Candidate Portfolio!')">Publish To Portfolio</button>
+                </div>
+
+                <div class="dash-card">
+                    <h2>Live Portfolio Preview</h2>
+                    <div class="portfolio-card">
+                        <h3>Golden Healing Solutions Portal</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">High-fashion responsive web portal engineered with custom CSS Flexbox and DOM manipulation.</p>
+                        <span class="status-pill status-submitted">HTML5 / CSS3 / JS</span>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <h3>E-Commerce Checkout Application</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">Interactive cart calculation engine with form validation and dynamic pricing state.</p>
+                        <span class="status-pill status-submitted">JavaScript Logic</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TAB 4: SKILLS & CERTIFICATIONS -->
+        <div id="tab-courses" class="tab-content">
+            <div class="card-grid">
+                
+                <!-- Progress Tracking -->
+                <div class="dash-card">
+                    <h2>Technical Proficiency</h2>
+                    <div class="progress-box">
+                        <div class="progress-label">
+                            <span>Verified Technical Skills</span>
+                            <span id="progressText">66%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progressBar" style="width: 66%;"></div>
+                        </div>
+                    </div>
+
+                    <ul class="module-checklist">
+                        <li><span>Web Foundations (HTML5 Architecture)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Visual Layouts (CSS3 & Flexbox)</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>Responsive CSS Grid Systems</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>JavaScript Logic & Syntax</span> <input type="checkbox" checked onchange="updateProgress()"></li>
+                        <li><span>DOM Manipulation & State</span> <input type="checkbox" onchange="updateProgress()"></li>
+                        <li><span>Capstone & Production Deployment</span> <input type="checkbox" onchange="updateProgress()"></li>
+                    </ul>
+                </div>
+
+                <!-- Verified Certificates Hub -->
+                <div class="dash-card">
+                    <h2>Verified Certifications</h2>
+                    
+                    <div style="background: var(--gold-light); border: 1px solid var(--border-gold); padding: 20px; border-radius: 4px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3 style="font-size: 1.2rem; color: var(--primary-black);">HTML5 & CSS3 Specialist</h3>
+                                <p style="font-size: 0.78rem; color: var(--text-muted);">Issued: Aug 2026 • Credential #GH-CERT-102</p>
+                            </div>
+                            <span style="font-size: 2rem;">📜</span>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button onclick="alert('Downloading Verified PDF Certificate...')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem;">Download PDF</button>
+                            <button onclick="alert('Public Verification Link copied to clipboard!')" class="btn-gold" style="padding: 6px 12px; font-size: 0.65rem; background: var(--primary-black);">Share Link</button>
+                        </div>
+                    </div>
+
+                    <div style="border: 1px dashed var(--border-subtle); padding: 20px; text-align: center;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Full Stack Engineering Certification unlocks upon complete portfolio review.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -513,18 +513,18 @@
             tabs.forEach(tab => tab.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
 
-            if (tabName === 'courses') {
+            if (tabName === 'jobboard') {
                 tabs[0].classList.add('active');
-                document.getElementById('tab-courses').classList.add('active');
-            } else if (tabName === 'portfolio') {
-                tabs[1].classList.add('active');
-                document.getElementById('tab-portfolio').classList.add('active');
-            } else if (tabName === 'jobboard') {
-                tabs[2].classList.add('active');
                 document.getElementById('tab-jobboard').classList.add('active');
             } else if (tabName === 'applications') {
-                tabs[3].classList.add('active');
+                tabs[1].classList.add('active');
                 document.getElementById('tab-applications').classList.add('active');
+            } else if (tabName === 'portfolio') {
+                tabs[2].classList.add('active');
+                document.getElementById('tab-portfolio').classList.add('active');
+            } else if (tabName === 'courses') {
+                tabs[3].classList.add('active');
+                document.getElementById('tab-courses').classList.add('active');
             }
         }
 
@@ -544,7 +544,7 @@
 
         // 1-Click Application Functionality
         function applyForJob(title, company) {
-            alert(`Application Submitted! Your Golden Healing Academy Candidate Profile & Resume have been sent to ${company} for the ${title} position.`);
+            alert(`Application Submitted! Your GH Candidate Profile & Resume have been sent to ${company} for the ${title} position.`);
             
             // Add to Application Tracker Table automatically
             const table = document.getElementById('applicationsTable').getElementsByTagName('tbody')[0];
