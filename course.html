@@ -30,7 +30,6 @@
         h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
         .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
-        /* Navigation Header */
         header {
             background-color: var(--primary-black);
             color: var(--white);
@@ -59,7 +58,6 @@
             flex-direction: column;
         }
 
-        /* Roman Haute Couture Font Style */
         .logo-brand-main {
             font-family: 'Cinzel', serif;
             font-size: 1.05rem;
@@ -91,15 +89,20 @@
             letter-spacing: 2px;
             border: 1px solid var(--gold-primary);
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+            text-decoration: none;
+            transition: all 0.3s;
         }
 
-        /* Course Layout */
+        .badge:hover {
+            background: var(--white);
+            color: var(--primary-black);
+        }
+
         .portal-container {
             display: flex;
             min-height: calc(100vh - 78px);
         }
 
-        /* Sidebar Lesson Menu */
         .sidebar {
             width: 380px;
             background-color: var(--white);
@@ -167,7 +170,6 @@
             color: var(--primary-black);
         }
 
-        /* Main Workspace Area */
         .main-workspace {
             flex-grow: 1;
             padding: 40px;
@@ -238,9 +240,7 @@
             transition: color 0.2s ease;
         }
 
-        .download-link:hover {
-            color: var(--primary-black);
-        }
+        .download-link:hover { color: var(--primary-black); }
 
         @media (max-width: 950px) {
             .portal-container { flex-direction: column; }
@@ -274,18 +274,16 @@
                 <div class="logo-brand-sub">Tech Pathway Accelerator</div>
             </div>
         </a>
-        <div class="badge">Student Portal</div>
+        <a href="profile.html" class="badge">My Profile Dashboard</a>
     </header>
 
     <div class="portal-container">
-        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h3>Academy Curriculum</h3>
                 <p>6-Week Self-Paced Accelerator</p>
             </div>
 
-            <!-- Module 1 -->
             <div class="module-group">
                 <div class="module-title">Module 01: Web Foundations (HTML5)</div>
                 <div class="lesson-item active" onclick="loadLesson('1.1 Welcome & Developer Environment Setup', 'In this opening lesson, we configure your professional VS Code IDE, establish developer extensions, and understand how browsers execute modern HTML5 code.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -302,7 +300,6 @@
                 </div>
             </div>
 
-            <!-- Module 2 -->
             <div class="module-group">
                 <div class="module-title">Module 02: Visual Layouts (CSS3)</div>
                 <div class="lesson-item" onclick="loadLesson('2.1 Box Model Engineering', 'Deep dive into box dimensions, margins, borders, padding, and border-box sizing calculations.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -315,7 +312,6 @@
                 </div>
             </div>
 
-            <!-- Module 3 -->
             <div class="module-group">
                 <div class="module-title">Module 03: Responsive CSS Grid</div>
                 <div class="lesson-item" onclick="loadLesson('3.1 Multi-Column CSS Grids', 'Construct multi-column product grids and dashboard layouts utilizing repeat(), minmax(), and auto-fit rules.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -328,7 +324,6 @@
                 </div>
             </div>
 
-            <!-- Module 4 -->
             <div class="module-group">
                 <div class="module-title">Module 04: JavaScript Fundamentals</div>
                 <div class="lesson-item" onclick="loadLesson('4.1 JS Variables, Syntax & Functions', 'Master JavaScript execution, let/const variables, data types, logic operators, and reusable arrow functions.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -337,7 +332,6 @@
                 </div>
             </div>
 
-            <!-- Module 5 -->
             <div class="module-group">
                 <div class="module-title">Module 05: Dynamic DOM Applications</div>
                 <div class="lesson-item" onclick="loadLesson('5.1 DOM Manipulation & Event Listeners', 'Connect JavaScript to the DOM to update elements live, trigger popups, animate drawers, and process interactive forms.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -346,7 +340,6 @@
                 </div>
             </div>
 
-            <!-- Module 6 -->
             <div class="module-group">
                 <div class="module-title">Module 06: Portfolio Launch</div>
                 <div class="lesson-item" onclick="loadLesson('6.1 Git, GitHub Pages & Live Deployment', 'Package your final capstone project, push your source code to GitHub, and deploy your live portfolio onto a custom web domain.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
@@ -356,7 +349,6 @@
             </div>
         </aside>
 
-        <!-- Main Video Workspace -->
         <main class="main-workspace">
             <div class="video-container">
                 <iframe id="videoPlayer" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="border-radius: 2px;"></iframe>
@@ -374,14 +366,12 @@
         </main>
     </div>
 
-    <!-- JavaScript to Swap Videos & Titles Live -->
     <script>
         function loadLesson(title, desc, videoUrl) {
             document.getElementById('lessonTitle').innerText = title;
             document.getElementById('lessonDesc').innerText = desc;
             document.getElementById('videoPlayer').src = videoUrl;
 
-            // Highlight active lesson
             const items = document.querySelectorAll('.lesson-item');
             items.forEach(item => item.classList.remove('active'));
             event.currentTarget.classList.add('active');

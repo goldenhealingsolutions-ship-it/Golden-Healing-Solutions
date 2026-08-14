@@ -30,7 +30,6 @@
         h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; }
         .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
-        /* Navigation Header */
         header {
             background-color: var(--primary-black);
             color: var(--white);
@@ -77,14 +76,12 @@
 
         .nav-link-gold:hover { color: var(--white); }
 
-        /* Dashboard Container */
         .dashboard-container {
             max-width: 1280px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Profile Banner Card */
         .profile-banner {
             background: radial-gradient(circle at center, #1E1E26 0%, #08080A 100%);
             color: var(--white);
@@ -138,7 +135,6 @@
             text-transform: uppercase;
         }
 
-        /* Navigation Tabs */
         .dashboard-tabs {
             display: flex;
             gap: 10px;
@@ -168,7 +164,6 @@
             font-weight: 700;
         }
 
-        /* Tab Content Grid */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
@@ -197,18 +192,15 @@
             padding-bottom: 10px;
         }
 
-        /* Progress Bar */
         .progress-box { margin-bottom: 20px; }
         .progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: 600; }
         .progress-bar-bg { width: 100%; height: 10px; background-color: #E4E4E7; border-radius: 5px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #D4AF37, #C59B27); width: 66%; transition: width 0.4s ease; }
 
-        /* Checklist Items */
         .module-checklist { list-style: none; }
         .module-checklist li { padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; }
         .module-checklist input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold-primary); cursor: pointer; }
 
-        /* Status Pills */
         .status-pill {
             padding: 4px 10px;
             font-size: 0.7rem;
@@ -223,12 +215,10 @@
         .status-interview { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; }
         .status-submitted { background: #E0E7FF; color: #3730A3; border: 1px solid #6366F1; }
 
-        /* Tables */
         .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
         .data-table th { text-align: left; padding: 12px; background-color: #F4F4F5; font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border-subtle); }
         .data-table td { padding: 14px 12px; border-bottom: 1px solid var(--border-subtle); }
 
-        /* Portfolio Items */
         .portfolio-card {
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
@@ -265,7 +255,6 @@
 </head>
 <body>
 
-    <!-- Top Navigation Header -->
     <header>
         <a href="index.html" class="logo-box">
             <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -287,15 +276,14 @@
         </a>
 
         <div class="nav-actions">
+            <a href="course.html" class="nav-link-gold">Classroom Portal</a>
             <a href="index.html" class="nav-link-gold">Main Site</a>
             <a href="login.html" class="nav-link-gold" style="opacity: 0.8;">Sign Out</a>
         </div>
     </header>
 
-    <!-- Main Dashboard -->
     <div class="dashboard-container">
 
-        <!-- User Profile Banner -->
         <section class="profile-banner">
             <div class="user-info">
                 <div class="avatar-circle">JD</div>
@@ -306,11 +294,10 @@
                 </div>
             </div>
             <div style="display: flex; gap: 10px;">
-                <a href="#tab-jobboard" onclick="switchDashTab('jobboard')" class="btn-gold">Explore Open Positions</a>
+                <a href="course.html" class="btn-gold">Go To Classroom</a>
             </div>
         </section>
 
-        <!-- Dashboard Navigation Tabs -->
         <div class="dashboard-tabs">
             <button class="tab-btn active" onclick="switchDashTab('jobboard')">GH Job Board</button>
             <button class="tab-btn" onclick="switchDashTab('applications')">Application Tracker</button>
@@ -448,7 +435,6 @@
         <div id="tab-courses" class="tab-content">
             <div class="card-grid">
                 
-                <!-- Progress Tracking -->
                 <div class="dash-card">
                     <h2>Technical Proficiency</h2>
                     <div class="progress-box">
@@ -471,7 +457,6 @@
                     </ul>
                 </div>
 
-                <!-- Verified Certificates Hub -->
                 <div class="dash-card">
                     <h2>Verified Certifications</h2>
                     
@@ -499,12 +484,10 @@
 
     </div>
 
-    <!-- Footer -->
     <footer>
         &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
     </footer>
 
-    <!-- Interactive JavaScript Logic -->
     <script>
         function switchDashTab(tabName) {
             const tabs = document.querySelectorAll('.tab-btn');
@@ -528,7 +511,6 @@
             }
         }
 
-        // Live Course Completion Percentage Updates
         function updateProgress() {
             const checkboxes = document.querySelectorAll('.module-checklist input[type="checkbox"]');
             let checkedCount = 0;
@@ -542,11 +524,9 @@
             document.getElementById('progressText').innerText = percent + '%';
         }
 
-        // 1-Click Application Functionality
         function applyForJob(title, company) {
             alert(`Application Submitted! Your GH Candidate Profile & Resume have been sent to ${company} for the ${title} position.`);
             
-            // Add to Application Tracker Table automatically
             const table = document.getElementById('applicationsTable').getElementsByTagName('tbody')[0];
             const newRow = table.insertRow(0);
             
@@ -559,7 +539,6 @@
                 <td><span class="status-pill status-submitted">Submitted</span></td>
             `;
 
-            // Switch to Application Tracker Tab
             switchDashTab('applications');
         }
     </script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal Access | Golden Healing Academy</title>
+    <title>Candidate Portal Access | Golden Healing Solutions</title>
     <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@
             align-items: center;
         }
 
-        /* Top Minimal Header */
         header {
             width: 100%;
             padding: 20px 30px;
@@ -90,7 +89,6 @@
 
         .back-link:hover { color: var(--white); }
 
-        /* Login Card Wrapper */
         .login-container {
             width: 100%;
             max-width: 460px;
@@ -125,7 +123,6 @@
             font-weight: 300;
         }
 
-        /* Toggle Tabs */
         .auth-tabs {
             display: flex;
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -153,7 +150,6 @@
             font-weight: 700;
         }
 
-        /* Forms */
         .form-group {
             margin-bottom: 20px;
             display: flex;
@@ -182,9 +178,7 @@
             transition: border-color 0.3s;
         }
 
-        .form-control:focus {
-            border-color: var(--gold-primary);
-        }
+        .form-control:focus { border-color: var(--gold-primary); }
 
         .form-actions {
             display: flex;
@@ -195,12 +189,7 @@
             color: var(--text-muted);
         }
 
-        .form-actions a {
-            color: var(--gold-primary);
-            text-decoration: none;
-        }
-
-        .form-actions a:hover { text-decoration: underline; }
+        .form-actions a { color: var(--gold-primary); text-decoration: none; }
 
         .btn-submit {
             width: 100%;
@@ -227,18 +216,11 @@
         .form-panel { display: none; }
         .form-panel.active { display: block; }
 
-        footer {
-            padding: 20px;
-            font-size: 0.75rem;
-            color: #71717A;
-            letter-spacing: 1px;
-            text-align: center;
-        }
+        footer { padding: 20px; font-size: 0.75rem; color: #71717A; letter-spacing: 1px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <!-- Minimal Header -->
     <header>
         <a href="index.html" class="logo-box">
             <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -257,32 +239,29 @@
                 <text x="250" y="355" font-family="'Cormorant Garamond', serif" font-size="70" font-style="italic" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">solutions</text>
             </svg>
             <div class="logo-text-container">
-                <div class="logo-brand-main">GOLDEN HEALING ACADEMY</div>
-                <div class="logo-brand-sub">Tech Pathway Accelerator</div>
+                <div class="logo-brand-main">GOLDEN HEALING SOLUTIONS</div>
+                <div class="logo-brand-sub">Candidate Portal Access</div>
             </div>
         </a>
         <a href="index.html" class="back-link">← Return To Home</a>
     </header>
 
-    <!-- Main Login Card -->
     <main class="login-container">
         <div class="login-card">
             <div class="card-header">
                 <h1 id="panelTitle">Welcome Back</h1>
-                <p id="panelSubtitle">Access your self-paced technical curriculum</p>
+                <p id="panelSubtitle">Access your candidate dashboard & career tools</p>
             </div>
 
-            <!-- Tab Buttons -->
             <div class="auth-tabs">
                 <button class="tab-btn active" onclick="switchTab('signin')">Sign In</button>
-                <button class="tab-btn" onclick="switchTab('register')">Register Access</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register Profile</button>
             </div>
 
-            <!-- Sign In Form Panel -->
             <form id="signinForm" class="form-panel active" onsubmit="handleAuthSubmit(event, 'signin')">
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" class="form-control" placeholder="student@example.com" required>
+                    <input type="email" class="form-control" placeholder="candidate@example.com" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
@@ -294,10 +273,9 @@
                     </label>
                     <a href="#">Forgot Key?</a>
                 </div>
-                <button type="submit" class="btn-submit">Enter Academy Portal</button>
+                <button type="submit" class="btn-submit">Enter Candidate Dashboard</button>
             </form>
 
-            <!-- Registration Form Panel -->
             <form id="registerForm" class="form-panel" onsubmit="handleAuthSubmit(event, 'register')">
                 <div class="form-group">
                     <label>Full Name</label>
@@ -305,23 +283,21 @@
                 </div>
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" class="form-control" placeholder="student@example.com" required>
+                    <input type="email" class="form-control" placeholder="candidate@example.com" required>
                 </div>
                 <div class="form-group">
                     <label>Create Password</label>
                     <input type="password" class="form-control" placeholder="Minimum 8 Characters" required minlength="8">
                 </div>
-                <button type="submit" class="btn-submit" style="margin-top: 10px;">Activate Student Access</button>
+                <button type="submit" class="btn-submit" style="margin-top: 10px;">Create Candidate Account</button>
             </form>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
     </footer>
 
-    <!-- Interactive JavaScript -->
     <script>
         function switchTab(type) {
             const tabs = document.querySelectorAll('.tab-btn');
@@ -337,25 +313,20 @@
                 signinForm.classList.add('active');
                 registerForm.classList.remove('active');
                 panelTitle.innerText = "Welcome Back";
-                panelSubtitle.innerText = "Access your self-paced technical curriculum";
+                panelSubtitle.innerText = "Access your candidate dashboard & career tools";
             } else {
                 tabs[1].classList.add('active');
                 registerForm.classList.add('active');
                 signinForm.classList.remove('active');
-                panelTitle.innerText = "Enroll In Academy";
-                panelSubtitle.innerText = "Begin your 6-week technical transformation";
+                panelTitle.innerText = "Candidate Registration";
+                panelSubtitle.innerText = "Create your profile for executive job placement";
             }
         }
 
         function handleAuthSubmit(e, type) {
             e.preventDefault();
-            if (type === 'signin') {
-                alert('Authentication successful. Welcome back to Golden Healing Academy!');
-            } else {
-                alert('Registration complete! Welcome to Golden Healing Academy.');
-            }
-            // Automatically log student into course portal
-            window.location.href = 'course.html';
+            // Automatically redirects candidate into profile.html dashboard
+            window.location.href = 'profile.html';
         }
     </script>
 </body>
