@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Healing Solutions | Tech Bootcamp, Job Board & Recruitment</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0F172A;
+            --secondary-navy: #1E293B;
+            --gold-primary: #D4AF37;
+            --gold-light: #FBF5DE;
+            --gold-accent: #C59B27;
+            --bg-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--primary-navy);
+            color: var(--gold-primary);
+            text-align: center;
+            padding: 9px 16px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* Navigation Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 30px;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--secondary-navy);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold {
+            background-color: var(--gold-primary);
+            color: var(--primary-navy);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-accent);
+            border-color: var(--gold-accent);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-navy {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            border: 1px solid var(--primary-navy);
+        }
+
+        .btn-navy:hover {
+            background-color: var(--secondary-navy);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-navy {
+            background-color: transparent;
+            color: var(--primary-navy);
+            border: 1.5px solid var(--primary-navy);
+        }
+
+        .btn-outline-navy:hover {
+            background-color: var(--primary-navy);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold-primary);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #CBD5E1;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Global */
+        .section {
+            padding: 90px 20px;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .divider-gold {
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold-primary);
+            margin: 15px auto;
+        }
+
+        /* Bootcamp Section */
+        .bootcamp-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .bootcamp-price-box {
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold-primary);
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin: 10px 0;
+        }
+
+        .curriculum-list {
+            margin-top: 25px;
+            list-style: none;
+        }
+
+        .curriculum-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Job Board */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .job-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .job-badge {
+            display: inline-block;
+            background-color: var(--gold-light);
+            color: var(--gold-accent);
+            padding: 4px 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+
+        .job-details {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 35px 25px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        /* Contact & Form Container */
+        .contact-container {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 45px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+        }
+
+        .form-control, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-control:focus, select:focus, textarea:focus {
+            border-color: var(--gold-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 60px 20px 30px 20px;
+            border-top: 3px solid var(--gold-primary);
+        }
+
+        .footer-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+            font-size: 0.88rem;
+            color: #94A3B8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid var(--secondary-navy);
+            font-size: 0.8rem;
+            color: #64748B;
+        }
+
+        @media (max-width: 850px) {
+            .bootcamp-card { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        Golden Healing Solutions • Empowering Tech Careers & Connecting Qualified Talent
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">GOLDEN HEALING <span>SOLUTIONS</span></a>
+            <ul class="nav-links">
+                <li><a href="#bootcamp">Tech Bootcamp</a></li>
+                <li><a href="#job-board">Job Board</a></li>
+                <li><a href="#services">Recruitment Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Accelerate Your Tech Career. <span>Heal Your Future.</span></h1>
+            <p>Golden Healing Solutions provides self-paced technical training, personalized career recruitment, and verified talent placement for modern businesses.</p>
+            <div class="hero-buttons">
+                <a href="#bootcamp" class="btn btn-gold">Explore Tech Courses</a>
+                <a href="#job-board" class="btn btn-outline-navy" style="color: white; border-color: white;">Browse Job Board</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Bootcamp Section -->
+    <section class="section" id="bootcamp">
+        <div class="section-header">
+            <h2>Self-Paced Tech Bootcamp</h2>
+            <div class="divider-gold"></div>
+            <p>Learn real-world web development skills at your own pace with on-demand video modules and practical portfolio projects.</p>
+        </div>
+
+        <div class="bootcamp-card">
+            <div>
+                <span class="job-badge">Flagship Course</span>
+                <h3 style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 10px;">Tech Pathway Accelerator</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Master modern HTML5, CSS3, JavaScript, Git version control, and responsive design. Build live client projects while preparing for entry-level tech roles.</p>
+                
+                <h4 style="font-size: 1rem; color: var(--primary-navy);">What You'll Accomplish in 6 Weeks:</h4>
+                <ul class="curriculum-list">
+                    <li>✓ <strong>Week 1:</strong> Web Foundations (Semantic HTML5 & Document Structure)</li>
+                    <li>✓ <strong>Week 2:</strong> Visual Design & Layouts (CSS3 & Flexbox)</li>
+                    <li>✓ <strong>Week 3:</strong> Responsive Systems (CSS Grid & Mobile Optimization)</li>
+                    <li>✓ <strong>Week 4:</strong> Interactive Development (JavaScript Logic & Syntax)</li>
+                    <li>✓ <strong>Week 5:</strong> Dynamic Applications (DOM Manipulation & State Management)</li>
+                    <li>✓ <strong>Week 6:</strong> Capstone Launch & Portfolio Deployment</li>
+                </ul>
+            </div>
+
+            <div class="bootcamp-price-box">
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--gold-accent); text-transform: uppercase;">Self-Paced Access</span>
+                <div class="price">$399</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Full lifetime access to videos, starter code & portfolio review.</p>
+                <a href="#contact" class="btn btn-navy" style="width: 100%;">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Board Section -->
+    <section class="section" id="job-board" style="background-color: var(--white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="section-header">
+            <h2>Golden Job Board</h2>
+            <div class="divider-gold"></div>
+            <p>Explore current career opportunities curated for entry-level tech talent and experienced professionals.</p>
+        </div>
+
+        <div class="job-grid">
+            <div class="job-card">
+                <span class="job-badge">Full-Time • Remote</span>
+                <h3 class="job-title">Junior Web Developer</h3>
+                <div class="job-details">TechFlow Digital • $55,000 - $65,000 / yr</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">Assist in building responsive web pages, editing HTML/CSS layouts, and supporting client site deployments.</p>
+                <a href="#contact" class="btn btn-outline-navy" style="padding: 8px 16px; font-size: 0.75rem;">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <span class="job-badge">Full-Time • Hybrid</span>
+                <h3 class="job-title">Technical Support Specialist</h3>
+                <div class="job-details">Apex Solutions • $48,000 - $58,000 / yr</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">Troubleshoot client software issues, document technical tickets, and guide users through platform onboarding.</p>
+                <a href="#contact" class="btn btn-outline-navy" style="padding: 8px 16px; font-size: 0.75rem;">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <span class="job-badge">Contract • Remote</span>
+                <h3 class="job-title">Frontend QA Tester</h3>
+                <div class="job-details">Elevate Media • $30 / hr</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">Test user interfaces across mobile and desktop browsers to identify bugs, layout breaks, and functional errors.</p>
+                <a href="#contact" class="btn btn-outline-navy" style="padding: 8px 16px; font-size: 0.75rem;">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Services Section -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>Comprehensive Career Services</h2>
+            <div class="divider-gold"></div>
+            <p>Whether you're looking to transition into tech or hire job-ready candidates, Golden Healing Solutions is here to guide you.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Tech Training</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Self-paced video modules designed to teach practical, hireable technical skills.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Resume Optimization</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Transform your work experience into an ATS-compliant resume tailored for tech roles.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Career Placement</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Direct placement opportunities through our network of hiring partner companies.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Corporate Staffing</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Custom recruitment solutions helping businesses source, screen, and hire qualified talent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry / Contact Form -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2>Connect With Our Team</h2>
+            <div class="divider-gold"></div>
+            <p>Have questions about enrolling in our bootcamp, getting career guidance, or hiring through our recruitment network?</p>
+        </div>
+
+        <div class="contact-container">
+            <form onsubmit="handleInquirySubmit(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" class="form-control" required placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" class="form-control" required placeholder="your.email@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>I Am Seeking Information Regarding:</label>
+                    <select required>
+                        <option value="">Select Option</option>
+                        <option>Enrolling in Tech Bootcamp</option>
+                        <option>Applying for Job Board Positions</option>
+                        <option>Resume & Career Coaching Services</option>
+                        <option>Employer / Corporate Recruitment Services</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Message *</label>
+                    <textarea rows="4" class="form-control" required placeholder="Tell us how we can help you achieve your career or hiring goals..."></textarea>
+                </div>
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <button type="submit" class="btn btn-gold" style="width: 100%; max-width: 300px;">Submit Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>GOLDEN HEALING SOLUTIONS</h4>
+                <p style="font-size: 0.85rem; color: #94A3B8;">Empowering individuals through practical tech training and connecting corporate clients with qualified talent.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#bootcamp" style="color: #94A3B8;">Tech Bootcamp</a></li>
+                    <li><a href="#job-board" style="color: #94A3B8;">Job Board</a></li>
+                    <li><a href="#services" style="color: #94A3B8;">Recruitment Services</a></li>
+                    <li><a href="#contact" style="color: #94A3B8;">Contact Inquiry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li>Self-Paced Web Training</li>
+                    <li>ATS Resume Optimization</li>
+                    <li>Corporate Recruitment</li>
+                    <li>Talent Placement</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ecosystem</h4>
+                <ul>
+                    <li>www.goldenhealingsolutions.com</li>
+                    <li>www.goldenhealing.me</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Golden Healing Solutions LLC. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            alert('Thank you for contacting Golden Healing Solutions. Your inquiry has been received and our team will get back to you shortly!');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
