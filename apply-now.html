@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers & Opportunities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #08080A;
+            --card-bg: #111116;
+            --card-header: #18181D;
+            --gold: #D4AF37;
+            --gold-light: #F8F0D8;
+            --text-light: #F4F4F5;
+            --text-muted: #A1A1AA;
+            --border-color: rgba(212, 175, 55, 0.25);
+            --font-sans: 'Montserrat', sans-serif;
+            --font-heading: 'Cinzel', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: radial-gradient(circle at 50% 0%, #25252D 0%, #08080A 80%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* Container & Categories */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .category-section {
+            margin-top: 50px;
+        }
+
+        .category-title {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .category-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            margin-top: -15px;
+        }
+
+        /* Job Grid */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+
+        .job-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .job-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .job-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .apply-btn {
+            background-color: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .apply-btn:hover {
+            background-color: var(--gold);
+            color: var(--bg-color);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: var(--gold);
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group select option {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+        }
+
+        .submit-btn {
+            background-color: var(--gold);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .success-msg {
+            display: none;
+            padding: 12px;
+            background-color: rgba(22, 101, 52, 0.2);
+            border: 1px solid #166534;
+            color: #4ade80;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Career Opportunities</h1>
+        <p>Explore open positions across infrastructure, development, cybersecurity, data, and digital design.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- CATEGORY: IT Support & Infrastructure -->
+        <section class="category-section">
+            <h2 class="category-title">🖥️ IT Support & Systems</h2>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Help Desk</span>
+                        <h3>IT Support Specialist</h3>
+                        <p>Provides technical assistance to users, troubleshoots hardware and software issues, and helps maintain reliable technology environments.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('IT Support Specialist')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Help Desk</span>
+                        <h3>Help Desk Technician</h3>
+                        <p>Supports users through troubleshooting, technical requests, password assistance, ticket management, and basic technology problem resolution.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Help Desk Technician')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Technical Support</span>
+                        <h3>Technical Support Specialist</h3>
+                        <p>Diagnoses and resolves technical problems while providing clear and professional support to users and customers.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Technical Support Specialist')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Systems</span>
+                        <h3>Systems Administrator</h3>
+                        <p>Helps manage operating systems, user accounts, applications, servers, system configurations, and technology infrastructure.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Systems Administrator')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Networking</span>
+                        <h3>Network Administrator</h3>
+                        <p>Supports network infrastructure, connectivity, configurations, monitoring, troubleshooting, and network performance.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Network Administrator')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Web & Software Development -->
+        <section class="category-section">
+            <h2 class="category-title">💻 Web & Software Development</h2>
+            <p class="category-desc">Design, develop, test, and maintain websites, software applications, and digital products.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Development</span>
+                        <h3>Front-End Developer</h3>
+                        <p>Builds user-facing website interfaces using technologies such as HTML, CSS, JavaScript, and modern front-end development tools.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Front-End Developer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Development</span>
+                        <h3>Back-End Developer</h3>
+                        <p>Develops server-side applications, APIs, databases, business logic, and systems that support web applications.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Back-End Developer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Full Stack</span>
+                        <h3>Full-Stack Developer</h3>
+                        <p>Works across both front-end and back-end technologies to build complete web applications.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Full-Stack Developer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Web Development</span>
+                        <h3>Web Developer</h3>
+                        <p>Creates, maintains, and improves websites and web applications while collaborating on functionality and user experience.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Web Developer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Quality Assurance</span>
+                        <h3>QA Tester</h3>
+                        <p>Tests websites and software applications to identify defects, usability problems, and functionality issues before release.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('QA Tester')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Cybersecurity -->
+        <section class="category-section">
+            <h2 class="category-title">🔐 Cybersecurity</h2>
+            <p class="category-desc">Help protect systems, networks, applications, and information from security threats.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Security</span>
+                        <h3>Cybersecurity Analyst</h3>
+                        <p>Monitors security environments, analyzes threats, investigates suspicious activity, and helps strengthen security controls.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Cybersecurity Analyst')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">SOC</span>
+                        <h3>SOC Analyst</h3>
+                        <p>Monitors security alerts, investigates potential incidents, and assists with detecting and responding to threats.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('SOC Analyst')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Security</span>
+                        <h3>Security Administrator</h3>
+                        <p>Helps manage security tools, access controls, configurations, policies, and security administration processes.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Security Administrator')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Incident Response</span>
+                        <h3>Incident Response Analyst</h3>
+                        <p>Helps investigate, contain, document, and respond to cybersecurity incidents.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Incident Response Analyst')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Data & AI -->
+        <section class="category-section">
+            <h2 class="category-title">📊 Data & AI</h2>
+            <p class="category-desc">Transform data into insights, automation, intelligence, and business value.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Data</span>
+                        <h3>Data Analyst</h3>
+                        <p>Collects, cleans, analyzes, and presents data to help organizations understand performance and make informed decisions.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Data Analyst')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Business Intelligence</span>
+                        <h3>Business Intelligence Analyst</h3>
+                        <p>Uses data analysis, reporting, and dashboards to provide insights that support business strategy and decision-making.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Business Intelligence Analyst')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">AI</span>
+                        <h3>AI Automation Specialist</h3>
+                        <p>Identifies opportunities to use AI and automation tools to streamline repetitive workflows and improve productivity.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('AI Automation Specialist')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Machine Learning</span>
+                        <h3>Machine Learning Specialist</h3>
+                        <p>Develops and works with machine learning models and data-driven solutions designed to solve business or technical problems.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Machine Learning Specialist')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Data Engineering</span>
+                        <h3>Data Engineer</h3>
+                        <p>Builds and maintains data pipelines, databases, integrations, and infrastructure used to process and analyze data.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Data Engineer')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Project & Business Technology -->
+        <section class="category-section">
+            <h2 class="category-title">📋 Project & Business Technology</h2>
+            <p class="category-desc">Connect technology, business strategy, projects, teams, and organizational goals.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Project Management</span>
+                        <h3>IT Project Coordinator</h3>
+                        <p>Supports technology projects through scheduling, documentation, communication, task tracking, and project coordination.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('IT Project Coordinator')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Project Management</span>
+                        <h3>IT Project Manager</h3>
+                        <p>Plans and manages technology projects, coordinates teams, tracks deliverables, and supports successful project completion.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('IT Project Manager')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Business Analysis</span>
+                        <h3>Business Analyst</h3>
+                        <p>Analyzes business needs, documents requirements, identifies opportunities, and helps connect business goals with technology solutions.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Business Analyst')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Agile</span>
+                        <h3>Scrum Master</h3>
+                        <p>Facilitates Agile processes, supports Scrum teams, removes obstacles, and helps teams improve collaboration and delivery.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Scrum Master')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Product</span>
+                        <h3>Product Manager</h3>
+                        <p>Helps define product direction, priorities, customer needs, requirements, and product development goals.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Product Manager')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Cloud & Infrastructure -->
+        <section class="category-section">
+            <h2 class="category-title">☁️ Cloud & Infrastructure</h2>
+            <p class="category-desc">Support the systems, infrastructure, and cloud environments behind modern technology.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Cloud</span>
+                        <h3>Cloud Support Specialist</h3>
+                        <p>Supports cloud-based systems and assists users and teams with cloud services, troubleshooting, and technical issues.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Cloud Support Specialist')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Cloud</span>
+                        <h3>Cloud Administrator</h3>
+                        <p>Helps manage cloud environments, user access, configurations, resources, monitoring, and operational support.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Cloud Administrator')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Cloud Engineering</span>
+                        <h3>Cloud Engineer</h3>
+                        <p>Designs, implements, maintains, and improves cloud infrastructure and technology solutions.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Cloud Engineer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">DevOps</span>
+                        <h3>DevOps Engineer</h3>
+                        <p>Helps automate development and deployment processes while supporting infrastructure, CI/CD pipelines, and operational reliability.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('DevOps Engineer')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: Design & Digital -->
+        <section class="category-section">
+            <h2 class="category-title">🎨 Design & Digital</h2>
+            <p class="category-desc">Create intuitive, attractive, and engaging digital experiences and products.</p>
+            <div class="job-grid">
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">UX</span>
+                        <h3>UX Designer</h3>
+                        <p>Researches user needs and designs experiences that make digital products easier, clearer, and more effective to use.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('UX Designer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">UI</span>
+                        <h3>UI Designer</h3>
+                        <p>Creates visual interfaces including layouts, typography, components, colors, and interactive design elements.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('UI Designer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">UX/UI</span>
+                        <h3>UX/UI Designer</h3>
+                        <p>Combines user experience research and visual interface design to create intuitive digital products and experiences.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('UX/UI Designer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Web Design</span>
+                        <h3>Web Designer</h3>
+                        <p>Designs website layouts, visual systems, content presentation, navigation, and digital experiences.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Web Designer')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <span class="job-tag">Digital Product</span>
+                        <h3>Digital Product Designer</h3>
+                        <p>Designs digital products by combining user research, interaction design, visual design, and customer insights.</p>
+                    </div>
+                    <button class="apply-btn" onclick="openModal('Digital Product Designer')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Form Window -->
+    <div class="modal-overlay" id="appModal">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 style="color:var(--gold); font-family:var(--font-heading); margin-bottom: 20px;">Job Application</h2>
+            
+            <form id="modalForm">
+                <div class="form-group">
+                    <label for="modalPosition">Position Applied For</label>
+                    <input type="text" id="modalPosition" name="position" readonly style="background-color: rgba(255,255,255,0.1); font-weight: bold; color: var(--gold);">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalName">Full Name *</label>
+                    <input type="text" id="modalName" name="fullName" required placeholder="Jane Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalEmail">Email Address *</label>
+                    <input type="email" id="modalEmail" name="email" required placeholder="jane@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalPhone">Phone Number</label>
+                    <input type="tel" id="modalPhone" name="phone" placeholder="(555) 000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalPortfolio">Portfolio / Resume / LinkedIn Link</label>
+                    <input type="url" id="modalPortfolio" name="portfolio" placeholder="https://linkedin.com/in/username">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalNotes">Cover Letter / Additional Details</label>
+                    <textarea id="modalNotes" name="notes" rows="4" placeholder="Briefly share relevant experience or interest..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+
+            <div class="success-msg" id="modalSuccess">
+                Application received! We will review your submission shortly.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('appModal');
+        const modalPosition = document.getElementById('modalPosition');
+        const modalForm = document.getElementById('modalForm');
+        const modalSuccess = document.getElementById('modalSuccess');
+
+        function openModal(jobTitle) {
+            modalPosition.value = jobTitle;
+            modalSuccess.style.display = 'none';
+            modalForm.style.display = 'block';
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modalForm.reset();
+        }
+
+        // Close when clicking outside of modal card
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Handle Form Submit
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(modalForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log('Application Data:', data);
+
+            modalForm.style.display = 'none';
+            modalSuccess.style.display = 'block';
+
+            setTimeout(() => {
+                closeModal();
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
