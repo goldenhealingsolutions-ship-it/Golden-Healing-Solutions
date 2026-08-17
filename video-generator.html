@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Video Generator | Golden Healing Solutions</title>
+
+  <meta
+    name="description"
+    content="Create AI-generated videos with Golden Healing Solutions AI Video Studio."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f8f8;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #000;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+        linear-gradient(135deg, #000, #333);
+      color: white;
+      text-align: center;
+      padding: 85px 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 7vw, 72px);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .studio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 35px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+
+    .card h2 {
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .card-description {
+      color: #777;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    /* FORM */
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 18px 0 8px;
+    }
+
+    textarea,
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    textarea:focus,
+    select:focus,
+    input[type="text"]:focus {
+      border-color: #d4af37;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+    }
+
+    .character-count {
+      text-align: right;
+      color: #888;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    /* UPLOAD */
+
+    .upload-box {
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-box:hover {
+      border-color: #d4af37;
+      background: #fffdf5;
+    }
+
+    .upload-box strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .upload-box span {
+      color: #888;
+      font-size: 13px;
+    }
+
+    #imageUpload {
+      display: none;
+    }
+
+    #imagePreview {
+      max-width: 100%;
+      max-height: 200px;
+      margin-top: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    /* BUTTON */
+
+    .generate-btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 17px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #d4af37, #b8941f);
+      color: #000;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+    }
+
+    .generate-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* PREVIEW */
+
+    .video-preview {
+      min-height: 420px;
+      background: #111;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-placeholder {
+      text-align: center;
+      color: #aaa;
+      padding: 30px;
+    }
+
+    .video-icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    #generatedVideo {
+      width: 100%;
+      max-height: 600px;
+      display: none;
+      object-fit: contain;
+    }
+
+    /* LOADING */
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: white;
+    }
+
+    .spinner {
+      width: 55px;
+      height: 55px;
+      border: 4px solid #555;
+      border-top: 4px solid #d4af37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto auto 20px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .progress-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #d4af37;
+      transition: width 0.5s;
+    }
+
+    .progress-text {
+      font-size: 13px;
+      color: #777;
+      margin-top: 8px;
+    }
+
+    /* ACTIONS */
+
+    .video-actions {
+      display: none;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 13px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      border: 1px solid #ddd;
+      background: white;
+      color: #111;
+    }
+
+    .action-btn:hover {
+      border-color: #d4af37;
+    }
+
+    /* FEATURES */
+
+    .features {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-family: Georgia, serif;
+      font-size: 35px;
+      margin-bottom: 35px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .feature-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* NOTICE */
+
+    .api-notice {
+      margin-top: 30px;
+      padding: 15px 20px;
+      border-left: 4px solid #d4af37;
+      background: #fffdf5;
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 70px;
+    }
+
+    footer strong {
+      color: #d4af37;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .studio {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="index.html" class="logo">
+    Golden Healing Solutions
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="practice-coding.html">Practice Coding</a>
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-badge">
+    ✨ AI CREATIVE STUDIO
+  </div>
+
+  <h1>
+    AI <span>Video</span> Generator
+  </h1>
+
+  <p>
+    Turn your ideas into engaging AI-generated videos for social media,
+    marketing, education, business, products and more.
+  </p>
+
+</section>
+
+
+<main>
+
+  <section class="studio">
+
+    <!-- LEFT SIDE -->
+
+    <div class="card">
+
+      <h2>Create Your Video</h2>
+
+      <p class="card-description">
+        Describe the video you want AI to create.
+      </p>
+
+
+      <label for="prompt">
+        Video Description
+      </label>
+
+      <textarea
+        id="prompt"
+        maxlength="1500"
+        placeholder="Example: Create a 30-second luxury skincare commercial featuring a woman applying golden facial serum in a beautiful spa environment..."
+      ></textarea>
+
+      <div class="character-count">
+        <span id="charCount">0</span>/1500
+      </div>
+
+
+      <div class="grid-two">
+
+        <div>
+
+          <label for="videoType">
+            Video Type
+          </label>
+
+          <select id="videoType">
+
+            <option value="social-media">
+              Social Media Ad
+            </option>
+
+            <option value="product">
+              Product Commercial
+            </option>
+
+            <option value="business">
+              Business Promo
+            </option>
+
+            <option value="educational">
+              Educational Video
+            </option>
+
+            <option value="training">
+              Training Video
+            </option>
+
+            <option value="youtube">
+              YouTube Video
+            </option>
+
+            <option value="cinematic">
+              Cinematic Video
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label for="style">
+            Visual Style
+          </label>
+
+          <select id="style">
+
+            <option value="realistic">
+              Realistic
+            </option>
+
+            <option value="cinematic">
+              Cinematic
+            </option>
+
+            <option value="luxury">
+              Luxury
+            </option>
+
+            <option value="corporate">
+              Corporate
+            </option>
+
+            <option value="fashion">
+              Fashion
+            </option>
+
+            <option value="animation">
+              Animation
+            </option>
+
+            <option value="futuristic">
+              Futuristic
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="grid-two">
+
+        <div>
+
+          <label for="duration">
+            Video Length
+          </label>
+
+          <select id="duration">
+
+            <option value="5">5 Seconds</option>
+            <option value="10">10 Seconds</option>
+            <option value="15">15 Seconds</option>
+            <option value="30">30 Seconds</option>
+            <option value="60">60 Seconds</option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label for="format">
+            Video Format
+          </label>
+
+          <select id="format">
+
+            <option value="9:16">
+              9:16 — TikTok / Reels
+            </option>
+
+            <option value="16:9">
+              16:9 — YouTube
+            </option>
+
+            <option value="1:1">
+              1:1 — Social Media
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <label for="voice">
+        AI Voiceover
+      </label>
+
+      <select id="voice">
+
+        <option value="none">
+          No Voiceover
+        </option>
+
+        <option value="female">
+          Female AI Voice
+        </option>
+
+        <option value="male">
+          Male AI Voice
+        </option>
+
+      </select>
+
+
+      <label>
+        Optional Reference Image
+      </label>
+
+      <label for="imageUpload" class="upload-box">
+
+        <strong>
+          📷 Upload an Image
+        </strong>
+
+        <span>
+          Use a product, person, logo or other reference image
+        </span>
+
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/png,image/jpeg,image/webp"
+        >
+
+        <img id="imagePreview" alt="Image preview">
+
+      </label>
+
+
+      <button
+        class="generate-btn"
+        id="generateBtn"
+        onclick="generateVideo()"
+      >
+        ✨ Generate AI Video
+      </button>
+
+
+      <div class="progress-container" id="progressContainer">
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="progressFill"
+          ></div>
+        </div>
+
+        <div
+          class="progress-text"
+          id="progressText"
+        >
+          Preparing your video...
+        </div>
+
+      </div>
+
+
+      <div class="api-notice">
+
+        <strong>Developer Note:</strong>
+        The interface is ready. To generate real AI videos,
+        connect the JavaScript function to your secure backend
+        and video-generation API.
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="card">
+
+      <h2>Video Preview</h2>
+
+      <p class="card-description">
+        Your generated video will appear here.
+      </p>
+
+
+      <div class="video-preview">
+
+        <div
+          class="video-placeholder"
+          id="videoPlaceholder"
+        >
+
+          <div class="video-icon">
+            🎬
+          </div>
+
+          <h3>Your video will appear here</h3>
+
+          <p>
+            Enter a prompt and click Generate AI Video.
+          </p>
+
+        </div>
+
+
+        <div
+          class="loading"
+          id="loading"
+        >
+
+          <div class="spinner"></div>
+
+          <h3>Creating Your Video...</h3>
+
+          <p>
+            AI is turning your idea into a video.
+          </p>
+
+        </div>
+
+
+        <video
+          id="generatedVideo"
+          controls
+          playsinline
+        ></video>
+
+      </div>
+
+
+      <div
+        class="video-actions"
+        id="videoActions"
+      >
+
+        <a
+          href="#"
+          class="action-btn"
+          id="downloadBtn"
+          download="golden-healing-ai-video.mp4"
+        >
+          ⬇ Download
+        </a>
+
+        <button
+          class="action-btn"
+          onclick="shareVideo()"
+        >
+          🔗 Share
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <h2>What You Can Create</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          📱
+        </div>
+
+        <h3>Social Media</h3>
+
+        <p>
+          Create videos for TikTok, Instagram Reels,
+          Facebook and other platforms.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🛍️
+        </div>
+
+        <h3>Product Videos</h3>
+
+        <p>
+          Turn products and services into professional
+          marketing videos.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🎓
+        </div>
+
+        <h3>Educational</h3>
+
+        <p>
+          Create training, instructional and educational
+          video content.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          💼
+        </div>
+
+        <h3>Business</h3>
+
+        <p>
+          Create professional promotional videos for
+          businesses and organizations.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 <strong>Golden Healing Solutions</strong>
+  </p>
+
+  <p>
+    AI-powered technology, education and career solutions.
+  </p>
+
+</footer>
+
+
+<script>
+
+  /* ================================
+     CHARACTER COUNTER
+  ================================= */
+
+  const promptInput = document.getElementById("prompt");
+  const charCount = document.getElementById("charCount");
+
+  promptInput.addEventListener("input", function() {
+
+    charCount.textContent = this.value.length;
+
+  });
+
+
+  /* ================================
+     IMAGE UPLOAD PREVIEW
+  ================================= */
+
+  const imageUpload =
+    document.getElementById("imageUpload");
+
+  const imagePreview =
+    document.getElementById("imagePreview");
+
+
+  imageUpload.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+      imagePreview.src = event.target.result;
+
+      imagePreview.style.display = "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+  });
+
+
+  /* ================================
+     GENERATE VIDEO
+  ================================= */
+
+  async function generateVideo() {
+
+    const prompt =
+      document.getElementById("prompt").value.trim();
+
+    const videoType =
+      document.getElementById("videoType").value;
+
+    const style =
+      document.getElementById("style").value;
+
+    const duration =
+      document.getElementById("duration").value;
+
+    const format =
+      document.getElementById("format").value;
+
+    const voice =
+      document.getElementById("voice").value;
+
+
+    if (!prompt) {
+
+      alert(
+        "Please describe the video you want to create."
+      );
+
+      return;
+
+    }
+
+
+    const generateBtn =
+      document.getElementById("generateBtn");
+
+    const loading =
+      document.getElementById("loading");
+
+    const placeholder =
+      document.getElementById("videoPlaceholder");
+
+    const video =
+      document.getElementById("generatedVideo");
+
+    const actions =
+      document.getElementById("videoActions");
+
+    const progressContainer =
+      document.getElementById("progressContainer");
+
+    const progressFill =
+      document.getElementById("progressFill");
+
+    const progressText =
+      document.getElementById("progressText");
+
+
+    generateBtn.disabled = true;
+
+    generateBtn.textContent =
+      "Creating Video...";
+
+
+    placeholder.style.display = "none";
+
+    video.style.display = "none";
+
+    actions.style.display = "none";
+
+    loading.style.display = "block";
+
+    progressContainer.style.display = "block";
+
+
+    /*
+      DEMONSTRATION PROGRESS
+
+      This simulates the generation process.
+
+      Replace this section with your real backend API call.
+    */
+
+    let progress = 0;
+
+    const progressInterval =
+      setInterval(function() {
+
+        progress += Math.floor(Math.random() * 8) + 3;
+
+        if (progress >= 95) {
+          progress = 95;
+        }
+
+        progressFill.style.width =
+          progress + "%";
+
+
+        if (progress < 30) {
+
+          progressText.textContent =
+            "Preparing your video...";
+
+        } else if (progress < 60) {
+
+          progressText.textContent =
+            "Generating scenes...";
+
+        } else if (progress < 85) {
+
+          progressText.textContent =
+            "Rendering your video...";
+
+        } else {
+
+          progressText.textContent =
+            "Finalizing your video...";
+
+        }
+
+      }, 700);
+
+
+    /*
+      =====================================
+      REAL API CONNECTION GOES HERE
+      =====================================
+
+      Example structure:
+
+      const response = await fetch(
+        "/api/generate-video",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            prompt: prompt,
+            videoType: videoType,
+            style: style,
+            duration: duration,
+            format: format,
+            voice: voice
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      video.src = data.videoUrl;
+
+      =====================================
+    */
+
+
+    try {
+
+      /*
+        DEMO ONLY
+
+        Wait 5 seconds to simulate
+        video generation.
+      */
+
+      await new Promise(resolve =>
+        setTimeout(resolve, 5000)
+      );
+
+
+      clearInterval(progressInterval);
+
+      progressFill.style.width = "100%";
+
+      progressText.textContent =
+        "Video ready!";
+
+
+      /*
+        REMOVE THIS DEMO SECTION WHEN
+        CONNECTING YOUR REAL AI API.
+      */
+
+
+      loading.style.display = "none";
+
+      generateBtn.disabled = false;
+
+      generateBtn.textContent =
+        "✨ Generate AI Video";
+
+
+      /*
+        Since no API is connected yet,
+        show a message instead of pretending
+        that a real video was generated.
+      */
+
+      placeholder.style.display = "block";
+
+      placeholder.innerHTML = `
+        <div class="video-icon">🔌</div>
+
+        <h3>API Connection Needed</h3>
+
+        <p style="margin-top:10px;">
+          Your video settings were successfully
+          prepared. Connect your AI video API
+          to generate the actual video.
+        </p>
+      `;
+
+
+    } catch (error) {
+
+      clearInterval(progressInterval);
+
+      console.error(error);
+
+      loading.style.display = "none";
+
+      placeholder.style.display = "block";
+
+      generateBtn.disabled = false;
+
+      generateBtn.textContent =
+        "✨ Generate AI Video";
+
+      alert(
+        "Something went wrong while creating the video."
+      );
+
+    }
+
+  }
+
+
+  /* ================================
+     SHARE VIDEO
+  ================================= */
+
+  async function shareVideo() {
+
+    const video =
+      document.getElementById("generatedVideo");
+
+
+    if (!video.src) {
+
+      alert(
+        "Generate a video before sharing."
+      );
+
+      return;
+
+    }
+
+
+    if (navigator.share) {
+
+      try {
+
+        await navigator.share({
+
+          title:
+            "My AI Video | Golden Healing Solutions",
+
+          text:
+            "Check out my AI-generated video!"
+
+        });
+
+      } catch (error) {
+
+        console.log("Share cancelled.");
+
+      }
+
+    } else {
+
+      alert(
+        "Sharing is not supported on this browser."
+      );
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
