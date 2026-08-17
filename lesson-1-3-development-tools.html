@@ -1,180 +1,4872 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Workspace | Golden Healing Academy</title>
-    <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Golden Healing Solutions Web Development Bootcamp — Lesson 1.3: Development Tools"
+    >
+
+    <title>
+        Lesson 1.3 — Development Tools | Golden Healing Solutions
+    </title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         STYLES
+         ========================================================= -->
+
     <style>
+
+        /* =====================================================
+           VARIABLES
+           ===================================================== */
+
         :root {
-            --primary-black: #08080A;
-            --gold-primary: #D4AF37;
-            --gold-light: #F9F3E5;
+
+            --black: #08080A;
+
+            --black-2: #111116;
+
+            --black-3: #19191F;
+
+            --gold: #D4AF37;
+
+            --gold-dark: #B8860B;
+
+            --gold-light: #F8F0D8;
+
+            --gold-soft: #FBF8EE;
+
             --white: #FFFFFF;
-            --border-subtle: #E4E4E7;
-            --correct-green: #10B981;
-            --incorrect-red: #EF4444;
+
+            --gray-50: #FAFAFA;
+
+            --gray-100: #F4F4F5;
+
+            --gray-200: #E4E4E7;
+
+            --gray-300: #D4D4D8;
+
+            --gray-400: #A1A1AA;
+
+            --gray-500: #71717A;
+
+            --gray-600: #52525B;
+
+            --gray-700: #3F3F46;
+
+            --green: #166534;
+
+            --green-light: #DCFCE7;
+
+            --red: #991B1B;
+
+            --red-light: #FEE2E2;
+
+            --blue: #1D4ED8;
+
+            --blue-light: #DBEAFE;
+
+            --max-width: 1200px;
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,.06);
+
+            --shadow-dark:
+                0 15px 40px rgba(0,0,0,.25);
+
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background: #FAFAFA; color: #0A0A0C; padding-bottom: 60px; }
 
-        header {
-            background: var(--primary-black);
-            padding: 16px 30px;
-            border-bottom: 2px solid var(--gold-primary);
-            color: var(--white);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* =====================================================
+           RESET
+           ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
         }
 
-        .lesson-container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
 
-        .video-box {
-            width: 100%;
-            height: 480px;
-            background: #000;
-            border: 1px solid var(--gold-primary);
-            border-radius: 4px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        html {
+
+            scroll-behavior: smooth;
+
         }
 
-        .quiz-card {
-            background: var(--white);
-            border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+
+        body {
+
+            font-family:
+                'Montserrat',
+                sans-serif;
+
+            background:
+                var(--gray-50);
+
+            color:
+                var(--black);
+
+            line-height:
+                1.7;
+
+            overflow-x:
+                hidden;
+
         }
 
-        .quiz-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 10px; }
 
-        .q-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle); }
-        .q-item h4 { font-size: 0.95rem; margin-bottom: 12px; }
+        h1,
+        h2,
+        h3,
+        h4 {
 
-        .opt-btn {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 14px 18px;
-            background: #FAFAFA;
-            border: 1px solid var(--border-subtle);
-            border-radius: 2px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.88rem;
-            transition: all 0.2s;
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            line-height:
+                1.2;
+
         }
 
-        .opt-btn:hover { border-color: var(--gold-primary); background: var(--gold-light); }
-        
-        /* Immediate Feedback Pop-Up Banner */
-        .feedback-banner {
-            display: none;
-            padding: 15px;
-            border-radius: 2px;
-            margin-top: 10px;
-            font-size: 0.88rem;
-            font-weight: 600;
+
+        a {
+
+            color: inherit;
+
         }
 
-        .feedback-banner.correct {
-            display: block;
-            background: #D1FAE5;
-            color: #065F46;
-            border: 1px solid var(--correct-green);
+
+        button,
+        input,
+        select,
+        textarea {
+
+            font: inherit;
+
         }
 
-        .feedback-banner.incorrect {
-            display: block;
-            background: #FEE2E2;
-            color: #991B1B;
-            border: 1px solid var(--incorrect-red);
+
+        button {
+
+            cursor:
+                pointer;
+
         }
 
-        .btn-next {
-            display: inline-block;
-            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
-            color: var(--white);
-            padding: 14px 30px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 20px;
-            border-radius: 2px;
+
+        :focus-visible {
+
+            outline:
+                3px solid var(--gold);
+
+            outline-offset:
+                3px;
+
         }
+
+
+        /* =====================================================
+           NAVIGATION
+           ===================================================== */
+
+        .top-nav {
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            background:
+                rgba(8,8,10,.97);
+
+            color:
+                var(--white);
+
+            border-bottom:
+                1px solid var(--gold);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .nav-inner {
+
+            max-width:
+                var(--max-width);
+
+            margin:
+                auto;
+
+            padding:
+                14px 24px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+        }
+
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        .brand-mark {
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                2px solid var(--gold);
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .75rem;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .brand-name {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .82rem;
+
+            letter-spacing:
+                2px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .lesson-label {
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .72rem;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        /* =====================================================
+           PROGRESS BAR
+           ===================================================== */
+
+        .progress-container {
+
+            position:
+                fixed;
+
+            top:
+                71px;
+
+            left:
+                0;
+
+            width:
+                100%;
+
+            height:
+                4px;
+
+            background:
+                #24242A;
+
+            z-index:
+                999;
+
+        }
+
+
+        .progress-bar {
+
+            width:
+                0%;
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #AA771C,
+                    #D4AF37,
+                    #FCF6BA,
+                    #D4AF37
+                );
+
+            transition:
+                width .25s ease;
+
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #292931 0%,
+                    #111116 45%,
+                    #08080A 100%
+                );
+
+            color:
+                var(--white);
+
+            text-align:
+                center;
+
+            padding:
+                100px 20px 80px;
+
+        }
+
+
+        .eyebrow {
+
+            display:
+                inline-block;
+
+            padding:
+                7px 16px;
+
+            margin-bottom:
+                18px;
+
+            color:
+                var(--gold);
+
+            border:
+                1px solid rgba(212,175,55,.45);
+
+            background:
+                rgba(212,175,55,.08);
+
+            border-radius:
+                50px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .72rem;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(2.7rem, 7vw, 4.5rem);
+
+            font-weight:
+                600;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--gold);
+
+        }
+
+
+        .hero-subtitle {
+
+            max-width:
+                850px;
+
+            margin:
+                0 auto 25px;
+
+            color:
+                #D4D4D8;
+
+            font-size:
+                1.05rem;
+
+            font-weight:
+                300;
+
+        }
+
+
+        .lesson-meta {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+
+        }
+
+
+        .meta-pill {
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid rgba(255,255,255,.15);
+
+            border-radius:
+                50px;
+
+            color:
+                #D4D4D8;
+
+            font-size:
+                .78rem;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .container {
+
+            max-width:
+                var(--max-width);
+
+            margin:
+                auto;
+
+            padding:
+                70px 20px;
+
+        }
+
+
+        .lesson-section {
+
+            margin-bottom:
+                80px;
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                30px;
+
+        }
+
+
+        .section-number {
+
+            color:
+                var(--gold-dark);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .75rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--gray-500);
+
+            max-width:
+                850px;
+
+        }
+
+
+        .gold-line {
+
+            width:
+                70px;
+
+            height:
+                2px;
+
+            background:
+                var(--gold);
+
+            margin-top:
+                15px;
+
+        }
+
+
+        /* =====================================================
+           OBJECTIVES
+           ===================================================== */
+
+        .objectives {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            padding:
+                45px;
+
+            border:
+                1px solid rgba(212,175,55,.4);
+
+            border-radius:
+                8px;
+
+            box-shadow:
+                var(--shadow-dark);
+
+        }
+
+
+        .objectives h2 {
+
+            color:
+                var(--gold);
+
+            font-size:
+                2.3rem;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .objective-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                14px;
+
+        }
+
+
+        .objective {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            padding:
+                15px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius:
+                5px;
+
+        }
+
+
+        .objective-icon {
+
+            color:
+                var(--gold);
+
+            flex-shrink:
+                0;
+
+        }
+
+
+        /* =====================================================
+           CONTENT CARD
+           ===================================================== */
+
+        .content-card {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                7px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .content-card h3 {
+
+            font-size:
+                1.7rem;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .content-card h4 {
+
+            font-size:
+                1.35rem;
+
+            margin-top:
+                25px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .content-card p {
+
+            color:
+                var(--gray-700);
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .content-card ul,
+        .content-card ol {
+
+            padding-left:
+                25px;
+
+            color:
+                var(--gray-700);
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .content-card li {
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        /* =====================================================
+           KEY CONCEPT
+           ===================================================== */
+
+        .key-concept {
+
+            background:
+                var(--gold-soft);
+
+            border-left:
+                5px solid var(--gold);
+
+            padding:
+                25px 30px;
+
+            margin:
+                25px 0;
+
+            border-radius:
+                0 5px 5px 0;
+
+        }
+
+
+        .key-concept strong {
+
+            display:
+                block;
+
+            color:
+                var(--gold-dark);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        /* =====================================================
+           WARNING / INFO BOXES
+           ===================================================== */
+
+        .info-box {
+
+            padding:
+                22px 25px;
+
+            border-radius:
+                6px;
+
+            margin:
+                20px 0;
+
+        }
+
+
+        .info-box.info {
+
+            background:
+                var(--blue-light);
+
+            border-left:
+                5px solid var(--blue);
+
+        }
+
+
+        .info-box.success {
+
+            background:
+                var(--green-light);
+
+            border-left:
+                5px solid var(--green);
+
+        }
+
+
+        .info-box.warning {
+
+            background:
+                #FEF3C7;
+
+            border-left:
+                5px solid #D97706;
+
+        }
+
+
+        .info-box strong {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        /* =====================================================
+           TOOL CARDS
+           ===================================================== */
+
+        .tool-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+        }
+
+
+        .tool-card {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-top:
+                4px solid var(--gold);
+
+            border-radius:
+                7px;
+
+            padding:
+                30px;
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .tool-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.1);
+
+        }
+
+
+        .tool-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                1.5rem;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .tool-card h3 {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                1.1rem;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .tool-card p {
+
+            color:
+                var(--gray-600);
+
+            font-size:
+                .9rem;
+
+        }
+
+
+        /* =====================================================
+           INSTALLATION STEPS
+           ===================================================== */
+
+        .steps {
+
+            counter-reset:
+                steps;
+
+        }
+
+
+        .step {
+
+            position:
+                relative;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                60px 1fr;
+
+            gap:
+                20px;
+
+            margin-bottom:
+                25px;
+
+            padding:
+                25px;
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                7px;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .step-number {
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .step h3 {
+
+            font-size:
+                1.5rem;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .step p {
+
+            color:
+                var(--gray-600);
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        /* =====================================================
+           CODE BOX
+           ===================================================== */
+
+        .code-box {
+
+            background:
+                #111116;
+
+            color:
+                #E4E4E7;
+
+            border-radius:
+                6px;
+
+            padding:
+                20px;
+
+            overflow-x:
+                auto;
+
+            margin:
+                20px 0;
+
+            border:
+                1px solid #303038;
+
+        }
+
+
+        .code-box code {
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size:
+                .88rem;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        /* =====================================================
+           VERIFICATION CHECKLIST
+           ===================================================== */
+
+        .checklist {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            padding:
+                35px;
+
+            border-radius:
+                8px;
+
+            border:
+                1px solid rgba(212,175,55,.35);
+
+        }
+
+
+        .check-item {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            align-items:
+                flex-start;
+
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+        }
+
+
+        .check-item:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .check-item input {
+
+            width:
+                18px;
+
+            height:
+                18px;
+
+            margin-top:
+                5px;
+
+            accent-color:
+                var(--gold);
+
+        }
+
+
+        .check-item label {
+
+            cursor:
+                pointer;
+
+        }
+
+
+        /* =====================================================
+           TERMINAL / COMMAND BOX
+           ===================================================== */
+
+        .terminal {
+
+            background:
+                #050505;
+
+            color:
+                #E5E7EB;
+
+            border:
+                1px solid #303030;
+
+            border-radius:
+                7px;
+
+            overflow:
+                hidden;
+
+            margin:
+                20px 0;
+
+        }
+
+
+        .terminal-header {
+
+            background:
+                #1C1C1C;
+
+            padding:
+                10px 15px;
+
+            color:
+                var(--gray-400);
+
+            font-size:
+                .75rem;
+
+        }
+
+
+        .terminal-body {
+
+            padding:
+                20px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size:
+                .88rem;
+
+            overflow-x:
+                auto;
+
+        }
+
+
+        .terminal-prompt {
+
+            color:
+                var(--gold);
+
+        }
+
+
+        /* =====================================================
+           GITHUB WORKFLOW
+           ===================================================== */
+
+        .workflow {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap:
+                10px;
+
+            margin:
+                30px 0;
+
+        }
+
+
+        .workflow-item {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            padding:
+                20px 10px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid rgba(212,175,55,.25);
+
+            border-radius:
+                5px;
+
+        }
+
+
+        .workflow-number {
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                1.2rem;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .workflow-item span {
+
+            font-size:
+                .75rem;
+
+            color:
+                var(--gray-300);
+
+        }
+
+
+        /* =====================================================
+           LAB
+           ===================================================== */
+
+        .lab {
+
+            background:
+                var(--white);
+
+            border:
+                2px solid var(--gold);
+
+            border-radius:
+                8px;
+
+            padding:
+                40px;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .lab-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .lab-badge {
+
+            display:
+                inline-block;
+
+            padding:
+                6px 12px;
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            border-radius:
+                50px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .lab h3 {
+
+            font-size:
+                2rem;
+
+        }
+
+
+        /* =====================================================
+           QUIZ
+           ===================================================== */
+
+        .quiz {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                8px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .quiz-question {
+
+            padding-bottom:
+                30px;
+
+            margin-bottom:
+                30px;
+
+            border-bottom:
+                1px solid var(--gray-200);
+
+        }
+
+
+        .quiz-question:last-of-type {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .quiz-question h3 {
+
+            font-size:
+                1.2rem;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .option {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            align-items:
+                flex-start;
+
+            padding:
+                12px;
+
+            margin-bottom:
+                7px;
+
+            border:
+                1px solid transparent;
+
+            border-radius:
+                5px;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .option:hover {
+
+            background:
+                var(--gold-soft);
+
+            border-color:
+                rgba(212,175,55,.3);
+
+        }
+
+
+        .option input {
+
+            margin-top:
+                5px;
+
+        }
+
+
+        .quiz-button {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            border:
+                1px solid var(--gold);
+
+            padding:
+                15px 30px;
+
+            border-radius:
+                4px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .quiz-button:hover {
+
+            background:
+                var(--gold);
+
+            color:
+                var(--black);
+
+        }
+
+
+        .quiz-result {
+
+            display:
+                none;
+
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--gold);
+
+            background:
+                var(--gold-soft);
+
+            border-radius:
+                6px;
+
+        }
+
+
+        .quiz-result.show {
+
+            display:
+                block;
+
+        }
+
+
+        .score {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                1.5rem;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        /* =====================================================
+           COMPLETION
+           ===================================================== */
+
+        .completion {
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #24242C,
+                    #08080A
+                );
+
+            color:
+                var(--white);
+
+            border:
+                1px solid rgba(212,175,55,.45);
+
+            border-radius:
+                8px;
+
+            padding:
+                55px 35px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .completion h2 {
+
+            color:
+                var(--gold);
+
+            font-size:
+                2.8rem;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .completion p {
+
+            max-width:
+                750px;
+
+            margin:
+                0 auto 25px;
+
+            color:
+                #D4D4D8;
+
+        }
+
+
+        /* =====================================================
+           NAVIGATION BUTTONS
+           ===================================================== */
+
+        .lesson-navigation {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            margin-top:
+                50px;
+
+            padding-top:
+                30px;
+
+            border-top:
+                1px solid var(--gray-200);
+
+        }
+
+
+        .nav-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            min-width:
+                190px;
+
+            padding:
+                15px 22px;
+
+            text-decoration:
+                none;
+
+            border-radius:
+                4px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .7px;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .back-button {
+
+            background:
+                var(--white);
+
+            color:
+                var(--black);
+
+            border:
+                1px solid var(--gray-300);
+
+        }
+
+
+        .back-button:hover {
+
+            border-color:
+                var(--gold);
+
+            transform:
+                translateX(-3px);
+
+        }
+
+
+        .next-button {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            border:
+                1px solid var(--gold);
+
+        }
+
+
+        .next-button:hover {
+
+            background:
+                var(--gold);
+
+            color:
+                var(--black);
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gray-400);
+
+            text-align:
+                center;
+
+            padding:
+                35px 20px;
+
+            font-size:
+                .8rem;
+
+            border-top:
+                1px solid rgba(212,175,55,.2);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .tool-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .workflow {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .objective-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .nav-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .progress-container {
+
+                top:
+                    104px;
+
+            }
+
+
+            .lesson-navigation {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .nav-button {
+
+                width:
+                    100%;
+
+            }
+
+
+            .lab-header {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .hero {
+
+                padding:
+                    80px 18px 65px;
+
+            }
+
+
+            .container {
+
+                padding:
+                    50px 15px;
+
+            }
+
+
+            .content-card,
+            .quiz,
+            .lab {
+
+                padding:
+                    25px;
+
+            }
+
+
+            .objectives {
+
+                padding:
+                    25px;
+
+            }
+
+
+            .step {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .workflow {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
-    <header>
-        <a href="toc.html" style="color: var(--gold-primary); text-decoration: none; font-family: 'Cinzel', serif; font-size: 0.75rem;">← Table of Contents</a>
-        <div style="font-family: 'Cinzel', serif; font-size: 0.8rem;">Web Development: Chapter 1.1</div>
-        <a href="profile.html" style="color: var(--gold-primary); text-decoration: none; font-family: 'Cinzel', serif; font-size: 0.75rem;">My Dashboard</a>
+
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <header class="top-nav">
+
+        <div class="nav-inner">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <div class="brand-mark">
+                    GH
+                </div>
+
+                <div class="brand-name">
+                    Golden Healing Solutions
+                </div>
+
+            </a>
+
+
+            <div class="lesson-label">
+
+                Module 1 • Lesson 1.3
+
+            </div>
+
+        </div>
+
     </header>
 
-    <div class="lesson-container">
-        <!-- Dedicated Lesson Video -->
-        <iframe class="video-box" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
 
-        <!-- Instant Pop-Up Quiz -->
-        <div class="quiz-card">
-            <h2>🎯 Video Knowledge Check</h2>
-            <p style="color: #71717A; font-size: 0.85rem; margin-bottom: 25px;">Select an option below to immediately verify your answer and award XP.</p>
+    <!-- =========================================================
+         READING PROGRESS
+         ========================================================= -->
 
-            <!-- Question 1 -->
-            <div class="q-item">
-                <h4>1. What is the primary purpose of semantic HTML tags?</h4>
-                <button class="opt-btn" onclick="checkAnswer(this, false, 'q1-feed', 'Incorrect. Styling is handled by CSS, not semantic HTML.')">A. To change font colors and background styles</button>
-                <button class="opt-btn" onclick="checkAnswer(this, true, 'q1-feed', 'Correct! Semantic tags convey document meaning to browsers and accessibility tools (+50 XP).')">B. To convey structural meaning to browsers and accessibility tools</button>
-                <button class="opt-btn" onclick="checkAnswer(this, false, 'q1-feed', 'Incorrect. JavaScript handles client-side scripts.')">C. To execute client-side scripts</button>
-                
-                <div id="q1-feed" class="feedback-banner"></div>
-            </div>
+    <div
+        class="progress-container"
+        aria-hidden="true"
+    >
 
-            <!-- Question 2 -->
-            <div class="q-item">
-                <h4>2. Which VS Code extension enables instant browser live-reloading?</h4>
-                <button class="opt-btn" onclick="checkAnswer(this, true, 'q2-feed', 'Correct! Live Server launches a local web server with automatic reload (+50 XP).')">A. Live Server</button>
-                <button class="opt-btn" onclick="checkAnswer(this, false, 'q2-feed', 'Incorrect. Prettier formats code.')">B. Prettier</button>
+        <div
+            class="progress-bar"
+            id="progressBar"
+        ></div>
 
-                <div id="q2-feed" class="feedback-banner"></div>
-            </div>
-
-            <div style="text-align: right;">
-                <a href="lab-1.html" class="btn-next">Next Lesson →</a>
-                <a href="lesson-1-2-how-the-web-works.html" class="btn-back">Review Lesson 1.2 →</a>
-            </div>
-        </div>
     </div>
 
-    <script src="app-state.js"></script>
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section class="hero">
+
+        <span class="eyebrow">
+            Module 1 — Web Development Fundamentals
+        </span>
+
+
+        <h1>
+
+            Lesson 1.3
+
+            <br>
+
+            <span>
+                Development Tools
+            </span>
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+            Set up the essential tools used by professional
+            web developers to write code, test websites,
+            track changes, and collaborate on software projects.
+
+        </p>
+
+
+        <div class="lesson-meta">
+
+            <span class="meta-pill">
+                Beginner Friendly
+            </span>
+
+            <span class="meta-pill">
+                Setup Lesson
+            </span>
+
+            <span class="meta-pill">
+                Hands-On Lab
+            </span>
+
+            <span class="meta-pill">
+                5-Question Quiz
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <main class="container">
+
+
+        <!-- =====================================================
+             OBJECTIVES
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="objectives">
+
+                <h2>
+                    Learning Objectives
+                </h2>
+
+
+                <div class="objective-grid">
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Explain what a development environment is.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Install and configure Visual Studio Code.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Identify the role of a web browser in
+                            development and testing.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Install Git and verify that it works.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Create a GitHub account.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Understand the relationship between
+                            Git and GitHub.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Verify that all required development
+                            tools are installed.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Complete a basic development-tool
+                            setup lab.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 1
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Concept 01
+                </div>
+
+                <h2>
+                    What Is a Development Environment?
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    A <strong>development environment</strong> is
+                    the collection of software, tools, settings,
+                    and resources a developer uses to create,
+                    test, debug, and manage software.
+
+                </p>
+
+
+                <p>
+
+                    As a web developer, you will need more than
+                    just a web browser. You need a place to write
+                    your code, tools to test your work, and systems
+                    for managing different versions of your files.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        THE BIG IDEA
+                    </strong>
+
+                    Your development environment is your
+                    digital workspace.
+
+                    It is similar to a physical workspace where
+                    a professional keeps the equipment and
+                    resources needed to perform their job.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    The Four Tools You Will Install
+                </h3>
+
+
+                <div class="tool-grid">
+
+
+                    <div class="tool-card">
+
+                        <div class="tool-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            Visual Studio Code
+                        </h3>
+
+                        <p>
+
+                            Your code editor.
+
+                            You will use it to write and organize
+                            HTML, CSS, JavaScript, and other files.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="tool-card">
+
+                        <div class="tool-icon">
+                            🌐
+                        </div>
+
+                        <h3>
+                            Web Browser
+                        </h3>
+
+                        <p>
+
+                            Your testing environment.
+
+                            You will use a browser to open webpages,
+                            test functionality, inspect elements,
+                            and identify problems.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="tool-card">
+
+                        <div class="tool-icon">
+                            🔀
+                        </div>
+
+                        <h3>
+                            Git
+                        </h3>
+
+                        <p>
+
+                            Your version-control system.
+
+                            Git records changes to your files so
+                            you can track your work and return to
+                            previous versions.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="tool-card">
+
+                        <div class="tool-icon">
+                            ☁
+                        </div>
+
+                        <h3>
+                            GitHub
+                        </h3>
+
+                        <p>
+
+                            Your online collaboration and
+                            repository platform.
+
+                            GitHub allows you to store repositories
+                            online and collaborate with others.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 2 — VS CODE
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="vscode"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Tool 01
+                </div>
+
+                <h2>
+                    Visual Studio Code
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p>
+
+                    Visual Studio Code, commonly called
+                    <strong>VS Code</strong>, is a source-code
+                    editor used by developers to create and
+                    manage software projects.
+
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Why Are We Using VS Code?
+                </h3>
+
+
+                <p>
+
+                    A developer needs an application where they
+                    can create and edit code files.
+
+                </p>
+
+
+                <p>
+
+                    VS Code provides features that make software
+                    development easier, including:
+
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Syntax highlighting
+                    </li>
+
+                    <li>
+                        Code completion
+                    </li>
+
+                    <li>
+                        File and folder management
+                    </li>
+
+                    <li>
+                        Extensions
+                    </li>
+
+                    <li>
+                        Integrated terminal
+                    </li>
+
+                    <li>
+                        Debugging tools
+                    </li>
+
+                    <li>
+                        Source-control integration
+                    </li>
+
+                    <li>
+                        Customizable settings
+                    </li>
+
+                </ul>
+
+
+                <div class="info-box info">
+
+                    <strong>
+                        STUDENT TIP
+                    </strong>
+
+                    VS Code is a code editor.
+
+                    It is not the same thing as the web browser
+                    you use to view your webpage.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Installing Visual Studio Code
+                </h3>
+
+
+                <p>
+
+                    Download VS Code from the official Visual
+                    Studio Code website.
+
+                </p>
+
+
+                <div class="steps">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Visit the Official Website
+                            </h3>
+
+                            <p>
+
+                                Open your browser and navigate to
+                                the official Visual Studio Code
+                                website.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Choose Your Operating System
+                            </h3>
+
+                            <p>
+
+                                Select the download appropriate
+                                for your computer.
+
+                            </p>
+
+                            <p>
+
+                                Common operating systems include
+                                Windows, macOS, and Linux.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Run the Installer
+                            </h3>
+
+                            <p>
+
+                                Open the downloaded installation
+                                file and follow the installation
+                                instructions.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Launch VS Code
+                            </h3>
+
+                            <p>
+
+                                Open Visual Studio Code after the
+                                installation finishes.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            5
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Create Your First Folder
+                            </h3>
+
+                            <p>
+
+                                Create a folder on your computer
+                                for your bootcamp projects.
+
+                            </p>
+
+
+                            <div class="code-box">
+
+                                <code>
+
+                                    GoldenHealing-WebDevelopment
+
+                                </code>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Understanding the VS Code Interface
+                </h3>
+
+
+                <p>
+
+                    When you open VS Code, you will see several
+                    important areas.
+
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        <strong>Explorer:</strong>
+                        Shows your files and folders.
+                    </li>
+
+                    <li>
+                        <strong>Editor:</strong>
+                        The area where you write code.
+                    </li>
+
+                    <li>
+                        <strong>Activity Bar:</strong>
+                        Provides access to Explorer, Search,
+                        Source Control, Run, Extensions, and
+                        other features.
+                    </li>
+
+                    <li>
+                        <strong>Terminal:</strong>
+                        Allows you to execute command-line
+                        instructions.
+                    </li>
+
+                    <li>
+                        <strong>Status Bar:</strong>
+                        Displays information about the current
+                        file and editor state.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 3 — BROWSER
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="browser"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Tool 02
+                </div>
+
+                <h2>
+                    Web Browser
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    A <strong>web browser</strong> is software
+                    that allows users to access and interact
+                    with resources available on the web.
+
+                </p>
+
+
+                <p>
+
+                    Examples include browsers such as Chrome,
+                    Microsoft Edge, Firefox, and Safari.
+
+                </p>
+
+
+                <h4>
+                    Developers Use Browsers for More Than Browsing
+                </h4>
+
+
+                <p>
+
+                    Web developers use browsers to:
+
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Open and test webpages
+                    </li>
+
+                    <li>
+                        Test responsive layouts
+                    </li>
+
+                    <li>
+                        Inspect HTML elements
+                    </li>
+
+                    <li>
+                        Inspect CSS styles
+                    </li>
+
+                    <li>
+                        View JavaScript errors
+                    </li>
+
+                    <li>
+                        Test network requests
+                    </li>
+
+                    <li>
+                        Analyze page performance
+                    </li>
+
+                    <li>
+                        Test accessibility-related features
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Developer Tools
+                </h3>
+
+
+                <p>
+
+                    Modern browsers contain a collection of tools
+                    commonly called <strong>Developer Tools</strong>
+                    or <strong>DevTools</strong>.
+
+                </p>
+
+
+                <p>
+
+                    DevTools allows developers to inspect and
+                    troubleshoot webpages.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        IMPORTANT
+                    </strong>
+
+                    Your browser is not just where your customers
+                    view a website.
+
+                    It is also one of your most important
+                    development and testing tools.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 4 — GIT
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="git"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Tool 03
+                </div>
+
+                <h2>
+                    Git
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>Git</strong> is a distributed
+                    version-control system.
+
+                </p>
+
+
+                <p>
+
+                    Version control allows developers to track
+                    changes made to files over time.
+
+                </p>
+
+
+                <p>
+
+                    Imagine that you create a webpage today.
+
+                    Tomorrow, you make changes.
+
+                    The next day, you make additional changes
+                    and accidentally break something.
+
+                </p>
+
+
+                <p>
+
+                    Without version control, recovering an older
+                    version can be difficult.
+
+                </p>
+
+
+                <p>
+
+                    Git helps solve this problem by keeping a
+                    history of changes.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        SIMPLE DEFINITION
+                    </strong>
+
+                    Git helps you track and manage changes
+                    to your code.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Installing Git
+                </h3>
+
+
+                <div class="steps">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Download Git
+                            </h3>
+
+                            <p>
+
+                                Download Git from the official
+                                Git website.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Install Git
+                            </h3>
+
+                            <p>
+
+                                Run the installer and follow
+                                the installation instructions.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Open Your Terminal
+                            </h3>
+
+                            <p>
+
+                                VS Code includes an integrated
+                                terminal that you can use to
+                                interact with Git.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Verify Git
+                            </h3>
+
+                            <p>
+
+                                Enter the following command:
+
+                            </p>
+
+
+                            <div class="terminal">
+
+                                <div class="terminal-header">
+                                    Terminal
+                                </div>
+
+                                <div class="terminal-body">
+
+                                    <span class="terminal-prompt">
+                                        $
+                                    </span>
+
+                                    git --version
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box success">
+
+                    <strong>
+                        SUCCESS
+                    </strong>
+
+                    If Git is installed correctly, the terminal
+                    should return a Git version number.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Basic Git Vocabulary
+                </h3>
+
+
+                <ul>
+
+                    <li>
+
+                        <strong>Repository:</strong>
+
+                        A location where a project and its
+                        version history are stored.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Commit:</strong>
+
+                        A recorded set of changes.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Branch:</strong>
+
+                        A separate line of development.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Clone:</strong>
+
+                        Creating a local copy of a repository.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Push:</strong>
+
+                        Sending local commits to a remote
+                        repository.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Pull:</strong>
+
+                        Retrieving changes from a remote
+                        repository.
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 5 — GITHUB
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="github"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Tool 04
+                </div>
+
+                <h2>
+                    GitHub
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>GitHub</strong> is a platform that
+                    provides online tools for hosting Git
+                    repositories and collaborating on software
+                    projects.
+
+                </p>
+
+
+                <p>
+
+                    Git and GitHub are related, but they are
+                    not the same thing.
+
+                </p>
+
+
+                <div class="comparison-table">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Git
+                                </th>
+
+                                <th>
+                                    GitHub
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Version-control system
+                                </td>
+
+                                <td>
+                                    Online development platform
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Runs locally on your computer
+                                </td>
+
+                                <td>
+                                    Hosts repositories online
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Tracks file changes
+                                </td>
+
+                                <td>
+                                    Supports collaboration
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Can work without GitHub
+                                </td>
+
+                                <td>
+                                    Commonly works with Git repositories
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        MEMORY TRICK
+                    </strong>
+
+                    Git = Version control
+
+                    <br><br>
+
+                    GitHub = Online platform for Git-based
+                    collaboration and repository hosting
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Creating Your GitHub Account
+                </h3>
+
+
+                <div class="steps">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Visit GitHub
+                            </h3>
+
+                            <p>
+
+                                Open your browser and go to
+                                the official GitHub website.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Create an Account
+                            </h3>
+
+                            <p>
+
+                                Select the option to create
+                                a new account.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Choose a Professional Username
+                            </h3>
+
+                            <p>
+
+                                Your GitHub username may appear
+                                on your public repositories and
+                                portfolio.
+
+                            </p>
+
+                            <div class="info-box warning">
+
+                                <strong>
+                                    CAREER TIP
+                                </strong>
+
+                                Choose a username you would feel
+                                comfortable showing a recruiter,
+                                hiring manager, or future employer.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Verify Your Email
+                            </h3>
+
+                            <p>
+
+                                Follow GitHub's account verification
+                                process.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            5
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Complete Your Profile
+                            </h3>
+
+                            <p>
+
+                                Add professional information that
+                                you are comfortable making public.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 6 — GIT + GITHUB WORKFLOW
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Concept 06
+                </div>
+
+                <h2>
+                    How Git and GitHub Work Together
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    Understanding the relationship between Git
+                    and GitHub is extremely important for new
+                    developers.
+
+                </p>
+
+
+                <p>
+
+                    A simplified workflow looks like this:
+
+                </p>
+
+
+                <div class="workflow">
+
+
+                    <div class="workflow-item">
+
+                        <div class="workflow-number">
+                            1
+                        </div>
+
+                        <span>
+                            Write Code
+                        </span>
+
+                    </div>
+
+
+                    <div class="workflow-item">
+
+                        <div class="workflow-number">
+                            2
+                        </div>
+
+                        <span>
+                            Git Tracks Changes
+                        </span>
+
+                    </div>
+
+
+                    <div class="workflow-item">
+
+                        <div class="workflow-number">
+                            3
+                        </div>
+
+                        <span>
+                            Commit
+                        </span>
+
+                    </div>
+
+
+                    <div class="workflow-item">
+
+                        <div class="workflow-number">
+                            4
+                        </div>
+
+                        <span>
+                            Push
+                        </span>
+
+                    </div>
+
+
+                    <div class="workflow-item">
+
+                        <div class="workflow-number">
+                            5
+                        </div>
+
+                        <span>
+                            GitHub Stores Repository
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="info-box info">
+
+                    <strong>
+                        IMPORTANT
+                    </strong>
+
+                    You will learn the actual Git commands and
+                    GitHub workflow in greater detail later in
+                    the bootcamp.
+
+                    For this lesson, focus on understanding
+                    what each tool is used for.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 7 — INSTALLATION CHECKLIST
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Setup Verification
+                </div>
+
+                <h2>
+                    Development Environment Checklist
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p>
+
+                    Check each item after you have completed it.
+
+                </p>
+
+            </div>
+
+
+            <div class="checklist">
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkVSCode"
+                    >
+
+                    <label for="checkVSCode">
+
+                        I installed Visual Studio Code.
+
+                    </label>
+
+                </div>
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkBrowser"
+                    >
+
+                    <label for="checkBrowser">
+
+                        I have a modern web browser available
+                        for development and testing.
+
+                    </label>
+
+                </div>
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkGit"
+                    >
+
+                    <label for="checkGit">
+
+                        I installed Git.
+
+                    </label>
+
+                </div>
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkGitVersion"
+                    >
+
+                    <label for="checkGitVersion">
+
+                        I verified Git by running
+                        <strong>git --version</strong>.
+
+                    </label>
+
+                </div>
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkGithub"
+                    >
+
+                    <label for="checkGithub">
+
+                        I created a GitHub account.
+
+                    </label>
+
+                </div>
+
+
+                <div class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="checkFolder"
+                    >
+
+                    <label for="checkFolder">
+
+                        I created a folder for my bootcamp projects.
+
+                    </label>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             HANDS-ON LAB
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="lab"
+        >
+
+            <div class="lab">
+
+                <div class="lab-header">
+
+                    <div>
+
+                        <span class="lab-badge">
+                            HANDS-ON LAB
+                        </span>
+
+                        <h3>
+                            Build Your Development Workspace
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Now you are going to verify that your
+                    development environment is ready.
+
+                </p>
+
+
+                <h4>
+                    Lab Requirements
+                </h4>
+
+
+                <ol>
+
+                    <li>
+                        Open Visual Studio Code.
+                    </li>
+
+                    <li>
+                        Create a folder named
+                        <strong>web-development-bootcamp</strong>.
+                    </li>
+
+                    <li>
+                        Open the folder inside VS Code.
+                    </li>
+
+                    <li>
+                        Create a file named
+                        <strong>index.html</strong>.
+                    </li>
+
+                    <li>
+                        Add the following HTML.
+                    </li>
+
+                </ol>
+
+
+                <div class="code-box">
+
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;title&gt;
+        My First Web Development Project
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;
+        My Web Development Journey
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        I am learning web development
+        at Golden Healing Solutions.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code>
+
+                </div>
+
+
+                <h4>
+                    Next Step
+                </h4>
+
+
+                <p>
+
+                    Save the file and open it in your web browser.
+
+                    You should see your heading and paragraph.
+
+                </p>
+
+
+                <h4>
+                    Git Verification
+                </h4>
+
+
+                <p>
+
+                    Open the VS Code terminal and run:
+
+                </p>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-header">
+                        VS Code Terminal
+                    </div>
+
+                    <div class="terminal-body">
+
+                        <div>
+                            <span class="terminal-prompt">
+                                $
+                            </span>
+
+                            git --version
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <span class="terminal-prompt">
+                                $
+                            </span>
+
+                            git config --global user.name
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box success">
+
+                    <strong>
+                        LAB GOAL
+                    </strong>
+
+                    By the end of this lab, you should have
+                    VS Code, a browser, Git, and GitHub ready
+                    for the upcoming coding lessons.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KNOWLEDGE CHECK
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="quiz"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Knowledge Check
+                </div>
+
+                <h2>
+                    Test Your Understanding
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p>
+
+                    Answer all five questions.
+
+                </p>
+
+            </div>
+
+
+            <form
+                class="quiz"
+                id="lessonQuiz"
+            >
+
+
+                <!-- QUESTION 1 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        1. What is Visual Studio Code primarily used for?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="a"
+                        >
+
+                        <span>
+                            Writing and managing source code
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="b"
+                        >
+
+                        <span>
+                            Hosting websites only
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="c"
+                        >
+
+                        <span>
+                            Managing bank accounts
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="d"
+                        >
+
+                        <span>
+                            Replacing Git
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        2. What is the primary purpose of Git?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="a"
+                        >
+
+                        <span>
+                            Designing logos
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="b"
+                        >
+
+                        <span>
+                            Tracking changes to files
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="c"
+                        >
+
+                        <span>
+                            Browsing websites
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="d"
+                        >
+
+                        <span>
+                            Creating email accounts
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        3. What is GitHub?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="a"
+                        >
+
+                        <span>
+                            A web browser
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="b"
+                        >
+
+                        <span>
+                            A programming language
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="c"
+                        >
+
+                        <span>
+                            An online platform for hosting
+                            and collaborating on repositories
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="d"
+                        >
+
+                        <span>
+                            A replacement for HTML
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 4 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        4. Why do developers use web browsers
+                        during development?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="a"
+                        >
+
+                        <span>
+                            To test and inspect webpages
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="b"
+                        >
+
+                        <span>
+                            To replace a code editor
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="c"
+                        >
+
+                        <span>
+                            To replace Git
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="d"
+                        >
+
+                        <span>
+                            To create operating systems
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 5 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        5. Which statement best describes the
+                        relationship between Git and GitHub?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="a"
+                        >
+
+                        <span>
+                            Git and GitHub are exactly the same thing.
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="b"
+                        >
+
+                        <span>
+                            Git is version control, while GitHub
+                            provides an online platform for
+                            repositories and collaboration.
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="c"
+                        >
+
+                        <span>
+                            GitHub is a programming language.
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="d"
+                        >
+
+                        <span>
+                            Git is a web browser.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="quiz-button"
+                >
+                    Submit Knowledge Check
+                </button>
+
+
+                <div
+                    class="quiz-result"
+                    id="quizResult"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================================
+             LESSON SUMMARY
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Summary
+                </div>
+
+                <h2>
+                    What You Learned
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <ul>
+
+                    <li>
+                        A development environment is the collection
+                        of tools used to create and manage software.
+                    </li>
+
+                    <li>
+                        Visual Studio Code is a source-code editor.
+                    </li>
+
+                    <li>
+                        A web browser allows developers to view,
+                        test, and inspect web applications.
+                    </li>
+
+                    <li>
+                        Git is a version-control system.
+                    </li>
+
+                    <li>
+                        GitHub provides an online platform for
+                        hosting and collaborating on Git repositories.
+                    </li>
+
+                    <li>
+                        Git and GitHub are related but are not
+                        the same technology.
+                    </li>
+
+                    <li>
+                        A professional developer should become
+                        comfortable using development tools as
+                        part of their daily workflow.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPLETION
+             ===================================================== -->
+
+        <section class="completion">
+
+            <h2>
+                Lesson 1.3 Complete
+            </h2>
+
+
+            <p>
+
+                You have now established your basic web development
+                environment.
+
+                Your next step is to begin working with the actual
+                building blocks of webpages.
+
+            </p>
+
+
+            <p>
+
+                Make sure your development tools are installed
+                before moving forward.
+
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             LESSON NAVIGATION
+             ===================================================== -->
+
+        <nav
+            class="lesson-navigation"
+            aria-label="Lesson navigation"
+        >
+
+
+            <!-- BACK -->
+
+            <a
+                href="lesson-1-2.html"
+                class="nav-button back-button"
+            >
+
+                ←
+
+                Back to Lesson 1.2
+
+            </a>
+
+
+            <!-- NEXT -->
+
+            <a
+                href="lesson-1-4.html"
+                class="nav-button next-button"
+            >
+
+                Continue to Lesson 1.4
+
+                →
+
+            </a>
+
+
+        </nav>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        © 2026 Golden Healing Solutions LLC.
+        All Rights Reserved.
+
+        <br><br>
+
+        Web Development Bootcamp
+        •
+        Module 1
+        •
+        Lesson 1.3
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script>
-        function checkAnswer(btnElement, isCorrect, feedbackId, message) {
-            const banner = document.getElementById(feedbackId);
-            
-            if (isCorrect) {
-                banner.className = "feedback-banner correct";
-                banner.innerText = "✅ " + message;
-                btnElement.style.borderColor = "#10B981";
-                btnElement.style.background = "#D1FAE5";
-                if (typeof awardXP === "function") awardXP(50, "Correct Quiz Answer");
-            } else {
-                banner.className = "feedback-banner incorrect";
-                banner.innerText = "❌ " + message;
-                btnElement.style.borderColor = "#EF4444";
-                btnElement.style.background = "#FEE2E2";
+
+
+        /* =====================================================
+           READING PROGRESS
+           ===================================================== */
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+
+        function updateProgress() {
+
+            const scrollTop =
+                window.scrollY;
+
+
+            const documentHeight =
+                document.documentElement.scrollHeight
+                -
+                window.innerHeight;
+
+
+            if (documentHeight <= 0) {
+
+                progressBar.style.width = "100%";
+
+                return;
+
             }
+
+
+            const progress =
+                (
+                    scrollTop /
+                    documentHeight
+                ) * 100;
+
+
+            progressBar.style.width =
+                Math.min(progress, 100) + "%";
+
         }
+
+
+        window.addEventListener(
+            "scroll",
+            updateProgress
+        );
+
+
+        updateProgress();
+
+
+        /* =====================================================
+           SAVE CHECKLIST PROGRESS
+           ===================================================== */
+
+        const checklistIds = [
+
+            "checkVSCode",
+
+            "checkBrowser",
+
+            "checkGit",
+
+            "checkGitVersion",
+
+            "checkGithub",
+
+            "checkFolder"
+
+        ];
+
+
+        checklistIds.forEach(function(id) {
+
+            const checkbox =
+                document.getElementById(id);
+
+
+            const saved =
+                localStorage.getItem(
+                    "lesson13_" + id
+                );
+
+
+            if (saved === "true") {
+
+                checkbox.checked = true;
+
+            }
+
+
+            checkbox.addEventListener(
+                "change",
+                function() {
+
+                    localStorage.setItem(
+                        "lesson13_" + id,
+                        checkbox.checked
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           QUIZ
+           ===================================================== */
+
+        const quiz =
+            document.getElementById(
+                "lessonQuiz"
+            );
+
+
+        const quizResult =
+            document.getElementById(
+                "quizResult"
+            );
+
+
+        const correctAnswers = {
+
+            q1: "a",
+
+            q2: "b",
+
+            q3: "c",
+
+            q4: "a",
+
+            q5: "b"
+
+        };
+
+
+        quiz.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                let score = 0;
+
+                let answered = 0;
+
+
+                Object.keys(correctAnswers)
+                    .forEach(function(question) {
+
+                        const selected =
+                            document.querySelector(
+                                `input[name="${question}"]:checked`
+                            );
+
+
+                        if (selected) {
+
+                            answered++;
+
+
+                            if (
+                                selected.value ===
+                                correctAnswers[question]
+                            ) {
+
+                                score++;
+
+                            }
+
+                        }
+
+                    });
+
+
+                if (answered < 5) {
+
+                    quizResult.classList.add(
+                        "show"
+                    );
+
+
+                    quizResult.innerHTML = `
+
+                        <div class="score">
+                            Complete the Quiz
+                        </div>
+
+                        <p>
+                            You answered
+                            ${answered}
+                            of 5 questions.
+                            Please answer all questions
+                            before submitting.
+                        </p>
+
+                    `;
+
+
+                    quizResult.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+
+                    return;
+
+                }
+
+
+                const percentage =
+                    Math.round(
+                        (score / 5) * 100
+                    );
+
+
+                let message;
+
+
+                if (percentage === 100) {
+
+                    message =
+                        "Excellent! You have demonstrated " +
+                        "a strong understanding of the " +
+                        "development tools covered in this lesson.";
+
+                }
+
+                else if (percentage >= 80) {
+
+                    message =
+                        "Great job! You have a solid understanding " +
+                        "of the development tools. Review any " +
+                        "missed questions before continuing.";
+
+                }
+
+                else if (percentage >= 60) {
+
+                    message =
+                        "Good effort. Review the Git, GitHub, " +
+                        "VS Code, and browser sections before " +
+                        "moving to the next lesson.";
+
+                }
+
+                else {
+
+                    message =
+                        "Keep practicing. Review this lesson " +
+                        "carefully and retake the Knowledge Check.";
+
+                }
+
+
+                quizResult.classList.add(
+                    "show"
+                );
+
+
+                quizResult.innerHTML = `
+
+                    <div class="score">
+
+                        Score:
+                        ${score}/5
+                        —
+                        ${percentage}%
+
+                    </div>
+
+
+                    <p>
+                        ${message}
+                    </p>
+
+
+                    <br>
+
+
+                    <strong>
+                        Key Answers:
+                    </strong>
+
+
+                    <ul
+                        style="
+                            padding-left: 20px;
+                            margin-top: 10px;
+                        "
+                    >
+
+                        <li>
+                            VS Code is used to write and
+                            manage source code.
+                        </li>
+
+                        <li>
+                            Git tracks changes to files.
+                        </li>
+
+                        <li>
+                            GitHub provides an online platform
+                            for repositories and collaboration.
+                        </li>
+
+                        <li>
+                            Browsers allow developers to test
+                            and inspect webpages.
+                        </li>
+
+                        <li>
+                            Git and GitHub are related but
+                            are not the same thing.
+                        </li>
+
+                    </ul>
+
+                `;
+
+
+                quizResult.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+
+            }
+        );
+
+
     </script>
+
+
 </body>
+
 </html>

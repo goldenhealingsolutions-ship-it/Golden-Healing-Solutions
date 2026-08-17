@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Lab 1 | Set Up Your Development Environment
+    </title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL STYLES
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family: 'Montserrat', sans-serif;
+
+            background:
+                #0A0A0A;
+
+            color: #FFFFFF;
+
+            line-height: 1.7;
+
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .lab-header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #080808,
+                    #181818
+                );
+
+            border-bottom:
+                1px solid #2E2E2E;
+
+            padding:
+                18px 6%;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            position:
+                sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .brand {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            color:
+                #D4AF37;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                2px;
+
+        }
+
+
+        .course-name {
+
+            color:
+                #AAAAAA;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .lab-hero {
+
+            padding:
+                80px 20px;
+
+            text-align:
+                center;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #252525,
+                    #080808 65%
+                );
+
+        }
+
+
+        .lab-label {
+
+            display:
+                inline-block;
+
+            border:
+                1px solid #D4AF37;
+
+            color:
+                #D4AF37;
+
+            padding:
+                7px 16px;
+
+            border-radius:
+                50px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .72rem;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .lab-hero h1 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    2.7rem,
+                    6vw,
+                    5rem
+                );
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .gold {
+            color:
+                #D4AF37;
+        }
+
+
+        .lab-hero p {
+
+            max-width:
+                760px;
+
+            margin:
+                auto;
+
+            color:
+                #D0D0D0;
+
+            font-size:
+                1.05rem;
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+           ===================================================== */
+
+        .container {
+
+            width:
+                min(
+                    1100px,
+                    92%
+                );
+
+            margin:
+                0 auto;
+
+        }
+
+
+        /* =====================================================
+           LAB INFO CARDS
+           ===================================================== */
+
+        .lab-info {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap:
+                20px;
+
+            margin:
+                45px 0;
+
+        }
+
+
+        .info-card {
+
+            background:
+                #151515;
+
+            border:
+                1px solid #292929;
+
+            padding:
+                25px;
+
+            border-radius:
+                8px;
+
+        }
+
+
+        .info-card span {
+
+            display:
+                block;
+
+            color:
+                #D4AF37;
+
+            font-size:
+                .75rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card strong {
+
+            font-size:
+                1.05rem;
+
+        }
+
+
+        /* =====================================================
+           SECTION
+           ===================================================== */
+
+        .lab-section {
+
+            margin:
+                55px 0;
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                2.4rem;
+
+            color:
+                #FFFFFF;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                #AFAFAF;
+
+        }
+
+
+        /* =====================================================
+           OBJECTIVES
+           ===================================================== */
+
+        .objective-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+        }
+
+
+        .objective {
+
+            background:
+                #151515;
+
+            border-left:
+                4px solid #D4AF37;
+
+            padding:
+                16px 20px;
+
+            border-radius:
+                4px;
+
+        }
+
+
+        .objective strong {
+
+            color:
+                #D4AF37;
+
+        }
+
+
+        /* =====================================================
+           REQUIREMENTS
+           ===================================================== */
+
+        .requirements {
+
+            background:
+                #F8F7F3;
+
+            color:
+                #111111;
+
+            padding:
+                35px;
+
+            border-radius:
+                8px;
+
+        }
+
+
+        .requirements h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .requirements ul {
+
+            list-style:
+                none;
+
+        }
+
+
+        .requirements li {
+
+            padding:
+                10px 0;
+
+            border-bottom:
+                1px solid #DDDDDD;
+
+        }
+
+
+        .requirements li:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .check {
+
+            color:
+                #B8860B;
+
+            font-weight:
+                700;
+
+            margin-right:
+                10px;
+
+        }
+
+
+        /* =====================================================
+           STEP CARDS
+           ===================================================== */
+
+        .step {
+
+            background:
+                #151515;
+
+            border:
+                1px solid #292929;
+
+            border-radius:
+                8px;
+
+            padding:
+                30px;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .step-number {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            background:
+                #D4AF37;
+
+            color:
+                #0A0A0A;
+
+            border-radius:
+                50%;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .step h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .step p {
+
+            color:
+                #C8C8C8;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .step ul {
+
+            margin-left:
+                20px;
+
+            color:
+                #C8C8C8;
+
+        }
+
+
+        .step li {
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        /* =====================================================
+           CODE BLOCK
+           ===================================================== */
+
+        .code-container {
+
+            margin-top:
+                20px;
+
+            background:
+                #050505;
+
+            border:
+                1px solid #333333;
+
+            border-radius:
+                6px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .code-header {
+
+            background:
+                #202020;
+
+            padding:
+                10px 15px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+        }
+
+
+        .code-header span {
+
+            color:
+                #D4AF37;
+
+            font-size:
+                .75rem;
+
+            font-family:
+                monospace;
+
+        }
+
+
+        .copy-code {
+
+            background:
+                transparent;
+
+            border:
+                1px solid #D4AF37;
+
+            color:
+                #D4AF37;
+
+            padding:
+                5px 10px;
+
+            border-radius:
+                4px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                .7rem;
+
+        }
+
+
+        pre {
+
+            padding:
+                25px;
+
+            overflow-x:
+                auto;
+
+            color:
+                #EEEEEE;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size:
+                .9rem;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        /* =====================================================
+           TIP BOX
+           ===================================================== */
+
+        .tip-box {
+
+            background:
+                rgba(
+                    212,
+                    175,
+                    55,
+                    .08
+                );
+
+            border:
+                1px solid #6C5A20;
+
+            border-left:
+                4px solid #D4AF37;
+
+            padding:
+                20px;
+
+            margin-top:
+                20px;
+
+            border-radius:
+                5px;
+
+        }
+
+
+        .tip-box strong {
+
+            color:
+                #D4AF37;
+
+        }
+
+
+        /* =====================================================
+           CHECKPOINT
+           ===================================================== */
+
+        .checkpoint {
+
+            background:
+                #FFFFFF;
+
+            color:
+                #111111;
+
+            padding:
+                40px;
+
+            border-radius:
+                8px;
+
+            margin-top:
+                30px;
+
+        }
+
+
+        .checkpoint h3 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                2.2rem;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .checkpoint-item {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            align-items:
+                flex-start;
+
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid #E5E5E5;
+
+        }
+
+
+        .checkpoint-item:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .checkpoint-item input {
+
+            width:
+                20px;
+
+            height:
+                20px;
+
+            margin-top:
+                4px;
+
+            accent-color:
+                #D4AF37;
+
+        }
+
+
+        /* =====================================================
+           COMPLETION
+           ===================================================== */
+
+        .completion {
+
+            text-align:
+                center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #161616,
+                    #0B0B0B
+                );
+
+            border:
+                1px solid #D4AF37;
+
+            padding:
+                50px 30px;
+
+            border-radius:
+                8px;
+
+            margin:
+                60px 0;
+
+        }
+
+
+        .completion h2 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                2.8rem;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .completion p {
+
+            color:
+                #BBBBBB;
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto 25px;
+
+        }
+
+
+        .complete-button {
+
+            border:
+                none;
+
+            background:
+                #D4AF37;
+
+            color:
+                #080808;
+
+            padding:
+                16px 28px;
+
+            border-radius:
+                5px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .complete-button:hover {
+
+            background:
+                #FFFFFF;
+
+        }
+
+
+        .completion-message {
+
+            display:
+                none;
+
+            margin-top:
+                20px;
+
+            color:
+                #D4AF37;
+
+            font-weight:
+                600;
+
+        }
+
+
+        .completion-message.show {
+
+            display:
+                block;
+
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+           ===================================================== */
+
+        .lesson-navigation {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            margin:
+                50px 0 70px;
+
+        }
+
+
+        .nav-button {
+
+            flex:
+                1;
+
+            padding:
+                16px;
+
+            border:
+                1px solid #D4AF37;
+
+            border-radius:
+                5px;
+
+            text-align:
+                center;
+
+            color:
+                #D4AF37;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                600;
+
+            transition:
+                .2s ease;
+
+        }
+
+
+        .nav-button:hover {
+
+            background:
+                #D4AF37;
+
+            color:
+                #080808;
+
+        }
+
+
+        .next-button {
+
+            background:
+                #D4AF37;
+
+            color:
+                #080808;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+
+            border-top:
+                1px solid #292929;
+
+            padding:
+                30px 20px;
+
+            text-align:
+                center;
+
+            color:
+                #777777;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (
+            max-width: 750px
+        ) {
+
+            .lab-info {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .lesson-navigation {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .lab-header {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    5px;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .step {
+
+                padding:
+                    22px;
+
+            }
+
+
+            .requirements,
+            .checkpoint {
+
+                padding:
+                    25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="lab-header">
+
+    <div class="brand">
+        GOLDEN HEALING SOLUTIONS
+    </div>
+
+    <div class="course-name">
+        Web Development Bootcamp
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="lab-hero">
+
+    <div class="container">
+
+        <span class="lab-label">
+            HANDS-ON LAB • LAB 1
+        </span>
+
+        <h1>
+            Set Up Your
+            <span class="gold">
+                Development Environment
+            </span>
+        </h1>
+
+        <p>
+
+            In this hands-on lab, you will prepare your
+            computer for web development and create your
+            first webpage using HTML.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     LAB INFORMATION
+     ========================================================= -->
+
+<section class="lab-info">
+
+    <div class="info-card">
+
+        <span>
+            Difficulty
+        </span>
+
+        <strong>
+            Beginner
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span>
+            Estimated Time
+        </span>
+
+        <strong>
+            30–45 Minutes
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span>
+            Lab Type
+        </span>
+
+        <strong>
+            Hands-On Practice
+        </strong>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LAB OBJECTIVES
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="section-heading">
+
+        <h2>
+            Lab Objectives
+        </h2>
+
+        <p>
+            By the end of this lab, you should be able to:
+        </p>
+
+    </div>
+
+
+    <div class="objective-list">
+
+        <div class="objective">
+
+            <strong>
+                01.
+            </strong>
+
+            Install Visual Studio Code.
+
+        </div>
+
+
+        <div class="objective">
+
+            <strong>
+                02.
+            </strong>
+
+            Create a project folder for your website.
+
+        </div>
+
+
+        <div class="objective">
+
+            <strong>
+                03.
+            </strong>
+
+            Create an HTML file.
+
+        </div>
+
+
+        <div class="objective">
+
+            <strong>
+                04.
+            </strong>
+
+            Open your HTML file in a web browser.
+
+        </div>
+
+
+        <div class="objective">
+
+            <strong>
+                05.
+            </strong>
+
+            Create and view your first webpage.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REQUIRED TOOLS
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="requirements">
+
+        <h3>
+            Required Tools
+        </h3>
+
+
+        <ul>
+
+            <li>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                Computer with internet access
+
+            </li>
+
+
+            <li>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                Visual Studio Code
+
+            </li>
+
+
+            <li>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                A modern web browser
+
+                <br>
+
+                <small>
+                    Chrome, Microsoft Edge, Firefox,
+                    Safari, or another modern browser
+                </small>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 1
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            1
+        </div>
+
+        <h3>
+            Install Visual Studio Code
+        </h3>
+
+
+        <p>
+
+            Visual Studio Code, commonly called VS Code,
+            is a source-code editor used by developers
+            to create and edit websites and applications.
+
+        </p>
+
+
+        <p>
+            Download and install Visual Studio Code
+            on your computer.
+        </p>
+
+
+        <ul>
+
+            <li>
+                Download VS Code from the official
+                Microsoft Visual Studio Code website.
+            </li>
+
+            <li>
+                Choose the installer for your operating system.
+            </li>
+
+            <li>
+                Run the installer.
+            </li>
+
+            <li>
+                Follow the installation instructions.
+            </li>
+
+            <li>
+                Open Visual Studio Code after installation.
+            </li>
+
+        </ul>
+
+
+        <div class="tip-box">
+
+            <strong>
+                💡 Tip:
+            </strong>
+
+            You will use VS Code throughout this bootcamp
+            to write HTML, CSS, and JavaScript.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 2
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            2
+        </div>
+
+        <h3>
+            Create Your Project Folder
+        </h3>
+
+
+        <p>
+
+            A project folder keeps all of the files
+            associated with your website organized
+            in one location.
+
+        </p>
+
+
+        <p>
+            Create a new folder on your computer.
+        </p>
+
+
+        <p>
+            Name your folder:
+        </p>
+
+
+        <div class="code-container">
+
+            <div class="code-header">
+
+                <span>
+                    Folder Name
+                </span>
+
+            </div>
+
+            <pre>web-development-lab-1</pre>
+
+        </div>
+
+
+        <p style="margin-top:20px;">
+
+            You can place the folder somewhere easy
+            to find, such as your Desktop or Documents folder.
+
+        </p>
+
+
+        <div class="tip-box">
+
+            <strong>
+                💡 Why does this matter?
+            </strong>
+
+            Professional developers organize projects
+            into folders so that files are easier to
+            manage, edit, test, and share.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 3
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            3
+        </div>
+
+        <h3>
+            Open Your Project in VS Code
+        </h3>
+
+
+        <p>
+
+            Open Visual Studio Code and open the project
+            folder you just created.
+
+        </p>
+
+
+        <p>
+            In VS Code:
+        </p>
+
+
+        <ul>
+
+            <li>
+                Select <strong>File</strong>.
+            </li>
+
+            <li>
+                Select <strong>Open Folder</strong>.
+            </li>
+
+            <li>
+                Find your
+                <strong>
+                    web-development-lab-1
+                </strong>
+                folder.
+            </li>
+
+            <li>
+                Select the folder.
+            </li>
+
+            <li>
+                Click <strong>Select Folder</strong>.
+            </li>
+
+        </ul>
+
+
+        <div class="tip-box">
+
+            <strong>
+                💡 Checkpoint:
+            </strong>
+
+            Your project folder should now appear
+            in the VS Code Explorer panel.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 4
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            4
+        </div>
+
+        <h3>
+            Create Your HTML File
+        </h3>
+
+
+        <p>
+
+            Inside your project folder, create a new file
+            named:
+
+        </p>
+
+
+        <div class="code-container">
+
+            <div class="code-header">
+
+                <span>
+                    File Name
+                </span>
+
+            </div>
+
+            <pre>index.html</pre>
+
+        </div>
+
+
+        <p style="margin-top:20px;">
+
+            The file extension
+            <strong>.html</strong>
+            tells your computer that this is an
+            HTML document.
+
+        </p>
+
+
+        <div class="tip-box">
+
+            <strong>
+                ⚠️ Important:
+            </strong>
+
+            Make sure the file is named
+            <strong>index.html</strong>
+            and not
+            <strong>index.html.txt</strong>.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 5
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            5
+        </div>
+
+        <h3>
+            Create Your First Webpage
+        </h3>
+
+
+        <p>
+
+            Copy the following HTML into your
+            <strong>index.html</strong> file.
+
+        </p>
+
+
+        <div class="code-container">
+
+            <div class="code-header">
+
+                <span>
+                    index.html
+                </span>
+
+                <button
+                    class="copy-code"
+                    onclick="copyCode()"
+                >
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre id="firstPageCode">&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    &gt;
+
+    &lt;title&gt;
+        My First Webpage
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+    &lt;h1&gt;
+        Welcome to My First Webpage!
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        My name is [Your Name].
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        I am learning web development
+        with Golden Healing Solutions.
+    &lt;/p&gt;
+
+    &lt;h2&gt;
+        My First Web Development Project
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        I created this webpage using HTML.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+
+        </div>
+
+
+        <div class="tip-box">
+
+            <strong>
+                💡 Personalize It:
+            </strong>
+
+            Replace
+            <strong>[Your Name]</strong>
+            with your actual name.
+
+            You can also change the text
+            inside the headings and paragraphs.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 6
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            6
+        </div>
+
+        <h3>
+            Save Your HTML File
+        </h3>
+
+
+        <p>
+
+            Save your file after entering your HTML code.
+
+        </p>
+
+
+        <p>
+            You can save the file by:
+        </p>
+
+
+        <ul>
+
+            <li>
+                Selecting
+                <strong>
+                    File → Save
+                </strong>
+            </li>
+
+            <li>
+                Or pressing
+                <strong>
+                    Ctrl + S
+                </strong>
+                on Windows.
+            </li>
+
+            <li>
+                Or pressing
+                <strong>
+                    Command + S
+                </strong>
+                on macOS.
+            </li>
+
+        </ul>
+
+
+        <div class="tip-box">
+
+            <strong>
+                💡 Developer Habit:
+            </strong>
+
+            Get into the habit of saving your work
+            frequently.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 7
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            7
+        </div>
+
+        <h3>
+            Open Your Webpage in a Browser
+        </h3>
+
+
+        <p>
+
+            Now it is time to see your HTML code
+            become an actual webpage.
+
+        </p>
+
+
+        <p>
+            Locate your
+            <strong>
+                index.html
+            </strong>
+            file on your computer.
+        </p>
+
+
+        <ul>
+
+            <li>
+                Open the folder containing your project.
+            </li>
+
+            <li>
+                Find
+                <strong>
+                    index.html
+                </strong>.
+            </li>
+
+            <li>
+                Double-click the file.
+            </li>
+
+            <li>
+                Your web browser should open the webpage.
+            </li>
+
+        </ul>
+
+
+        <div class="tip-box">
+
+            <strong>
+                🎉 Congratulations!
+            </strong>
+
+            You have just created and opened your
+            first webpage.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP 8
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="step">
+
+        <div class="step-number">
+            8
+        </div>
+
+        <h3>
+            Make a Change
+        </h3>
+
+
+        <p>
+
+            Your first webpage is only the beginning.
+
+            Return to VS Code and change the text
+            inside your webpage.
+
+        </p>
+
+
+        <p>
+            For example, change:
+        </p>
+
+
+        <div class="code-container">
+
+            <pre>&lt;h1&gt;
+    Welcome to My First Webpage!
+&lt;/h1&gt;</pre>
+
+        </div>
+
+
+        <p style="margin-top:20px;">
+            to something like:
+        </p>
+
+
+        <div class="code-container">
+
+            <pre>&lt;h1&gt;
+    Welcome to My Web Development Journey!
+&lt;/h1&gt;</pre>
+
+        </div>
+
+
+        <p style="margin-top:20px;">
+
+            Save your file and refresh your browser.
+
+        </p>
+
+
+        <p>
+
+            Your webpage should now display your changes.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LAB CHECKPOINT
+     ========================================================= -->
+
+<section class="lab-section">
+
+    <div class="checkpoint">
+
+        <h3>
+            Lab Completion Checklist
+        </h3>
+
+        <p>
+            Check each requirement after you complete it.
+        </p>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I installed Visual Studio Code.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I created the
+                <strong>
+                    web-development-lab-1
+                </strong>
+                project folder.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I opened my project folder in VS Code.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I created an
+                <strong>
+                    index.html
+                </strong>
+                file.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I added HTML code to my webpage.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I opened my webpage in a browser.
+            </span>
+
+        </label>
+
+
+        <label class="checkpoint-item">
+
+            <input
+                type="checkbox"
+                class="lab-check"
+            >
+
+            <span>
+                I changed my webpage and refreshed
+                the browser to see the changes.
+            </span>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LAB COMPLETION
+     ========================================================= -->
+
+<section class="completion">
+
+    <h2>
+        Ready to Complete the Lab?
+    </h2>
+
+
+    <p>
+
+        Make sure you have completed every requirement
+        above before marking this lab as complete.
+
+    </p>
+
+
+    <button
+        class="complete-button"
+        id="completeLab"
+    >
+        ✓ Mark Lab as Complete
+    </button>
+
+
+    <div
+        class="completion-message"
+        id="completionMessage"
+    >
+
+        🎉 Lab 1 Completed!
+
+        <br>
+
+        Your development environment is ready.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="lesson-navigation">
+
+
+    <a
+        href="lesson-1-2.html"
+        class="nav-button"
+    >
+
+        ← Back to Lesson 1.2
+
+    </a>
+
+
+    <a
+        href="lesson-1-4.html"
+        class="nav-button next-button"
+    >
+
+        Next Lesson →
+
+    </a>
+
+
+</nav>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    © 2026 Golden Healing Solutions
+
+    <br>
+
+    Web Development Bootcamp
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   COPY CODE
+   ========================================================= */
+
+function copyCode() {
+
+
+    const code =
+        document
+            .getElementById(
+                "firstPageCode"
+            )
+            .innerText;
+
+
+    navigator
+        .clipboard
+        .writeText(code)
+        .then(
+            function() {
+
+                alert(
+                    "HTML code copied to your clipboard!"
+                );
+
+            }
+        );
+
+}
+
+
+
+/* =========================================================
+   CHECKLIST PROGRESS
+   ========================================================= */
+
+const checks =
+    document.querySelectorAll(
+        ".lab-check"
+    );
+
+
+checks.forEach(
+    function(check) {
+
+        check.addEventListener(
+            "change",
+            function() {
+
+                updateProgress();
+
+            }
+        );
+
+    }
+);
+
+
+
+function updateProgress() {
+
+
+    const completed =
+        document.querySelectorAll(
+            ".lab-check:checked"
+        ).length;
+
+
+    const total =
+        checks.length;
+
+
+    const percentage =
+        Math.round(
+            (completed / total) * 100
+        );
+
+
+    localStorage.setItem(
+        "lab1_progress",
+        percentage
+    );
+
+
+    console.log(
+        "Lab Progress:",
+        percentage + "%"
+    );
+
+}
+
+
+
+/* =========================================================
+   COMPLETE LAB
+   ========================================================= */
+
+document
+    .getElementById(
+        "completeLab"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+
+            const completed =
+                document.querySelectorAll(
+                    ".lab-check:checked"
+                ).length;
+
+
+            const total =
+                checks.length;
+
+
+            if (
+                completed !== total
+            ) {
+
+                alert(
+                    "Please complete every checklist item " +
+                    "before marking the lab as complete."
+                );
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "lab1_completed",
+                "true"
+            );
+
+
+            localStorage.setItem(
+                "lab1_completion_date",
+                new Date().toISOString()
+            );
+
+
+            document
+                .getElementById(
+                    "completionMessage"
+                )
+                .classList
+                .add(
+                    "show"
+                );
+
+
+            document
+                .getElementById(
+                    "completeLab"
+                )
+                .textContent =
+                "✓ Lab Completed";
+
+
+            document
+                .getElementById(
+                    "completeLab"
+                )
+                .disabled =
+                true;
+
+
+            alert(
+                "Congratulations! Lab 1 has been completed."
+            );
+
+        }
+    );
+
+
+
+/* =========================================================
+   RESTORE SAVED CHECKLIST
+   ========================================================= */
+
+const labCompleted =
+    localStorage.getItem(
+        "lab1_completed"
+    );
+
+
+if (
+    labCompleted === "true"
+) {
+
+    checks.forEach(
+        function(check) {
+
+            check.checked =
+                true;
+
+        }
+    );
+
+
+    document
+        .getElementById(
+            "completionMessage"
+        )
+        .classList
+        .add(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "completeLab"
+        )
+        .textContent =
+        "✓ Lab Completed";
+
+
+    document
+        .getElementById(
+            "completeLab"
+        )
+        .disabled =
+        true;
+
+}
+
+
+</script>
+
+
+</body>
+</html>
