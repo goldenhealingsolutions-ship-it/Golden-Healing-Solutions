@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Assessment Center | Technical Evaluation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #08080A;
+            --card-bg: #111116;
+            --card-header: #18181D;
+            --gold: #D4AF37;
+            --gold-light: #F8F0D8;
+            --gold-soft: rgba(212, 175, 55, 0.08);
+            --text-light: #F4F4F5;
+            --text-muted: #A1A1AA;
+            --border-color: rgba(212, 175, 55, 0.25);
+            --font-sans: 'Montserrat', sans-serif;
+            --font-heading: 'Cinzel', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* Hero Section */
+        .cover-hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: radial-gradient(circle at 50% 0%, #25252D 0%, #08080A 80%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            border: 1px solid var(--border-color);
+            background: var(--gold-soft);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .cover-hero h1 {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 15px;
+        }
+
+        .cover-hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+        }
+
+        .overview-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .pill strong {
+            color: var(--gold);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto 0;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Assessment List */
+        .assessment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .assessment-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .assessment-card:hover {
+            transform: translateX(5px);
+            border-color: var(--gold);
+        }
+
+        .card-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .section-badge {
+            width: 50px;
+            height: 50px;
+            background-color: var(--card-header);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .card-info h3 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .time-estimate {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .time-estimate span {
+            color: var(--gold);
+        }
+
+        .start-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .start-btn:hover {
+            background-color: var(--gold);
+            color: var(--bg-color);
+        }
+
+        /* Instructions Footer */
+        .instructions-card {
+            margin-top: 50px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .instructions-card h3 {
+            color: var(--gold);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .instructions-card ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .instructions-card li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 650px) {
+            .assessment-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .start-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Header -->
+    <header class="cover-hero">
+        <span class="eyebrow">Skills Evaluation Hub</span>
+        <h1>Candidate Assessment Portal</h1>
+        <p>Complete all 7 assessment modules below to evaluate technical proficiency, problem-solving, work style, and practical troubleshooting capabilities.</p>
+        
+        <div class="overview-pills">
+            <div class="pill">Total Modules: <strong>7 Sections</strong></div>
+            <div class="pill">Estimated Time: <strong>100 – 145 mins</strong></div>
+            <div class="pill">Format: <strong>Interactive & Timed</strong></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Assessment Structure</h2>
+
+        <div class="assessment-list">
+
+            <!-- Section 1 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">01</div>
+                    <div class="card-info">
+                        <h3>Typing & Accuracy Test</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>5–10 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-1.html" class="start-btn">Start Section 1 →</a>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">02</div>
+                    <div class="card-info">
+                        <h3>Personality / Work-Style Assessment</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>10–15 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-2.html" class="start-btn">Start Section 2 →</a>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">03</div>
+                    <div class="card-info">
+                        <h3>30-Question Technical Assessment</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>30–40 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-3.html" class="start-btn">Start Section 3 →</a>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">04</div>
+                    <div class="card-info">
+                        <h3>Cognitive & Aptitude Assessment</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>15–20 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-4.html" class="start-btn">Start Section 4 →</a>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">05</div>
+                    <div class="card-info">
+                        <h3>Behavioral & Situational Judgment</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>10–15 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-5.html" class="start-btn">Start Section 5 →</a>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">06</div>
+                    <div class="card-info">
+                        <h3>Simulated Help Desk Troubleshooting</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>20–30 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-6.html" class="start-btn">Start Section 6 →</a>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="assessment-card">
+                <div class="card-left">
+                    <div class="section-badge">07</div>
+                    <div class="card-info">
+                        <h3>OS & Command-Line Skills</h3>
+                        <div class="time-estimate">
+                            ⏱️ Recommended Time: <span>10–15 min</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="assessment-7.html" class="start-btn">Start Section 7 →</a>
+            </div>
+
+        </div>
+
+        <!-- Instructions Notice -->
+        <div class="instructions-card">
+            <h3>Important Testing Guidelines</h3>
+            <ul>
+                <li><strong>Environment:</strong> Complete this evaluation in a quiet environment on a desktop or laptop computer with a stable internet connection.</li>
+                <li><strong>Pacing:</strong> Each module is designed to be completed in sequence, but you may take short breaks between sections.</li>
+                <li><strong>Auto-Save:</strong> Ensure you submit each section before navigating to the next link.</li>
+            </ul>
+        </div>
+    </main>
+
+</body>
+</html>
