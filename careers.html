@@ -1,0 +1,2185 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Golden Healing Careers | Technology Career Opportunities</title>
+
+    <meta name="description" content="Explore technology career opportunities with Golden Healing Solutions including IT Support, Web Development, Cybersecurity, Data & AI, Project Management, Cloud & Infrastructure, and Design & Digital.">
+
+    <meta name="keywords" content="Golden Healing Careers, IT jobs, technical support jobs, web development jobs, cybersecurity jobs, data AI jobs, project management jobs, cloud jobs, UX jobs">
+
+    <meta name="author" content="Golden Healing Solutions">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #222222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #000000;
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.25);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.65rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .logo span {
+            display: block;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: #ffffff;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.78),
+                    rgba(0,0,0,0.78)
+                ),
+                linear-gradient(
+                    135deg,
+                    #111111,
+                    #333333
+                );
+
+            color: #ffffff;
+
+            padding: 110px 20px;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .hero-label {
+            color: #d4af37;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #dddddd;
+            font-size: 1.15rem;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        .btn-gold:hover {
+            background: #f0d36a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #d4af37;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        /* =========================
+           GENERAL
+        ========================== */
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            color: #a78312;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #666666;
+            font-size: 1.05rem;
+        }
+
+        /* =========================
+           CAREER INTRO
+        ========================== */
+
+        .career-intro {
+            background: #ffffff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2.3rem;
+            margin-bottom: 18px;
+        }
+
+        .intro-text p {
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .intro-box {
+            background: #faf8f0;
+            border-left: 5px solid #d4af37;
+            padding: 35px;
+            border-radius: 8px;
+        }
+
+        .intro-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .intro-box ul {
+            padding-left: 20px;
+        }
+
+        .intro-box li {
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           JOB SEARCH
+        ========================== */
+
+        .job-search {
+            background: #f5f5f5;
+            padding: 35px 20px;
+        }
+
+        .search-box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px;
+
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+
+            font-size: 1rem;
+
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+        }
+
+        /* =========================
+           CAREER CATEGORIES
+        ========================== */
+
+        .careers {
+            background: #ffffff;
+        }
+
+        .category {
+            margin-bottom: 70px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+
+            border-bottom: 2px solid #eeeeee;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #d4af37;
+            color: #000000;
+
+            border-radius: 50%;
+
+            font-size: 1.7rem;
+        }
+
+        .category-header h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+        }
+
+        .category-header p {
+            color: #666666;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           JOB CARDS
+        ========================== */
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .job-card {
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+
+            padding: 25px;
+
+            background: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-color: #d4af37;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .job-card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .job-card p {
+            color: #666666;
+            font-size: 0.94rem;
+            margin-bottom: 20px;
+
+            flex-grow: 1;
+        }
+
+        .job-tag {
+            display: inline-block;
+
+            background: #faf8f0;
+            color: #8a6900;
+
+            padding: 5px 10px;
+            border-radius: 20px;
+
+            font-size: 0.75rem;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .apply-btn {
+            display: block;
+
+            text-align: center;
+
+            background: #000000;
+            color: #ffffff;
+
+            padding: 11px 15px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        /* =========================
+           CAREER PROCESS
+        ========================== */
+
+        .process {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .process .section-heading h2 {
+            color: #ffffff;
+        }
+
+        .process .section-heading p {
+            color: #cccccc;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .process-number {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #d4af37;
+            color: #000000;
+
+            border-radius: 50%;
+
+            margin: 0 auto 15px;
+
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           GENERAL APPLICATION
+        ========================== */
+
+        .application {
+            background: #faf8f0;
+            text-align: center;
+        }
+
+        .application-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .application h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2.7rem;
+            margin-bottom: 15px;
+        }
+
+        .application p {
+            color: #555555;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 50px 20px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 40px;
+        }
+
+        .footer-brand h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: #cccccc;
+            max-width: 450px;
+        }
+
+        footer h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #cccccc;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+
+            border-top: 1px solid #333333;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #999999;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .jobs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .jobs-grid,
+            .process-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header {
+                align-items: flex-start;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================== -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            Golden Healing Solutions
+
+            <span>
+                Golden Healing Careers
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#careers">
+                        Careers
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#process">
+                        Hiring Process
+                    </a>
+                </li>
+
+                <li>
+                    <a href="careers-application.html">
+                        Apply
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Golden Healing Careers
+        </div>
+
+        <h1>
+            Build Your
+            <span>Technology Career.</span>
+        </h1>
+
+        <p>
+            Explore technology opportunities across IT,
+            web development, cybersecurity, data and AI,
+            project management, cloud infrastructure,
+            design, and digital technology.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#careers" class="btn btn-gold">
+                Explore Careers
+            </a>
+
+            <a href="careers-application.html" class="btn btn-outline">
+                Submit Application
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================== -->
+
+<section class="career-intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-text">
+
+                <div class="eyebrow">
+                    Careers at Golden Healing Solutions
+                </div>
+
+                <h2>
+                    Your Skills Can Build What's Next.
+                </h2>
+
+                <p>
+                    Golden Healing Careers connects technology
+                    professionals and aspiring technology
+                    professionals with opportunities across
+                    multiple areas of the digital workforce.
+                </p>
+
+                <p>
+                    Whether your interests are troubleshooting
+                    technology, writing code, protecting systems,
+                    analyzing data, managing projects, working
+                    with cloud infrastructure, or designing digital
+                    experiences, explore the career path that
+                    matches your skills and interests.
+                </p>
+
+                <a
+                    href="careers-application.html"
+                    class="btn btn-gold"
+                >
+                    Apply for Opportunities
+                </a>
+
+            </div>
+
+
+            <div class="intro-box">
+
+                <h3>
+                    Career Areas
+                </h3>
+
+                <ul>
+
+                    <li>
+                        IT & Technical Support
+                    </li>
+
+                    <li>
+                        Web & Software Development
+                    </li>
+
+                    <li>
+                        Cybersecurity
+                    </li>
+
+                    <li>
+                        Data & AI
+                    </li>
+
+                    <li>
+                        Project & Business Technology
+                    </li>
+
+                    <li>
+                        Cloud & Infrastructure
+                    </li>
+
+                    <li>
+                        Design & Digital
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEARCH
+========================== -->
+
+<section class="job-search">
+
+    <div class="container">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="jobSearch"
+                placeholder="Search jobs by title or career area..."
+                aria-label="Search jobs"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAREERS
+========================== -->
+
+<section class="careers" id="careers">
+
+    <div class="container">
+
+
+        <!-- =====================
+             CATEGORY 1
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    🖥️
+                </div>
+
+                <div>
+
+                    <h2>
+                        IT & Technical Support
+                    </h2>
+
+                    <p>
+                        Help organizations keep their technology
+                        systems, users, and infrastructure running.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        IT Support
+                    </span>
+
+                    <h3>
+                        IT Support Specialist
+                    </h3>
+
+                    <p>
+                        Provides technical assistance to users,
+                        troubleshoots hardware and software issues,
+                        and helps maintain reliable technology
+                        environments.
+                    </p>
+
+                    <a
+                        href="careers-application.html?position=IT%20Support%20Specialist"
+                        class="apply-btn"
+                    >
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Help Desk
+                    </span>
+
+                    <h3>
+                        Help Desk Technician
+                    </h3>
+
+                    <p>
+                        Supports users through troubleshooting,
+                        technical requests, password assistance,
+                        ticket management, and basic technology
+                        problem resolution.
+                    </p>
+
+                    <a
+                        href="careers-application.html?position=Help%20Desk%20Technician"
+                        class="apply-btn"
+                    >
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Technical Support
+                    </span>
+
+                    <h3>
+                        Technical Support Specialist
+                    </h3>
+
+                    <p>
+                        Diagnoses and resolves technical problems
+                        while providing clear and professional
+                        support to users and customers.
+                    </p>
+
+                    <a
+                        href="careers-application.html?position=Technical%20Support%20Specialist"
+                        class="apply-btn"
+                    >
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Systems
+                    </span>
+
+                    <h3>
+                        Systems Administrator
+                    </h3>
+
+                    <p>
+                        Helps manage operating systems, user accounts,
+                        applications, servers, system configurations,
+                        and technology infrastructure.
+                    </p>
+
+                    <a
+                        href="careers-application.html?position=Systems%20Administrator"
+                        class="apply-btn"
+                    >
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Networking
+                    </span>
+
+                    <h3>
+                        Network Administrator
+                    </h3>
+
+                    <p>
+                        Supports network infrastructure, connectivity,
+                        configurations, monitoring, troubleshooting,
+                        and network performance.
+                    </p>
+
+                    <a
+                        href="careers-application.html?position=Network%20Administrator"
+                        class="apply-btn"
+                    >
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 2
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    💻
+                </div>
+
+                <div>
+
+                    <h2>
+                        Web & Software Development
+                    </h2>
+
+                    <p>
+                        Design, develop, test, and maintain websites,
+                        software applications, and digital products.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Development
+                    </span>
+
+                    <h3>
+                        Front-End Developer
+                    </h3>
+
+                    <p>
+                        Builds user-facing website interfaces using
+                        technologies such as HTML, CSS, JavaScript,
+                        and modern front-end development tools.
+                    </p>
+
+                    <a href="careers-application.html?position=Front-End%20Developer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Development
+                    </span>
+
+                    <h3>
+                        Back-End Developer
+                    </h3>
+
+                    <p>
+                        Develops server-side applications, APIs,
+                        databases, business logic, and systems
+                        that support web applications.
+                    </p>
+
+                    <a href="careers-application.html?position=Back-End%20Developer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Full Stack
+                    </span>
+
+                    <h3>
+                        Full-Stack Developer
+                    </h3>
+
+                    <p>
+                        Works across both front-end and back-end
+                        technologies to build complete web
+                        applications.
+                    </p>
+
+                    <a href="careers-application.html?position=Full-Stack%20Developer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Web Development
+                    </span>
+
+                    <h3>
+                        Web Developer
+                    </h3>
+
+                    <p>
+                        Creates, maintains, and improves websites
+                        and web applications while collaborating
+                        on functionality and user experience.
+                    </p>
+
+                    <a href="careers-application.html?position=Web%20Developer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Quality Assurance
+                    </span>
+
+                    <h3>
+                        QA Tester
+                    </h3>
+
+                    <p>
+                        Tests websites and software applications
+                        to identify defects, usability problems,
+                        and functionality issues before release.
+                    </p>
+
+                    <a href="careers-application.html?position=QA%20Tester" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 3
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    🔐
+                </div>
+
+                <div>
+
+                    <h2>
+                        Cybersecurity
+                    </h2>
+
+                    <p>
+                        Help protect systems, networks, applications,
+                        and information from security threats.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Security
+                    </span>
+
+                    <h3>
+                        Cybersecurity Analyst
+                    </h3>
+
+                    <p>
+                        Monitors security environments, analyzes
+                        threats, investigates suspicious activity,
+                        and helps strengthen security controls.
+                    </p>
+
+                    <a href="careers-application.html?position=Cybersecurity%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        SOC
+                    </span>
+
+                    <h3>
+                        Security Operations Center (SOC) Analyst
+                    </h3>
+
+                    <p>
+                        Monitors security alerts, investigates
+                        potential incidents, and assists with
+                        detecting and responding to threats.
+                    </p>
+
+                    <a href="careers-application.html?position=SOC%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Security
+                    </span>
+
+                    <h3>
+                        Security Administrator
+                    </h3>
+
+                    <p>
+                        Helps manage security tools, access controls,
+                        configurations, policies, and security
+                        administration processes.
+                    </p>
+
+                    <a href="careers-application.html?position=Security%20Administrator" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Incident Response
+                    </span>
+
+                    <h3>
+                        Incident Response Analyst
+                    </h3>
+
+                    <p>
+                        Helps investigate, contain, document, and
+                        respond to cybersecurity incidents.
+                    </p>
+
+                    <a href="careers-application.html?position=Incident%20Response%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 4
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <h2>
+                        Data & AI
+                    </h2>
+
+                    <p>
+                        Transform data into insights, automation,
+                        intelligence, and business value.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Data
+                    </span>
+
+                    <h3>
+                        Data Analyst
+                    </h3>
+
+                    <p>
+                        Collects, cleans, analyzes, and presents data
+                        to help organizations understand performance
+                        and make informed decisions.
+                    </p>
+
+                    <a href="careers-application.html?position=Data%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Business Intelligence
+                    </span>
+
+                    <h3>
+                        Business Intelligence Analyst
+                    </h3>
+
+                    <p>
+                        Uses data analysis, reporting, and dashboards
+                        to provide insights that support business
+                        strategy and decision-making.
+                    </p>
+
+                    <a href="careers-application.html?position=Business%20Intelligence%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        AI
+                    </span>
+
+                    <h3>
+                        AI Automation Specialist
+                    </h3>
+
+                    <p>
+                        Identifies opportunities to use AI and
+                        automation tools to streamline repetitive
+                        workflows and improve productivity.
+                    </p>
+
+                    <a href="careers-application.html?position=AI%20Automation%20Specialist" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Machine Learning
+                    </span>
+
+                    <h3>
+                        Machine Learning Specialist
+                    </h3>
+
+                    <p>
+                        Develops and works with machine learning
+                        models and data-driven solutions designed
+                        to solve business or technical problems.
+                    </p>
+
+                    <a href="careers-application.html?position=Machine%20Learning%20Specialist" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Data Engineering
+                    </span>
+
+                    <h3>
+                        Data Engineer
+                    </h3>
+
+                    <p>
+                        Builds and maintains data pipelines,
+                        databases, integrations, and infrastructure
+                        used to process and analyze data.
+                    </p>
+
+                    <a href="careers-application.html?position=Data%20Engineer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 5
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <h2>
+                        Project & Business Technology
+                    </h2>
+
+                    <p>
+                        Connect technology, business strategy,
+                        projects, teams, and organizational goals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Project Management
+                    </span>
+
+                    <h3>
+                        IT Project Coordinator
+                    </h3>
+
+                    <p>
+                        Supports technology projects through
+                        scheduling, documentation, communication,
+                        task tracking, and project coordination.
+                    </p>
+
+                    <a href="careers-application.html?position=IT%20Project%20Coordinator" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Project Management
+                    </span>
+
+                    <h3>
+                        IT Project Manager
+                    </h3>
+
+                    <p>
+                        Plans and manages technology projects,
+                        coordinates teams, tracks deliverables,
+                        and supports successful project completion.
+                    </p>
+
+                    <a href="careers-application.html?position=IT%20Project%20Manager" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Business Analysis
+                    </span>
+
+                    <h3>
+                        Business Analyst
+                    </h3>
+
+                    <p>
+                        Analyzes business needs, documents requirements,
+                        identifies opportunities, and helps connect
+                        business goals with technology solutions.
+                    </p>
+
+                    <a href="careers-application.html?position=Business%20Analyst" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Agile
+                    </span>
+
+                    <h3>
+                        Scrum Master
+                    </h3>
+
+                    <p>
+                        Facilitates Agile processes, supports Scrum
+                        teams, removes obstacles, and helps teams
+                        improve collaboration and delivery.
+                    </p>
+
+                    <a href="careers-application.html?position=Scrum%20Master" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Product
+                    </span>
+
+                    <h3>
+                        Product Manager
+                    </h3>
+
+                    <p>
+                        Helps define product direction, priorities,
+                        customer needs, requirements, and product
+                        development goals.
+                    </p>
+
+                    <a href="careers-application.html?position=Product%20Manager" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 6
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    ☁️
+                </div>
+
+                <div>
+
+                    <h2>
+                        Cloud & Infrastructure
+                    </h2>
+
+                    <p>
+                        Support the systems, infrastructure, and
+                        cloud environments behind modern technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Cloud
+                    </span>
+
+                    <h3>
+                        Cloud Support Specialist
+                    </h3>
+
+                    <p>
+                        Supports cloud-based systems and assists
+                        users and teams with cloud services,
+                        troubleshooting, and technical issues.
+                    </p>
+
+                    <a href="careers-application.html?position=Cloud%20Support%20Specialist" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Cloud
+                    </span>
+
+                    <h3>
+                        Cloud Administrator
+                    </h3>
+
+                    <p>
+                        Helps manage cloud environments, user access,
+                        configurations, resources, monitoring,
+                        and operational support.
+                    </p>
+
+                    <a href="careers-application.html?position=Cloud%20Administrator" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Cloud Engineering
+                    </span>
+
+                    <h3>
+                        Cloud Engineer
+                    </h3>
+
+                    <p>
+                        Designs, implements, maintains, and improves
+                        cloud infrastructure and technology solutions.
+                    </p>
+
+                    <a href="careers-application.html?position=Cloud%20Engineer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        DevOps
+                    </span>
+
+                    <h3>
+                        DevOps Engineer
+                    </h3>
+
+                    <p>
+                        Helps automate development and deployment
+                        processes while supporting infrastructure,
+                        CI/CD pipelines, and operational reliability.
+                    </p>
+
+                    <a href="careers-application.html?position=DevOps%20Engineer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             CATEGORY 7
+        ====================== -->
+
+        <div class="category">
+
+            <div class="category-header">
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <div>
+
+                    <h2>
+                        Design & Digital
+                    </h2>
+
+                    <p>
+                        Create intuitive, attractive, and engaging
+                        digital experiences and products.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        UX
+                    </span>
+
+                    <h3>
+                        UX Designer
+                    </h3>
+
+                    <p>
+                        Researches user needs and designs experiences
+                        that make digital products easier, clearer,
+                        and more effective to use.
+                    </p>
+
+                    <a href="careers-application.html?position=UX%20Designer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        UI
+                    </span>
+
+                    <h3>
+                        UI Designer
+                    </h3>
+
+                    <p>
+                        Creates visual interfaces including layouts,
+                        typography, components, colors, and interactive
+                        design elements.
+                    </p>
+
+                    <a href="careers-application.html?position=UI%20Designer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        UX/UI
+                    </span>
+
+                    <h3>
+                        UX/UI Designer
+                    </h3>
+
+                    <p>
+                        Combines user experience research and visual
+                        interface design to create intuitive digital
+                        products and experiences.
+                    </p>
+
+                    <a href="careers-application.html?position=UX/UI%20Designer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Web Design
+                    </span>
+
+                    <h3>
+                        Web Designer
+                    </h3>
+
+                    <p>
+                        Designs website layouts, visual systems,
+                        content presentation, navigation, and
+                        digital experiences.
+                    </p>
+
+                    <a href="careers-application.html?position=Web%20Designer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <span class="job-tag">
+                        Digital Product
+                    </span>
+
+                    <h3>
+                        Digital Product Designer
+                    </h3>
+
+                    <p>
+                        Designs digital products by combining
+                        user research, interaction design, visual
+                        design, and product thinking.
+                    </p>
+
+                    <a href="careers-application.html?position=Digital%20Product%20Designer" class="apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     APPLICATION PROCESS
+========================== -->
+
+<section class="process" id="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                How It Works
+            </div>
+
+            <h2>
+                Golden Healing Careers Application Process
+            </h2>
+
+            <p>
+                One general application makes it easy to express
+                your interest in available technology opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Explore
+                </h3>
+
+                <p>
+                    Review our available technology career areas
+                    and identify the position that interests you.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Apply
+                </h3>
+
+                <p>
+                    Complete the general Golden Healing Careers
+                    application.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Review
+                </h3>
+
+                <p>
+                    Your submitted information can be reviewed
+                    for potential opportunities matching your
+                    qualifications.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <p>
+                    Qualified applicants may be contacted regarding
+                    next steps in the hiring process.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     APPLICATION CTA
+========================== -->
+
+<section class="application">
+
+    <div class="application-content">
+
+        <div class="eyebrow">
+            Start Your Application
+        </div>
+
+        <h2>
+            Find Your Place in Technology
+        </h2>
+
+        <p>
+            Don't see the exact position you're looking for?
+            You can still submit the general application and
+            identify the career area and position that best
+            matches your experience and interests.
+        </p>
+
+        <a
+            href="careers-application.html"
+            class="btn btn-gold"
+        >
+            Complete General Application
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h2>
+                Golden Healing Solutions
+            </h2>
+
+            <p>
+                Technology, business, digital, education,
+                and career solutions designed to help individuals
+                and businesses build, grow, and succeed.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Established 2024</strong>
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Career Areas
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="#careers">
+                        IT & Technical Support
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#careers">
+                        Web & Software Development
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#careers">
+                        Cybersecurity
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#careers">
+                        Data & AI
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Careers
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="careers-application.html">
+                        General Application
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#process">
+                        Application Process
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        Golden Healing Solutions
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © <span id="year"></span>
+        Golden Healing Solutions.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+    /*
+        JOB SEARCH
+
+        Searches job titles, descriptions,
+        tags, and category information.
+    */
+
+    const searchInput = document.getElementById("jobSearch");
+    const jobCards = document.querySelectorAll(".job-card");
+
+    searchInput.addEventListener("input", function () {
+
+        const searchTerm =
+            searchInput.value.toLowerCase().trim();
+
+        jobCards.forEach(function (card) {
+
+            const cardText =
+                card.textContent.toLowerCase();
+
+            if (cardText.includes(searchTerm)) {
+
+                card.style.display = "flex";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+
+    /*
+        AUTOMATIC COPYRIGHT YEAR
+    */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
