@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Code Practice Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fira+Code:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #08080A;
+            --panel-bg: #111116;
+            --panel-header: #18181D;
+            --gold: #D4AF37;
+            --gold-hover: #FCF6BA;
+            --text-light: #F4F4F5;
+            --text-muted: #A1A1AA;
+            --border-color: rgba(212, 175, 55, 0.25);
+            --font-code: 'Fira Code', monospace;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-heading: 'Cinzel', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Navbar */
+        .header-nav {
+            background-color: var(--panel-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .brand-title {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            background-color: var(--bg-dark);
+            color: var(--gold);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* Workspace Grid */
+        .workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex: 1;
+            height: calc(100vh - 60px);
+            overflow: hidden;
+        }
+
+        /* Editor Section */
+        .editor-container {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--panel-bg);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .tabs {
+            display: flex;
+            background-color: var(--panel-header);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 24px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-light);
+        }
+
+        .tab-btn.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+            background-color: var(--panel-bg);
+        }
+
+        .editor-pane {
+            display: none;
+            flex: 1;
+            position: relative;
+        }
+
+        .editor-pane.active {
+            display: flex;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            background-color: var(--panel-bg);
+            color: var(--text-light);
+            border: none;
+            padding: 20px;
+            font-family: var(--font-code);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            tab-size: 2;
+        }
+
+        /* Preview Section */
+        .preview-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+        }
+
+        .preview-header {
+            background-color: var(--panel-header);
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        iframe {
+            width: 100%;
+            flex: 1;
+            border: none;
+            background-color: #ffffff;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .workspace {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            .editor-container {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="brand-title">CODE PRACTICE STUDIO</div>
+        <div class="controls">
+            <button class="btn" id="runBtn">Run Code</button>
+            <button class="btn" id="clearBtn">Reset Editor</button>
+        </div>
+    </header>
+
+    <!-- Main Editor Workspace -->
+    <main class="workspace">
+        <!-- Left Side: Code Input -->
+        <section class="editor-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML</button>
+                <button class="tab-btn" onclick="switchTab('css')">CSS</button>
+                <button class="tab-btn" onclick="switchTab('js')">JavaScript</button>
+            </div>
+
+            <div id="htmlPane" class="editor-pane active">
+                <textarea id="htmlCode" placeholder="Type HTML code here..." spellcheck="false"></textarea>
+            </div>
+
+            <div id="cssPane" class="editor-pane">
+                <textarea id="cssCode" placeholder="Type CSS code here..." spellcheck="false"></textarea>
+            </div>
+
+            <div id="jsPane" class="editor-pane">
+                <textarea id="jsCode" placeholder="Type JavaScript code here..." spellcheck="false"></textarea>
+            </div>
+        </section>
+
+        <!-- Right Side: Live Output Preview -->
+        <section class="preview-container">
+            <div class="preview-header">Live Result Output</div>
+            <iframe id="previewFrame" title="Live Preview"></iframe>
+        </section>
+    </main>
+
+    <script>
+        // Starter template code
+        const defaultHTML = `<div class="card">\n  <h1>Interactive Preview</h1>\n  <p>Modify the code on the left to see live changes updated automatically on the right.</p>\n  <button id="demoBtn">Click Me</button>\n</div>`;
+        
+        const defaultCSS = `body {\n  font-family: system-ui, sans-serif;\n  background: #f4f4f5;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  margin: 0;\n}\n\n.card {\n  background: white;\n  padding: 30px;\n  border-radius: 12px;\n  box-shadow: 0 10px 25px rgba(0,0,0,0.1);\n  text-align: center;\n  max-width: 400px;\n}\n\nh1 {\n  color: #111116;\n  margin-top: 0;\n}\n\nbutton {\n  background: #D4AF37;\n  color: #08080A;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  font-weight: bold;\n  cursor: pointer;\n  margin-top: 15px;\n}`;
+
+        const defaultJS = `document.getElementById('demoBtn').addEventListener('click', () => {\n  alert('Hello! Your JavaScript code is working properly.');\n});`;
+
+        // Select elements
+        const htmlCode = document.getElementById('htmlCode');
+        const cssCode = document.getElementById('cssCode');
+        const jsCode = document.getElementById('jsCode');
+        const previewFrame = document.getElementById('previewFrame');
+        const runBtn = document.getElementById('runBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        // Set initial starter values
+        function loadDefaults() {
+            htmlCode.value = defaultHTML;
+            cssCode.value = defaultCSS;
+            jsCode.value = defaultJS;
+            updatePreview();
+        }
+
+        // Switch active tab
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.editor-pane').forEach(pane => pane.classList.remove('active'));
+
+            if (tabName === 'html') {
+                document.getElementById('htmlPane').classList.add('active');
+                event.target.classList.add('active');
+            } else if (tabName === 'css') {
+                document.getElementById('cssPane').classList.add('active');
+                event.target.classList.add('active');
+            } else if (tabName === 'js') {
+                document.getElementById('jsPane').classList.add('active');
+                event.target.classList.add('active');
+            }
+        }
+
+        // Generate combined output and update preview iframe
+        function updatePreview() {
+            const html = htmlCode.value;
+            const css = `<style>${cssCode.value}</style>`;
+            const js = `<script>${jsCode.value}<\/script>`;
+
+            const combinedSource = `
+                <!DOCTYPE html>
+                <html>
+                <head>${css}</head>
+                <body>
+                    ${html}
+                    ${js}
+                </body>
+                </html>
+            `;
+
+            const iframeDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(combinedSource);
+            iframeDoc.close();
+        }
+
+        // Enable Tab key indent inside textareas
+        [htmlCode, cssCode, jsCode].forEach(textarea => {
+            textarea.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    const start = this.selectionStart;
+                    const end = this.selectionEnd;
+                    this.value = this.value.substring(0, start) + '  ' + this.value.substring(end);
+                    this.selectionStart = this.selectionEnd = start + 2;
+                }
+            });
+
+            // Live auto-update as user types
+            textarea.addEventListener('input', updatePreview);
+        });
+
+        // Button listeners
+        runBtn.addEventListener('click', updatePreview);
+        clearBtn.addEventListener('click', () => {
+            if (confirm("Reset the code editor back to starter code?")) {
+                loadDefaults();
+            }
+        });
+
+        // Initialize editor on load
+        loadDefaults();
+    </script>
+</body>
+</html>
