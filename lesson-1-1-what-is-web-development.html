@@ -1,0 +1,4672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Golden Healing Solutions Web Development Bootcamp — Lesson 1.1: What Is Web Development?"
+    >
+
+    <title>
+        Lesson 1.1 — What Is Web Development? | Golden Healing Solutions
+    </title>
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           GOLDEN HEALING SOLUTIONS
+           LESSON 1.1
+           WHAT IS WEB DEVELOPMENT?
+           ========================================================= */
+
+        :root {
+
+            --black:
+                #08080A;
+
+            --black-2:
+                #111116;
+
+            --black-3:
+                #18181D;
+
+            --gold:
+                #D4AF37;
+
+            --gold-dark:
+                #B8860B;
+
+            --gold-light:
+                #F8F0D8;
+
+            --gold-soft:
+                #FBF8EE;
+
+            --white:
+                #FFFFFF;
+
+            --gray-50:
+                #FAFAFA;
+
+            --gray-100:
+                #F4F4F5;
+
+            --gray-200:
+                #E4E4E7;
+
+            --gray-400:
+                #A1A1AA;
+
+            --gray-500:
+                #71717A;
+
+            --gray-700:
+                #3F3F46;
+
+            --green:
+                #166534;
+
+            --red:
+                #991B1B;
+
+            --blue:
+                #1D4ED8;
+
+            --max-width:
+                1200px;
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,.06);
+
+            --shadow-dark:
+                0 15px 40px rgba(0,0,0,.25);
+
+        }
+
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                'Montserrat',
+                sans-serif;
+
+            background:
+                var(--gray-50);
+
+            color:
+                var(--black);
+
+            line-height:
+                1.7;
+
+            overflow-x:
+                hidden;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        :focus-visible {
+
+            outline:
+                3px solid var(--gold);
+
+            outline-offset:
+                3px;
+        }
+
+
+        /* =========================================================
+           TYPOGRAPHY
+           ========================================================= */
+
+        h1,
+        h2,
+        h3,
+        h4 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            line-height:
+                1.2;
+        }
+
+
+        .cinzel {
+
+            font-family:
+                'Cinzel',
+                serif;
+        }
+
+
+        /* =========================================================
+           TOP NAVIGATION
+           ========================================================= */
+
+        .top-nav {
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            background:
+                rgba(8,8,10,.97);
+
+            color:
+                var(--white);
+
+            border-bottom:
+                1px solid var(--gold);
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+
+        .nav-inner {
+
+            max-width:
+                var(--max-width);
+
+            margin:
+                auto;
+
+            padding:
+                14px 24px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+        }
+
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            text-decoration:
+                none;
+        }
+
+
+        .brand-mark {
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                2px solid var(--gold);
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+            font-size:
+                .75rem;
+        }
+
+
+        .brand-name {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .82rem;
+
+            letter-spacing:
+                2px;
+
+            font-weight:
+                700;
+        }
+
+
+        .lesson-label {
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .72rem;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        /* =========================================================
+           PROGRESS BAR
+           ========================================================= */
+
+        .progress-container {
+
+            position:
+                fixed;
+
+            top:
+                71px;
+
+            left:
+                0;
+
+            width:
+                100%;
+
+            height:
+                4px;
+
+            background:
+                #24242A;
+
+            z-index:
+                999;
+        }
+
+
+        .progress-bar {
+
+            height:
+                100%;
+
+            width:
+                0%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #AA771C,
+                    #D4AF37,
+                    #FCF6BA,
+                    #D4AF37
+                );
+
+            transition:
+                width .25s ease;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .hero {
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #25252D 0%,
+                    #111116 42%,
+                    #08080A 100%
+                );
+
+            color:
+                var(--white);
+
+            padding:
+                100px 20px 80px;
+
+            text-align:
+                center;
+        }
+
+
+        .eyebrow {
+
+            display:
+                inline-block;
+
+            color:
+                var(--gold);
+
+            border:
+                1px solid rgba(212,175,55,.45);
+
+            background:
+                rgba(212,175,55,.08);
+
+            padding:
+                7px 16px;
+
+            border-radius:
+                50px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .72rem;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(2.7rem, 7vw, 4.5rem);
+
+            font-weight:
+                600;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .hero-subtitle {
+
+            max-width:
+                850px;
+
+            margin:
+                0 auto 25px;
+
+            color:
+                #D4D4D8;
+
+            font-size:
+                1.05rem;
+
+            font-weight:
+                300;
+        }
+
+
+        .lesson-meta {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+
+            margin-top:
+                25px;
+        }
+
+
+        .meta-pill {
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid rgba(255,255,255,.15);
+
+            border-radius:
+                50px;
+
+            color:
+                #D4D4D8;
+
+            font-size:
+                .78rem;
+        }
+
+
+        /* =========================================================
+           MAIN CONTAINER
+           ========================================================= */
+
+        .container {
+
+            max-width:
+                var(--max-width);
+
+            margin:
+                auto;
+
+            padding:
+                70px 20px;
+        }
+
+
+        /* =========================================================
+           SECTION
+           ========================================================= */
+
+        .lesson-section {
+
+            margin-bottom:
+                80px;
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .section-number {
+
+            color:
+                var(--gold-dark);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .75rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--gray-500);
+
+            max-width:
+                800px;
+        }
+
+
+        .gold-line {
+
+            width:
+                70px;
+
+            height:
+                2px;
+
+            background:
+                var(--gold);
+
+            margin-top:
+                15px;
+        }
+
+
+        /* =========================================================
+           OBJECTIVES
+           ========================================================= */
+
+        .objectives {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            padding:
+                45px;
+
+            border-radius:
+                8px;
+
+            border:
+                1px solid rgba(212,175,55,.4);
+
+            box-shadow:
+                var(--shadow-dark);
+        }
+
+
+        .objectives h2 {
+
+            color:
+                var(--gold);
+
+            font-size:
+                2.3rem;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .objective-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                14px;
+        }
+
+
+        .objective {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            padding:
+                15px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius:
+                5px;
+        }
+
+
+        .objective-icon {
+
+            color:
+                var(--gold);
+
+            font-size:
+                1.2rem;
+
+            flex-shrink:
+                0;
+        }
+
+
+        /* =========================================================
+           CONTENT CARDS
+           ========================================================= */
+
+        .content-card {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                7px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .content-card h3 {
+
+            font-size:
+                1.7rem;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .content-card p {
+
+            color:
+                var(--gray-700);
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .content-card p:last-child {
+            margin-bottom:
+                0;
+        }
+
+
+        /* =========================================================
+           KEY CONCEPT
+           ========================================================= */
+
+        .key-concept {
+
+            background:
+                var(--gold-soft);
+
+            border-left:
+                5px solid var(--gold);
+
+            padding:
+                25px 30px;
+
+            margin:
+                25px 0;
+
+            border-radius:
+                0 5px 5px 0;
+        }
+
+
+        .key-concept strong {
+
+            display:
+                block;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            color:
+                var(--gold-dark);
+
+            margin-bottom:
+                5px;
+
+            letter-spacing:
+                1px;
+        }
+
+
+        /* =========================================================
+           EXAMPLE BOX
+           ========================================================= */
+
+        .example-box {
+
+            background:
+                #F8F8FA;
+
+            border:
+                1px solid var(--gray-200);
+
+            padding:
+                25px;
+
+            border-radius:
+                6px;
+
+            margin:
+                25px 0;
+        }
+
+
+        .example-title {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .8rem;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                var(--gold-dark);
+
+            margin-bottom:
+                12px;
+        }
+
+
+        /* =========================================================
+           COMPARISON GRID
+           ========================================================= */
+
+        .comparison {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+            margin:
+                30px 0;
+        }
+
+
+        .comparison-card {
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                7px;
+
+            background:
+                var(--white);
+        }
+
+
+        .comparison-card h3 {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                1rem;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .comparison-card.website {
+            border-top:
+                4px solid var(--gold);
+        }
+
+
+        .comparison-card.application {
+            border-top:
+                4px solid var(--black);
+        }
+
+
+        .comparison-card ul {
+
+            padding-left:
+                20px;
+
+            color:
+                var(--gray-700);
+        }
+
+
+        .comparison-card li {
+            margin-bottom:
+                8px;
+        }
+
+
+        /* =========================================================
+           STACK DIAGRAM
+           ========================================================= */
+
+        .stack-container {
+
+            background:
+                var(--black);
+
+            border:
+                1px solid rgba(212,175,55,.35);
+
+            border-radius:
+                8px;
+
+            padding:
+                35px;
+
+            margin:
+                30px 0;
+        }
+
+
+        .stack-title {
+
+            color:
+                var(--gold);
+
+            text-align:
+                center;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .stack-layer {
+
+            padding:
+                22px;
+
+            margin-bottom:
+                10px;
+
+            border-radius:
+                5px;
+
+            text-align:
+                center;
+
+            color:
+                var(--white);
+
+            border:
+                1px solid rgba(255,255,255,.12);
+        }
+
+
+        .stack-layer.front {
+
+            background:
+                rgba(212,175,55,.15);
+
+            border-color:
+                rgba(212,175,55,.45);
+        }
+
+
+        .stack-layer.back {
+
+            background:
+                rgba(255,255,255,.06);
+        }
+
+
+        .stack-layer.database {
+
+            background:
+                rgba(255,255,255,.03);
+        }
+
+
+        .stack-layer strong {
+
+            display:
+                block;
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        /* =========================================================
+           FRONT END INTERACTIVE DEMO
+           ========================================================= */
+
+        .interactive-demo {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            border-radius:
+                8px;
+
+            padding:
+                35px;
+
+            border:
+                1px solid rgba(212,175,55,.35);
+
+            box-shadow:
+                var(--shadow-dark);
+        }
+
+
+        .demo-window {
+
+            background:
+                var(--white);
+
+            color:
+                var(--black);
+
+            border-radius:
+                6px;
+
+            overflow:
+                hidden;
+
+            margin-top:
+                25px;
+        }
+
+
+        .demo-toolbar {
+
+            background:
+                #E4E4E7;
+
+            padding:
+                10px 15px;
+
+            display:
+                flex;
+
+            gap:
+                7px;
+        }
+
+
+        .dot {
+
+            width:
+                11px;
+
+            height:
+                11px;
+
+            border-radius:
+                50%;
+
+            background:
+                #A1A1AA;
+        }
+
+
+        .demo-content {
+
+            padding:
+                35px;
+
+            text-align:
+                center;
+        }
+
+
+        .demo-content h3 {
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .demo-content button {
+
+            margin-top:
+                20px;
+
+            padding:
+                12px 22px;
+
+            border:
+                none;
+
+            border-radius:
+                4px;
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            font-weight:
+                700;
+        }
+
+
+        #demoMessage {
+
+            margin-top:
+                15px;
+
+            min-height:
+                30px;
+
+            font-weight:
+                600;
+        }
+
+
+        /* =========================================================
+           CAREER CARDS
+           ========================================================= */
+
+        .career-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+
+        .career-card {
+
+            background:
+                var(--white);
+
+            padding:
+                28px;
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                7px;
+
+            transition:
+                .3s ease;
+        }
+
+
+        .career-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .career-icon {
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .career-card h3 {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .95rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .career-card p {
+
+            color:
+                var(--gray-500);
+
+            font-size:
+                .88rem;
+        }
+
+
+        /* =========================================================
+           TABLE
+           ========================================================= */
+
+        .table-wrapper {
+
+            overflow-x:
+                auto;
+
+            margin:
+                25px 0;
+        }
+
+
+        table {
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+        }
+
+
+        th,
+        td {
+
+            padding:
+                15px;
+
+            text-align:
+                left;
+
+            border-bottom:
+                1px solid var(--gray-200);
+        }
+
+
+        th {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .8rem;
+
+            letter-spacing:
+                1px;
+        }
+
+
+        td {
+
+            color:
+                var(--gray-700);
+
+            font-size:
+                .9rem;
+        }
+
+
+        /* =========================================================
+           QUIZ
+           ========================================================= */
+
+        .quiz {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            border-radius:
+                8px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .quiz-question {
+
+            margin-bottom:
+                35px;
+
+            padding-bottom:
+                30px;
+
+            border-bottom:
+                1px solid var(--gray-200);
+        }
+
+
+        .quiz-question:last-child {
+
+            border-bottom:
+                none;
+
+            margin-bottom:
+                0;
+        }
+
+
+        .quiz-question h3 {
+
+            font-size:
+                1.2rem;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .option {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                10px;
+
+            padding:
+                12px;
+
+            border:
+                1px solid transparent;
+
+            border-radius:
+                4px;
+
+            margin-bottom:
+                7px;
+
+            cursor:
+                pointer;
+        }
+
+
+        .option:hover {
+
+            background:
+                var(--gold-soft);
+
+            border-color:
+                rgba(212,175,55,.3);
+        }
+
+
+        .option input {
+
+            margin-top:
+                5px;
+        }
+
+
+        .quiz-button {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gold);
+
+            border:
+                1px solid var(--gold);
+
+            padding:
+                15px 30px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+            border-radius:
+                4px;
+
+            margin-top:
+                20px;
+        }
+
+
+        .quiz-button:hover {
+
+            background:
+                var(--gold);
+
+            color:
+                var(--black);
+        }
+
+
+        .quiz-result {
+
+            display:
+                none;
+
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border-radius:
+                5px;
+
+            background:
+                var(--gold-soft);
+
+            border:
+                1px solid var(--gold);
+        }
+
+
+        .quiz-result.show {
+            display:
+                block;
+        }
+
+
+        .score {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                1.5rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        /* =========================================================
+           GLOSSARY
+           ========================================================= */
+
+        .glossary-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+        }
+
+
+        .term {
+
+            background:
+                var(--white);
+
+            border:
+                1px solid var(--gray-200);
+
+            padding:
+                20px;
+
+            border-radius:
+                5px;
+        }
+
+
+        .term strong {
+
+            color:
+                var(--gold-dark);
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                .85rem;
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .term span {
+
+            color:
+                var(--gray-500);
+
+            font-size:
+                .85rem;
+        }
+
+
+        /* =========================================================
+           COMPLETION BOX
+           ========================================================= */
+
+        .completion {
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #24242C,
+                    #08080A
+                );
+
+            color:
+                var(--white);
+
+            border:
+                1px solid rgba(212,175,55,.45);
+
+            border-radius:
+                8px;
+
+            padding:
+                55px 35px;
+
+            text-align:
+                center;
+        }
+
+
+        .completion h2 {
+
+            color:
+                var(--gold);
+
+            font-size:
+                2.8rem;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .completion p {
+
+            color:
+                #D4D4D8;
+
+            max-width:
+                750px;
+
+            margin:
+                0 auto 25px;
+        }
+
+
+        .next-button {
+
+            display:
+                inline-block;
+
+            padding:
+                16px 30px;
+
+            background:
+                var(--gold);
+
+            color:
+                var(--black);
+
+            text-decoration:
+                none;
+
+            border-radius:
+                4px;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .next-button:hover {
+
+            background:
+                var(--white);
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+
+            background:
+                var(--black);
+
+            color:
+                var(--gray-400);
+
+            text-align:
+                center;
+
+            padding:
+                35px 20px;
+
+            font-size:
+                .8rem;
+
+            border-top:
+                1px solid rgba(212,175,55,.2);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .career-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .objective-grid,
+            .comparison,
+            .glossary-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .objectives,
+            .content-card,
+            .quiz {
+
+                padding:
+                    25px;
+            }
+
+
+            .nav-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+                padding:
+                    12px 15px;
+            }
+
+
+            .progress-container {
+
+                top:
+                    103px;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .career-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .hero {
+
+                padding:
+                    80px 18px 65px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    2.5rem;
+            }
+
+
+            .container {
+
+                padding:
+                    50px 15px;
+            }
+
+
+            .lesson-section {
+
+                margin-bottom:
+                    60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <header class="top-nav">
+
+        <div class="nav-inner">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="Golden Healing Solutions home"
+            >
+
+                <div class="brand-mark">
+                    GH
+                </div>
+
+                <div class="brand-name">
+                    Golden Healing Solutions
+                </div>
+
+            </a>
+
+
+            <div class="lesson-label">
+
+                Module 1 • Lesson 1.1
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         READING PROGRESS
+         ========================================================= -->
+
+    <div
+        class="progress-container"
+        aria-hidden="true"
+    >
+
+        <div
+            class="progress-bar"
+            id="progressBar"
+        ></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section class="hero">
+
+        <span class="eyebrow">
+            Module 1 — Web Development Fundamentals
+        </span>
+
+
+        <h1>
+
+            Lesson 1.1
+
+            <br>
+
+            <span>
+                What Is Web Development?
+            </span>
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+            Learn how websites and web applications work,
+            understand the different areas of web development,
+            and explore career opportunities in the field.
+
+        </p>
+
+
+        <div class="lesson-meta">
+
+            <span class="meta-pill">
+                Beginner Friendly
+            </span>
+
+            <span class="meta-pill">
+                Theory + Examples
+            </span>
+
+            <span class="meta-pill">
+                Knowledge Check
+            </span>
+
+            <span class="meta-pill">
+                Career Exploration
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <main class="container">
+
+
+        <!-- =====================================================
+             LEARNING OBJECTIVES
+             ===================================================== -->
+
+        <section class="lesson-section">
+
+            <div class="objectives">
+
+                <h2>
+                    What You Will Learn
+                </h2>
+
+                <div class="objective-grid">
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Explain what a website is and how users
+                            access websites through web browsers.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Explain what a web application is and
+                            how it differs from a primarily
+                            informational website.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Describe the responsibilities of
+                            front-end developers.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Describe the responsibilities of
+                            back-end developers.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Explain what full-stack development means.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Distinguish between common web developer
+                            and web designer responsibilities.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Identify common careers in web development.
+                        </span>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-icon">
+                            ✦
+                        </span>
+
+                        <span>
+                            Explain how the different layers of a
+                            web application work together.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 1
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="web-development"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 01
+                </div>
+
+                <h2>
+                    What Is Web Development?
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>Web development</strong> is the process
+                    of creating, building, testing, deploying,
+                    maintaining, and improving websites and
+                    web applications.
+
+                </p>
+
+
+                <p>
+
+                    Web development combines programming,
+                    markup languages, styling, databases,
+                    server technologies, user interfaces,
+                    security, accessibility, testing, and
+                    deployment.
+
+                </p>
+
+
+                <p>
+
+                    When you visit a website, there may be
+                    many different technologies working together
+                    to produce what you see and interact with.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        KEY CONCEPT
+                    </strong>
+
+                    Web development is not just "writing code."
+
+                    It is the process of creating functional
+                    digital experiences that users can access
+                    and interact with through the web.
+
+                </div>
+
+            </div>
+
+
+            <div class="example-box">
+
+                <div class="example-title">
+                    Real-World Example
+                </div>
+
+                <p>
+
+                    Imagine that Golden Healing Solutions wants
+                    to create a website where students can register
+                    for a bootcamp.
+
+                </p>
+
+                <p>
+
+                    Someone has to design the experience.
+
+                    Someone has to build the webpage.
+
+                    Someone has to make the forms work.
+
+                    Someone may need to store student information.
+
+                    Someone needs to test the system.
+
+                    Someone needs to deploy and maintain it.
+
+                </p>
+
+                <p>
+
+                    Those responsibilities represent different
+                    parts of the web development process.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 2 — WEBSITE
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="websites"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 02
+                </div>
+
+                <h2>
+                    What Is a Website?
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    A <strong>website</strong> is a collection of
+                    web pages and related resources that users can
+                    access through the internet using a web browser.
+
+                </p>
+
+
+                <p>
+
+                    A website can contain text, images, videos,
+                    audio, navigation links, forms, documents,
+                    animations, and interactive elements.
+
+                </p>
+
+
+                <p>
+
+                    Websites are commonly accessed through a
+                    domain name or web address.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        THINK OF IT THIS WAY
+                    </strong>
+
+                    A website is like a digital location.
+
+                    Just as a physical business has an address
+                    that customers can visit, a website has a
+                    web address that users can enter into a browser.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    What Happens When You Visit a Website?
+                </h3>
+
+
+                <p>
+
+                    Suppose you enter a website address into
+                    your browser.
+
+                </p>
+
+
+                <div class="stack-container">
+
+                    <div class="stack-title">
+                        BASIC WEB REQUEST
+                    </div>
+
+
+                    <div class="stack-layer front">
+
+                        <strong>
+                            1. USER
+                        </strong>
+
+                        You enter a website address or click
+                        a link.
+
+                    </div>
+
+
+                    <div class="stack-layer back">
+
+                        <strong>
+                            2. WEB BROWSER
+                        </strong>
+
+                        Your browser sends a request for the
+                        requested resource.
+
+                    </div>
+
+
+                    <div class="stack-layer back">
+
+                        <strong>
+                            3. SERVER
+                        </strong>
+
+                        A server processes the request and
+                        provides the necessary resources.
+
+                    </div>
+
+
+                    <div class="stack-layer database">
+
+                        <strong>
+                            4. RESPONSE
+                        </strong>
+
+                        The browser receives the response and
+                        renders the webpage for the user.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 3 — WEB APPLICATIONS
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="web-applications"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 03
+                </div>
+
+                <h2>
+                    What Is a Web Application?
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    A <strong>web application</strong> is an
+                    interactive application that users access
+                    through a web browser.
+
+                </p>
+
+
+                <p>
+
+                    Instead of simply displaying information,
+                    a web application allows users to perform
+                    actions and interact with data or functionality.
+
+                </p>
+
+
+                <p>
+                    Examples include:
+                </p>
+
+
+                <ul style="padding-left: 25px;">
+
+                    <li>
+                        Online banking
+                    </li>
+
+                    <li>
+                        Email applications
+                    </li>
+
+                    <li>
+                        Online learning platforms
+                    </li>
+
+                    <li>
+                        Project management software
+                    </li>
+
+                    <li>
+                        Job boards
+                    </li>
+
+                    <li>
+                        E-commerce systems
+                    </li>
+
+                    <li>
+                        Social media platforms
+                    </li>
+
+                    <li>
+                        Customer portals
+                    </li>
+
+                </ul>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        IMPORTANT
+                    </strong>
+
+                    The distinction between a website and a web
+                    application is not always absolute.
+
+                    Modern websites frequently contain interactive
+                    application features.
+
+                </div>
+
+            </div>
+
+
+            <div class="comparison">
+
+                <div class="comparison-card website">
+
+                    <h3>
+                        🌐 WEBSITE
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Presents information
+                        </li>
+
+                        <li>
+                            Provides navigation
+                        </li>
+
+                        <li>
+                            Displays text and media
+                        </li>
+
+                        <li>
+                            May contain forms
+                        </li>
+
+                        <li>
+                            May contain interactive features
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="comparison-card application">
+
+                    <h3>
+                        💻 WEB APPLICATION
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Provides interactive functionality
+                        </li>
+
+                        <li>
+                            Processes user actions
+                        </li>
+
+                        <li>
+                            Often works with stored data
+                        </li>
+
+                        <li>
+                            May require user authentication
+                        </li>
+
+                        <li>
+                            Often behaves more like software
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- INTERACTIVE DEMO -->
+
+            <div class="interactive-demo">
+
+                <h3
+                    style="
+                        color: var(--gold);
+                        font-size: 2rem;
+                    "
+                >
+                    Interactive Web Application Demo
+                </h3>
+
+
+                <p
+                    style="
+                        color: #D4D4D8;
+                        margin-top: 10px;
+                    "
+                >
+
+                    Click the button below.
+
+                    JavaScript will respond to your action
+                    and change the webpage.
+
+                </p>
+
+
+                <div class="demo-window">
+
+                    <div class="demo-toolbar">
+
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+
+                    </div>
+
+
+                    <div class="demo-content">
+
+                        <h3>
+                            Welcome, Student!
+                        </h3>
+
+                        <p>
+                            Click the button to interact with
+                            this webpage.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            id="demoButton"
+                        >
+                            Click Me
+                        </button>
+
+
+                        <div
+                            id="demoMessage"
+                            aria-live="polite"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 4 — FRONT END
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="front-end"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 04
+                </div>
+
+                <h2>
+                    Front-End Development
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>Front-end development</strong> focuses
+                    on the part of a website or web application
+                    that users see and interact with.
+
+                </p>
+
+
+                <p>
+
+                    The front end is sometimes called the
+                    <strong>client side</strong> because much
+                    of the code is executed in the user's
+                    web browser.
+
+                </p>
+
+
+                <h3>
+                    Core Front-End Technologies
+                </h3>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Technology
+                                </th>
+
+                                <th>
+                                    Purpose
+                                </th>
+
+                                <th>
+                                    Example
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    HTML
+                                </td>
+
+                                <td>
+                                    Provides structure and meaning
+                                </td>
+
+                                <td>
+                                    Headings, paragraphs, forms
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    CSS
+                                </td>
+
+                                <td>
+                                    Controls presentation and layout
+                                </td>
+
+                                <td>
+                                    Colors, spacing, responsive layouts
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    JavaScript
+                                </td>
+
+                                <td>
+                                    Adds programming behavior
+                                </td>
+
+                                <td>
+                                    Buttons, validation, dynamic content
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        EASY MEMORY TRICK
+                    </strong>
+
+                    HTML = Structure
+
+                    <br>
+
+                    CSS = Appearance
+
+                    <br>
+
+                    JavaScript = Behavior
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 5 — BACK END
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="back-end"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 05
+                </div>
+
+                <h2>
+                    Back-End Development
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>Back-end development</strong> focuses
+                    on the server-side systems that power an
+                    application.
+
+                </p>
+
+
+                <p>
+
+                    Users typically do not see the back-end code
+                    directly.
+
+                </p>
+
+
+                <p>
+                    Back-end systems may handle:
+                </p>
+
+
+                <ul style="padding-left: 25px;">
+
+                    <li>
+                        Application logic
+                    </li>
+
+                    <li>
+                        User authentication
+                    </li>
+
+                    <li>
+                        Database operations
+                    </li>
+
+                    <li>
+                        APIs
+                    </li>
+
+                    <li>
+                        Data processing
+                    </li>
+
+                    <li>
+                        Security
+                    </li>
+
+                    <li>
+                        Server-side validation
+                    </li>
+
+                    <li>
+                        Business rules
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Common Back-End Technologies
+                </h3>
+
+
+                <p>
+
+                    Developers can use many different programming
+                    languages and technologies on the back end.
+
+                </p>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Technology
+                                </th>
+
+                                <th>
+                                    Common Use
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    JavaScript / Node.js
+                                </td>
+
+                                <td>
+                                    Server-side JavaScript applications
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Python
+                                </td>
+
+                                <td>
+                                    Web applications, APIs, automation,
+                                    data-related applications
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Java
+                                </td>
+
+                                <td>
+                                    Enterprise applications and
+                                    large-scale systems
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    C#
+                                </td>
+
+                                <td>
+                                    Microsoft-based application
+                                    development and web systems
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    PHP
+                                </td>
+
+                                <td>
+                                    Server-side web development
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Databases
+                </h3>
+
+
+                <p>
+
+                    Many web applications need a way to store
+                    information.
+
+                </p>
+
+
+                <p>
+
+                    A database can store information such as
+                    customer accounts, products, orders, course
+                    progress, messages, or other application data.
+
+                </p>
+
+
+                <p>
+                    Examples include:
+                </p>
+
+
+                <ul style="padding-left: 25px;">
+
+                    <li>
+                        MySQL
+                    </li>
+
+                    <li>
+                        PostgreSQL
+                    </li>
+
+                    <li>
+                        Microsoft SQL Server
+                    </li>
+
+                    <li>
+                        MongoDB
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 6 — FULL STACK
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="full-stack"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 06
+                </div>
+
+                <h2>
+                    Full-Stack Development
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    <strong>Full-stack development</strong> refers
+                    to working across multiple layers of a web
+                    application, including both front-end and
+                    back-end development.
+
+                </p>
+
+
+                <p>
+
+                    A full-stack developer understands how the
+                    user interface connects to server-side
+                    application logic and data.
+
+                </p>
+
+
+                <div class="stack-container">
+
+                    <div class="stack-title">
+                        THE WEB APPLICATION STACK
+                    </div>
+
+
+                    <div class="stack-layer front">
+
+                        <strong>
+                            FRONT END
+                        </strong>
+
+                        HTML • CSS • JavaScript • User Interface
+
+                    </div>
+
+
+                    <div class="stack-layer back">
+
+                        <strong>
+                            BACK END
+                        </strong>
+
+                        Server • APIs • Business Logic • Authentication
+
+                    </div>
+
+
+                    <div class="stack-layer database">
+
+                        <strong>
+                            DATA LAYER
+                        </strong>
+
+                        Databases • Stored Information • Data Operations
+
+                    </div>
+
+                </div>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        REMEMBER
+                    </strong>
+
+                    Full-stack does not mean "expert in every
+                    technology."
+
+                    It means having the ability to work across
+                    multiple layers of a web application and
+                    understand how those layers communicate.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 7 — DEVELOPER VS DESIGNER
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="developer-designer"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 07
+                </div>
+
+                <h2>
+                    Web Developer vs. Web Designer
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="comparison">
+
+                <div class="comparison-card website">
+
+                    <h3>
+                        🎨 WEB DESIGNER
+                    </h3>
+
+
+                    <p>
+                        Typically focuses on how a website
+                        looks, feels, and communicates with users.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Visual design
+                        </li>
+
+                        <li>
+                            Typography
+                        </li>
+
+                        <li>
+                            Color systems
+                        </li>
+
+                        <li>
+                            Layout
+                        </li>
+
+                        <li>
+                            User experience
+                        </li>
+
+                        <li>
+                            User interface design
+                        </li>
+
+                        <li>
+                            Prototypes
+                        </li>
+
+                        <li>
+                            Design systems
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="comparison-card application">
+
+                    <h3>
+                        💻 WEB DEVELOPER
+                    </h3>
+
+
+                    <p>
+                        Typically focuses on building the functional
+                        website or application.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            HTML
+                        </li>
+
+                        <li>
+                            CSS
+                        </li>
+
+                        <li>
+                            JavaScript
+                        </li>
+
+                        <li>
+                            Programming
+                        </li>
+
+                        <li>
+                            APIs
+                        </li>
+
+                        <li>
+                            Databases
+                        </li>
+
+                        <li>
+                            Testing
+                        </li>
+
+                        <li>
+                            Deployment
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    Do Developers and Designers Ever Overlap?
+                </h3>
+
+
+                <p>
+
+                    Yes.
+
+                    Modern technology professionals frequently
+                    develop skills that cross traditional job
+                    boundaries.
+
+                </p>
+
+
+                <p>
+
+                    A developer may understand user experience
+                    and visual design.
+
+                    A designer may understand HTML and CSS.
+
+                    A smaller company may even expect one person
+                    to handle both design and development.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        CAREER TIP
+                    </strong>
+
+                    Understanding both design and development can
+                    make you a stronger technology professional
+                    because you can communicate effectively with
+                    designers, developers, clients, and stakeholders.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 8 — CAREERS
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="careers"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 08
+                </div>
+
+                <h2>
+                    Common Web Development Careers
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p>
+
+                    Web development is a broad field with
+                    multiple career paths.
+
+                </p>
+
+            </div>
+
+
+            <div class="career-grid">
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Front-End Developer
+                    </h3>
+
+                    <p>
+
+                        Builds the user-facing portion of
+                        websites and web applications.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Back-End Developer
+                    </h3>
+
+                    <p>
+
+                        Builds server-side functionality,
+                        application logic, APIs, and data systems.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        🔗
+                    </div>
+
+                    <h3>
+                        Full-Stack Developer
+                    </h3>
+
+                    <p>
+
+                        Works across front-end and back-end
+                        layers of web applications.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Web Developer
+                    </h3>
+
+                    <p>
+
+                        Builds, maintains, and improves websites
+                        and web-based applications.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        🖥️
+                    </div>
+
+                    <h3>
+                        UI Developer
+                    </h3>
+
+                    <p>
+
+                        Focuses on implementing user interfaces
+                        and translating visual designs into
+                        functional web experiences.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        🛒
+                    </div>
+
+                    <h3>
+                        E-Commerce Developer
+                    </h3>
+
+                    <p>
+
+                        Builds online shopping experiences,
+                        product systems, carts, checkout flows,
+                        and integrations.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        CMS Developer
+                    </h3>
+
+                    <p>
+
+                        Builds and customizes websites using
+                        content management systems.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        ♿
+                    </div>
+
+                    <h3>
+                        Web Accessibility Specialist
+                    </h3>
+
+                    <p>
+
+                        Helps organizations create websites and
+                        applications that are usable by people
+                        with varying abilities.
+
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-icon">
+                        🧪
+                    </div>
+
+                    <h3>
+                        Web QA / Test Engineer
+                    </h3>
+
+                    <p>
+
+                        Tests websites and applications to identify
+                        functional, usability, compatibility, and
+                        other defects.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 9 — HOW EVERYTHING CONNECTS
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="big-picture"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Concept 09
+                </div>
+
+                <h2>
+                    How Everything Works Together
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    Let's put everything together using an
+                    online learning platform as an example.
+
+                </p>
+
+
+                <p>
+
+                    A student opens the learning platform
+                    in a browser.
+
+                </p>
+
+
+                <p>
+
+                    The <strong>front end</strong> displays
+                    the dashboard, lessons, buttons, videos,
+                    quizzes, and navigation.
+
+                </p>
+
+
+                <p>
+
+                    The student clicks:
+
+                    <strong>
+                        "Start Lesson."
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    JavaScript can respond to the interaction
+                    in the browser.
+
+                    The application may then communicate with
+                    the back end.
+
+                </p>
+
+
+                <p>
+
+                    The <strong>back end</strong> can process
+                    the request and retrieve information from
+                    a database.
+
+                </p>
+
+
+                <p>
+
+                    The server can return the necessary
+                    information.
+
+                </p>
+
+
+                <p>
+
+                    The front end then updates the interface
+                    for the student.
+
+                </p>
+
+
+                <div class="key-concept">
+
+                    <strong>
+                        THE BIG PICTURE
+                    </strong>
+
+                    User → Browser → Front End → Back End →
+                    Database → Back End → Front End → User
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 10 — IMPORTANT TERMS
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="glossary"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Reference
+                </div>
+
+                <h2>
+                    Lesson 1.1 Glossary
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="glossary-grid">
+
+
+                <div class="term">
+
+                    <strong>
+                        Web Development
+                    </strong>
+
+                    <span>
+                        The process of creating and maintaining
+                        websites and web applications.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Website
+                    </strong>
+
+                    <span>
+                        A collection of web pages and resources
+                        accessible through a browser.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Web Application
+                    </strong>
+
+                    <span>
+                        An interactive application accessed
+                        through a web browser.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Front End
+                    </strong>
+
+                    <span>
+                        The user-facing portion of a web
+                        application.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Back End
+                    </strong>
+
+                    <span>
+                        Server-side systems that process data
+                        and application logic.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Full Stack
+                    </strong>
+
+                    <span>
+                        Multiple layers of a web application,
+                        including front end and back end.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Web Browser
+                    </strong>
+
+                    <span>
+                        Software used to access and display
+                        web resources.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Web Server
+                    </strong>
+
+                    <span>
+                        A system that receives requests and
+                        provides web resources or application
+                        responses.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        Database
+                    </strong>
+
+                    <span>
+                        A system used to store and manage
+                        structured application data.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        API
+                    </strong>
+
+                    <span>
+                        A defined way for software systems to
+                        communicate and exchange information.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        UI
+                    </strong>
+
+                    <span>
+                        User Interface — the visual and
+                        interactive interface users operate.
+                    </span>
+
+                </div>
+
+
+                <div class="term">
+
+                    <strong>
+                        UX
+                    </strong>
+
+                    <span>
+                        User Experience — the overall experience
+                        a person has when using a product or system.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KNOWLEDGE CHECK
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="knowledge-check"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Knowledge Check
+                </div>
+
+                <h2>
+                    Test Your Understanding
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p>
+
+                    Answer all five questions.
+
+                    Your score will be calculated automatically.
+
+                </p>
+
+            </div>
+
+
+            <form
+                class="quiz"
+                id="lessonQuiz"
+            >
+
+
+                <!-- QUESTION 1 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        1. What is web development?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="a"
+                        >
+
+                        <span>
+                            The process of creating and maintaining
+                            websites and web applications
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="b"
+                        >
+
+                        <span>
+                            Only the process of creating logos
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="c"
+                        >
+
+                        <span>
+                            Only the process of writing database queries
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="d"
+                        >
+
+                        <span>
+                            Only the visual design of websites
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        2. Which area of development focuses primarily
+                        on what users see and interact with?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="a"
+                        >
+
+                        <span>
+                            Back-end development
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="b"
+                        >
+
+                        <span>
+                            Front-end development
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="c"
+                        >
+
+                        <span>
+                            Database administration
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="d"
+                        >
+
+                        <span>
+                            Server maintenance
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        3. Which technology is primarily responsible
+                        for adding programming behavior to a webpage?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="a"
+                        >
+
+                        <span>
+                            HTML
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="b"
+                        >
+
+                        <span>
+                            CSS
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="c"
+                        >
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="d"
+                        >
+
+                        <span>
+                            SQL
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 4 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        4. What does full-stack development involve?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="a"
+                        >
+
+                        <span>
+                            Only visual design
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="b"
+                        >
+
+                        <span>
+                            Only database management
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="c"
+                        >
+
+                        <span>
+                            Working across multiple layers,
+                            including front end and back end
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="d"
+                        >
+
+                        <span>
+                            Only creating mobile applications
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 5 -->
+
+                <div class="quiz-question">
+
+                    <h3>
+                        5. Which professional typically focuses
+                        more heavily on visual design and user
+                        experience?
+                    </h3>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="a"
+                        >
+
+                        <span>
+                            Web designer
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="b"
+                        >
+
+                        <span>
+                            Database administrator
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="c"
+                        >
+
+                        <span>
+                            Back-end developer
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="d"
+                        >
+
+                        <span>
+                            Server administrator
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="quiz-button"
+                >
+                    Submit Knowledge Check
+                </button>
+
+
+                <div
+                    class="quiz-result"
+                    id="quizResult"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================================
+             LESSON SUMMARY
+             ===================================================== -->
+
+        <section
+            class="lesson-section"
+            id="summary"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Lesson Summary
+                </div>
+
+                <h2>
+                    What You Should Know Now
+                </h2>
+
+                <div class="gold-line"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    You should now be able to explain:
+                </h3>
+
+
+                <ul
+                    style="
+                        padding-left: 25px;
+                        margin-top: 15px;
+                    "
+                >
+
+                    <li>
+                        What web development is
+                    </li>
+
+                    <li>
+                        What websites are
+                    </li>
+
+                    <li>
+                        What web applications are
+                    </li>
+
+                    <li>
+                        The difference between front-end
+                        and back-end development
+                    </li>
+
+                    <li>
+                        What full-stack development means
+                    </li>
+
+                    <li>
+                        The difference between web developers
+                        and web designers
+                    </li>
+
+                    <li>
+                        Several common web development careers
+                    </li>
+
+                    <li>
+                        How the major layers of a web application
+                        work together
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPLETION
+             ===================================================== -->
+
+        <section class="completion">
+
+            <h2>
+                Lesson 1.1 Complete
+            </h2>
+
+
+            <p>
+
+                You've now learned the foundational concepts
+                behind web development.
+
+                Next, you'll begin exploring how the web
+                actually works — including browsers, servers,
+                URLs, HTTP requests, and responses.
+
+            </p>
+
+
+            <a
+                href="lesson-1-2.html"
+                class="next-button"
+            >
+                Continue to Lesson 1.2 →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        © 2026 Golden Healing Solutions LLC.
+        All Rights Reserved.
+
+        <br><br>
+
+        Web Development Bootcamp
+        •
+        Module 1
+        •
+        Lesson 1.1
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+        /* =========================================================
+           READING PROGRESS
+           ========================================================= */
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+
+        function updateProgress() {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight
+                - window.innerHeight;
+
+            if (documentHeight <= 0) {
+
+                progressBar.style.width = "100%";
+
+                return;
+            }
+
+
+            const progress =
+                (scrollTop / documentHeight) * 100;
+
+
+            progressBar.style.width =
+                Math.min(progress, 100) + "%";
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateProgress
+        );
+
+
+        updateProgress();
+
+
+        /* =========================================================
+           INTERACTIVE WEB APPLICATION DEMO
+           ========================================================= */
+
+        const demoButton =
+            document.getElementById("demoButton");
+
+        const demoMessage =
+            document.getElementById("demoMessage");
+
+
+        let clickCount = 0;
+
+
+        demoButton.addEventListener(
+            "click",
+            function () {
+
+                clickCount++;
+
+
+                demoMessage.textContent =
+                    "JavaScript responded to your click! " +
+                    "You have clicked the button " +
+                    clickCount +
+                    " time" +
+                    (clickCount === 1 ? "" : "s") +
+                    ".";
+
+            }
+        );
+
+
+        /* =========================================================
+           KNOWLEDGE CHECK
+           ========================================================= */
+
+        const quiz =
+            document.getElementById("lessonQuiz");
+
+
+        const quizResult =
+            document.getElementById("quizResult");
+
+
+        const correctAnswers = {
+
+            q1: "a",
+
+            q2: "b",
+
+            q3: "c",
+
+            q4: "c",
+
+            q5: "a"
+
+        };
+
+
+        const explanations = {
+
+            q1:
+                "Web development involves creating, building, " +
+                "maintaining, testing, and improving websites " +
+                "and web applications.",
+
+            q2:
+                "Front-end development focuses on the user-facing " +
+                "portion of a website or web application.",
+
+            q3:
+                "JavaScript is commonly used to add programming " +
+                "logic, behavior, and interactivity to webpages.",
+
+            q4:
+                "Full-stack development involves working across " +
+                "multiple layers of an application, including " +
+                "front-end and back-end technologies.",
+
+            q5:
+                "Web designers generally focus more heavily on " +
+                "visual design, user interface, and user experience."
+
+        };
+
+
+        quiz.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                let score = 0;
+
+                let answered = 0;
+
+
+                Object.keys(correctAnswers)
+                    .forEach(function(question) {
+
+                        const selected =
+                            document.querySelector(
+                                `input[name="${question}"]:checked`
+                            );
+
+
+                        if (selected) {
+
+                            answered++;
+
+
+                            if (
+                                selected.value ===
+                                correctAnswers[question]
+                            ) {
+
+                                score++;
+
+                            }
+
+                        }
+
+                    });
+
+
+                if (answered < 5) {
+
+                    quizResult.classList.add("show");
+
+
+                    quizResult.innerHTML = `
+
+                        <div class="score">
+                            Please answer all 5 questions.
+                        </div>
+
+                        <p>
+                            You answered ${answered} of 5 questions.
+                            Complete the remaining questions before
+                            submitting your Knowledge Check.
+                        </p>
+
+                    `;
+
+
+                    return;
+
+                }
+
+
+                const percentage =
+                    Math.round(
+                        (score / 5) * 100
+                    );
+
+
+                let message = "";
+
+
+                if (percentage === 100) {
+
+                    message =
+                        "Excellent work! You demonstrated a strong " +
+                        "understanding of the foundational concepts.";
+
+                }
+                else if (percentage >= 80) {
+
+                    message =
+                        "Great job! You have a solid understanding " +
+                        "of the lesson. Review any missed concepts " +
+                        "before continuing.";
+
+                }
+                else if (percentage >= 60) {
+
+                    message =
+                        "Good effort. Review the lesson concepts " +
+                        "before moving forward.";
+
+                }
+                else {
+
+                    message =
+                        "Keep practicing. Review the lesson and " +
+                        "try the Knowledge Check again.";
+
+                }
+
+
+                quizResult.classList.add("show");
+
+
+                quizResult.innerHTML = `
+
+                    <div class="score">
+                        Score: ${score}/5 — ${percentage}%
+                    </div>
+
+                    <p>
+                        ${message}
+                    </p>
+
+                    <br>
+
+                    <strong>
+                        Review:
+                    </strong>
+
+                    <ul
+                        style="
+                            padding-left: 20px;
+                            margin-top: 10px;
+                        "
+                    >
+
+                        <li>
+                            Q1: ${explanations.q1}
+                        </li>
+
+                        <li>
+                            Q2: ${explanations.q2}
+                        </li>
+
+                        <li>
+                            Q3: ${explanations.q3}
+                        </li>
+
+                        <li>
+                            Q4: ${explanations.q4}
+                        </li>
+
+                        <li>
+                            Q5: ${explanations.q5}
+                        </li>
+
+                    </ul>
+
+                `;
+
+
+                quizResult.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+</html>
