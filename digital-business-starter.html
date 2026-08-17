@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Business Starter Package | Golden Healing Solutions</title>
+
+    <meta name="description"
+        content="Digital Business Starter Package by Golden Healing Solutions. Get your business online with website setup, business email guidance, social media setup, Google Business Profile guidance, and digital tools recommendations.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #0b0b0b;
+            color: #ffffff;
+            padding: 18px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #292929;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 1.35rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.88),
+                    rgba(0,0,0,0.88)
+                ),
+                radial-gradient(
+                    circle at top right,
+                    #3a3015,
+                    #000000 60%
+                );
+
+            color: #ffffff;
+            padding: 110px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #d4af37;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #dddddd;
+            font-size: 1.15rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .btn-gold:hover {
+            background: #ffffff;
+        }
+
+        .btn-outline {
+            border: 1px solid #d4af37;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 85px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading span {
+            color: #b08d24;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 12px 0 15px;
+        }
+
+        .section-heading p {
+            color: #666666;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-text h2 span {
+            color: #d4af37;
+        }
+
+        .intro-text p {
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .intro-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .intro-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .intro-list li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .intro-box {
+            background: #111111;
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .intro-box h3 {
+            color: #d4af37;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #dddddd;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: #f7f7f7;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 14px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666666;
+            margin-bottom: 18px;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            padding: 6px 0 6px 22px;
+            position: relative;
+            color: #444444;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process {
+            background: #ffffff;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #111111;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================
+           PACKAGE
+        ========================= */
+
+        .package {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .package-wrapper {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .package-wrapper .eyebrow {
+            color: #d4af37;
+        }
+
+        .package-wrapper h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .package-wrapper > p {
+            color: #cccccc;
+            margin-bottom: 35px;
+        }
+
+        .package-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .package-item {
+            padding: 15px;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            color: #eeeeee;
+        }
+
+        .package-item strong {
+            color: #d4af37;
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        details {
+            border-bottom: 1px solid #dddddd;
+            padding: 20px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        details p {
+            color: #666666;
+            padding-top: 12px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            text-align: center;
+            background: #f7f7f7;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #666666;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #050505;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+            Golden Healing Solutions
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#services">Services</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            GOLDEN HEALING SOLUTIONS
+        </div>
+
+        <h1>
+            Digital Business
+            <span>Starter Package</span>
+        </h1>
+
+        <p>
+            Everything you need to begin building a professional
+            digital presence for your business — from your website
+            and business email to social media, Google, and essential
+            digital tools.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#package" class="btn btn-gold">
+                Explore the Package
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Get Started
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-text">
+
+                <h2>
+                    Your Business Deserves a
+                    <span>Digital Foundation.</span>
+                </h2>
+
+                <p>
+                    Starting a business can be overwhelming. You may
+                    know what products or services you want to offer,
+                    but you may not know where to start with your
+                    website, email, social media, Google presence,
+                    and technology.
+                </p>
+
+                <p>
+                    The Digital Business Starter Package is designed
+                    to help entrepreneurs establish the essential
+                    digital pieces of their business.
+                </p>
+
+                <ul class="intro-list">
+
+                    <li>
+                        Establish a professional online presence
+                    </li>
+
+                    <li>
+                        Create consistent business information
+                    </li>
+
+                    <li>
+                        Connect customers with your business
+                    </li>
+
+                    <li>
+                        Identify the right digital tools
+                    </li>
+
+                    <li>
+                        Learn how to manage your digital presence
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="intro-box">
+
+                <h3>
+                    Who Is This For?
+                </h3>
+
+                <p>
+                    This package is ideal for new entrepreneurs,
+                    startups, small businesses, service providers,
+                    independent professionals, and business owners
+                    who need help establishing or improving their
+                    digital presence.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES INCLUDED
+========================= -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT'S INCLUDED
+            </span>
+
+            <h2>
+                Build Your Digital Presence
+            </h2>
+
+            <p>
+                We focus on the essential digital components
+                your business needs to get started.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <!-- WEBSITE -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Basic Website
+                </h3>
+
+                <p>
+                    Establish a professional online home for
+                    your business.
+                </p>
+
+                <ul>
+
+                    <li>Home page</li>
+
+                    <li>About section</li>
+
+                    <li>Services section</li>
+
+                    <li>Contact section</li>
+
+                    <li>Mobile-friendly design</li>
+
+                    <li>Social media links</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Business Email Guidance
+                </h3>
+
+                <p>
+                    Learn how to establish a professional email
+                    using your business domain.
+                </p>
+
+                <ul>
+
+                    <li>Email provider recommendations</li>
+
+                    <li>Domain email guidance</li>
+
+                    <li>Setup assistance</li>
+
+                    <li>Email signature guidance</li>
+
+                    <li>Professional email organization</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SOCIAL MEDIA -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Social Media Setup Guidance
+                </h3>
+
+                <p>
+                    Establish professional social media profiles
+                    for your business.
+                </p>
+
+                <ul>
+
+                    <li>Facebook</li>
+
+                    <li>Instagram</li>
+
+                    <li>TikTok</li>
+
+                    <li>LinkedIn</li>
+
+                    <li>Bio guidance</li>
+
+                    <li>Starter content ideas</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- GOOGLE -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Google Business Profile Guidance
+                </h3>
+
+                <p>
+                    Get guidance for establishing your eligible
+                    business presence on Google.
+                </p>
+
+                <ul>
+
+                    <li>Eligibility guidance</li>
+
+                    <li>Profile setup guidance</li>
+
+                    <li>Category guidance</li>
+
+                    <li>Business information</li>
+
+                    <li>Photo recommendations</li>
+
+                    <li>Review guidance</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DIGITAL TOOLS -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Digital Tools Recommendations
+                </h3>
+
+                <p>
+                    Discover technology that can help you
+                    operate your business more efficiently.
+                </p>
+
+                <ul>
+
+                    <li>Scheduling tools</li>
+
+                    <li>Payment tools</li>
+
+                    <li>Design tools</li>
+
+                    <li>Cloud storage</li>
+
+                    <li>Communication tools</li>
+
+                    <li>Productivity tools</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- TRAINING -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Digital Business Training
+                </h3>
+
+                <p>
+                    Learn the basics of managing your new
+                    digital presence.
+                </p>
+
+                <ul>
+
+                    <li>Website basics</li>
+
+                    <li>Email basics</li>
+
+                    <li>Social media basics</li>
+
+                    <li>Google Business basics</li>
+
+                    <li>Digital tool guidance</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR PROCESS
+            </span>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                A simple process designed to help you build
+                your digital foundation with confidence.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Consultation
+                </h3>
+
+                <p>
+                    Learn about your business, goals, customers,
+                    and current digital presence.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Digital Assessment
+                </h3>
+
+                <p>
+                    Identify the digital services and tools
+                    your business needs.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Setup
+                </h3>
+
+                <p>
+                    Work through your website, email, social
+                    media, Google, and tools.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Review
+                </h3>
+
+                <p>
+                    Review your digital presence and make
+                    sure essential information is consistent.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    05
+                </div>
+
+                <h3>
+                    Training
+                </h3>
+
+                <p>
+                    Learn how to maintain your digital
+                    presence going forward.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PACKAGE
+========================= -->
+
+<section class="package" id="package">
+
+    <div class="container">
+
+        <div class="package-wrapper">
+
+            <div class="eyebrow">
+                DIGITAL BUSINESS STARTER
+            </div>
+
+            <h2>
+                Build Your Business Online
+            </h2>
+
+            <p>
+                A practical starting point for entrepreneurs
+                who are ready to establish their professional
+                digital presence.
+            </p>
+
+
+            <div class="package-list">
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Basic Website
+                </div>
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Business Email Guidance
+                </div>
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Social Media Setup Guidance
+                </div>
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Google Business Profile Guidance
+                </div>
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Digital Tools Recommendations
+                </div>
+
+                <div class="package-item">
+                    <strong>✓</strong>
+                    Basic Digital Training
+                </div>
+
+            </div>
+
+
+            <a
+                href="#contact"
+                class="btn btn-gold">
+                Request This Service
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                FAQ
+            </span>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+            <details>
+
+                <summary>
+                    Do I need to already have a website?
+                </summary>
+
+                <p>
+                    No. This service is designed for businesses
+                    that are starting from scratch or need help
+                    establishing their digital presence.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Do you provide my domain name?
+                </summary>
+
+                <p>
+                    Domain registration, hosting, and third-party
+                    software costs may be separate from the service
+                    fee unless specifically included in your quote.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Do you manage my social media?
+                </summary>
+
+                <p>
+                    The Digital Business Starter Package focuses
+                    on setup and guidance. Ongoing social media
+                    management can be purchased separately.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can every business have a Google Business Profile?
+                </summary>
+
+                <p>
+                    Google Business Profile eligibility depends
+                    on Google's current requirements. Guidance is
+                    provided based on the type of business and
+                    its customer interaction model.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I purchase additional services later?
+                </summary>
+
+                <p>
+                    Yes. Additional website development,
+                    e-commerce, automation, SEO, social media
+                    management, maintenance, and other technology
+                    services can be added separately.
+                </p>
+
+            </details>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT CTA
+========================= -->
+
+<section class="cta" id="contact">
+
+    <div class="container">
+
+        <h2>
+            Ready to Get Your Business Online?
+        </h2>
+
+        <p>
+            Start building a professional digital foundation
+            for your business today.
+        </p>
+
+        <a
+            href="mailto:info@goldenhealingsolutions.com?subject=Digital Business Starter Package Inquiry"
+            class="btn btn-gold">
+
+            Contact Golden Healing Solutions
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <span>Golden Healing Solutions</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

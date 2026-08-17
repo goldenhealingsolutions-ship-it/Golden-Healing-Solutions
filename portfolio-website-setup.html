@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Website Setup | Golden Healing Solutions</title>
+
+    <meta name="description"
+        content="Portfolio Website Setup by Golden Healing Solutions. Build a professional technology portfolio featuring your projects, skills, resume, and contact information.">
+
+    <style>
+
+        /* =========================================
+           GLOBAL STYLES
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            background: #0b0b0b;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 1.35rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.90),
+                    rgba(0,0,0,0.90)
+                ),
+                radial-gradient(
+                    circle at top right,
+                    #3d3214,
+                    #000000 65%
+                );
+
+            color: #ffffff;
+            padding: 110px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #d4af37;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto 35px;
+            color: #dddddd;
+            font-size: 1.15rem;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .btn-gold:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #d4af37;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
+
+        section {
+            padding: 85px 20px;
+        }
+
+        .section-heading {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading span {
+            color: #b08d24;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 12px 0 15px;
+        }
+
+        .section-heading p {
+            color: #666666;
+        }
+
+
+        /* =========================================
+           INTRODUCTION
+        ========================================= */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-content h2 span {
+            color: #d4af37;
+        }
+
+        .intro-content p {
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .intro-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .intro-list li {
+            padding-left: 25px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .intro-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .intro-box {
+            background: #111111;
+            color: #ffffff;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .intro-box h3 {
+            color: #d4af37;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #dddddd;
+        }
+
+
+        /* =========================================
+           SERVICES INCLUDED
+        ========================================= */
+
+        .services {
+            background: #f7f7f7;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 14px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #666666;
+        }
+
+
+        /* =========================================
+           PORTFOLIO SECTIONS
+        ========================================= */
+
+        .portfolio-sections {
+            background: #ffffff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            padding: 35px;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            background: #ffffff;
+        }
+
+        .portfolio-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .portfolio-card p {
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card ul {
+            list-style: none;
+        }
+
+        .portfolio-card li {
+            padding: 7px 0 7px 23px;
+            position: relative;
+        }
+
+        .portfolio-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           PROJECTS SHOWCASE
+        ========================================= */
+
+        .projects {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .projects .section-heading p {
+            color: #cccccc;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .project-number {
+            color: #d4af37;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            border: 1px solid #555555;
+            border-radius: 20px;
+            padding: 5px 12px;
+            margin: 4px 3px;
+            font-size: 0.8rem;
+            color: #dddddd;
+        }
+
+
+        /* =========================================
+           PROCESS
+        ========================================= */
+
+        .process {
+            background: #f7f7f7;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            background: #111111;
+            color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================================
+           WHO IT'S FOR
+        ========================================= */
+
+        .audience {
+            background: #ffffff;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .audience-card {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+        }
+
+        .audience-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .audience-card h3 {
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+            background: #111111;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #dddddd;
+            border-radius: 15px;
+            padding: 45px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            color: #b08d24;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           DISCLAIMER
+        ========================================= */
+
+        .disclaimer {
+            background: #f7f7f7;
+            padding: 40px 20px;
+        }
+
+        .disclaimer-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #050505;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .service-grid,
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .intro-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid,
+            .project-grid,
+            .process-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Golden Healing Solutions
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#services">Services</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            TECHNOLOGY CAREER & DIGITAL SERVICES
+        </div>
+
+        <h1>
+            Portfolio Website
+            <span>Setup</span>
+        </h1>
+
+        <p>
+            Create a professional online portfolio that
+            showcases your technology skills, projects,
+            experience, resume, and contact information
+            in one place.
+        </p>
+
+        <a
+            href="#included"
+            class="btn btn-gold">
+
+            Explore the Service
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+
+            <div class="intro-content">
+
+                <div class="eyebrow">
+                    BUILD YOUR DIGITAL PRESENCE
+                </div>
+
+                <h2>
+                    Turn Your Skills Into a
+                    <span>Professional Portfolio.</span>
+                </h2>
+
+                <p>
+                    A resume tells employers what you have done.
+                    A portfolio gives you an opportunity to show
+                    what you can actually create, build, design,
+                    analyze, or accomplish.
+                </p>
+
+                <p>
+                    The Portfolio Website Setup service helps
+                    beginners, students, career changers, and
+                    technology professionals create a centralized
+                    online space for presenting their work.
+                </p>
+
+                <ul class="intro-list">
+
+                    <li>
+                        Personal technology portfolio
+                    </li>
+
+                    <li>
+                        Professional projects section
+                    </li>
+
+                    <li>
+                        Technology skills section
+                    </li>
+
+                    <li>
+                        Resume link
+                    </li>
+
+                    <li>
+                        Contact section
+                    </li>
+
+                    <li>
+                        Mobile-friendly layout
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="intro-box">
+
+                <h3>
+                    Your Portfolio. Your Work. Your Story.
+                </h3>
+
+                <p>
+                    Whether you're learning web development,
+                    cybersecurity, IT, cloud computing, data,
+                    project management, or another technology
+                    field, your portfolio can help organize
+                    your professional presence.
+                </p>
+
+                <br>
+
+                <p>
+                    Start with a strong foundation and continue
+                    adding projects as your skills grow.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WHAT'S INCLUDED
+========================================= -->
+
+<section class="services" id="included">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT'S INCLUDED
+            </span>
+
+            <h2>
+                Your Portfolio Website
+            </h2>
+
+            <p>
+                A professional structure designed to showcase
+                your technology journey and accomplishments.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Personal Technology Portfolio
+                </h3>
+
+                <p>
+                    A professional homepage introducing who you
+                    are, what you do, your technology interests,
+                    and your career goals.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🧩
+                </div>
+
+                <h3>
+                    Projects Section
+                </h3>
+
+                <p>
+                    Showcase coding projects, labs, websites,
+                    applications, certifications, school work,
+                    or other technology projects.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Skills Section
+                </h3>
+
+                <p>
+                    Highlight programming languages, software,
+                    platforms, technical skills, tools, and
+                    professional capabilities.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Resume Link
+                </h3>
+
+                <p>
+                    Give visitors an easy way to view or access
+                    your professional resume from your portfolio.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Contact Section
+                </h3>
+
+                <p>
+                    Make it easy for employers, recruiters,
+                    clients, or professional contacts to reach you.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile-Friendly Design
+                </h3>
+
+                <p>
+                    Create a portfolio that is designed to work
+                    across desktop, tablet, and mobile devices.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PORTFOLIO SECTIONS
+========================================= -->
+
+<section class="portfolio-sections">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                BUILD YOUR PROFESSIONAL BRAND
+            </span>
+
+            <h2>
+                What Your Portfolio Can Showcase
+            </h2>
+
+            <p>
+                Your portfolio can grow with you as you
+                develop new skills and complete new projects.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+
+            <div class="portfolio-card">
+
+                <h3>
+                    👤 Personal Introduction
+                </h3>
+
+                <p>
+                    Introduce yourself and explain your
+                    professional technology interests.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Name
+                    </li>
+
+                    <li>
+                        Professional headline
+                    </li>
+
+                    <li>
+                        Career interests
+                    </li>
+
+                    <li>
+                        Short professional bio
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="portfolio-card">
+
+                <h3>
+                    🚀 Technology Projects
+                </h3>
+
+                <p>
+                    Present the work you've completed and
+                    demonstrate what you can do.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Project title
+                    </li>
+
+                    <li>
+                        Project description
+                    </li>
+
+                    <li>
+                        Technologies used
+                    </li>
+
+                    <li>
+                        Project link
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="portfolio-card">
+
+                <h3>
+                    🧠 Skills & Technologies
+                </h3>
+
+                <p>
+                    Organize your technical and professional
+                    skills into an easy-to-understand section.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Programming languages
+                    </li>
+
+                    <li>
+                        Software and platforms
+                    </li>
+
+                    <li>
+                        Technical tools
+                    </li>
+
+                    <li>
+                        Professional skills
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="portfolio-card">
+
+                <h3>
+                    📄 Resume & Contact
+                </h3>
+
+                <p>
+                    Connect your portfolio with the rest of
+                    your professional presence.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Resume link
+                    </li>
+
+                    <li>
+                        Professional email
+                    </li>
+
+                    <li>
+                        LinkedIn link
+                    </li>
+
+                    <li>
+                        Contact options
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PROJECT SHOWCASE
+========================================= -->
+
+<section class="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                PROJECT SHOWCASE
+            </span>
+
+            <h2>
+                Give Your Work a Place to Shine
+            </h2>
+
+            <p>
+                A portfolio can showcase projects from school,
+                personal learning, certifications, bootcamps,
+                freelance work, or professional experience.
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    Web Development Project
+                </h3>
+
+                <p>
+                    Showcase a website, web application,
+                    landing page, or coding project.
+                </p>
+
+                <span class="project-tag">
+                    HTML
+                </span>
+
+                <span class="project-tag">
+                    CSS
+                </span>
+
+                <span class="project-tag">
+                    JavaScript
+                </span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>
+                    Technology Lab
+                </h3>
+
+                <p>
+                    Document hands-on labs, technical exercises,
+                    networking projects, or cybersecurity work.
+                </p>
+
+                <span class="project-tag">
+                    IT
+                </span>
+
+                <span class="project-tag">
+                    Networking
+                </span>
+
+                <span class="project-tag">
+                    Security
+                </span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>
+                    Professional Project
+                </h3>
+
+                <p>
+                    Showcase a project demonstrating your ability
+                    to solve problems and apply technology skills.
+                </p>
+
+                <span class="project-tag">
+                    Project
+                </span>
+
+                <span class="project-tag">
+                    Technology
+                </span>
+
+                <span class="project-tag">
+                    Problem Solving
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PROCESS
+========================================= -->
+
+<section class="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR PROCESS
+            </span>
+
+            <h2>
+                How Portfolio Setup Works
+            </h2>
+
+            <p>
+                A simple process designed to turn your existing
+                skills and projects into a professional online presence.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Gather
+                </h3>
+
+                <p>
+                    Gather your resume, projects, skills,
+                    links, and professional information.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Organize
+                </h3>
+
+                <p>
+                    Organize your information into clear
+                    portfolio sections.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+                    Create and structure your professional
+                    portfolio website.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Launch
+                </h3>
+
+                <p>
+                    Review your portfolio and prepare it
+                    for sharing with employers and contacts.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WHO IT'S FOR
+========================================= -->
+
+<section class="audience">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHO CAN BENEFIT
+            </span>
+
+            <h2>
+                Build Your Portfolio at Any Stage
+            </h2>
+
+        </div>
+
+
+        <div class="audience-grid">
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Students
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Beginners
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Career Changers
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Technology Professionals
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+        <div class="eyebrow">
+            SHOW THE WORLD WHAT YOU CAN DO
+        </div>
+
+        <h2>
+            Your Skills Deserve a Professional Home.
+        </h2>
+
+        <p>
+            Build a technology portfolio that gives you a
+            professional place to showcase your projects,
+            skills, resume, and career journey.
+        </p>
+
+        <a
+            href="#contact"
+            class="btn btn-gold">
+
+            Start My Portfolio
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h3>
+                Ready to Build Your Portfolio?
+            </h3>
+
+            <p>
+                Contact Golden Healing Solutions to get started
+                with your Portfolio Website Setup.
+            </p>
+
+            <p>
+
+                <a
+                    href="mailto:info@goldenhealingsolutions.com?subject=Portfolio Website Setup Inquiry"
+                    class="contact-email">
+
+                    info@goldenhealingsolutions.com
+
+                </a>
+
+            </p>
+
+            <br>
+
+            <a
+                href="mailto:info@goldenhealingsolutions.com?subject=Portfolio Website Setup Inquiry"
+                class="btn btn-gold">
+
+                Request Portfolio Setup
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DISCLAIMER
+========================================= -->
+
+<section class="disclaimer">
+
+    <div class="disclaimer-box">
+
+        <p>
+            <strong>Important:</strong>
+            Portfolio Website Setup is a digital and
+            educational service designed to help clients
+            establish an online professional portfolio.
+            Portfolio creation does not guarantee employment,
+            interviews, job offers, or other career outcomes.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <span>Golden Healing Solutions</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Technology Review | Golden Healing Solutions</title>
+
+    <meta
+        name="description"
+        content="Resume Technology Review by Golden Healing Solutions. Use AI-assisted resume analysis and optimization to improve your resume, strengthen your professional presentation, and better align your resume with technology job opportunities."
+    >
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            background: #080808;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 1.35rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.92),
+                    rgba(0,0,0,0.92)
+                ),
+                radial-gradient(
+                    circle at top right,
+                    #4a3c16,
+                    #000000 65%
+                );
+
+            color: #ffffff;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #d4af37;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 35px;
+            color: #dddddd;
+            font-size: 1.15rem;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .btn-gold:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #d4af37;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
+
+        section {
+            padding: 85px 20px;
+        }
+
+        .section-heading {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading span {
+            color: #b08d24;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 12px 0 15px;
+        }
+
+        .section-heading p {
+            color: #666666;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-content h2 span {
+            color: #d4af37;
+        }
+
+        .intro-content p {
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .intro-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .intro-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .intro-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .intro-box {
+            background: #111111;
+            color: #ffffff;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .intro-box h3 {
+            color: #d4af37;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #dddddd;
+        }
+
+
+        /* =========================================
+           AI REVIEW SECTION
+        ========================================= */
+
+        .ai-review {
+            background: #f7f7f7;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .ai-card {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 14px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .ai-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        .ai-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .ai-card p {
+            color: #666666;
+        }
+
+
+        /* =========================================
+           REVIEW AREAS
+        ========================================= */
+
+        .review-areas {
+            background: #ffffff;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            padding: 35px;
+            background: #ffffff;
+        }
+
+        .review-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .review-card p {
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .review-card ul {
+            list-style: none;
+        }
+
+        .review-card li {
+            position: relative;
+            padding: 7px 0 7px 23px;
+        }
+
+        .review-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           BEFORE / AFTER
+        ========================================= */
+
+        .before-after {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .before-after .section-heading p {
+            color: #cccccc;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .comparison-card {
+            padding: 35px;
+            border-radius: 12px;
+        }
+
+        .before {
+            background: #1a1a1a;
+            border: 1px solid #444444;
+        }
+
+        .after {
+            background: #1a1a1a;
+            border: 1px solid #d4af37;
+        }
+
+        .comparison-card h3 {
+            margin-bottom: 18px;
+        }
+
+        .before h3 {
+            color: #bbbbbb;
+        }
+
+        .after h3 {
+            color: #d4af37;
+        }
+
+        .comparison-card p {
+            color: #cccccc;
+        }
+
+
+        /* =========================================
+           ATS
+        ========================================= */
+
+        .ats-section {
+            background: #f7f7f7;
+        }
+
+        .ats-box {
+            max-width: 950px;
+            margin: auto;
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 15px;
+            padding: 45px;
+        }
+
+        .ats-box h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .ats-box p {
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .ats-list {
+            list-style: none;
+        }
+
+        .ats-list li {
+            padding: 9px 0 9px 25px;
+            position: relative;
+        }
+
+        .ats-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           PROCESS
+        ========================================= */
+
+        .process {
+            background: #ffffff;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #111111;
+            color: #d4af37;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 18px;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================================
+           WHAT CLIENT RECEIVES
+        ========================================= */
+
+        .deliverables {
+            background: #f7f7f7;
+        }
+
+        .deliverable-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .deliverable-card {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .deliverable-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .deliverable-card p {
+            color: #666666;
+        }
+
+
+        /* =========================================
+           WHO IT'S FOR
+        ========================================= */
+
+        .audience {
+            background: #ffffff;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .audience-card {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+        }
+
+        .audience-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .audience-card h3 {
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+            background: #111111;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact-box {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #dddddd;
+            border-radius: 15px;
+            padding: 45px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            color: #b08d24;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           DISCLAIMER
+        ========================================= */
+
+        .disclaimer {
+            background: #f7f7f7;
+            padding: 40px 20px;
+        }
+
+        .disclaimer-box {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #050505;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .ai-grid,
+            .deliverable-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .intro-grid,
+            .review-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-grid,
+            .deliverable-grid,
+            .process-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Golden Healing Solutions
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#services">Services</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            AI-ASSISTED CAREER SERVICE
+        </div>
+
+        <h1>
+            Resume Technology
+            <span>Review</span>
+        </h1>
+
+        <p>
+            Have your resume reviewed and professionally
+            optimized with AI-assisted technology to improve
+            clarity, strengthen your accomplishments, identify
+            relevant keywords, and create a stronger application
+            document for the jobs you are targeting.
+        </p>
+
+        <a
+            href="#how-it-works"
+            class="btn btn-gold">
+
+            See How It Works
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+
+            <div class="intro-content">
+
+                <div class="eyebrow">
+                    YOUR RESUME MATTERS
+                </div>
+
+                <h2>
+                    Turn Your Resume Into a
+                    <span>Stronger Career Tool.</span>
+                </h2>
+
+                <p>
+                    Your resume is often the first impression
+                    an employer gets of your professional
+                    experience.
+                </p>
+
+                <p>
+                    Our Resume Technology Review combines
+                    resume review with AI-assisted optimization
+                    to identify areas that could be clearer,
+                    stronger, more relevant, and easier for
+                    applicant tracking systems and recruiters
+                    to understand.
+                </p>
+
+                <ul class="intro-list">
+
+                    <li>
+                        Review your existing resume
+                    </li>
+
+                    <li>
+                        Identify areas for improvement
+                    </li>
+
+                    <li>
+                        Strengthen professional wording
+                    </li>
+
+                    <li>
+                        Improve achievement-focused bullet points
+                    </li>
+
+                    <li>
+                        Identify relevant job keywords
+                    </li>
+
+                    <li>
+                        Improve ATS-friendly formatting
+                    </li>
+
+                    <li>
+                        Produce an optimized resume draft
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="intro-box">
+
+                <h3>
+                    AI-Assisted. Human-Reviewed.
+                </h3>
+
+                <p>
+                    AI can help identify patterns, rewrite
+                    unclear language, organize information,
+                    and compare your resume against a target
+                    job description.
+                </p>
+
+                <br>
+
+                <p>
+                    The goal is not to invent experience.
+                    Your optimized resume should accurately
+                    represent your real skills, experience,
+                    education, certifications, and achievements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     AI REVIEW
+========================================= -->
+
+<section class="ai-review">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                AI-ASSISTED ANALYSIS
+            </span>
+
+            <h2>
+                What the Technology Can Review
+            </h2>
+
+            <p>
+                The AI-assisted review examines your resume
+                for multiple areas that can affect how clearly
+                your qualifications are presented.
+            </p>
+
+        </div>
+
+
+        <div class="ai-grid">
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Resume Content
+                </h3>
+
+                <p>
+                    Reviews your professional summary,
+                    experience, skills, education,
+                    certifications, and overall content.
+                </p>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Keyword Analysis
+                </h3>
+
+                <p>
+                    Identifies relevant terminology and
+                    skills that appear in your target job
+                    description and compares them with
+                    your resume.
+                </p>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    ✍️
+                </div>
+
+                <h3>
+                    Writing Optimization
+                </h3>
+
+                <p>
+                    Helps transform vague or task-focused
+                    statements into clearer, stronger,
+                    achievement-oriented language.
+                </p>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Achievement Analysis
+                </h3>
+
+                <p>
+                    Identifies opportunities to highlight
+                    measurable results, accomplishments,
+                    responsibilities, and impact.
+                </p>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    📋
+                </div>
+
+                <h3>
+                    ATS Compatibility
+                </h3>
+
+                <p>
+                    Reviews formatting and organization
+                    for common ATS-friendly practices.
+                </p>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Job Targeting
+                </h3>
+
+                <p>
+                    Helps tailor your resume toward a
+                    specific role or technology career path.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     REVIEW AREAS
+========================================= -->
+
+<section class="review-areas">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT WE REVIEW
+            </span>
+
+            <h2>
+                A Complete Resume Review
+            </h2>
+
+            <p>
+                Your resume can be evaluated from both a
+                content and presentation perspective.
+            </p>
+
+        </div>
+
+
+        <div class="review-grid">
+
+
+            <div class="review-card">
+
+                <h3>
+                    👤 Professional Summary
+                </h3>
+
+                <p>
+                    Review the opening section of your resume
+                    to make sure it clearly communicates your
+                    professional direction.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Career positioning
+                    </li>
+
+                    <li>
+                        Professional headline
+                    </li>
+
+                    <li>
+                        Relevant strengths
+                    </li>
+
+                    <li>
+                        Career focus
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="review-card">
+
+                <h3>
+                    💼 Work Experience
+                </h3>
+
+                <p>
+                    Improve how your work history communicates
+                    your responsibilities, skills, and impact.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Stronger action verbs
+                    </li>
+
+                    <li>
+                        Achievement-focused bullets
+                    </li>
+
+                    <li>
+                        Relevant responsibilities
+                    </li>
+
+                    <li>
+                        Quantifiable results
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="review-card">
+
+                <h3>
+                    🛠️ Skills
+                </h3>
+
+                <p>
+                    Review technical and professional skills
+                    for relevance to the target position.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Technical skills
+                    </li>
+
+                    <li>
+                        Software and platforms
+                    </li>
+
+                    <li>
+                        Industry terminology
+                    </li>
+
+                    <li>
+                        Transferable skills
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="review-card">
+
+                <h3>
+                    🎓 Education & Certifications
+                </h3>
+
+                <p>
+                    Make sure relevant education, training,
+                    certifications, and credentials are clearly
+                    presented.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Degrees
+                    </li>
+
+                    <li>
+                        Certifications
+                    </li>
+
+                    <li>
+                        Training
+                    </li>
+
+                    <li>
+                        Relevant coursework
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BEFORE / AFTER
+========================================= -->
+
+<section class="before-after">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OPTIMIZATION
+            </span>
+
+            <h2>
+                From Basic to Career-Focused
+            </h2>
+
+            <p>
+                The goal is to make your experience easier
+                for employers and recruiting technology to understand.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-grid">
+
+
+            <div class="comparison-card before">
+
+                <h3>
+                    BEFORE
+                </h3>
+
+                <p>
+                    "Responsible for helping customers with
+                    technical problems and answering questions."
+                </p>
+
+            </div>
+
+
+            <div class="comparison-card after">
+
+                <h3>
+                    AFTER
+                </h3>
+
+                <p>
+                    "Provided technical support to customers,
+                    troubleshooting software and account issues
+                    while resolving service requests and
+                    documenting solutions."
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ATS SECTION
+========================================= -->
+
+<section class="ats-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                ATS OPTIMIZATION
+            </span>
+
+            <h2>
+                Designed With Applicant Tracking Systems in Mind
+            </h2>
+
+            <p>
+                Many employers use applicant tracking systems
+                to parse and organize resumes before recruiters
+                review applications.
+            </p>
+
+        </div>
+
+
+        <div class="ats-box">
+
+            <h3>
+                Areas We Can Optimize
+            </h3>
+
+            <p>
+                The review can focus on creating a resume that
+                is easier for recruiting software and humans
+                to read and understand.
+            </p>
+
+            <ul class="ats-list">
+
+                <li>
+                    Standard resume section headings
+                </li>
+
+                <li>
+                    Clear work experience structure
+                </li>
+
+                <li>
+                    Relevant job-description terminology
+                </li>
+
+                <li>
+                    Technical skills and certifications
+                </li>
+
+                <li>
+                    Strong achievement-oriented language
+                </li>
+
+                <li>
+                    Clean, readable formatting
+                </li>
+
+                <li>
+                    Targeted resume content for specific roles
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     HOW IT WORKS
+========================================= -->
+
+<section class="process" id="how-it-works">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR PROCESS
+            </span>
+
+            <h2>
+                How Resume Technology Review Works
+            </h2>
+
+            <p>
+                A simple five-step process for reviewing,
+                optimizing, and preparing your resume.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Provide your current resume for review.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Analyze
+                </h3>
+
+                <p>
+                    Review content, formatting, skills,
+                    experience, and keywords.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Optimize
+                </h3>
+
+                <p>
+                    Use AI-assisted recommendations to
+                    improve the resume.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Review
+                </h3>
+
+                <p>
+                    Check the optimized content for accuracy
+                    and alignment with the client's experience.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    05
+                </div>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Provide the optimized resume and
+                    recommendations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DELIVERABLES
+========================================= -->
+
+<section class="deliverables">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT THE CLIENT RECEIVES
+            </span>
+
+            <h2>
+                Resume Optimization Deliverables
+            </h2>
+
+            <p>
+                The final deliverables can be customized
+                depending on the service package selected.
+            </p>
+
+        </div>
+
+
+        <div class="deliverable-grid">
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    📄 Optimized Resume
+                </h3>
+
+                <p>
+                    A professionally improved version of the
+                    client's existing resume based on their
+                    actual experience and career goals.
+                </p>
+
+            </div>
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    🔎 Resume Analysis
+                </h3>
+
+                <p>
+                    A summary of key strengths, weaknesses,
+                    opportunities, and areas that were improved.
+                </p>
+
+            </div>
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    🎯 Job Targeting Recommendations
+                </h3>
+
+                <p>
+                    Recommendations for tailoring the resume
+                    toward relevant job descriptions and
+                    technology roles.
+                </p>
+
+            </div>
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    🛠️ Skills Recommendations
+                </h3>
+
+                <p>
+                    Identification of skills that may be worth
+                    highlighting or developing based on the
+                    client's target career.
+                </p>
+
+            </div>
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    📋 ATS-Friendly Formatting
+                </h3>
+
+                <p>
+                    Recommendations for clean structure,
+                    headings, readability, and resume formatting.
+                </p>
+
+            </div>
+
+
+            <div class="deliverable-card">
+
+                <h3>
+                    🚀 Next Steps
+                </h3>
+
+                <p>
+                    Practical recommendations for improving
+                    the resume and continuing the job search.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WHO IT'S FOR
+========================================= -->
+
+<section class="audience">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHO IT'S FOR
+            </span>
+
+            <h2>
+                Designed for Today's Job Seekers
+            </h2>
+
+        </div>
+
+
+        <div class="audience-grid">
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Beginners
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Career Changers
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Technology Job Seekers
+                </h3>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-icon">
+                    📈
+                </div>
+
+                <h3>
+                    Professionals Seeking Growth
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+        <div class="eyebrow">
+            UPGRADE YOUR RESUME
+        </div>
+
+        <h2>
+            Your Experience Deserves to Be Presented Better.
+        </h2>
+
+        <p>
+            Let AI-assisted technology help identify
+            opportunities to strengthen your resume,
+            improve your professional presentation,
+            and better align your experience with the
+            positions you want.
+        </p>
+
+        <a
+            href="#contact"
+            class="btn btn-gold">
+
+            Request a Resume Review
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h3>
+                Ready to Improve Your Resume?
+            </h3>
+
+            <p>
+                Contact Golden Healing Solutions to request
+                your Resume Technology Review.
+            </p>
+
+            <p>
+
+                <a
+                    href="mailto:info@goldenhealingsolutions.com?subject=Resume Technology Review"
+                    class="contact-email">
+
+                    info@goldenhealingsolutions.com
+
+                </a>
+
+            </p>
+
+            <br>
+
+            <a
+                href="mailto:info@goldenhealingsolutions.com?subject=Resume Technology Review"
+                class="btn btn-gold">
+
+                Request Resume Review
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DISCLAIMER
+========================================= -->
+
+<section class="disclaimer">
+
+    <div class="disclaimer-box">
+
+        <p>
+            <strong>Important:</strong>
+            Resume Technology Review is an AI-assisted
+            resume improvement and career-support service.
+            Resume optimization can improve clarity,
+            organization, keyword alignment, and
+            presentation, but it cannot guarantee interviews,
+            employment, job offers, salary, or other employment
+            outcomes. All resume content should accurately
+            represent the client's actual experience,
+            qualifications, and skills.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <span>Golden Healing Solutions</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

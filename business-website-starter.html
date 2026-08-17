@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Business Website Starter | Golden Healing Solutions</title>
+
+    <meta name="description"
+        content="Business Website Starter by Golden Healing Solutions. Get a professional one-page business website with About, Services, Contact, and Call-to-Action sections.">
+
+    <style>
+
+        /* ==============================
+           GLOBAL STYLES
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            background: #0b0b0b;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 1.35rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.88),
+                    rgba(0,0,0,0.88)
+                ),
+                radial-gradient(
+                    circle at top right,
+                    #3d3214,
+                    #000000 65%
+                );
+
+            color: #ffffff;
+            padding: 110px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #d4af37;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #dddddd;
+            font-size: 1.15rem;
+        }
+
+
+        /* ==============================
+           BUTTONS
+        ============================== */
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .btn-gold:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #d4af37;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+
+        /* ==============================
+           GENERAL SECTION
+        ============================== */
+
+        section {
+            padding: 85px 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading span {
+            color: #b08d24;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 12px 0 15px;
+        }
+
+        .section-heading p {
+            color: #666666;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span {
+            color: #d4af37;
+        }
+
+        .about-content p {
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-box {
+            background: #111111;
+            color: #ffffff;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .about-box h3 {
+            color: #d4af37;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            color: #dddddd;
+        }
+
+
+        /* ==============================
+           SERVICES
+        ============================== */
+
+        .services {
+            background: #f7f7f7;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 14px;
+            border: 1px solid #e5e5e5;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666666;
+        }
+
+
+        /* ==============================
+           WEBSITE FEATURES
+        ============================== */
+
+        .features {
+            background: #ffffff;
+        }
+
+        .feature-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .feature {
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .feature strong {
+            color: #b08d24;
+            margin-right: 8px;
+        }
+
+
+        /* ==============================
+           PROCESS
+        ============================== */
+
+        .process {
+            background: #f7f7f7;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            background: #111111;
+            color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+
+        /* ==============================
+           CTA
+        ============================== */
+
+        .cta {
+            background: #111111;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .contact-card {
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #666666;
+            margin-bottom: 12px;
+        }
+
+        .contact-link {
+            color: #b08d24;
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #050505;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @media (max-width: 950px) {
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Golden Healing Solutions
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#services">Services</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            WEBSITE DEVELOPMENT SERVICE
+        </div>
+
+        <h1>
+            Business Website
+            <span>Starter</span>
+        </h1>
+
+        <p>
+            Establish a professional online presence with a
+            clean, mobile-friendly one-page website designed
+            to introduce your business, showcase your services,
+            connect with customers, and drive action.
+        </p>
+
+        <div>
+
+            <a
+                href="#package"
+                class="btn btn-gold">
+                Explore the Service
+            </a>
+
+            &nbsp;
+
+            <a
+                href="#contact"
+                class="btn btn-outline">
+                Get Started
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT THE SERVICE
+========================================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+
+            <div class="about-content">
+
+                <h2>
+                    A Professional Website
+                    <span>Without the Overwhelm.</span>
+                </h2>
+
+                <p>
+                    Your website is often the first place potential
+                    customers go to learn about your business.
+                </p>
+
+                <p>
+                    The Business Website Starter is designed for
+                    entrepreneurs and small businesses that need a
+                    simple, professional website without starting
+                    with a large or complicated web project.
+                </p>
+
+                <ul class="about-list">
+
+                    <li>
+                        Professional one-page website
+                    </li>
+
+                    <li>
+                        Mobile-friendly layout
+                    </li>
+
+                    <li>
+                        Clear business information
+                    </li>
+
+                    <li>
+                        Services presentation
+                    </li>
+
+                    <li>
+                        Customer contact options
+                    </li>
+
+                    <li>
+                        Strategic call-to-action
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <h3>
+                    Perfect For
+                </h3>
+
+                <p>
+                    New businesses, entrepreneurs, freelancers,
+                    service providers, consultants, personal brands,
+                    small businesses, and professionals who need a
+                    simple online presence.
+                </p>
+
+                <br>
+
+                <p>
+                    This service gives your business a professional
+                    starting point that can be expanded later as
+                    your business grows.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WHAT'S INCLUDED
+========================================= -->
+
+<section class="services" id="package">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT'S INCLUDED
+            </span>
+
+            <h2>
+                Your One-Page Business Website
+            </h2>
+
+            <p>
+                Everything you need to introduce your business
+                and make it easy for customers to take the next step.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <!-- ONE PAGE -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    One-Page Website
+                </h3>
+
+                <p>
+                    A professionally structured single-page
+                    website that brings your essential business
+                    information together.
+                </p>
+
+            </div>
+
+
+            <!-- ABOUT -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    👋
+                </div>
+
+                <h3>
+                    About Section
+                </h3>
+
+                <p>
+                    Introduce your business, story, mission,
+                    experience, or the person behind the brand.
+                </p>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Services Section
+                </h3>
+
+                <p>
+                    Clearly showcase your products or services
+                    so visitors understand what your business offers.
+                </p>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📩
+                </div>
+
+                <h3>
+                    Contact Section
+                </h3>
+
+                <p>
+                    Make it easy for potential customers to contact
+                    your business through email, phone, or other
+                    contact methods.
+                </p>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📣
+                </div>
+
+                <h3>
+                    Call-to-Action
+                </h3>
+
+                <p>
+                    Guide visitors toward the next step, such as
+                    contacting you, booking a service, requesting
+                    information, or getting started.
+                </p>
+
+            </div>
+
+
+            <!-- RESPONSIVE -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile-Friendly Design
+                </h3>
+
+                <p>
+                    Your website will be structured to provide
+                    a clean experience across desktop, tablet,
+                    and mobile devices.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FEATURES
+========================================= -->
+
+<section class="features">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WEBSITE FEATURES
+            </span>
+
+            <h2>
+                Built With Your Customer in Mind
+            </h2>
+
+            <p>
+                Your website should make it easy for visitors
+                to understand who you are and what to do next.
+            </p>
+
+        </div>
+
+
+        <div class="feature-list">
+
+            <div class="feature">
+                <strong>✓</strong>
+                Clear business branding
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Responsive design
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Easy-to-read content
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Services presentation
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Contact information
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Call-to-action placement
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Social media links
+            </div>
+
+            <div class="feature">
+                <strong>✓</strong>
+                Basic search-friendly structure
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PROCESS
+========================================= -->
+
+<section class="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR PROCESS
+            </span>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                A straightforward process from idea to launch.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Consultation
+                </h3>
+
+                <p>
+                    Discuss your business, audience, services,
+                    branding, and website goals.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Content
+                </h3>
+
+                <p>
+                    Gather your business information, images,
+                    logo, services, and contact details.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Development
+                </h3>
+
+                <p>
+                    Build and structure your one-page website.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Launch
+                </h3>
+
+                <p>
+                    Review the completed website and prepare
+                    it for launch.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CALL TO ACTION
+========================================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+        <div class="eyebrow">
+            READY TO GET STARTED?
+        </div>
+
+        <h2>
+            Give Your Business a Professional Online Presence.
+        </h2>
+
+        <p>
+            Start with a simple, professional website designed
+            to help customers discover your business and take
+            the next step.
+        </p>
+
+        <a
+            href="mailto:info@goldenhealingsolutions.com?subject=Business Website Starter Inquiry"
+            class="btn btn-gold">
+
+            Request Your Website
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                CONTACT GOLDEN HEALING SOLUTIONS
+            </span>
+
+            <h2>
+                Let's Build Your Website
+            </h2>
+
+            <p>
+                Contact us to discuss your business and
+                determine the best website solution for you.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-card">
+
+                <h3>
+                    📧 Email
+                </h3>
+
+                <p>
+                    Have questions about the Business Website
+                    Starter?
+                </p>
+
+                <a
+                    href="mailto:info@goldenhealingsolutions.com"
+                    class="contact-link">
+
+                    info@goldenhealingsolutions.com
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>
+                    🚀 Ready to Start?
+                </h3>
+
+                <p>
+                    Send us your business information and let us
+                    know what you need for your website.
+                </p>
+
+                <a
+                    href="mailto:info@goldenhealingsolutions.com?subject=Business Website Starter Inquiry"
+                    class="contact-link">
+
+                    Request a Website →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <span>Golden Healing Solutions</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
