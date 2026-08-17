@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Workspace | Golden Healing Academy</title>
+    <!-- Google Fonts: Cormorant Garamond, Montserrat, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #08080A;
+            --gold-primary: #D4AF37;
+            --gold-light: #F9F3E5;
+            --white: #FFFFFF;
+            --border-subtle: #E4E4E7;
+            --correct-green: #10B981;
+            --incorrect-red: #EF4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: #FAFAFA; color: #0A0A0C; padding-bottom: 60px; }
+
+        header {
+            background: var(--primary-black);
+            padding: 16px 30px;
+            border-bottom: 2px solid var(--gold-primary);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lesson-container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .video-box {
+            width: 100%;
+            height: 480px;
+            background: #000;
+            border: 1px solid var(--gold-primary);
+            border-radius: 4px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .quiz-card {
+            background: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .quiz-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 10px; }
+
+        .q-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle); }
+        .q-item h4 { font-size: 0.95rem; margin-bottom: 12px; }
+
+        .opt-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 14px 18px;
+            background: #FAFAFA;
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88rem;
+            transition: all 0.2s;
+        }
+
+        .opt-btn:hover { border-color: var(--gold-primary); background: var(--gold-light); }
+        
+        /* Immediate Feedback Pop-Up Banner */
+        .feedback-banner {
+            display: none;
+            padding: 15px;
+            border-radius: 2px;
+            margin-top: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .feedback-banner.correct {
+            display: block;
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid var(--correct-green);
+        }
+
+        .feedback-banner.incorrect {
+            display: block;
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid var(--incorrect-red);
+        }
+
+        .btn-next {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+            color: var(--white);
+            padding: 14px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 20px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="toc.html" style="color: var(--gold-primary); text-decoration: none; font-family: 'Cinzel', serif; font-size: 0.75rem;">← Table of Contents</a>
+        <div style="font-family: 'Cinzel', serif; font-size: 0.8rem;">Web Development: Chapter 1.1</div>
+        <a href="profile.html" style="color: var(--gold-primary); text-decoration: none; font-family: 'Cinzel', serif; font-size: 0.75rem;">My Dashboard</a>
+    </header>
+
+    <div class="lesson-container">
+        <!-- Dedicated Lesson Video -->
+        <iframe class="video-box" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+
+        <!-- Instant Pop-Up Quiz -->
+        <div class="quiz-card">
+            <h2>🎯 Video Knowledge Check</h2>
+            <p style="color: #71717A; font-size: 0.85rem; margin-bottom: 25px;">Select an option below to immediately verify your answer and award XP.</p>
+
+            <!-- Question 1 -->
+            <div class="q-item">
+                <h4>1. What is the primary purpose of semantic HTML tags?</h4>
+                <button class="opt-btn" onclick="checkAnswer(this, false, 'q1-feed', 'Incorrect. Styling is handled by CSS, not semantic HTML.')">A. To change font colors and background styles</button>
+                <button class="opt-btn" onclick="checkAnswer(this, true, 'q1-feed', 'Correct! Semantic tags convey document meaning to browsers and accessibility tools (+50 XP).')">B. To convey structural meaning to browsers and accessibility tools</button>
+                <button class="opt-btn" onclick="checkAnswer(this, false, 'q1-feed', 'Incorrect. JavaScript handles client-side scripts.')">C. To execute client-side scripts</button>
+                
+                <div id="q1-feed" class="feedback-banner"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="q-item">
+                <h4>2. Which VS Code extension enables instant browser live-reloading?</h4>
+                <button class="opt-btn" onclick="checkAnswer(this, true, 'q2-feed', 'Correct! Live Server launches a local web server with automatic reload (+50 XP).')">A. Live Server</button>
+                <button class="opt-btn" onclick="checkAnswer(this, false, 'q2-feed', 'Incorrect. Prettier formats code.')">B. Prettier</button>
+
+                <div id="q2-feed" class="feedback-banner"></div>
+            </div>
+
+            <div style="text-align: right;">
+                <a href="lab-1.html" class="btn-next">Next Lesson →</a>
+                <a href="lesson-1-2-how-the-web-works.html" class="btn-back">Review Lesson 1.2 →</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="app-state.js"></script>
+    <script>
+        function checkAnswer(btnElement, isCorrect, feedbackId, message) {
+            const banner = document.getElementById(feedbackId);
+            
+            if (isCorrect) {
+                banner.className = "feedback-banner correct";
+                banner.innerText = "✅ " + message;
+                btnElement.style.borderColor = "#10B981";
+                btnElement.style.background = "#D1FAE5";
+                if (typeof awardXP === "function") awardXP(50, "Correct Quiz Answer");
+            } else {
+                banner.className = "feedback-banner incorrect";
+                banner.innerText = "❌ " + message;
+                btnElement.style.borderColor = "#EF4444";
+                btnElement.style.background = "#FEE2E2";
+            }
+        }
+    </script>
+</body>
+</html>
