@@ -1,74 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golden Healing Solutions | Web Development Bootcamp</title>
-<style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8f6f0;color:#1b1b1b;line-height:1.6}a{text-decoration:none;color:inherit}
-.header{position:sticky;top:0;z-index:1000;background:#111;color:#fff;border-bottom:1px solid rgba(212,175,55,.35)}
-.nav{max-width:1200px;margin:auto;min-height:74px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;letter-spacing:1.5px;color:#d4af37}
-.nav-links{display:flex;gap:8px;align-items:center}.nav-links a{padding:10px 14px;border-radius:8px;color:#fff;font-weight:600}.nav-links a:hover,.nav-links a.active{background:#d4af37;color:#111}
-.menu-btn{display:none;background:transparent;color:#fff;border:1px solid #555;border-radius:8px;padding:9px 12px;font-size:20px;cursor:pointer}
-.hero{background:linear-gradient(135deg,#111,#191919 65%,#2a2414);color:#fff;padding:90px 24px}.hero-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
-.badge{display:inline-block;border:1px solid #d4af37;color:#d4af37;border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:700}
-h1{font-family:Georgia,serif;font-size:clamp(2.5rem,6vw,5rem);line-height:1.05;margin:20px 0}.gold{color:#d4af37}.hero p{font-size:1.15rem;color:#ddd;max-width:700px}
-.buttons{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.btn{display:inline-block;padding:14px 20px;border-radius:9px;font-weight:700;border:1px solid #d4af37}.btn-gold{background:#d4af37;color:#111}.btn-outline{color:#fff}.btn:hover{transform:translateY(-2px)}
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.35);border-radius:20px;padding:35px}.hero-card .icon{font-size:60px}
-.section{max-width:1200px;margin:auto;padding:75px 24px}.section-title{text-align:center;font-family:Georgia,serif;font-size:2.2rem;margin:0 0 12px}.section-subtitle{text-align:center;color:#666;max-width:750px;margin:0 auto 45px}
-.cards,.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border:1px solid #e7dfc8;border-radius:15px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.06)}.card-icon{font-size:35px}.card h3{color:#8b6b16}
-.portfolio{background:#111;color:#fff}.portfolio .section-title{color:#d4af37}.portfolio .section-subtitle{color:#ccc}.project{border:1px solid #3b3522;border-radius:14px;padding:25px;background:#181818}.project h3{color:#d4af37}
-.code-preview{background:#fff;border-radius:18px;padding:35px;display:grid;grid-template-columns:1fr 1fr;gap:25px;border:1px solid #e7dfc8}.code-preview pre{background:#171717;color:#f5f5f5;padding:20px;border-radius:10px;overflow:auto}
-.cta{text-align:center;background:#f0e8d0}footer{background:#111;color:#aaa;text-align:center;padding:35px 20px}footer strong{color:#d4af37}
-@media(max-width:850px){.nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#111;padding:15px 24px;flex-direction:column}.nav-links.open{display:flex}.nav-links a{text-align:center}.menu-btn{display:block}.hero-inner{grid-template-columns:1fr}.cards,.project-grid{grid-template-columns:1fr}.code-preview{grid-template-columns:1fr}}
-@media(max-width:500px){.hero{padding:65px 18px}.section{padding:55px 18px}.nav{padding:0 18px}.buttons .btn{width:100%;text-align:center}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Golden Healing Solutions | Web Development Bootcamp</title>
+
+    <style>
+        /* ================================
+           GLOBAL
+        ================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f6f0;
+            color: #1b1b1b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================================
+           HEADER / NAVIGATION
+        ================================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111111;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .nav {
+            max-width: 1200px;
+            min-height: 74px;
+            margin: auto;
+            padding: 0 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #d4af37;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .menu-btn {
+            display: none;
+
+            background: transparent;
+            color: #ffffff;
+
+            border: 1px solid #555555;
+            border-radius: 8px;
+
+            padding: 9px 12px;
+
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #111111 0%,
+                    #191919 65%,
+                    #2a2414 100%
+                );
+
+            color: #ffffff;
+            padding: 90px 24px;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+
+            border: 1px solid #d4af37;
+            color: #d4af37;
+
+            border-radius: 999px;
+
+            padding: 7px 14px;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(2.5rem, 6vw, 5rem);
+
+            line-height: 1.05;
+
+            margin: 20px 0;
+        }
+
+        .gold {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            color: #dddddd;
+
+            font-size: 1.15rem;
+        }
+
+        /* ================================
+           BUTTONS
+        ================================= */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 20px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            border: 1px solid #d4af37;
+
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .btn-outline {
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        /* ================================
+           HERO CARD
+        ================================= */
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.06);
+
+            border: 1px solid rgba(212, 175, 55, 0.35);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-card .icon {
+            font-size: 60px;
+        }
+
+        .hero-card h2 {
+            margin-bottom: 10px;
+        }
+
+        /* ================================
+           GENERAL SECTIONS
+        ================================= */
+
+        .section {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 75px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 2.2rem;
+
+            margin: 0 0 12px;
+        }
+
+        .section-subtitle {
+            max-width: 750px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: #666666;
+        }
+
+        /* ================================
+           FEATURE CARDS
+        ================================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+            background: #ffffff;
+
+            border: 1px solid #e7dfc8;
+
+            border-radius: 15px;
+
+            padding: 28px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .card-icon {
+            font-size: 35px;
+        }
+
+        .card h3 {
+            color: #8b6b16;
+
+            margin: 10px 0;
+        }
+
+        /* ================================
+           CODE PRACTICE SECTION
+        ================================= */
+
+        .code-preview {
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            border: 1px solid #e7dfc8;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .code-preview h3 {
+            margin-top: 0;
+        }
+
+        .code-preview pre {
+            background: #171717;
+
+            color: #f5f5f5;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            overflow-x: auto;
+
+            min-height: 150px;
+        }
+
+        .preview-box {
+            border: 2px dashed #d4af37;
+
+            border-radius: 10px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            background: #ffffff;
+        }
+
+        .preview-box h2 {
+            margin-top: 0;
+        }
+
+        .practice-button {
+            text-align: center;
+
+            margin-top: 25px;
+        }
+
+        /* ================================
+           PORTFOLIO
+        ================================= */
+
+        .portfolio {
+            background: #111111;
+
+            color: #ffffff;
+        }
+
+        .portfolio .section-title {
+            color: #d4af37;
+        }
+
+        .portfolio .section-subtitle {
+            color: #cccccc;
+        }
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .project {
+            background: #181818;
+
+            border: 1px solid #3b3522;
+
+            border-radius: 14px;
+
+            padding: 25px;
+        }
+
+        .project h3 {
+            color: #d4af37;
+        }
+
+        .project-number {
+            font-size: 0.8rem;
+
+            color: #999999;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           CTA
+        ================================= */
+
+        .cta {
+            text-align: center;
+
+            background: #f0e8d0;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            background: #111111;
+
+            color: #aaaaaa;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* ================================
+           TABLET
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 74px;
+                left: 0;
+                right: 0;
+
+                background: #111111;
+
+                padding: 15px 24px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                border-bottom: 1px solid #333333;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                text-align: center;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 500px) {
+
+            .hero {
+                padding: 65px 18px;
+            }
+
+            .section {
+                padding: 55px 18px;
+            }
+
+            .nav {
+                padding: 0 18px;
+            }
+
+            .logo {
+                font-size: 0.95rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .buttons .btn {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .hero-card {
+                padding: 25px;
+            }
+
+            .code-preview {
+                padding: 20px;
+            }
+
+            .practice-button .btn {
+                width: 100%;
+
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header class="header"><nav class="nav">
-<a href="index.html" class="logo">GOLDEN HEALING SOLUTIONS</a>
-<button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-<div class="nav-links" id="navLinks"><a href="index.html" class="active">Home</a><a href="code-practice.html">Code Practice</a></div>
-</nav></header>
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+    <nav class="nav">
+
+        <a href="index.html" class="logo">
+            GOLDEN HEALING SOLUTIONS
+        </a>
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="practicing-code.html">
+                Code Practice
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- ==================================================
+     MAIN CONTENT
+================================================== -->
 
 <main>
-<section class="hero"><div class="hero-inner"><div>
-<span class="badge">WEB DEVELOPMENT BOOTCAMP</span>
-<h1>Build. Practice. <span class="gold">Create.</span></h1>
-<p>Learn practical web development through guided lessons, hands-on coding, projects, and portfolio-ready work.</p>
-<div class="buttons"><a class="btn btn-gold" href="code-practice.html">💻 Start Code Practice</a><a class="btn btn-outline" href="#about">Explore the Program</a></div>
-</div><div class="hero-card"><div class="icon">🌐</div><h2>Learn by Building</h2><p>Practice HTML, CSS, and JavaScript in your browser and see your work come to life with a live preview.</p></div></div></section>
 
-<section class="section" id="about"><h2 class="section-title">Welcome to Golden Healing Solutions</h2>
-<p class="section-subtitle">A practical learning environment designed to help you move from learning concepts to actually building websites and applications.</p>
-<div class="cards">
-<div class="card"><div class="card-icon">📚</div><h3>Structured Learning</h3><p>Follow lessons in a clear sequence, complete knowledge checks, and build your skills one section at a time.</p></div>
-<div class="card"><div class="card-icon">💻</div><h3>Hands-On Practice</h3><p>Write code yourself instead of only reading about it. Experiment, run your code, and immediately see the result.</p></div>
-<div class="card"><div class="card-icon">🎓</div><h3>Career-Focused Projects</h3><p>Work toward projects you can refine and use as portfolio pieces to demonstrate your skills.</p></div>
-</div></section>
+    <!-- HERO -->
 
-<section class="section"><h2 class="section-title">Practice Your Code</h2>
-<p class="section-subtitle">Write HTML, CSS, and JavaScript and preview your website beside your code.</p>
-<div class="code-preview"><div><h3>💻 Your Code</h3><pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;
-&lt;p&gt;I am learning web development.&lt;/p&gt;</code></pre></div>
-<div><h3>👀 Live Preview</h3><div style="border:2px dashed #d4af37;border-radius:10px;padding:30px;text-align:center"><h2 style="margin-top:0">Hello, World!</h2><p>I am learning web development.</p></div></div></div>
-<div style="text-align:center;margin-top:25px"><a class="btn btn-gold" href="code-practice.html">Open Code Practice →</a></div>
-</section>
+    <section class="hero">
 
-<section class="portfolio"><div class="section"><h2 class="section-title">Build Your Portfolio</h2>
-<p class="section-subtitle">Complete multiple projects throughout the bootcamp that you can continue developing for your professional portfolio.</p>
-<div class="project-grid">
-<div class="project"><h3>Project 1</h3><p>Responsive Business Website</p><small>HTML • CSS • Responsive Design</small></div>
-<div class="project"><h3>Project 2</h3><p>Interactive JavaScript Application</p><small>HTML • CSS • JavaScript</small></div>
-<div class="project"><h3>Project 3</h3><p>Full-Stack Capstone Application</p><small>Full-Stack Development</small></div>
-</div></div></section>
+        <div class="hero-inner">
 
-<section class="section cta"><h2 class="section-title">Ready to Practice?</h2><p class="section-subtitle">Start with the browser-based coding environment.</p><a class="btn btn-gold" href="code-practice.html">💻 Go to Code Practice</a></section>
+            <div>
+
+                <span class="badge">
+                    WEB DEVELOPMENT BOOTCAMP
+                </span>
+
+                <h1>
+                    Build.
+                    Practice.
+                    <span class="gold">
+                        Create.
+                    </span>
+                </h1>
+
+                <p>
+                    Learn practical web development through
+                    guided lessons, hands-on coding, projects,
+                    and portfolio-ready work.
+                </p>
+
+                <div class="buttons">
+
+                    <!-- CONNECTED TO practicing-code.html -->
+
+                    <a
+                        class="btn btn-gold"
+                        href="practicing-code.html"
+                    >
+                        💻 Start Code Practice
+                    </a>
+
+                    <a
+                        class="btn btn-outline"
+                        href="#about"
+                    >
+                        Explore the Program
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h2>
+                    Learn by Building
+                </h2>
+
+                <p>
+                    Practice HTML, CSS, and JavaScript
+                    directly in your browser and see
+                    your work come to life with a live preview.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+        <h2 class="section-title">
+            Welcome to Golden Healing Solutions
+        </h2>
+
+        <p class="section-subtitle">
+            A practical learning environment designed
+            to help you move from learning concepts to
+            actually building websites and applications.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Structured Learning
+                </h3>
+
+                <p>
+                    Follow lessons in a clear sequence,
+                    complete knowledge checks, and build
+                    your skills one section at a time.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Hands-On Practice
+                </h3>
+
+                <p>
+                    Write code yourself instead of only
+                    reading about it. Experiment, run your
+                    code, and immediately see the result.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Career-Focused Projects
+                </h3>
+
+                <p>
+                    Work toward projects you can refine
+                    and use as portfolio pieces to
+                    demonstrate your skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CODE PRACTICE -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Practice Your Code
+        </h2>
+
+        <p class="section-subtitle">
+            Write HTML, CSS, and JavaScript and preview
+            your website beside your code.
+        </p>
+
+
+        <div class="code-preview">
+
+            <!-- CODE SIDE -->
+
+            <div>
+
+                <h3>
+                    💻 Your Code
+                </h3>
+
+                <pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;p&gt;I am learning web development.&lt;/p&gt;</code></pre>
+
+            </div>
+
+
+            <!-- PREVIEW SIDE -->
+
+            <div>
+
+                <h3>
+                    👀 Live Preview
+                </h3>
+
+                <div class="preview-box">
+
+                    <h2>
+                        Hello, World!
+                    </h2>
+
+                    <p>
+                        I am learning web development.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="practice-button">
+
+            <!-- CONNECTED TO practicing-code.html -->
+
+            <a
+                class="btn btn-gold"
+                href="practicing-code.html"
+            >
+                Open Code Practice →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section class="portfolio">
+
+        <div class="section">
+
+            <h2 class="section-title">
+                Build Your Portfolio
+            </h2>
+
+            <p class="section-subtitle">
+                Complete multiple projects throughout
+                the bootcamp that you can continue
+                developing for your professional portfolio.
+            </p>
+
+
+            <div class="project-grid">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        Project 1
+                    </div>
+
+                    <h3>
+                        Responsive Business Website
+                    </h3>
+
+                    <p>
+                        Build a professional responsive
+                        website using HTML and CSS.
+                    </p>
+
+                    <small>
+                        HTML • CSS • Responsive Design
+                    </small>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        Project 2
+                    </div>
+
+                    <h3>
+                        Interactive JavaScript Application
+                    </h3>
+
+                    <p>
+                        Build an interactive application
+                        that uses JavaScript and DOM
+                        manipulation.
+                    </p>
+
+                    <small>
+                        HTML • CSS • JavaScript
+                    </small>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        Project 3
+                    </div>
+
+                    <h3>
+                        Full-Stack Capstone Application
+                    </h3>
+
+                    <p>
+                        Bring your skills together in a
+                        larger application that can become
+                        a centerpiece of your portfolio.
+                    </p>
+
+                    <small>
+                        Full-Stack Development
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="section cta">
+
+        <h2 class="section-title">
+            Ready to Practice?
+        </h2>
+
+        <p class="section-subtitle">
+            Start with the browser-based coding
+            environment and begin building.
+        </p>
+
+
+        <!-- CONNECTED TO practicing-code.html -->
+
+        <a
+            class="btn btn-gold"
+            href="practicing-code.html"
+        >
+            💻 Go to Code Practice
+        </a>
+
+    </section>
+
 </main>
-<footer><strong>Golden Healing Solutions</strong><br>Web Development Bootcamp<br>© 2026 Golden Healing Solutions. All rights reserved.</footer>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <strong>
+        Golden Healing Solutions
+    </strong>
+
+    <br>
+
+    Web Development Bootcamp
+
+    <br>
+
+    © 2026 Golden Healing Solutions.
+    All rights reserved.
+
+</footer>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script>
-const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
-menuBtn.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open)});
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        const isOpen =
+            navLinks.classList.toggle("open");
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+    });
+
+
+    /*
+       Close the mobile menu after
+       clicking a navigation link.
+    */
+
+    const navigationLinks =
+        navLinks.querySelectorAll("a");
+
+
+    navigationLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("open");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+    });
+
 </script>
-</body></html>
+
+</body>
+</html>
