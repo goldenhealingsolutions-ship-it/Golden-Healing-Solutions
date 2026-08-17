@@ -1,365 +1,2074 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Assessment Center | Technical Evaluation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg-color: #08080A;
-            --card-bg: #111116;
-            --card-header: #18181D;
-            --gold: #D4AF37;
-            --gold-light: #F8F0D8;
-            --gold-soft: rgba(212, 175, 55, 0.08);
-            --text-light: #F4F4F5;
-            --text-muted: #A1A1AA;
-            --border-color: rgba(212, 175, 55, 0.25);
-            --font-sans: 'Montserrat', sans-serif;
-            --font-heading: 'Cinzel', serif;
-        }
+<title>Candidate Assessment Center | Golden Healing Solutions</title>
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta name="description"
+content="Golden Healing Solutions professional candidate assessment and technical evaluation center.">
 
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding-bottom: 80px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* Hero Section */
-        .cover-hero {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: radial-gradient(circle at 50% 0%, #25252D 0%, #08080A 80%);
-            border-bottom: 1px solid var(--border-color);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
-        .eyebrow {
-            display: inline-block;
-            color: var(--gold);
-            border: 1px solid var(--border-color);
-            background: var(--gold-soft);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
+<style>
 
-        .cover-hero h1 {
-            font-family: var(--font-heading);
-            color: var(--gold);
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-bottom: 15px;
-        }
+/* =========================================================
+   LUXURY CORPORATE DESIGN SYSTEM
+========================================================= */
 
-        .cover-hero p {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.05rem;
-        }
+:root {
 
-        .overview-pills {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    --black: #070707;
+    --black-soft: #0D0D0F;
+    --charcoal: #141416;
+    --charcoal-light: #1D1D20;
 
-        .pill {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
+    --gold: #C9A646;
+    --gold-light: #E8D69B;
+    --gold-dark: #8E7128;
 
-        .pill strong {
-            color: var(--gold);
-        }
+    --ivory: #F7F4EC;
+    --white: #FFFFFF;
 
-        /* Container */
-        .container {
-            max-width: 1000px;
-            margin: 50px auto 0;
-            padding: 0 20px;
-        }
+    --text-primary: #F4F1E8;
+    --text-secondary: #A9A7A0;
+    --text-muted: #77756F;
 
-        .section-title {
-            font-family: var(--font-heading);
-            color: var(--gold);
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
+    --success: #7FAF8B;
 
-        /* Assessment List */
-        .assessment-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    --border: rgba(255,255,255,0.08);
+    --gold-border: rgba(201,166,70,0.30);
 
-        .assessment-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
+    --gold-transparent: rgba(201,166,70,0.10);
 
-        .assessment-card:hover {
-            transform: translateX(5px);
-            border-color: var(--gold);
-        }
+    --heading: 'Cinzel', serif;
+    --body: 'Montserrat', sans-serif;
 
-        .card-left {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
+    --shadow:
+        0 20px 60px rgba(0,0,0,0.35);
 
-        .section-badge {
-            width: 50px;
-            height: 50px;
-            background-color: var(--card-header);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            color: var(--gold);
-            font-size: 1.2rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
+    --transition:
+        all .3s ease;
+}
 
-        .card-info h3 {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 5px;
-        }
 
-        .time-estimate {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        .time-estimate span {
-            color: var(--gold);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .start-btn {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 10px 22px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .start-btn:hover {
-            background-color: var(--gold);
-            color: var(--bg-color);
-        }
+body {
 
-        /* Instructions Footer */
-        .instructions-card {
-            margin-top: 50px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 30px;
-        }
+    font-family: var(--body);
 
-        .instructions-card h3 {
-            color: var(--gold);
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(201,166,70,.08),
+            transparent 38%
+        ),
+        var(--black);
 
-        .instructions-card ul {
-            padding-left: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    color: var(--text-primary);
 
-        .instructions-card li {
-            margin-bottom: 8px;
-        }
+    line-height: 1.6;
 
-        @media (max-width: 650px) {
-            .assessment-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .start-btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   TOP SECURITY BAR
+========================================================= */
+
+.top-bar {
+
+    height: 40px;
+
+    padding: 0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #040404;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: .62rem;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.secure-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.secure-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px
+        rgba(127,175,139,.7);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 18px 5%;
+
+    background:
+        rgba(7,7,7,.94);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   GOLDEN HEALING SOLUTIONS LOGO
+========================================================= */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+}
+
+.logo-symbol {
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--gold);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    color: var(--gold);
+
+    font-family: var(--heading);
+
+    font-size: 1rem;
+}
+
+.logo-symbol::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 27px;
+    height: 27px;
+
+    border: 1px solid
+        rgba(201,166,70,.45);
+
+    transform: rotate(45deg);
+}
+
+.logo-symbol span {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.logo-text {
+
+    text-align: left;
+}
+
+.logo-main {
+
+    font-family: var(--heading);
+
+    color: var(--ivory);
+
+    font-size: .86rem;
+
+    letter-spacing: 1.6px;
+
+    text-transform: uppercase;
+}
+
+.logo-sub {
+
+    color: var(--gold);
+
+    font-size: .5rem;
+
+    letter-spacing: 2.7px;
+
+    text-transform: uppercase;
+}
+
+.portal-name {
+
+    color: var(--text-muted);
+
+    font-size: .62rem;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding:
+        75px 20px
+        60px;
+
+    border-bottom: 1px solid var(--gold-border);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(201,166,70,.055),
+            transparent 85%
+        );
+}
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 17px;
+
+    border: 1px solid var(--gold-border);
+
+    color: var(--gold-light);
+
+    background:
+        rgba(201,166,70,.05);
+
+    font-size: .62rem;
+
+    letter-spacing: 2.4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+
+    content: "";
+
+    width: 20px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+.hero h1 {
+
+    font-family: var(--heading);
+
+    font-weight: 600;
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            4.1rem
+        );
+
+    line-height: 1.15;
+
+    color: var(--ivory);
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+
+    color: var(--gold);
+}
+
+.hero-description {
+
+    max-width: 760px;
+
+    margin: auto;
+
+    color: var(--text-secondary);
+
+    font-size: .9rem;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   PROGRESS PANEL
+========================================================= */
+
+.progress-panel {
+
+    max-width: 850px;
+
+    margin: 42px auto 0;
+
+    padding: 24px 28px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border: 1px solid var(--border);
+
+    text-align: left;
+}
+
+.progress-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.progress-title {
+
+    color: var(--ivory);
+
+    font-size: .7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.progress-percent {
+
+    color: var(--gold);
+
+    font-family: var(--heading);
+
+    font-size: 1rem;
+}
+
+.progress-track {
+
+    width: 100%;
+
+    height: 7px;
+
+    background: #242426;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light),
+            var(--gold)
+        );
+
+    transition:
+        width .6s ease;
+
+    box-shadow:
+        0 0 15px
+        rgba(201,166,70,.35);
+}
+
+.progress-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 11px;
+
+    color: var(--text-muted);
+
+    font-size: .62rem;
+
+    letter-spacing: .8px;
+}
+
+.progress-bottom strong {
+
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        65px 25px
+        90px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+}
+
+.section-kicker {
+
+    color: var(--gold);
+
+    font-size: .62rem;
+
+    letter-spacing: 2.4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.section-title {
+
+    font-family: var(--heading);
+
+    color: var(--ivory);
+
+    font-size: 1.65rem;
+
+    font-weight: 600;
+}
+
+.section-description {
+
+    max-width: 430px;
+
+    color: var(--text-secondary);
+
+    font-size: .72rem;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   ASSESSMENT CARDS
+========================================================= */
+
+.assessment-list {
+
+    display: grid;
+
+    gap: 14px;
+}
+
+.assessment-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 25px 28px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+
+    border: 1px solid var(--border);
+
+    transition: var(--transition);
+
+    overflow: hidden;
+}
+
+.assessment-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--gold);
+
+    transform: scaleY(0);
+
+    transform-origin: bottom;
+
+    transition: transform .3s ease;
+}
+
+.assessment-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--gold-border);
+
+    box-shadow: var(--shadow);
+}
+
+.assessment-card:hover::before {
+
+    transform: scaleY(1);
+}
+
+
+/* =========================================================
+   CARD LEFT
+========================================================= */
+
+.card-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    min-width: 0;
+}
+
+.section-badge {
+
+    width: 55px;
+
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--gold-border);
+
+    color: var(--gold);
+
+    font-family: var(--heading);
+
+    font-size: .85rem;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,166,70,.08),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-info {
+
+    min-width: 0;
+}
+
+.card-number {
+
+    color: var(--gold);
+
+    font-size: .55rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 3px;
+}
+
+.card-info h3 {
+
+    color: var(--ivory);
+
+    font-size: .95rem;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.card-description {
+
+    color: var(--text-secondary);
+
+    font-size: .7rem;
+
+    max-width: 610px;
+}
+
+.time-estimate {
+
+    margin-top: 8px;
+
+    color: var(--text-muted);
+
+    font-size: .61rem;
+
+    letter-spacing: .7px;
+
+    text-transform: uppercase;
+}
+
+.time-estimate span {
+
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   COMPLETION STATUS
+========================================================= */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 9px;
+
+    color: var(--text-muted);
+
+    font-size: .58rem;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.status-badge.completed {
+
+    color: var(--success);
+}
+
+.status-icon {
+
+    font-size: .7rem;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.start-btn {
+
+    min-width: 155px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold-light);
+
+    background: transparent;
+
+    text-decoration: none;
+
+    font-size: .63rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    transition: var(--transition);
+}
+
+.start-btn:hover {
+
+    background: var(--gold);
+
+    color: var(--black);
+
+    box-shadow:
+        0 8px 25px
+        rgba(201,166,70,.2);
+}
+
+.start-btn.completed {
+
+    border-color: var(--success);
+
+    color: var(--success);
+}
+
+.start-btn.completed:hover {
+
+    background: var(--success);
+
+    color: var(--black);
+}
+
+
+/* =========================================================
+   GUIDELINES
+========================================================= */
+
+.guidelines {
+
+    margin-top: 50px;
+
+    padding: 32px;
+
+    background: var(--black-soft);
+
+    border: 1px solid var(--border);
+}
+
+.guidelines-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+.guideline-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid var(--gold-border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+}
+
+.guidelines h3 {
+
+    font-family: var(--heading);
+
+    color: var(--ivory);
+
+    font-size: 1rem;
+}
+
+.guidelines-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.guideline {
+
+    padding-right: 20px;
+
+    border-right: 1px solid var(--border);
+}
+
+.guideline:last-child {
+
+    border-right: none;
+}
+
+.guideline-title {
+
+    color: var(--gold);
+
+    font-size: .61rem;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.guideline p {
+
+    color: var(--text-secondary);
+
+    font-size: .69rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.security {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: .61rem;
+
+    letter-spacing: .6px;
+}
+
+.security span {
+
+    color: var(--gold);
+
+    margin: 0 8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px;
+
+    text-align: center;
+
+    background: #040404;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-brand {
+
+    font-family: var(--heading);
+
+    color: var(--gold);
+
+    font-size: .85rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.footer-text {
+
+    color: #62615D;
+
+    font-size: .6rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px) {
+
+    .section-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .section-description {
+
+        text-align: left;
+    }
+
+    .guidelines-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .guideline {
+
+        padding:
+            0 0 20px;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .guideline:last-child {
+
+        border-bottom: none;
+
+        padding-bottom: 0;
+    }
+
+}
+
+@media(max-width:650px) {
+
+    .top-bar {
+
+        justify-content: center;
+    }
+
+    .top-bar-right {
+
+        display: none;
+    }
+
+    .navbar {
+
+        padding:
+            15px 18px;
+    }
+
+    .portal-name {
+
+        display: none;
+    }
+
+    .hero {
+
+        padding:
+            60px 18px
+            50px;
+    }
+
+    .hero h1 {
+
+        font-size: 2.2rem;
+    }
+
+    .progress-panel {
+
+        padding:
+            20px;
+    }
+
+    .container {
+
+        padding:
+            50px 16px
+            70px;
+    }
+
+    .assessment-card {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 22px;
+    }
+
+    .card-left {
+
+        align-items: flex-start;
+    }
+
+    .section-badge {
+
+        width: 48px;
+
+        height: 48px;
+    }
+
+    .start-btn {
+
+        width: 100%;
+    }
+
+    .guidelines {
+
+        padding: 24px;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <!-- Cover Header -->
-    <header class="cover-hero">
-        <span class="eyebrow">Skills Evaluation Hub</span>
-        <h1>Candidate Assessment Portal</h1>
-        <p>Complete all 7 assessment modules below to evaluate technical proficiency, problem-solving, work style, and practical troubleshooting capabilities.</p>
-        
-        <div class="overview-pills">
-            <div class="pill">Total Modules: <strong>7 Sections</strong></div>
-            <div class="pill">Estimated Time: <strong>100 – 145 mins</strong></div>
-            <div class="pill">Format: <strong>Interactive & Timed</strong></div>
+
+<!-- =========================================================
+     SECURITY BAR
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="secure-status">
+
+        <span class="secure-dot"></span>
+
+        Secure Candidate Assessment Environment
+
+    </div>
+
+    <div>
+        Golden Healing Solutions
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION + LOGO
+========================================================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-symbol">
+            <span>G</span>
         </div>
-    </header>
 
-    <main class="container">
-        <h2 class="section-title">Assessment Structure</h2>
+        <div class="logo-text">
 
-        <div class="assessment-list">
-
-            <!-- Section 1 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">01</div>
-                    <div class="card-info">
-                        <h3>Typing & Accuracy Test</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>5–10 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-1.html" class="start-btn">Start Section 1 →</a>
+            <div class="logo-main">
+                Golden Healing
             </div>
 
-            <!-- Section 2 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">02</div>
-                    <div class="card-info">
-                        <h3>Personality / Work-Style Assessment</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>10–15 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-2.html" class="start-btn">Start Section 2 →</a>
-            </div>
-
-            <!-- Section 3 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">03</div>
-                    <div class="card-info">
-                        <h3>30-Question Technical Assessment</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>30–40 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-3.html" class="start-btn">Start Section 3 →</a>
-            </div>
-
-            <!-- Section 4 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">04</div>
-                    <div class="card-info">
-                        <h3>Cognitive & Aptitude Assessment</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>15–20 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-4.html" class="start-btn">Start Section 4 →</a>
-            </div>
-
-            <!-- Section 5 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">05</div>
-                    <div class="card-info">
-                        <h3>Behavioral & Situational Judgment</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>10–15 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-5.html" class="start-btn">Start Section 5 →</a>
-            </div>
-
-            <!-- Section 6 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">06</div>
-                    <div class="card-info">
-                        <h3>Simulated Help Desk Troubleshooting</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>20–30 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-6.html" class="start-btn">Start Section 6 →</a>
-            </div>
-
-            <!-- Section 7 -->
-            <div class="assessment-card">
-                <div class="card-left">
-                    <div class="section-badge">07</div>
-                    <div class="card-info">
-                        <h3>OS & Command-Line Skills</h3>
-                        <div class="time-estimate">
-                            ⏱️ Recommended Time: <span>10–15 min</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="assessment-7.html" class="start-btn">Start Section 7 →</a>
+            <div class="logo-sub">
+                Solutions
             </div>
 
         </div>
 
-        <!-- Instructions Notice -->
-        <div class="instructions-card">
-            <h3>Important Testing Guidelines</h3>
-            <ul>
-                <li><strong>Environment:</strong> Complete this evaluation in a quiet environment on a desktop or laptop computer with a stable internet connection.</li>
-                <li><strong>Pacing:</strong> Each module is designed to be completed in sequence, but you may take short breaks between sections.</li>
-                <li><strong>Auto-Save:</strong> Ensure you submit each section before navigating to the next link.</li>
-            </ul>
+    </a>
+
+
+    <div class="portal-name">
+        Candidate Evaluation Portal
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="eyebrow">
+        Professional Skills Evaluation
+    </div>
+
+
+    <h1>
+
+        Candidate
+
+        <span>
+            Assessment Center
+        </span>
+
+    </h1>
+
+
+    <p class="hero-description">
+
+        Welcome to the Golden Healing Solutions Candidate Assessment
+        Center. Complete the evaluation modules below to demonstrate
+        your technical knowledge, cognitive abilities, workplace
+        skills, and practical problem-solving capabilities.
+
+    </p>
+
+
+    <!-- =====================================================
+         PROGRESS BAR
+    ====================================================== -->
+
+    <div class="progress-panel">
+
+        <div class="progress-top">
+
+            <div class="progress-title">
+                Overall Assessment Progress
+            </div>
+
+            <div
+                class="progress-percent"
+                id="progressPercent"
+            >
+                0%
+            </div>
+
         </div>
-    </main>
+
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+
+        <div class="progress-bottom">
+
+            <span id="progressText">
+                0 of 7 assessments completed
+            </span>
+
+            <strong id="progressMessage">
+                Not Started
+            </strong>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main class="container">
+
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-kicker">
+                Evaluation Process
+            </div>
+
+            <h2 class="section-title">
+                Assessment Structure
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Complete each assessment module to provide a
+            comprehensive representation of your professional
+            capabilities.
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         ASSESSMENTS
+    ====================================================== -->
+
+    <div class="assessment-list">
+
+
+        <!-- =================================================
+             ASSESSMENT 1
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="1"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    01
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module One
+                    </div>
+
+                    <h3>
+                        Typing & Accuracy Assessment
+                    </h3>
+
+                    <p class="card-description">
+
+                        Evaluate typing speed, accuracy,
+                        attention to detail, and keyboard
+                        proficiency.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>5–10 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-1.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 2
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="2"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    02
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Two
+                    </div>
+
+                    <h3>
+                        Personality & Work-Style Assessment
+                    </h3>
+
+                    <p class="card-description">
+
+                        Explore workplace preferences,
+                        communication tendencies, collaboration,
+                        and professional work style.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>10–15 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-2.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 3
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="3"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    03
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Three
+                    </div>
+
+                    <h3>
+                        30-Question Technical Assessment
+                    </h3>
+
+                    <p class="card-description">
+
+                        Evaluate foundational IT knowledge,
+                        troubleshooting, networking, security,
+                        systems, and technology concepts.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>30–40 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-3.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 4
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="4"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    04
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Four
+                    </div>
+
+                    <h3>
+                        Cognitive & Aptitude Assessment
+                    </h3>
+
+                    <p class="card-description">
+
+                        Measure logical reasoning, pattern
+                        recognition, numerical reasoning,
+                        and analytical problem-solving.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>15–20 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-4.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 5
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="5"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    05
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Five
+                    </div>
+
+                    <h3>
+                        Behavioral & Situational Judgment
+                    </h3>
+
+                    <p class="card-description">
+
+                        Evaluate professional judgment,
+                        decision-making, communication,
+                        conflict resolution, and workplace
+                        scenarios.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>10–15 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-5.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 6
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="6"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    06
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Six
+                    </div>
+
+                    <h3>
+                        Simulated Help Desk Troubleshooting
+                    </h3>
+
+                    <p class="card-description">
+
+                        Work through realistic technical
+                        support scenarios involving connectivity,
+                        account access, hardware, software,
+                        and system issues.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>20–30 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-6.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             ASSESSMENT 7
+        ================================================== -->
+
+        <article
+            class="assessment-card"
+            data-assessment="7"
+        >
+
+            <div class="card-left">
+
+                <div class="section-badge">
+                    07
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-number">
+                        Module Seven
+                    </div>
+
+                    <h3>
+                        OS & Command-Line Skills
+                    </h3>
+
+                    <p class="card-description">
+
+                        Assess practical knowledge of operating
+                        systems, command-line tools, system
+                        administration, and technical commands.
+
+                    </p>
+
+                    <div class="time-estimate">
+                        Estimated Duration:
+                        <span>10–15 Minutes</span>
+                    </div>
+
+                    <div class="status-badge">
+
+                        <span class="status-icon">○</span>
+
+                        <span class="status-text">
+                            Not Started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="assessment-7.html"
+                class="start-btn"
+            >
+                Begin Assessment
+                <span>→</span>
+            </a>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         GUIDELINES
+    ====================================================== -->
+
+    <section class="guidelines">
+
+        <div class="guidelines-header">
+
+            <div class="guideline-icon">
+                ✓
+            </div>
+
+            <h3>
+                Candidate Testing Guidelines
+            </h3>
+
+        </div>
+
+
+        <div class="guidelines-grid">
+
+
+            <div class="guideline">
+
+                <div class="guideline-title">
+                    Environment
+                </div>
+
+                <p>
+
+                    Complete the assessment in a quiet,
+                    professional environment using a desktop
+                    or laptop with a reliable internet
+                    connection.
+
+                </p>
+
+            </div>
+
+
+            <div class="guideline">
+
+                <div class="guideline-title">
+                    Preparation
+                </div>
+
+                <p>
+
+                    Read each assessment's instructions
+                    carefully and answer questions to the
+                    best of your ability.
+
+                </p>
+
+            </div>
+
+
+            <div class="guideline">
+
+                <div class="guideline-title">
+                    Submission
+                </div>
+
+                <p>
+
+                    Submit each assessment before proceeding
+                    to the next module. Your results may be
+                    reviewed as part of the candidate evaluation
+                    process.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- SECURITY -->
+
+    <div class="security">
+
+        <span>◆</span>
+
+        Professional Candidate Evaluation Environment
+
+        <span>◆</span>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-brand">
+        Golden Healing Solutions
+    </div>
+
+    <div class="footer-text">
+
+        Technology • Career • Recruitment Solutions
+
+        <br>
+
+        Copyright © 2024 Golden Healing Solutions.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     PROGRESS JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/*
+    ============================================================
+    ASSESSMENT PROGRESS SYSTEM
+
+    Each assessment page should save:
+
+    localStorage.setItem(
+        "assessment1Completed",
+        "true"
+    );
+
+    Replace the number for each assessment.
+
+    Example:
+
+    assessment1Completed
+    assessment2Completed
+    assessment3Completed
+    etc.
+
+    ============================================================
+*/
+
+
+const totalAssessments = 7;
+
+
+/* ------------------------------------------------------------
+   UPDATE DASHBOARD
+------------------------------------------------------------ */
+
+function updateAssessmentProgress() {
+
+    let completed = 0;
+
+
+    /* Check each assessment */
+
+    for (let i = 1; i <= totalAssessments; i++) {
+
+        const isCompleted =
+            localStorage.getItem(
+                `assessment${i}Completed`
+            ) === "true";
+
+
+        if (isCompleted) {
+
+            completed++;
+
+        }
+
+
+        /* Find the corresponding card */
+
+        const card =
+            document.querySelector(
+                `[data-assessment="${i}"]`
+            );
+
+
+        if (!card) continue;
+
+
+        const status =
+            card.querySelector(".status-badge");
+
+        const statusText =
+            card.querySelector(".status-text");
+
+        const statusIcon =
+            card.querySelector(".status-icon");
+
+        const button =
+            card.querySelector(".start-btn");
+
+
+        if (isCompleted) {
+
+            /* Completed */
+
+            status.classList.add("completed");
+
+            statusText.textContent =
+                "Completed";
+
+            statusIcon.textContent =
+                "✓";
+
+            button.classList.add("completed");
+
+            button.innerHTML =
+                'Review Assessment <span>→</span>';
+
+        }
+
+    }
+
+
+    /* Calculate percentage */
+
+    const percentage =
+        Math.round(
+            (completed / totalAssessments) * 100
+        );
+
+
+    /* Update progress bar */
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percentage + "%";
+
+
+    /* Update percentage */
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percentage + "%";
+
+
+    /* Update count */
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        `${completed} of ${totalAssessments} assessments completed`;
+
+
+    /* Update message */
+
+    const message =
+        document.getElementById(
+            "progressMessage"
+        );
+
+
+    if (completed === 0) {
+
+        message.textContent =
+            "Not Started";
+
+    }
+
+    else if (completed < totalAssessments) {
+
+        message.textContent =
+            "In Progress";
+
+    }
+
+    else {
+
+        message.textContent =
+            "Assessment Complete";
+
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   RUN WHEN PAGE LOADS
+------------------------------------------------------------ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    updateAssessmentProgress
+);
+
+
+/* ------------------------------------------------------------
+   UPDATE IF USER RETURNS TO THE TAB
+------------------------------------------------------------ */
+
+window.addEventListener(
+    "focus",
+    updateAssessmentProgress
+);
+
+</script>
+
 
 </body>
 </html>
