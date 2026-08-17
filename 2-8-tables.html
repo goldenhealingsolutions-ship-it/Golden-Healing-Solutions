@@ -1,0 +1,2892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.8 — Tables | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.demo-table th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.demo-table td {
+    padding: 13px;
+    border: 1px solid #ddd;
+}
+
+.demo-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.attribute-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.attribute-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+}
+
+.attribute-card h3 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: #fafafa;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison,
+    .attribute-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.8 — Tables
+</span>
+
+</div>
+
+
+<div class="title-section">
+
+<div class="module-icon">
+📊
+</div>
+
+<h1>
+2.8 — Tables
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to organize structured data using HTML tables,
+including rows, columns, headers, captions, spanning cells,
+and accessible table structure.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Understand the purpose of HTML tables.</li>
+
+<li>Create a basic HTML table.</li>
+
+<li>Use table rows and cells.</li>
+
+<li>Create table headers.</li>
+
+<li>Use table captions.</li>
+
+<li>Understand thead, tbody, and tfoot.</li>
+
+<li>Use colspan and rowspan.</li>
+
+<li>Style tables with CSS.</li>
+
+<li>Create responsive tables.</li>
+
+<li>Use tables appropriately for structured data.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Are HTML Tables?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An HTML table is used to organize information into
+<strong>rows and columns</strong>.
+
+</p>
+
+<p>
+
+Tables are useful when information has a relationship between
+different pieces of data.
+
+</p>
+
+<p>
+
+Examples include course schedules, employee information,
+product specifications, grades, financial data, and reports.
+
+</p>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+HTML tables should generally be used for <strong>tabular
+data</strong>, not simply to position or lay out webpage
+elements.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BASIC TABLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 2. Creating a Basic Table
+</h2>
+
+<p>
+
+The <code>&lt;table&gt;</code> element creates the table.
+
+A row is created using <code>&lt;tr&gt;</code>, and a normal
+data cell is created using <code>&lt;td&gt;</code>.
+
+</p>
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;table&gt;
+
+    &lt;tr&gt;
+
+        &lt;td&gt;HTML&lt;/td&gt;
+
+        &lt;td&gt;Beginner&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;td&gt;CSS&lt;/td&gt;
+
+        &lt;td&gt;Intermediate&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<tr>
+
+<td>HTML</td>
+
+<td>Beginner</td>
+
+</tr>
+
+<tr>
+
+<td>CSS</td>
+
+<td>Intermediate</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- TR -->
+
+<div class="section">
+
+<h2 class="section-title">
+↔️ 3. Table Rows
+</h2>
+
+<p>
+
+The <code>&lt;tr&gt;</code> element means
+<strong>table row</strong>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;tr&gt;
+
+    &lt;td&gt;HTML&lt;/td&gt;
+
+    &lt;td&gt;Web Development&lt;/td&gt;
+
+&lt;/tr&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+Every row of a table is created with
+<code>&lt;tr&gt;</code>.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TD -->
+
+<div class="section">
+
+<h2 class="section-title">
+📦 4. Table Data Cells
+</h2>
+
+<p>
+
+The <code>&lt;td&gt;</code> element represents a standard
+data cell.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;td&gt;HTML&lt;/td&gt;
+
+&lt;td&gt;CSS&lt;/td&gt;
+
+&lt;td&gt;JavaScript&lt;/td&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TH -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔤 5. Table Header Cells
+</h2>
+
+<p>
+
+The <code>&lt;th&gt;</code> element creates a table header
+cell.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;tr&gt;
+
+    &lt;th&gt;Course&lt;/th&gt;
+
+    &lt;th&gt;Level&lt;/th&gt;
+
+    &lt;th&gt;Duration&lt;/th&gt;
+
+&lt;/tr&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<tr>
+
+<th>Course</th>
+
+<th>Level</th>
+
+<th>Duration</th>
+
+</tr>
+
+<tr>
+
+<td>HTML</td>
+
+<td>Beginner</td>
+
+<td>2 Weeks</td>
+
+</tr>
+
+<tr>
+
+<td>CSS</td>
+
+<td>Intermediate</td>
+
+<td>3 Weeks</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="success-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+Use <code>&lt;th&gt;</code> for cells that identify the
+meaning of a row or column.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CAPTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 6. Table Captions
+</h2>
+
+<p>
+
+The <code>&lt;caption&gt;</code> element provides a title or
+description for a table.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;caption&gt;
+        Student Grades
+    &lt;/caption&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;th&gt;Student&lt;/th&gt;
+
+        &lt;th&gt;Score&lt;/th&gt;
+
+    &lt;/tr&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;td&gt;Jordan&lt;/td&gt;
+
+        &lt;td&gt;92%&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<caption style="caption-side: top; padding: 10px; font-weight: bold;">
+Student Grades
+</caption>
+
+<tr>
+
+<th>Student</th>
+
+<th>Score</th>
+
+</tr>
+
+<tr>
+
+<td>Jordan</td>
+
+<td>92%</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- THEAD -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔝 7. Table Head, Body & Footer
+</h2>
+
+<p>
+
+Larger tables can be divided into three logical sections:
+
+</p>
+
+<ul>
+
+<li>
+<code>&lt;thead&gt;</code> — Header content
+</li>
+
+<li>
+<code>&lt;tbody&gt;</code> — Main table data
+</li>
+
+<li>
+<code>&lt;tfoot&gt;</code> — Footer or summary content
+</li>
+
+</ul>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+
+    &lt;thead&gt;
+
+        &lt;tr&gt;
+
+            &lt;th&gt;Course&lt;/th&gt;
+
+            &lt;th&gt;Students&lt;/th&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/thead&gt;
+
+
+    &lt;tbody&gt;
+
+        &lt;tr&gt;
+
+            &lt;td&gt;HTML&lt;/td&gt;
+
+            &lt;td&gt;25&lt;/td&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/tbody&gt;
+
+
+    &lt;tfoot&gt;
+
+        &lt;tr&gt;
+
+            &lt;td&gt;Total&lt;/td&gt;
+
+            &lt;td&gt;25&lt;/td&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/tfoot&gt;
+
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- COLSPAN -->
+
+<div class="section">
+
+<h2 class="section-title">
+↔️ 8. colspan
+</h2>
+
+<p>
+
+The <code>colspan</code> attribute allows one cell to span
+across multiple columns.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;tr&gt;
+
+        &lt;th colspan="2"&gt;
+            Web Development
+        &lt;/th&gt;
+
+    &lt;/tr&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;td&gt;HTML&lt;/td&gt;
+
+        &lt;td&gt;CSS&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<tr>
+
+<th colspan="2">
+Web Development
+</th>
+
+</tr>
+
+<tr>
+
+<td>HTML</td>
+
+<td>CSS</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- ROWSPAN -->
+
+<div class="section">
+
+<h2 class="section-title">
+↕️ 9. rowspan
+</h2>
+
+<p>
+
+The <code>rowspan</code> attribute allows a cell to span
+across multiple rows.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;tr&gt;
+
+        &lt;th rowspan="2"&gt;
+            HTML
+        &lt;/th&gt;
+
+        &lt;td&gt;Elements&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;td&gt;Attributes&lt;/td&gt;
+
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<tr>
+
+<th rowspan="2">
+HTML
+</th>
+
+<td>Elements</td>
+
+</tr>
+
+<tr>
+
+<td>Attributes</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- SCOPE -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 10. Table Accessibility
+</h2>
+
+<p>
+
+Tables should be structured so that assistive technologies
+can understand the relationship between headers and data.
+
+</p>
+
+<p>
+
+The <code>scope</code> attribute can identify whether a header
+applies to a column or row.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;tr&gt;
+
+        &lt;th scope="col"&gt;
+            Student
+        &lt;/th&gt;
+
+        &lt;th scope="col"&gt;
+            Grade
+        &lt;/th&gt;
+
+    &lt;/tr&gt;
+
+
+    &lt;tr&gt;
+
+        &lt;th scope="row"&gt;
+            Jordan
+        &lt;/th&gt;
+
+        &lt;td&gt;
+            95%
+        &lt;/td&gt;
+
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Accessibility Tip:</strong>
+
+<p>
+
+Meaningful table headers help users understand what each
+piece of data represents.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CSS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 11. Styling Tables with CSS
+</h2>
+
+<p>
+
+CSS can control the appearance of HTML tables.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- BORDER COLLAPSE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📏 12. border-collapse
+</h2>
+
+<p>
+
+The <code>border-collapse</code> property determines how
+table borders interact.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+table {
+    border-collapse: collapse;
+}
+</pre>
+
+</div>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+Separate Borders
+</h3>
+
+<pre>
+border-collapse:
+separate;
+</pre>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+Collapsed Borders
+</h3>
+
+<pre>
+border-collapse:
+collapse;
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RESPONSIVE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📱 13. Responsive Tables
+</h2>
+
+<p>
+
+Large tables can become difficult to view on mobile devices.
+
+A common approach is to place the table inside a horizontally
+scrollable container.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    min-width: 600px;
+}
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Why?</strong>
+
+<p>
+
+Instead of forcing a large table to shrink too much,
+the user can horizontally scroll to see all columns.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TABLE VS LIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚖️ 14. Tables vs. Lists
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+📊 Use a Table When:
+</h3>
+
+<ul>
+
+<li>Data belongs in rows and columns.</li>
+
+<li>Multiple values need to be compared.</li>
+
+<li>Information has relationships between columns.</li>
+
+<li>You are displaying structured data.</li>
+
+</ul>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+📋 Use a List When:
+</h3>
+
+<ul>
+
+<li>Items are simply grouped together.</li>
+
+<li>You are showing steps.</li>
+
+<li>You are creating navigation.</li>
+
+<li>Information does not require rows and columns.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REAL WORLD -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 15. Real-World Table Examples
+</h2>
+
+<div class="attribute-grid">
+
+<div class="attribute-card">
+
+<h3>
+🎓 Student Grades
+</h3>
+
+<p>
+Student names, assignments, scores, and final grades.
+</p>
+
+</div>
+
+<div class="attribute-card">
+
+<h3>
+💼 Employee Data
+</h3>
+
+<p>
+Employee names, departments, job titles, and dates.
+</p>
+
+</div>
+
+<div class="attribute-card">
+
+<h3>
+🛒 Product Data
+</h3>
+
+<p>
+Product names, prices, quantities, and descriptions.
+</p>
+
+</div>
+
+<div class="attribute-card">
+
+<h3>
+📅 Schedules
+</h3>
+
+<p>
+Dates, times, events, and locations.
+</p>
+
+</div>
+
+<div class="attribute-card">
+
+<h3>
+💰 Financial Reports
+</h3>
+
+<p>
+Income, expenses, totals, and financial categories.
+</p>
+
+</div>
+
+<div class="attribute-card">
+
+<h3>
+📈 Statistics
+</h3>
+
+<p>
+Measurements, categories, percentages, and comparisons.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FULL EXAMPLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 16. Complete Table Example
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;caption&gt;
+        Web Development Courses
+    &lt;/caption&gt;
+
+
+    &lt;thead&gt;
+
+        &lt;tr&gt;
+
+            &lt;th scope="col"&gt;
+                Course
+            &lt;/th&gt;
+
+            &lt;th scope="col"&gt;
+                Level
+            &lt;/th&gt;
+
+            &lt;th scope="col"&gt;
+                Duration
+            &lt;/th&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/thead&gt;
+
+
+    &lt;tbody&gt;
+
+        &lt;tr&gt;
+
+            &lt;td&gt;
+                HTML
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                Beginner
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                2 Weeks
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+
+        &lt;tr&gt;
+
+            &lt;td&gt;
+                CSS
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                Intermediate
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                3 Weeks
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+
+        &lt;tr&gt;
+
+            &lt;td&gt;
+                JavaScript
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                Advanced
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                4 Weeks
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/tbody&gt;
+
+
+    &lt;tfoot&gt;
+
+        &lt;tr&gt;
+
+            &lt;td colspan="2"&gt;
+                Total Courses
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/tfoot&gt;
+
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<caption style="caption-side: top; padding: 10px; font-weight: bold;">
+Web Development Courses
+</caption>
+
+<thead>
+
+<tr>
+
+<th scope="col">Course</th>
+
+<th scope="col">Level</th>
+
+<th scope="col">Duration</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>HTML</td>
+
+<td>Beginner</td>
+
+<td>2 Weeks</td>
+
+</tr>
+
+<tr>
+
+<td>CSS</td>
+
+<td>Intermediate</td>
+
+<td>3 Weeks</td>
+
+</tr>
+
+<tr>
+
+<td>JavaScript</td>
+
+<td>Advanced</td>
+
+<td>4 Weeks</td>
+
+</tr>
+
+</tbody>
+
+<tfoot>
+
+<tr>
+
+<td colspan="2">Total Courses</td>
+
+<td>3</td>
+
+</tr>
+
+</tfoot>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 17. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Course Data Table
+</h3>
+
+<p>
+Create a webpage containing a professional course table.
+</p>
+
+<ul>
+
+<li>Create a table with at least 5 courses.</li>
+
+<li>Include a table caption.</li>
+
+<li>Create a table header.</li>
+
+<li>Include at least 4 columns.</li>
+
+<li>Use <code>thead</code>, <code>tbody</code>, and
+<code>tfoot</code>.</li>
+
+<li>Use appropriate <code>th</code> elements.</li>
+
+<li>Use CSS to style the table.</li>
+
+<li>Make the table responsive.</li>
+
+<li>Include a total row.</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        Course Table
+    &lt;/title&gt;
+
+
+    &lt;style&gt;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #111;
+            color: white;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;h1&gt;
+        Web Development Courses
+    &lt;/h1&gt;
+
+
+    &lt;div class="table-wrapper"&gt;
+
+
+        &lt;table&gt;
+
+
+            &lt;caption&gt;
+                Course Catalog
+            &lt;/caption&gt;
+
+
+            &lt;thead&gt;
+
+                &lt;tr&gt;
+
+                    &lt;th scope="col"&gt;
+                        Course
+                    &lt;/th&gt;
+
+                    &lt;th scope="col"&gt;
+                        Level
+                    &lt;/th&gt;
+
+                    &lt;th scope="col"&gt;
+                        Duration
+                    &lt;/th&gt;
+
+                    &lt;th scope="col"&gt;
+                        Price
+                    &lt;/th&gt;
+
+                &lt;/tr&gt;
+
+            &lt;/thead&gt;
+
+
+            &lt;tbody&gt;
+
+                &lt;tr&gt;
+
+                    &lt;td&gt;
+                        HTML
+                    &lt;/td&gt;
+
+                    &lt;td&gt;
+                        Beginner
+                    &lt;/td&gt;
+
+                    &lt;td&gt;
+                        2 Weeks
+                    &lt;/td&gt;
+
+                    &lt;td&gt;
+                        $99
+                    &lt;/td&gt;
+
+                &lt;/tr&gt;
+
+
+                &lt;!-- Add more rows here --&gt;
+
+
+            &lt;/tbody&gt;
+
+
+            &lt;tfoot&gt;
+
+                &lt;tr&gt;
+
+                    &lt;td colspan="3"&gt;
+                        Total Courses
+                    &lt;/td&gt;
+
+                    &lt;td&gt;
+                        1
+                    &lt;/td&gt;
+
+                &lt;/tr&gt;
+
+            &lt;/tfoot&gt;
+
+
+        &lt;/table&gt;
+
+
+    &lt;/div&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- QUICK REFERENCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 18. Quick Reference
+</h2>
+
+<div class="table-wrapper">
+
+<table class="demo-table">
+
+<thead>
+
+<tr>
+
+<th>Element / Attribute</th>
+
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>&lt;table&gt;</td>
+<td>Creates a table</td>
+</tr>
+
+<tr>
+<td>&lt;tr&gt;</td>
+<td>Creates a table row</td>
+</tr>
+
+<tr>
+<td>&lt;td&gt;</td>
+<td>Creates a standard data cell</td>
+</tr>
+
+<tr>
+<td>&lt;th&gt;</td>
+<td>Creates a header cell</td>
+</tr>
+
+<tr>
+<td>&lt;caption&gt;</td>
+<td>Provides a table title or description</td>
+</tr>
+
+<tr>
+<td>&lt;thead&gt;</td>
+<td>Groups table header content</td>
+</tr>
+
+<tr>
+<td>&lt;tbody&gt;</td>
+<td>Groups the main table content</td>
+</tr>
+
+<tr>
+<td>&lt;tfoot&gt;</td>
+<td>Groups table footer content</td>
+</tr>
+
+<tr>
+<td>colspan</td>
+<td>Allows a cell to span multiple columns</td>
+</tr>
+
+<tr>
+<td>rowspan</td>
+<td>Allows a cell to span multiple rows</td>
+</tr>
+
+<tr>
+<td>scope</td>
+<td>Identifies the relationship of a header to data</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- COMMON MISTAKES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚠️ 19. Common Table Mistakes
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Avoid
+</h3>
+
+<ul>
+
+<li>Using tables for webpage layout.</li>
+
+<li>Leaving out meaningful headers.</li>
+
+<li>Creating unnecessarily complicated tables.</li>
+
+<li>Using tables when a list would be more appropriate.</li>
+
+<li>Ignoring mobile responsiveness.</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+✅ Use
+</h3>
+
+<ul>
+
+<li>Tables for structured data.</li>
+
+<li>Meaningful table headers.</li>
+
+<li>Captions when helpful.</li>
+
+<li>Semantic table sections.</li>
+
+<li>Responsive table containers.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 20. Lesson Completion Checklist
+</h2>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand what HTML tables are used for.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create a table using the table element.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand table rows using tr.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand table cells using td.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create table headers using th.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand captions.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand thead, tbody, and tfoot.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand colspan and rowspan.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand basic table accessibility.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can style and make a table responsive.
+</label>
+</div>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 21. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. Which element creates an HTML table?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. &lt;grid&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. &lt;table&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. &lt;data&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. &lt;tab&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which element creates a table row?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. &lt;row&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. &lt;tr&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. &lt;td&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. &lt;line&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which element creates a standard table data cell?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. &lt;cell&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. &lt;data&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. &lt;td&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. &lt;tc&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which element creates a table header cell?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. &lt;header&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. &lt;thead&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. &lt;th&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. &lt;heading&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element provides a title for a table?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;caption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;title&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;label&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;table-title&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. Which element groups the main body of table data?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. &lt;main&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. &lt;tbody&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. &lt;body&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. &lt;data-body&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. Which attribute allows a cell to span multiple columns?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. rowspan
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. columns
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. colspan
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. span-columns
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. Which attribute allows a cell to span multiple rows?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. rowspan
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. colspan
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. rows
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. span-rows
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. Which CSS property controls whether table borders are combined?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. border-style
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. border-collapse
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. table-border
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. border-merge
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. What should HTML tables generally be used for?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. Website layout
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. Creating animations
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. Structured tabular data
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. Replacing CSS
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎉 22. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+HTML tables allow developers to organize related data into
+rows and columns.
+
+</p>
+
+<p>
+
+You learned how to create tables, rows, data cells, header
+cells, captions, table sections, spanning cells, and
+accessible table structures.
+
+</p>
+
+<p>
+
+You also learned how CSS can make tables more attractive and
+responsive.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.8 — Tables</strong>.
+
+</p>
+
+<p>
+You are ready to continue to the next lesson.
+</p>
+
+<a
+href="2-9-forms.html"
+class="continue-button">
+
+Continue to 2.9 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-7-lists.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.8 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.8 — Tables
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_8_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.8 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_8_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "B",
+q3: "C",
+q4: "C",
+q5: "A",
+q6: "B",
+q7: "C",
+q8: "A",
+q9: "B",
+q10: "C"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML tables.</p>";
+
+localStorage.setItem(
+"ghs_2_8_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_8_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_8_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

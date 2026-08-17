@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.4 — Wireframes | Web Development Bootcamp
+</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #222;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+.breadcrumb span {
+
+    color: #a27c12;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.module-icon {
+
+    font-size: 60px;
+
+}
+
+h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.subtitle {
+
+    max-width: 780px;
+
+    margin: auto;
+
+    color: #666;
+
+    font-size: 17px;
+
+}
+
+.gold-line {
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+
+    background: #faf7ed;
+
+    border-left: 5px solid #d4af37;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+    margin-bottom: 35px;
+
+}
+
+.objectives h2 {
+
+    margin-top: 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+
+    margin-top: 45px;
+
+}
+
+.section-title {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    border-bottom:
+        2px solid #d4af37;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   INFORMATION BOX
+===================================================== */
+
+.info-box {
+
+    background: #f8f8f8;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    padding: 22px;
+
+    margin-bottom: 25px;
+
+}
+
+.info-box strong {
+
+    color: #9a7710;
+
+}
+
+
+/* =====================================================
+   WIREFRAME EXAMPLE
+===================================================== */
+
+.wireframe-example {
+
+    border: 2px dashed #bbb;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    background: #fafafa;
+
+}
+
+.wf-header {
+
+    height: 55px;
+
+    border: 2px solid #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    font-weight: bold;
+
+}
+
+.wf-nav {
+
+    height: 40px;
+
+    border: 2px solid #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+}
+
+.wf-content {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 12px;
+
+}
+
+.wf-main {
+
+    height: 180px;
+
+    border: 2px solid #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.wf-sidebar {
+
+    height: 180px;
+
+    border: 2px solid #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.wf-footer {
+
+    height: 45px;
+
+    border: 2px solid #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 12px;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 25px;
+
+}
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+}
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+}
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(212,175,55,.15);
+
+}
+
+
+/* =====================================================
+   PAGE WIREFRAME PLANNER
+===================================================== */
+
+.page-card {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+.page-card h3 {
+
+    margin-top: 0;
+
+    color: #9a7710;
+
+}
+
+.layout-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   FLOW
+===================================================== */
+
+.flow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin: 25px 0;
+
+}
+
+.flow-step {
+
+    background: #111;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 7px;
+
+}
+
+.flow-arrow {
+
+    color: #d4af37;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   DEVICE PLANNING
+===================================================== */
+
+.device-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+.device-card {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+}
+
+.device-icon {
+
+    font-size: 35px;
+
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.upload-box {
+
+    border: 2px dashed #c8b36b;
+
+    background: #fffdf5;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    text-align: center;
+
+}
+
+.upload-box input {
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+.check-item {
+
+    display: flex;
+
+    gap: 13px;
+
+    padding: 17px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.check-item:last-child {
+
+    border-bottom: none;
+
+}
+
+.check-item input {
+
+    width: 19px;
+
+    height: 19px;
+
+    margin-top: 4px;
+
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+
+    background: #fff8e6;
+
+    border-left:
+        5px solid #d4af37;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+}
+
+.warning {
+
+    background: #fff2f2;
+
+    border-left:
+        5px solid #b33;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+
+}
+
+button,
+.continue-button {
+
+    padding: 15px 30px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+.save-button {
+
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+}
+
+.continue-button {
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: none;
+
+}
+
+.save-button:hover {
+
+    background: #333;
+
+}
+
+.continue-button:hover {
+
+    background: #b18a16;
+
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+
+    display: none;
+
+    background: #eef9f0;
+
+    border: 1px solid #70ad78;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    margin-top: 30px;
+
+}
+
+.completion h2 {
+
+    color: #287333;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+
+    margin-top: 45px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+.progress-text {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+}
+
+.progress-bar {
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 35px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .card {
+
+        padding: 25px 18px;
+
+    }
+
+    h1 {
+
+        font-size: 30px;
+
+    }
+
+    .layout-grid,
+    .device-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .wf-content {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.4 — Wireframes
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🖼️
+</div>
+
+<h1>
+18.4 — Wireframes
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Create the visual blueprint for your Capstone
+Project before moving into full development.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Explain the purpose of a website wireframe.
+</li>
+
+<li>
+Identify the major sections of a webpage.
+</li>
+
+<li>
+Plan page structure before coding.
+</li>
+
+<li>
+Plan responsive layouts for desktop and mobile.
+</li>
+
+<li>
+Create a clear user-flow diagram.
+</li>
+
+<li>
+Use wireframes to guide the development process.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHAT IS A WIREFRAME?
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📐 What Is a Wireframe?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+A <strong>wireframe</strong> is a visual blueprint
+of a website or application.
+
+</p>
+
+<p>
+
+Instead of focusing on colors, images, fonts,
+or final visual styling, a wireframe focuses
+on <strong>structure, layout, content placement,
+navigation, and functionality.</strong>
+
+</p>
+
+<p>
+
+Think of a wireframe as the floor plan for your
+website. It allows you to determine where
+everything belongs before you begin building
+the final design.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     EXAMPLE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+👀 Wireframe Example
+</h2>
+
+
+<div class="wireframe-example">
+
+<div class="wf-header">
+LOGO / HEADER
+</div>
+
+<div class="wf-nav">
+NAVIGATION MENU
+</div>
+
+<div class="wf-content">
+
+<div class="wf-main">
+MAIN CONTENT
+</div>
+
+<div class="wf-sidebar">
+SIDEBAR
+</div>
+
+</div>
+
+<div class="wf-footer">
+FOOTER
+</div>
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+Remember:
+</strong>
+
+A wireframe does not need to look like your
+finished website. It is primarily used to plan
+structure and functionality.
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     WIREFRAME REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 Wireframe Requirements
+</h2>
+
+<div class="info-box">
+
+<p>
+Your Capstone wireframe should identify the
+major layout and navigation elements of your
+project.
+</p>
+
+<ul>
+
+<li>
+Header or branding area.
+</li>
+
+<li>
+Primary navigation.
+</li>
+
+<li>
+Main content areas.
+</li>
+
+<li>
+Calls-to-action or important buttons.
+</li>
+
+<li>
+Forms or interactive elements when applicable.
+</li>
+
+<li>
+Images or media placement.
+</li>
+
+<li>
+Footer.
+</li>
+
+<li>
+Mobile/responsive considerations.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECT INFORMATION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+1. 📝 Project Information
+</h2>
+
+
+<div class="form-group">
+
+<label for="projectName">
+Project Name
+</label>
+
+<input
+type="text"
+id="projectName"
+placeholder="Enter your Capstone project name">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="wireframeTool">
+Wireframing Tool
+</label>
+
+<select id="wireframeTool">
+
+<option value="">
+Select a tool
+</option>
+
+<option>
+Figma
+</option>
+
+<option>
+Canva
+</option>
+
+<option>
+Adobe XD
+</option>
+
+<option>
+Pen & Paper
+</option>
+
+<option>
+Google Drawings
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="wireframeDescription">
+Briefly Describe Your Wireframe
+</label>
+
+<textarea
+id="wireframeDescription"
+placeholder="Describe what your wireframe represents and what pages it covers."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PAGE PLANNING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+2. 🗂️ Page Wireframe Planner
+</h2>
+
+<p>
+
+Create a basic layout plan for each major page
+of your Capstone.
+
+</p>
+
+
+
+<!-- PAGE 1 -->
+
+<div class="page-card">
+
+<h3>
+Page 1 — Home / Landing Page
+</h3>
+
+<div class="layout-grid">
+
+<div>
+
+<label>
+Header / Branding
+</label>
+
+<input
+type="text"
+id="homeHeader"
+placeholder="Example: Logo + company name">
+
+</div>
+
+<div>
+
+<label>
+Navigation
+</label>
+
+<input
+type="text"
+id="homeNav"
+placeholder="Example: Home, About, Services">
+
+</div>
+
+<div>
+
+<label>
+Main Content
+</label>
+
+<textarea
+id="homeContent"
+placeholder="Describe the main content areas."></textarea>
+
+</div>
+
+<div>
+
+<label>
+Call to Action
+</label>
+
+<input
+type="text"
+id="homeCTA"
+placeholder="Example: Shop Now">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 2 -->
+
+<div class="page-card">
+
+<h3>
+Page 2
+</h3>
+
+<div class="layout-grid">
+
+<div>
+
+<label>
+Page Name
+</label>
+
+<input
+type="text"
+id="page2Name"
+placeholder="Example: About">
+
+</div>
+
+<div>
+
+<label>
+Navigation
+</label>
+
+<input
+type="text"
+id="page2Nav"
+placeholder="Navigation placement">
+
+</div>
+
+<div>
+
+<label>
+Main Content
+</label>
+
+<textarea
+id="page2Content"
+placeholder="Describe the content."></textarea>
+
+</div>
+
+<div>
+
+<label>
+Important Elements
+</label>
+
+<input
+type="text"
+id="page2Elements"
+placeholder="Images, buttons, forms, etc.">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 3 -->
+
+<div class="page-card">
+
+<h3>
+Page 3
+</h3>
+
+<div class="layout-grid">
+
+<div>
+
+<label>
+Page Name
+</label>
+
+<input
+type="text"
+id="page3Name"
+placeholder="Example: Services">
+
+</div>
+
+<div>
+
+<label>
+Navigation
+</label>
+
+<input
+type="text"
+id="page3Nav"
+placeholder="Navigation placement">
+
+</div>
+
+<div>
+
+<label>
+Main Content
+</label>
+
+<textarea
+id="page3Content"
+placeholder="Describe the content."></textarea>
+
+</div>
+
+<div>
+
+<label>
+Important Elements
+</label>
+
+<input
+type="text"
+id="page3Elements"
+placeholder="Images, buttons, forms, etc.">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 4 -->
+
+<div class="page-card">
+
+<h3>
+Page 4
+</h3>
+
+<div class="layout-grid">
+
+<div>
+
+<label>
+Page Name
+</label>
+
+<input
+type="text"
+id="page4Name"
+placeholder="Example: Contact">
+
+</div>
+
+<div>
+
+<label>
+Navigation
+</label>
+
+<input
+type="text"
+id="page4Nav"
+placeholder="Navigation placement">
+
+</div>
+
+<div>
+
+<label>
+Main Content
+</label>
+
+<textarea
+id="page4Content"
+placeholder="Describe the content."></textarea>
+
+</div>
+
+<div>
+
+<label>
+Important Elements
+</label>
+
+<input
+type="text"
+id="page4Elements"
+placeholder="Forms, buttons, contact information, etc.">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESPONSIVE WIREFRAMES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+3. 📱 Responsive Wireframes
+</h2>
+
+<p>
+
+Your project should consider how the layout will
+change when users view the website on different
+devices.
+
+</p>
+
+
+<div class="device-grid">
+
+
+<div class="device-card">
+
+<div class="device-icon">
+🖥️
+</div>
+
+<h3>
+Desktop Layout
+</h3>
+
+<div class="form-group">
+
+<label>
+Describe Your Desktop Layout
+</label>
+
+<textarea
+id="desktopLayout"
+placeholder="Describe columns, navigation, content width, sidebar, etc."></textarea>
+
+</div>
+
+</div>
+
+
+
+<div class="device-card">
+
+<div class="device-icon">
+📱
+</div>
+
+<h3>
+Mobile Layout
+</h3>
+
+<div class="form-group">
+
+<label>
+Describe Your Mobile Layout
+</label>
+
+<textarea
+id="mobileLayout"
+placeholder="Describe how navigation, columns, images, and content will adapt."></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     USER FLOW
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+4. 🧭 User Flow
+</h2>
+
+<p>
+
+Map out how a user will move through your
+website.
+
+</p>
+
+
+<div class="flow">
+
+<div class="flow-step">
+Landing Page
+</div>
+
+<div class="flow-arrow">
+→
+</div>
+
+<div class="flow-step">
+Main Content
+</div>
+
+<div class="flow-arrow">
+→
+</div>
+
+<div class="flow-step">
+Action
+</div>
+
+<div class="flow-arrow">
+→
+</div>
+
+<div class="flow-step">
+Confirmation
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="userFlow">
+
+Describe Your User Flow
+
+</label>
+
+<textarea
+id="userFlow"
+placeholder="Example: User lands on Home → views Services → selects a service → completes form → receives confirmation."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+5. 🧭 Navigation Structure
+</h2>
+
+
+<div class="form-group">
+
+<label for="navigationStructure">
+
+Describe Your Navigation
+
+</label>
+
+<textarea
+id="navigationStructure"
+placeholder="List your primary navigation items and where each one leads."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="mobileNavigation">
+
+Mobile Navigation Plan
+
+</label>
+
+<textarea
+id="mobileNavigation"
+placeholder="Example: Navigation collapses into a hamburger menu on mobile."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     UPLOAD
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+6. 📤 Submit Your Wireframe
+</h2>
+
+<div class="upload-box">
+
+<h3>
+Upload Your Wireframe
+</h3>
+
+<p>
+
+Upload an image or PDF of your completed
+wireframe if your course platform supports
+file uploads.
+
+</p>
+
+<input
+type="file"
+id="wireframeFile"
+accept=".png,.jpg,.jpeg,.webp,.pdf">
+
+<p id="fileName">
+No file selected.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+Recommended:
+</strong>
+
+Your wireframe should be clear enough that
+another developer could understand the planned
+structure of your project.
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DESIGN NOTES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+7. 🎨 Design Notes
+</h2>
+
+
+<div class="form-group">
+
+<label for="designNotes">
+
+What design decisions are you planning?
+
+</label>
+
+<textarea
+id="designNotes"
+placeholder="Describe planned colors, typography, spacing, imagery, layout style, and branding."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="accessibilityNotes">
+
+Accessibility Considerations
+
+</label>
+
+<textarea
+id="accessibilityNotes"
+placeholder="Describe how your layout will support readability, keyboard navigation, labels, alt text, contrast, etc."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 8. Wireframe Completion Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have created a wireframe for my project.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+My wireframe includes the primary navigation.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+My wireframe identifies the major content areas.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+My wireframe identifies important buttons
+and calls-to-action.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have planned the layout for multiple pages.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have considered the desktop layout.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have considered the mobile layout.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have planned the user flow.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+I have considered accessibility.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="wire-check">
+
+<label>
+My wireframe is clear enough to guide development.
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     WARNING
+===================================================== -->
+
+<div class="warning">
+
+<strong>
+⚠️ Important:
+</strong>
+
+<p>
+
+A wireframe is a planning document. You should
+not spend excessive time making it look like
+the finished website.
+
+The goal is to establish the structure before
+you begin full development.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Wireframe Planning Complete!
+</h2>
+
+<p>
+
+You have reviewed the wireframe requirements
+and completed your planning checklist.
+
+</p>
+
+<p>
+
+Your wireframe can now be used as a blueprint
+during Capstone development.
+
+</p>
+
+<a
+href="18-5-project-development.html"
+class="continue-button">
+
+Continue to Project Development →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveWireframe()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-3-requirements.html"
+class="continue-button">
+
+← Requirements
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeWireframe()">
+
+✓ Complete 18.4
+
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+Module 18 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.4 — Wireframes
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   FORM ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='file']), textarea, select"
+);
+
+const checks =
+document.querySelectorAll(
+".wire-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total = fields.length + checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+Math.round(
+(completed / total) * 100
+);
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+/* Save checklist */
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_wireframe_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE FORM
+===================================================== */
+
+function saveWireframe() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_wireframe_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_wireframe_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your wireframe planning progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD FORM
+===================================================== */
+
+function loadWireframe() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_wireframe_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_wireframe_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   FILE NAME
+===================================================== */
+
+document.getElementById(
+"wireframeFile"
+).addEventListener(
+"change",
+function() {
+
+const file =
+this.files[0];
+
+
+if (
+file
+) {
+
+document.getElementById(
+"fileName"
+).textContent =
+"Selected: " + file.name;
+
+}
+
+else {
+
+document.getElementById(
+"fileName"
+).textContent =
+"No file selected.";
+
+}
+
+}
+);
+
+
+/* =====================================================
+   COMPLETE
+===================================================== */
+
+function completeWireframe() {
+
+const completed =
+Array.from(checks)
+.filter(
+check =>
+check.checked
+).length;
+
+
+if (
+completed !== checks.length
+) {
+
+alert(
+"Please complete every item on the wireframe checklist before continuing."
+);
+
+return;
+
+}
+
+
+/* Save completion */
+
+localStorage.setItem(
+"ghs_18_4_wireframes_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   AUTO UPDATE
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_4_wireframes_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadWireframe();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

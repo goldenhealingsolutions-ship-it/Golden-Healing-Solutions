@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.4 — Headings & Paragraphs | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* CONTAINER */
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+/* TITLE */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+/* OBJECTIVES */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* SECTIONS */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* INFO BOXES */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+/* CODE */
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+code {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+/* DEMO */
+
+.demo-box {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.demo-box h1,
+.demo-box h2,
+.demo-box h3,
+.demo-box h4,
+.demo-box h5,
+.demo-box h6 {
+    color: #222;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* COMPARISON */
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* HEADING VISUAL */
+
+.heading-list {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: #fafafa;
+}
+
+.heading-list div {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.heading-list div:last-child {
+    border-bottom: none;
+}
+
+/* PRACTICE */
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+/* CHECKLIST */
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: #fafafa;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+/* QUIZ */
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* BUTTONS */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+/* PROGRESS */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+/* COMPLETION */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.4 — Headings & Paragraphs
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+📝
+</div>
+
+<h1>
+2.4 — Headings & Paragraphs
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to organize webpage content using HTML headings
+and paragraphs to create clear, readable, accessible,
+and well-structured web pages.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Explain the purpose of HTML headings.</li>
+
+<li>Use heading elements from <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>.</li>
+
+<li>Understand the importance of heading hierarchy.</li>
+
+<li>Explain the purpose of the <code>&lt;p&gt;</code> element.</li>
+
+<li>Create properly structured paragraphs.</li>
+
+<li>Understand the difference between visual size and semantic importance.</li>
+
+<li>Use headings to organize webpage content.</li>
+
+<li>Apply heading and paragraph best practices.</li>
+
+<li>Create accessible content structures.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. Introduction to Headings & Paragraphs
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Headings and paragraphs are two of the most important
+HTML elements used to organize written content.
+
+</p>
+
+<p>
+
+Headings identify sections of content, while paragraphs
+contain blocks of text.
+
+</p>
+
+<p>
+
+Together, they help users understand the organization
+and meaning of a webpage.
+
+</p>
+
+</div>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;My Website&lt;/h1&gt;
+
+&lt;p&gt;
+    Welcome to my website.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- HEADINGS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 2. HTML Heading Elements
+</h2>
+
+<p>
+
+HTML provides six levels of headings:
+
+</p>
+
+<div class="heading-list">
+
+<div>
+<strong>&lt;h1&gt;</strong> — Highest-level heading
+</div>
+
+<div>
+<strong>&lt;h2&gt;</strong> — Second-level heading
+</div>
+
+<div>
+<strong>&lt;h3&gt;</strong> — Third-level heading
+</div>
+
+<div>
+<strong>&lt;h4&gt;</strong> — Fourth-level heading
+</div>
+
+<div>
+<strong>&lt;h5&gt;</strong> — Fifth-level heading
+</div>
+
+<div>
+<strong>&lt;h6&gt;</strong> — Sixth-level heading
+</div>
+
+</div>
+
+</div>
+
+
+<!-- H1 -->
+
+<div class="section">
+
+<h2 class="section-title">
+1️⃣ 3. The &lt;h1&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;h1&gt;</code> element represents the primary
+heading of a page or major content section.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Web Development Bootcamp
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+Use the <code>&lt;h1&gt;</code> to clearly identify the main
+subject or purpose of the page.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- H2 -->
+
+<div class="section">
+
+<h2 class="section-title">
+2️⃣ 4. The &lt;h2&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;h2&gt;</code> element is commonly used for
+major sections underneath the main heading.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Web Development Bootcamp
+&lt;/h1&gt;
+
+&lt;h2&gt;
+    Introduction to HTML
+&lt;/h2&gt;
+
+&lt;h2&gt;
+    Introduction to CSS
+&lt;/h2&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- H3-H6 -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔢 5. Headings & Hierarchy
+</h2>
+
+<p>
+
+Headings can be organized into a hierarchy.
+
+For example:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Web Development Bootcamp
+&lt;/h1&gt;
+
+&lt;h2&gt;
+    HTML
+&lt;/h2&gt;
+
+&lt;h3&gt;
+    HTML Elements
+&lt;/h3&gt;
+
+&lt;h3&gt;
+    HTML Attributes
+&lt;/h3&gt;
+
+&lt;h2&gt;
+    CSS
+&lt;/h2&gt;
+
+&lt;h3&gt;
+    CSS Selectors
+&lt;/h3&gt;
+</pre>
+
+</div>
+
+<p>
+
+This structure makes the relationship between sections
+clear.
+
+</p>
+
+</div>
+
+
+<!-- VISUAL -->
+
+<div class="section">
+
+<h2 class="section-title">
+👀 6. Heading Size vs. Semantic Meaning
+</h2>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Heading levels should not be selected simply because
+one heading looks larger or smaller.
+
+</p>
+
+<p>
+
+HTML headings communicate the <strong>structure and
+importance of content</strong>. CSS should be used to
+control visual appearance.
+
+</p>
+
+</div>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+HTML
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;h2&gt;
+    Course Overview
+&lt;/h2&gt;
+</pre>
+
+</div>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+CSS
+</h3>
+
+<div class="code-box">
+
+<pre>
+h2 {
+    font-size: 32px;
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PARAGRAPHS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📄 7. The &lt;p&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;p&gt;</code> element represents a paragraph.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    HTML is the standard markup language used
+    to structure content on the web.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+Paragraphs make long blocks of written content easier
+to organize and read.
+
+</p>
+
+</div>
+
+
+<!-- MULTIPLE PARAGRAPHS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 8. Multiple Paragraphs
+</h2>
+
+<p>
+
+Separate ideas should generally be placed into separate
+paragraph elements.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    HTML provides the structure of a webpage.
+&lt;/p&gt;
+
+&lt;p&gt;
+    CSS controls the visual presentation.
+&lt;/p&gt;
+
+&lt;p&gt;
+    JavaScript adds behavior and interactivity.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Tip:</strong>
+
+<p>
+
+Do not put an entire article into one giant paragraph.
+Break content into logical sections.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HEADINGS AND PARAGRAPHS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧱 9. Combining Headings & Paragraphs
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Web Development
+&lt;/h1&gt;
+
+&lt;p&gt;
+    Learn how websites are designed and developed.
+&lt;/p&gt;
+
+&lt;h2&gt;
+    HTML
+&lt;/h2&gt;
+
+&lt;p&gt;
+    HTML provides the structure of a webpage.
+&lt;/p&gt;
+
+&lt;h2&gt;
+    CSS
+&lt;/h2&gt;
+
+&lt;p&gt;
+    CSS controls the appearance of the webpage.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- REAL EXAMPLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 10. Real-World Example
+</h2>
+
+<div class="demo-box">
+
+<h1>Golden Healing Solutions</h1>
+
+<p>
+Welcome to Golden Healing Solutions.
+</p>
+
+<h2>Web Development Bootcamp</h2>
+
+<p>
+Learn the skills needed to design, build, test,
+and deploy modern websites.
+</p>
+
+<h3>What You Will Learn</h3>
+
+<p>
+Students will learn HTML, CSS, JavaScript,
+responsive design, accessibility, and more.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- H1 BEST PRACTICES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 11. Heading Best Practices
+</h2>
+
+<ul>
+
+<li>
+Use headings to describe sections of content.
+</li>
+
+<li>
+Keep heading levels logically organized.
+</li>
+
+<li>
+Use <code>&lt;h1&gt;</code> for the primary page heading.
+</li>
+
+<li>
+Use <code>&lt;h2&gt;</code> for major sections.
+</li>
+
+<li>
+Use <code>&lt;h3&gt;</code> for subsections of an <code>&lt;h2&gt;</code>.
+</li>
+
+<li>
+Do not choose headings simply because they look visually attractive.
+</li>
+
+<li>
+Use CSS to change heading appearance.
+</li>
+
+<li>
+Keep heading text descriptive and meaningful.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- ACCESSIBILITY -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 12. Accessibility & Headings
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Proper heading structure is important for accessibility.
+
+</p>
+
+<p>
+
+Screen-reader users can use headings to navigate through
+a webpage and understand its structure.
+
+</p>
+
+</div>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;Online Learning Platform&lt;/h1&gt;
+
+&lt;h2&gt;Web Development&lt;/h2&gt;
+
+&lt;h3&gt;HTML&lt;/h3&gt;
+
+&lt;h3&gt;CSS&lt;/h3&gt;
+
+&lt;h2&gt;Project Management&lt;/h2&gt;
+
+&lt;h3&gt;Project Planning&lt;/h3&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Accessibility Principle:</strong>
+
+<p>
+
+Use headings based on content hierarchy, not merely
+visual size.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMMON MISTAKES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚠️ 13. Common Mistakes
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Mistake #1
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;Title&lt;/h1&gt;
+
+&lt;h4&gt;Section&lt;/h4&gt;
+</pre>
+
+</div>
+
+<p>
+
+Jumping heading levels without a meaningful reason
+can create a confusing structure.
+
+</p>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+❌ Mistake #2
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    This is a paragraph
+    with lots of text...
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+<p>
+
+Headings should not be used as replacements for
+paragraphs.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CORRECT STRUCTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 14. Proper Content Structure
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;Web Development Bootcamp&lt;/h1&gt;
+
+&lt;p&gt;
+    Learn how to build websites from the ground up.
+&lt;/p&gt;
+
+&lt;h2&gt;HTML&lt;/h2&gt;
+
+&lt;p&gt;
+    HTML provides the structure of web pages.
+&lt;/p&gt;
+
+&lt;h3&gt;HTML Elements&lt;/h3&gt;
+
+&lt;p&gt;
+    Elements define the content and structure.
+&lt;/p&gt;
+
+&lt;h3&gt;HTML Attributes&lt;/h3&gt;
+
+&lt;p&gt;
+    Attributes provide additional information.
+&lt;/p&gt;
+
+&lt;h2&gt;CSS&lt;/h2&gt;
+
+&lt;p&gt;
+    CSS controls the appearance of a webpage.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- BR ELEMENT -->
+
+<div class="section">
+
+<h2 class="section-title">
+↩️ 15. The &lt;br&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;br&gt;</code> element creates a line break.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    Golden Healing Solutions&lt;br&gt;
+    Web Development Bootcamp
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Do not use repeated <code>&lt;br&gt;</code> elements simply
+to create spacing between paragraphs.
+
+Use separate paragraphs and CSS for layout and spacing.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- WHITESPACE -->
+
+<div class="section">
+
+<h2 class="section-title">
+↔️ 16. Whitespace in HTML
+</h2>
+
+<p>
+
+HTML generally collapses consecutive spaces and line
+breaks in normal text.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    Hello
+    World
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+The browser will generally display the text as:
+
+</p>
+
+<div class="demo-box">
+
+<p>
+Hello World
+</p>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+Use CSS when you need precise control over spacing,
+rather than adding many spaces in your HTML.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HANDS ON -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 17. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Course Introduction Page
+</h3>
+
+<p>
+Create a webpage containing:
+</p>
+
+<ul>
+
+<li>One <code>&lt;h1&gt;</code> for the page title.</li>
+
+<li>At least three <code>&lt;h2&gt;</code> sections.</li>
+
+<li>At least one <code>&lt;h3&gt;</code> subsection.</li>
+
+<li>At least four paragraphs.</li>
+
+<li>A logical heading hierarchy.</li>
+
+<li>Readable and descriptive heading text.</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;title&gt;
+        My Course Introduction
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;
+        Web Development Bootcamp
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        Write your introduction here.
+    &lt;/p&gt;
+
+    &lt;h2&gt;
+        What You Will Learn
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Explain what students will learn.
+    &lt;/p&gt;
+
+    &lt;h2&gt;
+        Course Benefits
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Explain the benefits of the course.
+    &lt;/p&gt;
+
+    &lt;h3&gt;
+        Career Opportunities
+    &lt;/h3&gt;
+
+    &lt;p&gt;
+        Explain possible career opportunities.
+    &lt;/p&gt;
+
+    &lt;h2&gt;
+        Getting Started
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Explain how students should begin.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- QUICK REFERENCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 18. Quick Reference
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Element</th>
+<th>Purpose</th>
+<th>Typical Use</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;h1&gt;
+</td>
+
+<td>
+Main heading
+</td>
+
+<td>
+Page or primary topic
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;h2&gt;
+</td>
+
+<td>
+Major section
+</td>
+
+<td>
+Main content sections
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;h3&gt;
+</td>
+
+<td>
+Subsection
+</td>
+
+<td>
+Sections within an h2
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;h4&gt;
+</td>
+
+<td>
+Lower-level subsection
+</td>
+
+<td>
+Detailed organization
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;h5&gt;
+</td>
+
+<td>
+Lower-level heading
+</td>
+
+<td>
+Detailed content
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;h6&gt;
+</td>
+
+<td>
+Lowest heading level
+</td>
+
+<td>
+Highly specific subsections
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;p&gt;
+</td>
+
+<td>
+Paragraph
+</td>
+
+<td>
+Blocks of written content
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;br&gt;
+</td>
+
+<td>
+Line break
+</td>
+
+<td>
+Intentional line breaks
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 19. Lesson Completion Checklist
+</h2>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of HTML headings.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the six HTML heading levels.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of the h1 element.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand heading hierarchy.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of paragraphs.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create multiple paragraphs.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the difference between semantic meaning and visual size.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand how headings support accessibility.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand when to use the br element.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create a logical heading structure.
+</label>
+</div>
+
+
+<!-- KNOWLEDGE CHECK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 20. Knowledge Check
+</h2>
+
+
+<!-- QUESTION 1 -->
+
+<div class="quiz-question">
+
+<h3>
+1. How many standard heading levels does HTML provide?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. 3
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. 4
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. 6
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. 8
+</label>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="quiz-question">
+
+<h3>
+2. Which heading represents the highest heading level?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. h6
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. h4
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. h2
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. h1
+</label>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="quiz-question">
+
+<h3>
+3. What is the primary purpose of the &lt;p&gt; element?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. To create a paragraph
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. To create an image
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. To create a button
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. To create a hyperlink
+</label>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="quiz-question">
+
+<h3>
+4. Which element is normally used for a major section under an h1?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. h6
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. h2
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. p
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. br
+</label>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="quiz-question">
+
+<h3>
+5. What should determine which heading level you use?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. The color you want
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. The font you want
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. The semantic hierarchy of the content
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. The amount of text
+</label>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="quiz-question">
+
+<h3>
+6. Which HTML element creates a line break?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. break
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. newline
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. br
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. line
+</label>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="quiz-question">
+
+<h3>
+7. Why is heading hierarchy important?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. It helps communicate the structure of the content.
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+It automatically creates a database.
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+It prevents CSS from working.
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+It replaces JavaScript.
+</label>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="quiz-question">
+
+<h3>
+8. Which is the best way to make an h2 visually smaller?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. Change it to h6
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. Use CSS
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. Remove the heading
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. Replace it with a paragraph
+</label>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="quiz-question">
+
+<h3>
+9. Which structure is the most logical?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. h1 → h2 → h3
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. h3 → h1 → h6
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. h6 → h2 → h5
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. p → h5 → h1
+</label>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="quiz-question">
+
+<h3>
+10. Why are headings important for accessibility?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. They allow users to navigate and understand content structure.
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. They automatically increase internet speed.
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+They replace alternative text.
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+They prevent users from reading paragraphs.
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.4 — Headings & Paragraphs</strong>.
+
+</p>
+
+<p>
+
+You are ready to continue to the next lesson.
+
+</p>
+
+<a
+href="2-5-text-formatting.html"
+class="continue-button">
+
+Continue to 2.5 →
+
+</a>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-3-html-elements-attributes.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.4 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.4 — Headings & Paragraphs
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_4_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.4 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_4_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "C",
+q2: "D",
+q3: "A",
+q4: "B",
+q5: "C",
+q6: "C",
+q7: "A",
+q8: "B",
+q9: "A",
+q10: "A"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML headings and paragraphs.</p>";
+
+localStorage.setItem(
+"ghs_2_4_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_4_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_4_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

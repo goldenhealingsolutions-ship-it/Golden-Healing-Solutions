@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.1 — Introduction to HTML | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+/* =========================
+   OBJECTIVES
+========================= */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   INFO BOXES
+========================= */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+/* =========================
+   CODE
+========================= */
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   COMPARISON
+========================= */
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* =========================
+   CHECKLIST
+========================= */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input {
+    width: 19px;
+    height: 19px;
+    margin-top: 5px;
+}
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+/* =========================
+   COMPLETION
+========================= */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.1 — Introduction to HTML
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🌐
+</div>
+
+<h1>
+2.1 — Introduction to HTML
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn the foundation of every modern web page:
+HTML — HyperText Markup Language.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Explain what HTML is.</li>
+
+<li>Explain the purpose of HTML in web development.</li>
+
+<li>Identify HTML elements and tags.</li>
+
+<li>Understand HTML attributes.</li>
+
+<li>Create a basic HTML document.</li>
+
+<li>Explain the difference between HTML elements and tags.</li>
+
+<li>Use headings, paragraphs, links, and images.</li>
+
+<li>Understand the basic structure of an HTML5 page.</li>
+
+<li>Create a simple web page using HTML.</li>
+
+</ul>
+
+</div>
+
+
+<!-- WHAT IS HTML -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is HTML?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>HTML</strong> stands for
+<strong>HyperText Markup Language</strong>.
+
+</p>
+
+<p>
+
+HTML is the standard markup language used to structure
+content on web pages.
+
+</p>
+
+<p>
+
+HTML tells the browser what different pieces of content
+represent.
+
+</p>
+
+</div>
+
+
+<div class="success-box">
+
+<strong>Think of HTML as the structure of a website.</strong>
+
+<p>
+
+If a website were a house, HTML would represent the
+structure: walls, doors, rooms, windows, and other
+structural components.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HTML CSS JS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧩 2. HTML, CSS & JavaScript
+</h2>
+
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+🏗️ HTML
+</h3>
+
+<p>
+HTML provides the structure and content.
+</p>
+
+<p>
+Examples:
+</p>
+
+<ul>
+
+<li>Headings</li>
+
+<li>Paragraphs</li>
+
+<li>Images</li>
+
+<li>Links</li>
+
+<li>Forms</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+🎨 CSS
+</h3>
+
+<p>
+CSS controls presentation and appearance.
+</p>
+
+<p>
+Examples:
+</p>
+
+<ul>
+
+<li>Colors</li>
+
+<li>Fonts</li>
+
+<li>Spacing</li>
+
+<li>Layouts</li>
+
+<li>Animations</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+⚙️ JavaScript
+</h3>
+
+<p>
+JavaScript adds behavior and interactivity.
+</p>
+
+<p>
+Examples:
+</p>
+
+<ul>
+
+<li>Buttons</li>
+
+<li>Interactive menus</li>
+
+<li>Calculations</li>
+
+<li>Dynamic content</li>
+
+<li>Form validation</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+🌐 The Complete Website
+</h3>
+
+<p>
+
+HTML + CSS + JavaScript work together to create
+modern interactive websites.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TAGS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 3. HTML Tags
+</h2>
+
+<div class="info-box">
+
+<p>
+
+HTML uses <strong>tags</strong> to identify and structure
+different types of content.
+
+</p>
+
+<p>
+
+Most HTML elements use an opening tag and a closing tag.
+
+</p>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+</pre>
+
+</div>
+
+
+<p>
+
+In this example:
+
+</p>
+
+<ul>
+
+<li>
+<code>&lt;p&gt;</code> is the opening tag.
+</li>
+
+<li>
+<code>This is a paragraph.</code> is the content.
+</li>
+
+<li>
+<code>&lt;/p&gt;</code> is the closing tag.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- ELEMENTS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧱 4. HTML Elements
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An <strong>HTML element</strong> generally consists of
+an opening tag, content, and a closing tag.
+
+</p>
+
+</div>
+
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+
+&lt;p&gt;
+This is my first web page.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+
+<p>
+
+The complete structure makes each piece of content
+an HTML element.
+
+</p>
+
+</div>
+
+
+<!-- ATTRIBUTES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚙️ 5. HTML Attributes
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Attributes</strong> provide additional information
+about an HTML element.
+
+</p>
+
+<p>
+
+Attributes are placed inside the opening tag.
+
+</p>
+
+</div>
+
+
+<div class="code-box">
+
+<pre>
+&lt;a href="https://example.com"&gt;
+Visit Example
+&lt;/a&gt;
+</pre>
+
+</div>
+
+
+<p>
+
+Here:
+
+</p>
+
+<ul>
+
+<li>
+<code>&lt;a&gt;</code> creates a link.
+</li>
+
+<li>
+<code>href</code> is an attribute.
+</li>
+
+<li>
+The URL is the attribute value.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- BASIC STRUCTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📄 6. Basic HTML5 Document Structure
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;My Website&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+
+    &lt;p&gt;
+        Welcome to my website.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Element
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;!DOCTYPE html&gt;
+</td>
+
+<td>
+Declares that the document uses HTML5.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;html&gt;
+</td>
+
+<td>
+Root element of the document.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;head&gt;
+</td>
+
+<td>
+Contains document metadata and resources.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;title&gt;
+</td>
+
+<td>
+Defines the browser/page title.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;body&gt;
+</td>
+
+<td>
+Contains the visible page content.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- COMMON ELEMENTS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧰 7. Common HTML Elements
+</h2>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Element
+</th>
+
+<th>
+Purpose
+</th>
+
+<th>
+Example
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;h1&gt;
+</td>
+
+<td>
+Main heading
+</td>
+
+<td>
+&lt;h1&gt;Welcome&lt;/h1&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;p&gt;
+</td>
+
+<td>
+Paragraph
+</td>
+
+<td>
+&lt;p&gt;Hello&lt;/p&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;a&gt;
+</td>
+
+<td>
+Link
+</td>
+
+<td>
+&lt;a href="..."&gt;Link&lt;/a&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;img&gt;
+</td>
+
+<td>
+Image
+</td>
+
+<td>
+&lt;img src="image.jpg"&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;ul&gt;
+</td>
+
+<td>
+Unordered list
+</td>
+
+<td>
+&lt;ul&gt;...&lt;/ul&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;ol&gt;
+</td>
+
+<td>
+Ordered list
+</td>
+
+<td>
+&lt;ol&gt;...&lt;/ol&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;li&gt;
+</td>
+
+<td>
+List item
+</td>
+
+<td>
+&lt;li&gt;Item&lt;/li&gt;
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;button&gt;
+</td>
+
+<td>
+Button
+</td>
+
+<td>
+&lt;button&gt;Click&lt;/button&gt;
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- HEADINGS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔠 8. HTML Headings
+</h2>
+
+<p>
+
+HTML provides six heading levels:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+
+&lt;h2&gt;Section Heading&lt;/h2&gt;
+
+&lt;h3&gt;Subsection&lt;/h3&gt;
+
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>
+Important:
+</strong>
+
+<p>
+
+Use headings to create a logical document structure.
+Do not choose heading levels simply because they look
+bigger or smaller.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- LINKS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔗 9. Creating Links
+</h2>
+
+<p>
+
+The <code>&lt;a&gt;</code> element creates hyperlinks.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="https://example.com"&gt;
+Visit Example
+&lt;/a&gt;
+</pre>
+
+</div>
+
+<p>
+
+The <code>href</code> attribute specifies where the
+link should take the user.
+
+</p>
+
+</div>
+
+
+<!-- IMAGES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖼️ 10. Adding Images
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="images/logo.png"
+    alt="Golden Healing Solutions logo"&gt;
+</pre>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Why is alt text important?
+</strong>
+
+<p>
+
+The <code>alt</code> attribute provides a text
+description of the image.
+
+It helps users who rely on assistive technologies
+and can also provide information if the image cannot
+be displayed.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NESTING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🪆 11. HTML Nesting
+</h2>
+
+<p>
+
+HTML elements can be placed inside other elements.
+
+This is called <strong>nesting</strong>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;div&gt;
+
+    &lt;h2&gt;About Me&lt;/h2&gt;
+
+    &lt;p&gt;
+        Welcome to my website.
+    &lt;/p&gt;
+
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<p>
+
+The <code>&lt;h2&gt;</code> and <code>&lt;p&gt;</code>
+elements are nested inside the <code>&lt;div&gt;</code>.
+
+</p>
+
+</div>
+
+
+<!-- SEMANTIC -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏛️ 12. Semantic HTML
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Semantic HTML uses elements that communicate the
+meaning or purpose of their content.
+
+</p>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Element
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;header&gt;
+</td>
+
+<td>
+Introductory content or page header.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;nav&gt;
+</td>
+
+<td>
+Navigation links.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;main&gt;
+</td>
+
+<td>
+Main page content.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;section&gt;
+</td>
+
+<td>
+Thematic section of content.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;article&gt;
+</td>
+
+<td>
+Self-contained content.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;footer&gt;
+</td>
+
+<td>
+Footer information.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 13. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Your First HTML Page
+</h3>
+
+<p>
+
+Create a file called:
+
+</p>
+
+<p>
+<strong>index.html</strong>
+</p>
+
+<p>
+
+Then create a web page containing:
+
+</p>
+
+<ul>
+
+<li>A page title</li>
+
+<li>An h1 heading</li>
+
+<li>A paragraph</li>
+
+<li>An image</li>
+
+<li>A hyperlink</li>
+
+<li>An unordered list</li>
+
+<li>A button</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Starter Code
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;My First Website&lt;/h1&gt;
+
+    &lt;p&gt;
+        I am learning HTML!
+    &lt;/p&gt;
+
+    &lt;a href="https://example.com">
+        Visit Website
+    &lt;/a&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;li&gt;JavaScript&lt;/li&gt;
+
+    &lt;/ul&gt;
+
+    &lt;button&gt;
+        Click Me
+    &lt;/button&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 14. Lesson Completion Checklist
+</h2>
+
+<div class="checklist">
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I can explain what HTML stands for.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand the purpose of HTML.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand HTML tags and elements.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand HTML attributes.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I can create a basic HTML5 document.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I can create headings and paragraphs.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I can create hyperlinks.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I can add images with alt text.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand HTML nesting.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand the purpose of semantic HTML.
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MINI QUIZ -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 15. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. What does HTML stand for?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. HyperText Markup Language
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. High Technology Machine Language
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. Hyperlink Text Management Language
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. Home Tool Markup Language
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which element creates the largest standard heading?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. &lt;heading&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. &lt;h1&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. &lt;head&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. &lt;h6&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which attribute specifies the destination of a hyperlink?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. link
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. url
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which element is used to create a paragraph?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. &lt;text&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. &lt;paragraph&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. &lt;p&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. &lt;pg&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element contains the visible content of a web page?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;head&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;meta&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;body&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;title&gt;
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.1 — Introduction to HTML</strong>.
+
+</p>
+
+<p>
+
+You are now ready to continue learning how HTML
+elements are used to build structured web pages.
+
+</p>
+
+<a
+href="2-2-html-document-structure.html"
+class="continue-button">
+
+Continue to 2.2 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="course-dashboard.html"
+class="continue-button">
+
+← Course Dashboard
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.1 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.1 — Introduction to HTML
+</p>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(
+check => {
+
+if (check.checked) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_1_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.1 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_1_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "A",
+q2: "B",
+q3: "C",
+q4: "C",
+q5: "C"
+
+};
+
+let score = 0;
+
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+if (answered < 5) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+"<strong>Please answer all 5 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 5) * 100
+);
+
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+"<h3>🎉 Great Job!</h3>" +
+"<p>You scored <strong>" +
+score +
+"/5 (" +
+percentage +
+"%)</strong>.</p>" +
+"<p>You passed the knowledge check.</p>";
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+"<h3>Keep Practicing</h3>" +
+"<p>You scored <strong>" +
+score +
+"/5 (" +
+percentage +
+"%)</strong>.</p>" +
+"<p>Review the lesson material and try again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(index + 1);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_1_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_1_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+
+</body>
+
+</html>

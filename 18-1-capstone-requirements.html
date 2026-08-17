@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.1 — Capstone Requirements | Web Development Bootcamp
+</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #222;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+}
+
+
+/* =====================================================
+   PAGE CARD
+===================================================== */
+
+.card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+
+    font-size: 14px;
+
+    color: #777;
+
+    margin-bottom: 25px;
+
+}
+
+.breadcrumb span {
+
+    color: #a27c12;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.module-icon {
+
+    font-size: 60px;
+
+}
+
+h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.subtitle {
+
+    color: #666;
+
+    max-width: 750px;
+
+    margin: auto;
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================================
+   GOLD LINE
+===================================================== */
+
+.gold-line {
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+
+    background: #faf7ed;
+
+    border-left: 5px solid #d4af37;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+    margin-bottom: 35px;
+
+}
+
+.objectives h2 {
+
+    margin-top: 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+}
+
+.objectives ul {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+
+    margin-top: 40px;
+
+}
+
+.section-title {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 27px;
+
+    border-bottom:
+        2px solid #d4af37;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   REQUIREMENT CARDS
+===================================================== */
+
+.requirements {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+.requirement-card {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    background: #fff;
+
+}
+
+.requirement-card:hover {
+
+    border-color: #d4af37;
+
+}
+
+.requirement-number {
+
+    display: inline-block;
+
+    background: #111;
+
+    color: #d4af37;
+
+    padding: 5px 10px;
+
+    border-radius: 5px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+.requirement-card h3 {
+
+    margin-top: 5px;
+
+    margin-bottom: 8px;
+
+}
+
+.requirement-card p {
+
+    color: #666;
+
+    margin-bottom: 0;
+
+}
+
+
+/* =====================================================
+   TECHNOLOGY BOX
+===================================================== */
+
+.tech-box {
+
+    background: #111;
+
+    color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    margin-top: 25px;
+
+}
+
+.tech-box h3 {
+
+    color: #d4af37;
+
+    margin-top: 0;
+
+}
+
+.code-tag {
+
+    display: inline-block;
+
+    background: #292929;
+
+    color: #f2d675;
+
+    padding: 8px 12px;
+
+    border-radius: 5px;
+
+    margin: 5px;
+
+    font-family: monospace;
+
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+
+    background: #fafafa;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+}
+
+.check-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.check-item:last-child {
+
+    border-bottom: none;
+
+}
+
+.check-item input {
+
+    margin-top: 5px;
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+.check-item label {
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   IMPORTANT NOTICE
+===================================================== */
+
+.notice {
+
+    background: #fff5f5;
+
+    border-left: 5px solid #b33;
+
+    padding: 20px;
+
+    border-radius: 7px;
+
+    margin-top: 30px;
+
+}
+
+.notice strong {
+
+    color: #a22;
+
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success {
+
+    display: none;
+
+    background: #eef9f0;
+
+    border: 1px solid #6bab72;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+}
+
+.success h3 {
+
+    color: #287333;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+}
+
+.continue-button {
+
+    display: inline-block;
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 16px 35px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.continue-button:hover {
+
+    background: #b18a16;
+
+}
+
+.continue-button:disabled {
+
+    background: #aaa;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+
+    margin-top: 40px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+.progress-text {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+}
+
+.progress-bar {
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .card {
+
+        padding: 25px 18px;
+
+    }
+
+    h1 {
+
+        font-size: 31px;
+
+    }
+
+    .requirements {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        GOLDEN HEALING SOLUTIONS
+
+    </div>
+
+    <div class="course-name">
+
+        Web Development Bootcamp
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    Web Development Bootcamp
+
+    &nbsp; / &nbsp;
+
+    Module 18
+
+    &nbsp; / &nbsp;
+
+    <span>
+        18.1 — Capstone Requirements
+    </span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+    <div class="module-icon">
+        🏆
+    </div>
+
+    <h1>
+        18.1 — Capstone Requirements
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <p class="subtitle">
+
+        Your Capstone Project is the final practical
+        demonstration of the web development skills
+        you developed throughout this bootcamp.
+
+    </p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should understand
+what is required to successfully complete your
+Capstone Project.
+</p>
+
+<ul>
+
+<li>
+Identify all required components of the
+Capstone Project.
+</li>
+
+<li>
+Apply HTML, CSS, and JavaScript skills
+to a complete website.
+</li>
+
+<li>
+Create a responsive and accessible user
+experience.
+</li>
+
+<li>
+Test and troubleshoot your project before
+submission.
+</li>
+
+<li>
+Prepare your project for Final Project Review.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     CAPSTONE OVERVIEW
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+📋 What Is the Capstone Project?
+
+</h2>
+
+<p>
+
+The Capstone Project is your opportunity to
+demonstrate that you can take the concepts
+learned throughout the Web Development Bootcamp
+and apply them to a complete website or web
+application.
+
+</p>
+
+<p>
+
+Your project should demonstrate planning,
+structure, design, functionality, responsiveness,
+accessibility, and testing.
+
+</p>
+
+<p>
+
+The project should be substantially your own work.
+Any external assets, libraries, images, fonts,
+or code must be used appropriately and credited
+when required.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     CORE REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+💻 Required Capstone Components
+
+</h2>
+
+
+<div class="requirements">
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+01
+</span>
+
+<h3>
+HTML Structure
+</h3>
+
+<p>
+
+Your project must contain properly structured
+HTML5 elements and a logical page hierarchy.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+02
+</span>
+
+<h3>
+CSS Styling
+</h3>
+
+<p>
+
+Your project must use CSS to create a
+professional, consistent, and visually appealing
+design.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+03
+</span>
+
+<h3>
+JavaScript Functionality
+</h3>
+
+<p>
+
+Your project must demonstrate appropriate
+JavaScript functionality and user interaction.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+04
+</span>
+
+<h3>
+Responsive Design
+</h3>
+
+<p>
+
+Your website must adapt appropriately to
+desktop, tablet, and mobile screen sizes.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+05
+</span>
+
+<h3>
+Navigation</h3>
+
+<p>
+
+Users should be able to move between the
+appropriate pages and sections of your website.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+06
+</span>
+
+<h3>
+User Interaction
+</h3>
+
+<p>
+
+Interactive elements should function correctly,
+including buttons, forms, menus, and other
+interactive features.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+07
+</span>
+
+<h3>
+Accessibility
+</h3>
+
+<p>
+
+Use semantic HTML, descriptive labels,
+alternative text, keyboard-friendly controls,
+and other appropriate accessibility practices.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+08
+</span>
+
+<h3>
+Testing & Debugging
+</h3>
+
+<p>
+
+Test your project for broken links, layout
+problems, JavaScript errors, and other issues
+before submitting it.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+09
+</span>
+
+<h3>
+Professional Presentation
+</h3>
+
+<p>
+
+Your final website should have a consistent
+visual identity, readable content, organized
+layouts, and professional presentation.
+
+</p>
+
+</div>
+
+
+
+<div class="requirement-card">
+
+<span class="requirement-number">
+10
+</span>
+
+<h3>
+Project Documentation
+</h3>
+
+<p>
+
+Provide a clear description of your project,
+technologies used, purpose, and major features.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TECHNOLOGIES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+🛠️ Recommended Technologies
+
+</h2>
+
+<p>
+
+Your Capstone should demonstrate the technologies
+covered throughout the bootcamp.
+
+</p>
+
+
+<div class="tech-box">
+
+<h3>
+Core Technologies
+</h3>
+
+<span class="code-tag">
+HTML5
+</span>
+
+<span class="code-tag">
+CSS3
+</span>
+
+<span class="code-tag">
+JavaScript
+</span>
+
+<span class="code-tag">
+Responsive Design
+</span>
+
+<span class="code-tag">
+DOM
+</span>
+
+<span class="code-tag">
+Forms
+</span>
+
+<span class="code-tag">
+Git / GitHub
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECT REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+📐 Minimum Project Requirements
+
+</h2>
+
+<ul>
+
+<li>
+At least one complete, functional website or
+web application.
+</li>
+
+<li>
+At least three connected pages or equivalent
+application views where appropriate.
+</li>
+
+<li>
+A consistent navigation system.
+</li>
+
+<li>
+Responsive layouts for different screen sizes.
+</li>
+
+<li>
+CSS styling beyond browser-default styles.
+</li>
+
+<li>
+JavaScript functionality that provides meaningful
+user interaction.
+</li>
+
+<li>
+At least one functional form or user-input
+component when appropriate to the project.
+</li>
+
+<li>
+Images and other media should be optimized and
+used appropriately.
+</li>
+
+<li>
+Accessibility considerations must be incorporated.
+</li>
+
+<li>
+The project must be tested before submission.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+🧪 Required Testing
+
+</h2>
+
+<p>
+Before submitting your Capstone, test the following:
+</p>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test1">
+
+<label for="test1">
+
+All navigation links work correctly.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test2">
+
+<label for="test2">
+
+Buttons perform their intended actions.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test3">
+
+<label for="test3">
+
+Forms accept appropriate information and
+display appropriate validation.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test4">
+
+<label for="test4">
+
+The website displays correctly on mobile devices.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test5">
+
+<label for="test5">
+
+The website displays correctly on larger screens.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test6">
+
+<label for="test6">
+
+There are no obvious JavaScript console errors.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test7">
+
+<label for="test7">
+
+Images and other media load correctly.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="test8">
+
+<label for="test8">
+
+Text is readable and content is properly organized.
+
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUBMISSION CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+
+📤 Capstone Submission Checklist
+
+</h2>
+
+
+<form id="capstoneForm">
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit1"
+    required>
+
+<label for="submit1">
+
+I have completed all required Capstone
+Project components.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit2"
+    required>
+
+<label for="submit2">
+
+My HTML structure has been reviewed for
+errors and organization.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit3"
+    required>
+
+<label for="submit3">
+
+My CSS styling and responsive design have
+been tested.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit4"
+    required>
+
+<label for="submit4">
+
+My JavaScript functionality has been tested.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit5"
+    required>
+
+<label for="submit5">
+
+I have tested my website on multiple screen
+sizes.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit6"
+    required>
+
+<label for="submit6">
+
+I have checked my links, buttons, forms,
+images, and interactive elements.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit7"
+    required>
+
+<label for="submit7">
+
+I have reviewed my project for accessibility
+and usability.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit8"
+    required>
+
+<label for="submit8">
+
+I have completed my project documentation.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit9"
+    required>
+
+<label for="submit9">
+
+My project represents my own work and I have
+properly credited external resources where
+appropriate.
+
+</label>
+
+</div>
+
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    id="submit10"
+    required>
+
+<label for="submit10">
+
+I understand that my project will be reviewed
+before I can proceed to the next stage.
+
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     NOTICE
+===================================================== -->
+
+<div class="notice">
+
+<strong>
+⚠️ Important:
+</strong>
+
+<p>
+
+Checking these boxes does not automatically approve
+your Capstone Project.
+
+Your completed project will be evaluated during
+the <strong>Final Project Review</strong>.
+
+If your project does not meet the requirements,
+you may receive feedback and be asked to make
+revisions before approval.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUBMIT
+===================================================== -->
+
+<div class="button-area">
+
+<button
+    type="submit"
+    class="continue-button"
+    id="continueButton">
+
+    Continue to Final Project →
+
+</button>
+
+</div>
+
+
+</form>
+
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<div
+    class="success"
+    id="successMessage">
+
+<h3>
+
+✅ Capstone Requirements Confirmed
+
+</h3>
+
+<p>
+
+You have reviewed the Capstone requirements.
+
+You may now continue to the Final Project.
+
+</p>
+
+<a
+    href="final-project.html"
+    class="continue-button">
+
+💻 Start Final Project
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+Module 18 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+    class="progress-fill"
+    id="progressFill">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+
+<strong>
+Golden Healing Solutions
+</strong>
+
+</p>
+
+<p>
+
+Web Development Bootcamp
+
+</p>
+
+<p>
+
+18.1 — Capstone Requirements
+
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   CHECKLIST PROGRESS
+===================================================== */
+
+const checkboxes =
+    document.querySelectorAll(
+        '#capstoneForm input[type="checkbox"]'
+    );
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+const progressText =
+    document.getElementById(
+        "progressText"
+    );
+
+
+function updateProgress() {
+
+    const checked =
+        Array.from(
+            checkboxes
+        ).filter(
+            checkbox =>
+                checkbox.checked
+        ).length;
+
+
+    const total =
+        checkboxes.length;
+
+
+    const percentage =
+        Math.round(
+            (checked / total) * 100
+        );
+
+
+    progressFill.style.width =
+        percentage + "%";
+
+
+    progressText.textContent =
+        percentage + "%";
+
+}
+
+
+checkboxes.forEach(
+    checkbox => {
+
+        checkbox.addEventListener(
+            "change",
+            updateProgress
+        );
+
+    }
+);
+
+
+/* =====================================================
+   FORM SUBMISSION
+===================================================== */
+
+document.getElementById(
+    "capstoneForm"
+).addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        if (
+            !this.checkValidity()
+        ) {
+
+            this.reportValidity();
+
+            return;
+
+        }
+
+
+        /* Save completion status */
+
+        localStorage.setItem(
+            "ghs_capstone_requirements_complete",
+            "true"
+        );
+
+
+        /* Hide checklist */
+
+        this.style.display =
+            "none";
+
+
+        /* Show success */
+
+        document.getElementById(
+            "successMessage"
+        ).style.display =
+            "block";
+
+
+        /* Update module progress */
+
+        progressFill.style.width =
+            "100%";
+
+        progressText.textContent =
+            "100%";
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+    localStorage.getItem(
+        "ghs_capstone_requirements_complete"
+    ) === "true"
+) {
+
+    document.getElementById(
+        "capstoneForm"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "successMessage"
+    ).style.display =
+        "block";
+
+
+    progressFill.style.width =
+        "100%";
+
+    progressText.textContent =
+        "100%";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

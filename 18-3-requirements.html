@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.3 — Requirements | Web Development Bootcamp
+</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: #666;
+    max-width: 780px;
+    margin: auto;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 35px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+
+    border-bottom:
+        2px solid #d4af37;
+
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   REQUIREMENT CARDS
+===================================================== */
+
+.requirements-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.requirement-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 23px;
+    background: white;
+}
+
+.requirement-card:hover {
+    border-color: #d4af37;
+}
+
+.number {
+    display: inline-block;
+
+    background: #111;
+    color: #d4af37;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.requirement-card h3 {
+    margin-bottom: 8px;
+}
+
+.requirement-card p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   REQUIRED BADGE
+===================================================== */
+
+.required-badge {
+    display: inline-block;
+
+    background: #f8e9e9;
+    color: #a33;
+
+    padding: 4px 9px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-left: 5px;
+}
+
+
+/* =====================================================
+   MINIMUM REQUIREMENTS
+===================================================== */
+
+.minimum-box {
+    background: #111;
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 28px;
+
+    margin-top: 25px;
+}
+
+.minimum-box h3 {
+    color: #d4af37;
+    margin-top: 0;
+}
+
+.minimum-box li {
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+
+    padding: 17px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+.check-item label {
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   IMPORTANT
+===================================================== */
+
+.notice {
+    background: #fff8e6;
+
+    border-left:
+        5px solid #d4af37;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 30px;
+}
+
+.notice strong {
+    color: #8b6b0d;
+}
+
+
+/* =====================================================
+   PROHIBITED
+===================================================== */
+
+.warning {
+    background: #fff2f2;
+
+    border-left:
+        5px solid #b33;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+}
+
+.warning h3 {
+    color: #a22;
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    width: 0%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.continue-button {
+    display: inline-block;
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 15px 32px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+    display: none;
+
+    background: #eef9f0;
+
+    border: 1px solid #70ad78;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+        GOLDEN HEALING SOLUTIONS
+    </div>
+
+    <div class="course-name">
+        Web Development Bootcamp
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    Web Development Bootcamp
+
+    &nbsp; / &nbsp;
+
+    Module 18
+
+    &nbsp; / &nbsp;
+
+    <span>
+        18.3 — Requirements
+    </span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+    <div class="module-icon">
+        📋
+    </div>
+
+    <h1>
+        18.3 — Requirements
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <p class="subtitle">
+
+        Review the technical, functional, design,
+        accessibility, and submission requirements
+        your Capstone Project must meet before it
+        can be submitted for Final Project Review.
+
+    </p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Identify the required technical components
+of the Capstone Project.
+</li>
+
+<li>
+Demonstrate appropriate HTML, CSS, and
+JavaScript implementation.
+</li>
+
+<li>
+Create a functional and responsive website
+or web application.
+</li>
+
+<li>
+Apply accessibility and usability principles.
+</li>
+
+<li>
+Test the project before submission.
+</li>
+
+<li>
+Verify that all required components are complete.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📌 Capstone Requirement Overview
+</h2>
+
+<p>
+
+Your Capstone Project is designed to demonstrate
+the knowledge and practical skills you developed
+throughout the Web Development Bootcamp.
+
+</p>
+
+<p>
+
+The project must be functional, organized,
+responsive, accessible, and professionally
+presented.
+
+</p>
+
+<div class="notice">
+
+<strong>
+Important:
+</strong>
+
+<p>
+
+Meeting the checklist requirements does not
+automatically mean your project will be approved.
+Your completed project will be evaluated during
+the <strong>Final Project Review</strong>.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TECHNICAL REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 1. Technical Requirements
+</h2>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<span class="number">
+01
+</span>
+
+<h3>
+HTML5 Structure
+<span class="required-badge">
+REQUIRED
+</span>
+</h3>
+
+<p>
+
+Use properly structured HTML5 elements,
+including appropriate semantic elements where
+applicable.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+02
+</span>
+
+<h3>
+CSS Styling
+<span class="required-badge">
+REQUIRED
+</span>
+</h3>
+
+<p>
+
+Use CSS to create a consistent and professional
+visual design.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+03
+</span>
+
+<h3>
+JavaScript
+<span class="required-badge">
+REQUIRED
+</span>
+</h3>
+
+<p>
+
+Include meaningful JavaScript functionality
+that demonstrates user interaction or
+dynamic behavior.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+04
+</span>
+
+<h3>
+File Organization
+<span class="required-badge">
+REQUIRED
+</span>
+</h3>
+
+<p>
+
+Organize HTML, CSS, JavaScript, images, and
+other project files logically.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FUNCTIONAL REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚙️ 2. Functional Requirements
+</h2>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<span class="number">
+01
+</span>
+
+<h3>
+Navigation
+</h3>
+
+<p>
+
+Navigation must allow users to move between
+appropriate pages or sections without broken links.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+02
+</span>
+
+<h3>
+Interactive Elements
+</h3>
+
+<p>
+
+Buttons, menus, forms, tabs, or other interactive
+elements must perform their intended functions.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+03
+</span>
+
+<h3>
+User Input
+</h3>
+
+<p>
+
+Where applicable, forms and user-input controls
+must collect information appropriately.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+04
+</span>
+
+<h3>
+Error Handling
+</h3>
+
+<p>
+
+The project should provide appropriate feedback
+when users enter invalid or incomplete information.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DESIGN REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 3. Design Requirements
+</h2>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<span class="number">
+01
+</span>
+
+<h3>
+Consistent Design
+</h3>
+
+<p>
+
+Colors, typography, spacing, buttons, and layouts
+should create a consistent visual experience.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+02
+</span>
+
+<h3>
+Readability
+</h3>
+
+<p>
+
+Text should be easy to read with appropriate
+font sizes, spacing, and contrast.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+03
+</span>
+
+<h3>
+Visual Hierarchy
+</h3>
+
+<p>
+
+Headings, sections, buttons, and important
+information should be visually organized.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+04
+</span>
+
+<h3>
+Professional Presentation
+</h3>
+
+<p>
+
+The finished project should look intentional,
+organized, and appropriate for its target audience.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESPONSIVE REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📱 4. Responsive Design Requirements
+</h2>
+
+
+<p>
+
+Your project must provide an appropriate user
+experience across different screen sizes.
+
+</p>
+
+
+<div class="minimum-box">
+
+<h3>
+Minimum Responsive Expectations
+</h3>
+
+<ul>
+
+<li>
+Desktop layouts should display correctly.
+</li>
+
+<li>
+Tablet layouts should remain usable.
+</li>
+
+<li>
+Mobile layouts should remain readable and functional.
+</li>
+
+<li>
+Content should not unnecessarily overflow
+the screen.
+</li>
+
+<li>
+Images should scale appropriately.
+</li>
+
+<li>
+Navigation should remain usable on smaller screens.
+</li>
+
+<li>
+Buttons and form controls should remain accessible.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESSIBILITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 5. Accessibility Requirements
+</h2>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<span class="number">
+01
+</span>
+
+<h3>
+Alternative Text</h3>
+
+<p>
+
+Images should have meaningful alternative text
+when appropriate.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+02
+</span>
+
+<h3>
+Form Labels
+</h3>
+
+<p>
+
+Form controls should have clear and descriptive
+labels.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+03
+</span>
+
+<h3>
+Keyboard Access
+</h3>
+
+<p>
+
+Interactive elements should be usable with
+keyboard navigation where appropriate.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+04
+</span>
+
+<h3>
+Color & Contrast
+</h3>
+
+<p>
+
+Text and important interface elements should
+have sufficient visual contrast.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTENT REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 6. Content Requirements
+</h2>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<span class="number">
+01
+</span>
+
+<h3>
+Original Content
+</h3>
+
+<p>
+
+Project content should be appropriate for the
+project and substantially your own work.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+02
+</span>
+
+<h3>
+Clear Information
+</h3>
+
+<p>
+
+Content should clearly communicate the purpose
+of the website or application.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+03
+</span>
+
+<h3>
+Professional Writing
+</h3>
+
+<p>
+
+Review spelling, grammar, punctuation, and
+professional presentation.
+
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<span class="number">
+04
+</span>
+
+<h3>
+External Resources
+</h3>
+
+<p>
+
+External images, libraries, fonts, code, or other
+resources should be used appropriately and credited
+when required.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TESTING REQUIREMENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧪 7. Testing Requirements
+</h2>
+
+
+<div class="minimum-box">
+
+<h3>
+Before Submission, Test:
+</h3>
+
+<ul>
+
+<li>
+All navigation links.
+</li>
+
+<li>
+All buttons and interactive components.
+</li>
+
+<li>
+Forms and input validation.
+</li>
+
+<li>
+Images and media.
+</li>
+
+<li>
+Responsive layouts.
+</li>
+
+<li>
+JavaScript functionality.
+</li>
+
+<li>
+Browser console for obvious errors.
+</li>
+
+<li>
+Page loading and general usability.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DOCUMENTATION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 8. Documentation Requirements
+</h2>
+
+
+<p>
+Your project should include documentation that
+explains the purpose and construction of the project.
+</p>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<h3>
+Project Description
+</h3>
+
+<p>
+Explain what your project is and what problem
+or purpose it addresses.
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<h3>
+Technologies Used
+</h3>
+
+<p>
+Identify the primary technologies, tools,
+libraries, or frameworks used.
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<h3>
+Features
+</h3>
+
+<p>
+Describe the major functionality included
+in your project.
+</p>
+
+</div>
+
+
+<div class="requirement-card">
+
+<h3>
+Testing
+</h3>
+
+<p>
+Describe the testing and debugging performed
+before submission.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROHIBITED / QUALITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚠️ 9. Project Quality Standards
+</h2>
+
+
+<div class="warning">
+
+<h3>
+Your project should NOT contain:
+</h3>
+
+<ul>
+
+<li>
+Broken navigation links.
+</li>
+
+<li>
+Obvious JavaScript errors that prevent
+functionality.
+</li>
+
+<li>
+Placeholder text that should have been replaced.
+</li>
+
+<li>
+Missing images or broken media.
+</li>
+
+<li>
+Unfinished sections presented as completed work.
+</li>
+
+<li>
+Unnecessary duplicate pages or content.
+</li>
+
+<li>
+Poorly organized project files.
+</li>
+
+<li>
+Copied work presented as entirely your own.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 10. Requirements Verification
+</h2>
+
+<p>
+Check each requirement after you have verified it
+in your project.
+</p>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My HTML structure is complete and organized.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My CSS styling is complete and consistent.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My JavaScript functionality works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My navigation and links work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My project is responsive.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My project meets accessibility expectations.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My content has been reviewed for spelling,
+grammar, and professionalism.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+I have tested my forms and interactive features.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+I have checked my project for broken links
+and missing resources.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+I have completed my project documentation.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+    type="checkbox"
+    class="requirement-check">
+
+<label>
+My project is ready for Final Project Review.
+</label>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+    class="completion"
+    id="completion">
+
+<h2>
+🎉 Requirements Verified
+</h2>
+
+<p>
+
+You have reviewed and confirmed the Capstone
+Project requirements.
+
+</p>
+
+<p>
+
+Your next step is to continue preparing your
+project for <strong>Final Project Review</strong>.
+
+</p>
+
+<a
+    href="18-4-project-submission.html"
+    class="continue-button">
+
+Continue to Project Submission →
+
+</a>
+
+</div>
+
+
+<!-- =====================================================
+     BUTTON
+===================================================== -->
+
+<div class="button-area">
+
+<a
+    href="18-2-project-planning.html"
+    class="continue-button">
+
+← Project Planning
+
+</a>
+
+<button
+    type="button"
+    class="continue-button"
+    onclick="verifyRequirements()">
+
+✓ Verify Requirements
+
+</button>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+Module 18 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+    class="progress-fill"
+    id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.3 — Requirements
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   REQUIREMENT CHECKLIST
+===================================================== */
+
+const checks =
+    document.querySelectorAll(
+        ".requirement-check"
+    );
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+const progressText =
+    document.getElementById(
+        "progressText"
+    );
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+    const total =
+        checks.length;
+
+    const completed =
+        Array.from(checks)
+        .filter(
+            check =>
+                check.checked
+        ).length;
+
+
+    const percentage =
+        Math.round(
+            (completed / total) * 100
+        );
+
+
+    progressFill.style.width =
+        percentage + "%";
+
+
+    progressText.textContent =
+        percentage + "%";
+
+
+    /* Save each checkbox */
+
+    checks.forEach(
+        (check, index) => {
+
+            localStorage.setItem(
+                "ghs_requirement_" + index,
+                check.checked
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   VERIFY REQUIREMENTS
+===================================================== */
+
+function verifyRequirements() {
+
+    const total =
+        checks.length;
+
+    const completed =
+        Array.from(checks)
+        .filter(
+            check =>
+                check.checked
+        ).length;
+
+
+    if (
+        completed !== total
+    ) {
+
+        alert(
+            "Please verify every requirement before continuing."
+        );
+
+        return;
+
+    }
+
+
+    /* Save completion */
+
+    localStorage.setItem(
+        "ghs_capstone_requirements_verified",
+        "true"
+    );
+
+
+    document.getElementById(
+        "completion"
+    ).style.display =
+        "block";
+
+
+    updateProgress();
+
+
+    window.scrollTo({
+
+        top:
+            document.body.scrollHeight,
+
+        behavior:
+            "smooth"
+
+    });
+
+}
+
+
+/* =====================================================
+   RESTORE CHECKLIST
+===================================================== */
+
+checks.forEach(
+    (check, index) => {
+
+        const saved =
+            localStorage.getItem(
+                "ghs_requirement_" + index
+            );
+
+
+        if (
+            saved === "true"
+        ) {
+
+            check.checked =
+                true;
+
+        }
+
+
+        check.addEventListener(
+            "change",
+            updateProgress
+        );
+
+    }
+);
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+    localStorage.getItem(
+        "ghs_capstone_requirements_verified"
+    ) === "true"
+) {
+
+    document.getElementById(
+        "completion"
+    ).style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   INITIAL PROGRESS
+===================================================== */
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

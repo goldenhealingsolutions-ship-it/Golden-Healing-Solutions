@@ -1,0 +1,2863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.10 — Semantic HTML | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.semantic-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.semantic-card h3 {
+    font-family: Georgia, serif;
+    color: #8b6b16;
+    margin-top: 0;
+}
+
+.semantic-tag {
+    display: inline-block;
+    background: #111;
+    color: #d4af37;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    margin-bottom: 10px;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.demo-page {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+.demo-header {
+    background: #111;
+    color: white;
+    padding: 20px;
+}
+
+.demo-header h2 {
+    margin: 0;
+    color: #d4af37;
+}
+
+.demo-nav {
+    background: #eee;
+    padding: 12px 20px;
+}
+
+.demo-nav a {
+    margin-right: 20px;
+    color: #222;
+    font-weight: bold;
+}
+
+.demo-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.demo-content,
+.demo-aside {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.demo-footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.checklist {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .semantic-grid,
+    .comparison,
+    .demo-main {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.10 — Semantic HTML
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🏗️
+</div>
+
+<h1>
+2.10 — Semantic HTML
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to structure webpages using meaningful HTML elements
+that clearly communicate the purpose of each section to browsers,
+developers, search engines, and assistive technologies.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Define semantic HTML.</li>
+
+<li>Explain why semantic HTML is important.</li>
+
+<li>Identify common semantic HTML elements.</li>
+
+<li>Use <code>&lt;header&gt;</code> correctly.</li>
+
+<li>Use <code>&lt;nav&gt;</code> for navigation.</li>
+
+<li>Use <code>&lt;main&gt;</code> for primary page content.</li>
+
+<li>Use <code>&lt;section&gt;</code> to organize related content.</li>
+
+<li>Use <code>&lt;article&gt;</code> for self-contained content.</li>
+
+<li>Use <code>&lt;aside&gt;</code> for related secondary content.</li>
+
+<li>Use <code>&lt;footer&gt;</code> for footer information.</li>
+
+<li>Understand the difference between semantic and non-semantic elements.</li>
+
+<li>Build a properly structured semantic webpage.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is Semantic HTML?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Semantic HTML</strong> means using HTML elements that
+clearly describe the meaning and purpose of their content.
+
+</p>
+
+<p>
+
+For example:
+
+</p>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+Non-Semantic
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;div class="header"&gt;
+    Website Header
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<p>
+The <code>&lt;div&gt;</code> element does not tell the browser
+what the content represents.
+</p>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+Semantic
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;header&gt;
+    Website Header
+&lt;/header&gt;
+</pre>
+
+</div>
+
+<p>
+The <code>&lt;header&gt;</code> element communicates the
+purpose of the content.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- WHY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌟 2. Why Semantic HTML Matters
+</h2>
+
+<div class="semantic-grid">
+
+<div class="semantic-card">
+
+<h3>
+♿ Accessibility
+</h3>
+
+<p>
+
+Semantic elements help assistive technologies understand
+the structure of a webpage.
+
+</p>
+
+</div>
+
+
+<div class="semantic-card">
+
+<h3>
+🔎 SEO
+</h3>
+
+<p>
+
+Meaningful page structure can help search engines better
+understand webpage content.
+
+</p>
+
+</div>
+
+
+<div class="semantic-card">
+
+<h3>
+👩‍💻 Developer Experience
+</h3>
+
+<p>
+
+Semantic HTML makes code easier for developers to read,
+maintain, and understand.
+
+</p>
+
+</div>
+
+
+<div class="semantic-card">
+
+<h3>
+🏗️ Page Structure
+</h3>
+
+<p>
+
+Semantic elements create a logical structure for webpages.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏠 3. The &lt;header&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;header&gt;</code> element represents introductory
+content for a webpage or section.
+
+</p>
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;header&gt;
+
+    &lt;h1&gt;
+        Golden Healing Solutions
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        Web Development Bootcamp
+    &lt;/p&gt;
+
+&lt;/header&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+A page can have a header, and individual sections or articles
+can also have their own headers.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NAV -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧭 4. The &lt;nav&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;nav&gt;</code> element identifies a major
+navigation section.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;nav&gt;
+
+    &lt;a href="index.html"&gt;
+        Home
+    &lt;/a&gt;
+
+    &lt;a href="courses.html"&gt;
+        Courses
+    &lt;/a&gt;
+
+    &lt;a href="contact.html"&gt;
+        Contact
+    &lt;/a&gt;
+
+&lt;/nav&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+Use <code>&lt;nav&gt;</code> for significant navigation areas,
+not necessarily every individual link on a webpage.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="section">
+
+<h2 class="section-title">
+📄 5. The &lt;main&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;main&gt;</code> element contains the primary
+content of the webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;main&gt;
+
+    &lt;h1&gt;
+        Web Development Bootcamp
+    &lt;/h1&gt;
+
+    &lt;p&gt;
+        Learn professional web development.
+    &lt;/p&gt;
+
+&lt;/main&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+A document should normally have one primary
+<code>&lt;main&gt;</code> element.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SECTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 6. The &lt;section&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;section&gt;</code> element represents a thematic
+group of related content.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;section&gt;
+
+    &lt;h2&gt;
+        HTML Fundamentals
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Learn the fundamentals of HTML.
+    &lt;/p&gt;
+
+&lt;/section&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Tip:</strong>
+
+<p>
+
+A section will often have a heading that describes its topic.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ARTICLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📰 7. The &lt;article&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;article&gt;</code> element represents
+self-contained content that could potentially stand on its own.
+
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>Blog posts</li>
+
+<li>News articles</li>
+
+<li>Forum posts</li>
+
+<li>Product reviews</li>
+
+<li>Course announcements</li>
+
+</ul>
+
+<div class="code-box">
+
+<pre>
+&lt;article&gt;
+
+    &lt;h2&gt;
+        5 Tips for Learning HTML
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        HTML is the foundation of the web...
+    &lt;/p&gt;
+
+&lt;/article&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- ASIDE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📌 8. The &lt;aside&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;aside&gt;</code> element contains content that
+is related to, but not part of, the primary content.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;aside&gt;
+
+    &lt;h2&gt;
+        Related Courses
+    &lt;/h2&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;
+            CSS Fundamentals
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            JavaScript Fundamentals
+        &lt;/li&gt;
+
+    &lt;/ul&gt;
+
+&lt;/aside&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔻 9. The &lt;footer&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;footer&gt;</code> element contains footer
+information for a page or section.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;footer&gt;
+
+    &lt;p&gt;
+        © 2026 Golden Healing Solutions
+    &lt;/p&gt;
+
+    &lt;a href="contact.html"&gt;
+        Contact Us
+    &lt;/a&gt;
+
+&lt;/footer&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FIGURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖼️ 10. &lt;figure&gt; and &lt;figcaption&gt;
+</h2>
+
+<p>
+
+The <code>&lt;figure&gt;</code> element is used for
+self-contained content such as images, diagrams, illustrations,
+or code examples.
+
+</p>
+
+<p>
+
+The <code>&lt;figcaption&gt;</code> element provides a caption.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;figure&gt;
+
+    &lt;img
+        src="html-diagram.jpg"
+        alt="HTML document structure"&gt;
+
+    &lt;figcaption&gt;
+        Basic HTML document structure.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TIME -->
+
+<div class="section">
+
+<h2 class="section-title">
+⏰ 11. The &lt;time&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;time&gt;</code> element represents a specific
+time or date.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+
+    The course begins on
+
+    &lt;time datetime="2026-09-01"&gt;
+        September 1, 2026
+    &lt;/time&gt;
+
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- MARK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖍️ 12. The &lt;mark&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;mark&gt;</code> element represents text that is
+highlighted or marked for reference.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+
+    The most important concept is
+
+    &lt;mark&gt;
+        semantic structure
+    &lt;/mark&gt;.
+
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📂 13. &lt;details&gt; and &lt;summary&gt;
+</h2>
+
+<p>
+
+These elements create an expandable section without requiring
+JavaScript.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;details&gt;
+
+    &lt;summary&gt;
+        What is HTML?
+    &lt;/summary&gt;
+
+    &lt;p&gt;
+        HTML stands for HyperText Markup Language.
+    &lt;/p&gt;
+
+&lt;/details&gt;
+</pre>
+
+</div>
+
+<div class="info-box">
+
+<details>
+
+<summary>
+<strong>Click to see the example</strong>
+</summary>
+
+<p>
+
+HTML stands for HyperText Markup Language and is used to
+structure content on webpages.
+
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+
+<!-- NON SEMANTIC -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚖️ 14. Semantic vs. Non-Semantic Elements
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+Semantic
+</h3>
+
+<ul>
+
+<li><code>&lt;header&gt;</code></li>
+
+<li><code>&lt;nav&gt;</code></li>
+
+<li><code>&lt;main&gt;</code></li>
+
+<li><code>&lt;section&gt;</code></li>
+
+<li><code>&lt;article&gt;</code></li>
+
+<li><code>&lt;aside&gt;</code></li>
+
+<li><code>&lt;footer&gt;</code></li>
+
+<li><code>&lt;figure&gt;</code></li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+Non-Semantic
+</h3>
+
+<ul>
+
+<li><code>&lt;div&gt;</code></li>
+
+<li><code>&lt;span&gt;</code></li>
+
+</ul>
+
+<p>
+
+Non-semantic elements are still useful when no more
+meaningful semantic element fits the purpose.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DIV -->
+
+<div class="section">
+
+<h2 class="section-title">
+📦 15. When Should You Use &lt;div&gt;?
+</h2>
+
+<p>
+
+The <code>&lt;div&gt;</code> element is a generic container.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;div class="card"&gt;
+
+    &lt;h2&gt;
+        Course Information
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        Learn web development.
+    &lt;/p&gt;
+
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+Do not avoid <code>&lt;div&gt;</code> completely.
+
+Use semantic elements when they accurately describe the
+content. Use <code>&lt;div&gt;</code> when a generic container
+is appropriate.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SPAN -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔤 16. The &lt;span&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;span&gt;</code> element is a generic inline
+container.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+
+    Learn
+
+    &lt;span class="highlight"&gt;
+        HTML
+    &lt;/span&gt;
+
+    fundamentals.
+
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- PAGE STRUCTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 17. Complete Semantic Page Structure
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;title&gt;
+        Web Development Bootcamp
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;header&gt;
+
+        &lt;h1&gt;
+            Web Development Bootcamp
+        &lt;/h1&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;nav&gt;
+
+        &lt;a href="index.html"&gt;
+            Home
+        &lt;/a&gt;
+
+        &lt;a href="courses.html"&gt;
+            Courses
+        &lt;/a&gt;
+
+        &lt;a href="contact.html"&gt;
+            Contact
+        &lt;/a&gt;
+
+    &lt;/nav&gt;
+
+
+    &lt;main&gt;
+
+
+        &lt;section&gt;
+
+            &lt;h2&gt;
+                HTML Fundamentals
+            &lt;/h2&gt;
+
+            &lt;p&gt;
+                Learn the foundation of web development.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+
+        &lt;section&gt;
+
+            &lt;h2&gt;
+                Course Lessons
+            &lt;/h2&gt;
+
+
+            &lt;article&gt;
+
+                &lt;h3&gt;
+                    Introduction to HTML
+                &lt;/h3&gt;
+
+                &lt;p&gt;
+                    Learn how HTML structures webpages.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+
+            &lt;article&gt;
+
+                &lt;h3&gt;
+                    HTML Forms
+                &lt;/h3&gt;
+
+                &lt;p&gt;
+                    Learn how to collect user information.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+
+        &lt;/section&gt;
+
+
+        &lt;aside&gt;
+
+            &lt;h2&gt;
+                Related Courses
+            &lt;/h2&gt;
+
+            &lt;p&gt;
+                Continue with CSS fundamentals.
+            &lt;/p&gt;
+
+        &lt;/aside&gt;
+
+
+    &lt;/main&gt;
+
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Golden Healing Solutions
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- VISUAL DEMO -->
+
+<div class="section">
+
+<h2 class="section-title">
+👀 18. Semantic Page Visual Example
+</h2>
+
+<div class="demo-page">
+
+<header class="demo-header">
+
+<h2>
+Golden Healing Solutions
+</h2>
+
+<p>
+Web Development Bootcamp
+</p>
+
+</header>
+
+
+<nav class="demo-nav">
+
+<a href="#">
+Home
+</a>
+
+<a href="#">
+Courses
+</a>
+
+<a href="#">
+Lessons
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</nav>
+
+
+<main class="demo-main">
+
+<section class="demo-content">
+
+<h2>
+Web Development Fundamentals
+</h2>
+
+<p>
+
+This is the main content area of the webpage.
+
+</p>
+
+
+<article>
+
+<h3>
+HTML Fundamentals
+</h3>
+
+<p>
+
+Students learn how HTML structures content.
+
+</p>
+
+</article>
+
+
+<article>
+
+<h3>
+CSS Fundamentals
+</h3>
+
+<p>
+
+Students learn how CSS styles webpages.
+
+</p>
+
+</article>
+
+</section>
+
+
+<aside class="demo-aside">
+
+<h3>
+Related Information
+</h3>
+
+<ul>
+
+<li>
+Course Resources
+</li>
+
+<li>
+Practice Labs
+</li>
+
+<li>
+Knowledge Checks
+</li>
+
+</ul>
+
+</aside>
+
+</main>
+
+
+<footer class="demo-footer">
+
+© 2026 Golden Healing Solutions
+
+</footer>
+
+</div>
+
+</div>
+
+
+<!-- ACCESSIBILITY -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 19. Semantic HTML & Accessibility
+</h2>
+
+<div class="success-box">
+
+<p>
+
+Semantic HTML is an important part of creating accessible
+websites.
+
+</p>
+
+<p>
+
+Screen readers and other assistive technologies can use
+semantic landmarks to help users navigate a webpage.
+
+</p>
+
+<p>
+
+For example, a screen reader can identify the
+<code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>,
+<code>&lt;header&gt;</code>, and <code>&lt;footer&gt;</code>
+areas of a page.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SEO -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔎 20. Semantic HTML & SEO
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Semantic HTML helps provide meaningful structure that makes
+webpage content easier for search engines and other software
+to interpret.
+
+</p>
+
+<p>
+
+For example, using:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;article&gt;
+
+    &lt;h2&gt;
+        How to Learn HTML
+    &lt;/h2&gt;
+
+    &lt;p&gt;
+        HTML is the foundation of the web.
+    &lt;/p&gt;
+
+&lt;/article&gt;
+</pre>
+
+</div>
+
+<p>
+
+communicates more meaning than placing all of the same content
+inside generic <code>&lt;div&gt;</code> elements.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 21. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Semantic Webpage
+</h3>
+
+<p>
+
+Create a webpage for the Golden Healing Solutions
+Web Development Bootcamp.
+
+Your page must contain:
+
+</p>
+
+<ul>
+
+<li>A <code>&lt;header&gt;</code></li>
+
+<li>A <code>&lt;nav&gt;</code></li>
+
+<li>A <code>&lt;main&gt;</code></li>
+
+<li>At least two <code>&lt;section&gt;</code> elements</li>
+
+<li>At least one <code>&lt;article&gt;</code></li>
+
+<li>An <code>&lt;aside&gt;</code></li>
+
+<li>A <code>&lt;footer&gt;</code></li>
+
+<li>At least one heading inside each major content area</li>
+
+<li>Navigation links</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width,
+        initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        Semantic Webpage
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;header&gt;
+
+        &lt;!-- Add website header --&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;nav&gt;
+
+        &lt;!-- Add navigation --&gt;
+
+    &lt;/nav&gt;
+
+
+    &lt;main&gt;
+
+
+        &lt;section&gt;
+
+            &lt;!-- Add main section --&gt;
+
+        &lt;/section&gt;
+
+
+        &lt;article&gt;
+
+            &lt;!-- Add article --&gt;
+
+        &lt;/article&gt;
+
+
+        &lt;aside&gt;
+
+            &lt;!-- Add related content --&gt;
+
+        &lt;/aside&gt;
+
+
+    &lt;/main&gt;
+
+
+    &lt;footer&gt;
+
+        &lt;!-- Add footer --&gt;
+
+    &lt;/footer&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- BEST PRACTICES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 22. Semantic HTML Best Practices
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+✅ Do
+</h3>
+
+<ul>
+
+<li>Use meaningful HTML elements.</li>
+
+<li>Use headings to organize content.</li>
+
+<li>Use <code>&lt;nav&gt;</code> for major navigation.</li>
+
+<li>Use <code>&lt;main&gt;</code> for primary content.</li>
+
+<li>Use <code>&lt;article&gt;</code> for self-contained content.</li>
+
+<li>Use <code>&lt;section&gt;</code> for thematic groups.</li>
+
+<li>Use semantic elements whenever appropriate.</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+❌ Avoid
+</h3>
+
+<ul>
+
+<li>Using <code>&lt;div&gt;</code> for everything.</li>
+
+<li>Using headings only for visual size.</li>
+
+<li>Creating unnecessary landmarks.</li>
+
+<li>Using semantic elements incorrectly.</li>
+
+<li>Ignoring accessibility.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- KNOWLEDGE CHECK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 23. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. What does semantic HTML mean?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. HTML that only uses CSS
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. HTML elements that communicate the meaning or purpose of their content
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. HTML without JavaScript
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. HTML used only for forms
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which element represents the primary content of a webpage?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. &lt;aside&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. &lt;footer&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. &lt;main&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. &lt;nav&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which element is intended for major navigation?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. &lt;navigation&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. &lt;nav&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. &lt;links&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. &lt;menu-bar&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which element represents self-contained content?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. &lt;article&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. &lt;content&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. &lt;post&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. &lt;div&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element contains related secondary content?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;secondary&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;aside&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;side&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;extra&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. Which element represents a thematic group of content?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. &lt;section&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. &lt;group&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. &lt;topic&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. &lt;content-group&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. Which element is commonly used for page footer information?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. &lt;bottom&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. &lt;footer&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. &lt;end&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. &lt;copyright&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. Which of the following is a non-semantic element?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. &lt;article&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. &lt;section&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. &lt;div&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. &lt;nav&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. Why is semantic HTML useful for accessibility?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. It automatically increases font size
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. It provides meaningful structure that assistive technologies can understand
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. It removes all images
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. It prevents users from changing the page
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. Which element provides a caption for a &lt;figure&gt;?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. &lt;caption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. &lt;figure-caption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. &lt;figcaption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. &lt;description&gt;
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 24. Lesson Completion Checklist
+</h2>
+
+<div class="checklist">
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I understand what semantic HTML means.
+
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I can identify common semantic elements.
+
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I understand the purpose of header, nav, main, section, article, aside, and footer.
+
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I understand semantic vs. non-semantic elements.
+
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I completed the hands-on semantic HTML practice.
+
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<label>
+
+<input
+type="checkbox"
+class="completion-check">
+
+I am ready to move to the next lesson.
+
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎓 25. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+Semantic HTML gives webpages meaningful structure.
+
+</p>
+
+<p>
+
+Instead of using generic containers for everything, developers
+can use elements such as <code>&lt;header&gt;</code>,
+<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+<code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>,
+<code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code> to
+communicate what different areas of a webpage represent.
+
+</p>
+
+<p>
+
+Semantic HTML is an important part of professional web
+development because it improves organization, accessibility,
+maintainability, and the ability of software to interpret
+webpage structure.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+
+<strong>
+2.10 — Semantic HTML
+</strong>.
+
+</p>
+
+<p>
+
+You are ready to continue to the next lesson.
+
+</p>
+
+<a
+href="3-1-introduction-to-css.html"
+class="continue-button">
+
+Continue to Module 3 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-9-forms.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.10 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.10 — Semantic HTML
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_10_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.10 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_10_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   KNOWLEDGE CHECK
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "C",
+q3: "B",
+q4: "A",
+q5: "B",
+q6: "A",
+q7: "B",
+q8: "C",
+q9: "B",
+q10: "C"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of semantic HTML.</p>";
+
+localStorage.setItem(
+"ghs_2_10_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_10_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_10_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

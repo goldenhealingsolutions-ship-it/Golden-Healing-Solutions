@@ -1,0 +1,3111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.9 — Forms & Input Types | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.form-demo {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-demo input,
+.form-demo select,
+.form-demo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.form-demo textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-demo input:focus,
+.form-demo select:focus,
+.form-demo textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.radio-group input,
+.checkbox-group input {
+    width: auto;
+}
+
+.form-button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    opacity: .85;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.input-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.input-card h3 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: #fafafa;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison,
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.9 — Forms & Input Types
+</span>
+
+</div>
+
+
+<div class="title-section">
+
+<div class="module-icon">
+📝
+</div>
+
+<h1>
+2.9 — Forms & Input Types
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how HTML forms collect information from users and how
+different input types can be used to create professional,
+accessible, and interactive web forms.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Understand the purpose of HTML forms.</li>
+
+<li>Create a form using the <code>&lt;form&gt;</code> element.</li>
+
+<li>Use labels correctly.</li>
+
+<li>Create text, email, password, number, date, and other inputs.</li>
+
+<li>Use radio buttons and checkboxes.</li>
+
+<li>Create dropdown menus using <code>&lt;select&gt;</code>.</li>
+
+<li>Create multi-line text fields using <code>&lt;textarea&gt;</code>.</li>
+
+<li>Use submit and reset buttons.</li>
+
+<li>Understand required fields and basic validation.</li>
+
+<li>Build accessible and user-friendly forms.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is an HTML Form?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An HTML form allows a website to collect information from a
+user.
+
+</p>
+
+<p>
+
+Forms are commonly used for:
+
+</p>
+
+<ul>
+
+<li>Contact forms</li>
+
+<li>Registration</li>
+
+<li>Login pages</li>
+
+<li>Search forms</li>
+
+<li>Checkout pages</li>
+
+<li>Surveys</li>
+
+<li>Applications</li>
+
+<li>Course enrollment</li>
+
+</ul>
+
+</div>
+
+<div class="code-box">
+
+<div class="code-label">
+Basic Form
+</div>
+
+<pre>
+&lt;form&gt;
+
+    &lt;label for="name"&gt;
+        Name
+    &lt;/label&gt;
+
+    &lt;input
+        type="text"
+        id="name"
+        name="name"&gt;
+
+&lt;/form&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FORM ELEMENT -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 2. The &lt;form&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;form&gt;</code> element acts as a container for
+form controls.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;form action="/submit" method="post"&gt;
+
+    ...
+
+&lt;/form&gt;
+</pre>
+
+</div>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+action
+</h3>
+
+<p>
+
+Specifies where the form data should be sent.
+
+</p>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+method
+</h3>
+
+<p>
+
+Specifies how the form data is submitted.
+
+Common methods include
+<strong>GET</strong> and <strong>POST</strong>.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LABEL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 3. Labels
+</h2>
+
+<p>
+
+The <code>&lt;label&gt;</code> element identifies a form
+control.
+
+</p>
+
+<p>
+
+The <code>for</code> attribute should match the input's
+<code>id</code>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="email"&gt;
+    Email Address
+&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="email"
+    name="email"&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Accessibility Tip:</strong>
+
+<p>
+
+Proper labels help screen-reader users understand what
+information belongs in each field.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TEXT -->
+
+<div class="section">
+
+<h2 class="section-title">
+⌨️ 4. Text Input
+</h2>
+
+<p>
+
+The <code>text</code> input allows users to enter a single
+line of text.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="fullname"&gt;
+    Full Name
+&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="fullname"
+    name="fullname"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="section">
+
+<h2 class="section-title">
+📧 5. Email Input
+</h2>
+
+<p>
+
+The <code>email</code> input is designed for email addresses.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="email"&gt;
+    Email Address
+&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="email"
+    name="email"
+    required&gt;
+</pre>
+
+</div>
+
+<p>
+
+The browser can perform basic validation to check whether the
+entered value resembles an email address.
+
+</p>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔐 6. Password Input
+</h2>
+
+<p>
+
+The <code>password</code> input hides the characters typed by
+the user.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="password"&gt;
+    Password
+&lt;/label&gt;
+
+&lt;input
+    type="password"
+    id="password"
+    name="password"&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+A password input hides characters visually, but secure
+password handling also requires appropriate server-side
+security and HTTPS.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NUMBER -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔢 7. Number Input
+</h2>
+
+<p>
+
+The <code>number</code> input is designed for numerical values.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="age"&gt;
+    Age
+&lt;/label&gt;
+
+&lt;input
+    type="number"
+    id="age"
+    name="age"
+    min="1"
+    max="120"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- DATE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📅 8. Date Input
+</h2>
+
+<p>
+
+The <code>date</code> input allows users to select a date.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="birthday"&gt;
+    Date of Birth
+&lt;/label&gt;
+
+&lt;input
+    type="date"
+    id="birthday"
+    name="birthday"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TEL -->
+
+<div class="section">
+
+<h2 class="section-title">
+📱 9. Telephone Input
+</h2>
+
+<p>
+
+The <code>tel</code> input is designed for telephone numbers.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="phone"&gt;
+    Phone Number
+&lt;/label&gt;
+
+&lt;input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="555-555-5555"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- URL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 10. URL Input
+</h2>
+
+<p>
+
+The <code>url</code> input is intended for website addresses.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="website"&gt;
+    Website
+&lt;/label&gt;
+
+&lt;input
+    type="url"
+    id="website"
+    name="website"
+    placeholder="https://example.com"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔎 11. Search Input
+</h2>
+
+<p>
+
+The <code>search</code> input is intended for search fields.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="search"&gt;
+    Search
+&lt;/label&gt;
+
+&lt;input
+    type="search"
+    id="search"
+    name="search"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- RADIO -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔘 12. Radio Buttons
+</h2>
+
+<p>
+
+Radio buttons allow the user to select <strong>one option</strong>
+from a group.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    Learning Level
+&lt;/p&gt;
+
+
+&lt;label&gt;
+
+    &lt;input
+        type="radio"
+        name="level"
+        value="beginner"&gt;
+
+    Beginner
+
+&lt;/label&gt;
+
+
+&lt;label&gt;
+
+    &lt;input
+        type="radio"
+        name="level"
+        value="intermediate"&gt;
+
+    Intermediate
+
+&lt;/label&gt;
+
+
+&lt;label&gt;
+
+    &lt;input
+        type="radio"
+        name="level"
+        value="advanced"&gt;
+
+    Advanced
+
+&lt;/label&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+Radio buttons that belong to the same group should generally
+use the same <code>name</code> value.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CHECKBOX -->
+
+<div class="section">
+
+<h2 class="section-title">
+☑️ 13. Checkboxes
+</h2>
+
+<p>
+
+Checkboxes allow users to select one or multiple options.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label&gt;
+
+    &lt;input
+        type="checkbox"
+        name="skills"
+        value="html"&gt;
+
+    HTML
+
+&lt;/label&gt;
+
+
+&lt;label&gt;
+
+    &lt;input
+        type="checkbox"
+        name="skills"
+        value="css"&gt;
+
+    CSS
+
+&lt;/label&gt;
+
+
+&lt;label&gt;
+
+    &lt;input
+        type="checkbox"
+        name="skills"
+        value="javascript"&gt;
+
+    JavaScript
+
+&lt;/label&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- SELECT -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔽 14. Dropdown Menus
+</h2>
+
+<p>
+
+The <code>&lt;select&gt;</code> element creates a dropdown
+menu.
+
+The <code>&lt;option&gt;</code> elements provide the choices.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="course"&gt;
+    Select a Course
+&lt;/label&gt;
+
+
+&lt;select
+    id="course"
+    name="course"&gt;
+
+    &lt;option value="html"&gt;
+        HTML
+    &lt;/option&gt;
+
+    &lt;option value="css"&gt;
+        CSS
+    &lt;/option&gt;
+
+    &lt;option value="javascript"&gt;
+        JavaScript
+    &lt;/option&gt;
+
+&lt;/select&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TEXTAREA -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 15. Textareas
+</h2>
+
+<p>
+
+The <code>&lt;textarea&gt;</code> element allows users to
+enter multiple lines of text.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="message"&gt;
+    Message
+&lt;/label&gt;
+
+
+&lt;textarea
+    id="message"
+    name="message"
+    rows="6"
+    cols="40"&gt;
+&lt;/textarea&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FILE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📎 16. File Uploads
+</h2>
+
+<p>
+
+The <code>file</code> input allows a user to select a file
+from their device.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="resume"&gt;
+    Upload Resume
+&lt;/label&gt;
+
+
+&lt;input
+    type="file"
+    id="resume"
+    name="resume"&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Uploading and securely processing a file requires
+server-side handling. HTML alone does not permanently store
+the uploaded file.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- RANGE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎚️ 17. Range Input
+</h2>
+
+<p>
+
+The <code>range</code> input creates a slider.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="experience"&gt;
+    Experience Level
+&lt;/label&gt;
+
+
+&lt;input
+    type="range"
+    id="experience"
+    name="experience"
+    min="1"
+    max="10"
+    value="5"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- COLOR -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 18. Color Input
+</h2>
+
+<p>
+
+The <code>color</code> input allows users to select a color.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="brandColor"&gt;
+    Brand Color
+&lt;/label&gt;
+
+
+&lt;input
+    type="color"
+    id="brandColor"
+    name="brandColor"
+    value="#d4af37"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- HIDDEN -->
+
+<div class="section">
+
+<h2 class="section-title">
+👻 19. Hidden Inputs
+</h2>
+
+<p>
+
+A hidden input is not displayed to the user but can contain
+a value submitted with a form.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="hidden"
+    name="course"
+    value="web-development"&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Security Warning:</strong>
+
+<p>
+
+Hidden inputs are not actually secure storage. Users can
+inspect and modify HTML in their browser.
+
+Never trust hidden form values for authorization or sensitive
+security decisions.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- REQUIRED -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 20. Required Fields
+</h2>
+
+<p>
+
+The <code>required</code> attribute prevents the form from
+being submitted until the field has a value.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="name"&gt;
+    Full Name
+&lt;/label&gt;
+
+
+&lt;input
+    type="text"
+    id="name"
+    name="name"
+    required&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- PLACEHOLDER -->
+
+<div class="section">
+
+<h2 class="section-title">
+💬 21. Placeholder Text
+</h2>
+
+<p>
+
+The <code>placeholder</code> attribute provides an example
+or hint inside an input.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="email"
+    placeholder="you@example.com"&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+A placeholder should not replace a proper
+<code>&lt;label&gt;</code>. Labels should remain available so
+users can understand the field even after typing begins.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MIN MAX -->
+
+<div class="section">
+
+<h2 class="section-title">
+📏 22. min, max & maxlength
+</h2>
+
+<p>
+
+HTML provides attributes that can help limit or validate
+user input.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="number"
+    min="1"
+    max="100"&gt;
+
+
+&lt;input
+    type="text"
+    maxlength="50"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- PATTERN -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔍 23. Pattern Validation
+</h2>
+
+<p>
+
+The <code>pattern</code> attribute can specify a regular
+expression that the entered value must match.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="text"
+    name="username"
+    pattern="[A-Za-z0-9]+"
+    required&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Client-side validation improves the user experience, but
+server-side validation is still required for real applications.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔘 24. Form Buttons
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;button type="submit"&gt;
+    Submit
+&lt;/button&gt;
+
+
+&lt;button type="reset"&gt;
+    Reset
+&lt;/button&gt;
+</pre>
+
+</div>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+Submit
+</h3>
+
+<p>
+
+Sends the form data for processing.
+
+</p>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+Reset
+</h3>
+
+<p>
+
+Resets form controls to their initial values.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETE FORM -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 25. Complete Contact Form
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;form action="/contact" method="post"&gt;
+
+
+    &lt;label for="name"&gt;
+        Full Name
+    &lt;/label&gt;
+
+    &lt;input
+        type="text"
+        id="name"
+        name="name"
+        required&gt;
+
+
+    &lt;label for="email"&gt;
+        Email
+    &lt;/label&gt;
+
+    &lt;input
+        type="email"
+        id="email"
+        name="email"
+        required&gt;
+
+
+    &lt;label for="phone"&gt;
+        Phone
+    &lt;/label&gt;
+
+    &lt;input
+        type="tel"
+        id="phone"
+        name="phone"&gt;
+
+
+    &lt;label for="subject"&gt;
+        Subject
+    &lt;/label&gt;
+
+    &lt;input
+        type="text"
+        id="subject"
+        name="subject"
+        required&gt;
+
+
+    &lt;label for="message"&gt;
+        Message
+    &lt;/label&gt;
+
+    &lt;textarea
+        id="message"
+        name="message"
+        rows="6"
+        required&gt;
+    &lt;/textarea&gt;
+
+
+    &lt;button type="submit"&gt;
+        Send Message
+    &lt;/button&gt;
+
+
+&lt;/form&gt;
+</pre>
+
+</div>
+
+
+<!-- LIVE DEMO -->
+
+<div class="form-demo">
+
+<h3>
+Live Form Example
+</h3>
+
+<form
+id="demoForm"
+onsubmit="return demonstrateForm(event)"
+>
+
+<div class="form-group">
+
+<label for="demoName">
+Full Name
+</label>
+
+<input
+type="text"
+id="demoName"
+name="name"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="demoEmail">
+Email Address
+</label>
+
+<input
+type="email"
+id="demoEmail"
+name="email"
+placeholder="you@example.com"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="demoPhone">
+Phone Number
+</label>
+
+<input
+type="tel"
+id="demoPhone"
+name="phone"
+placeholder="555-555-5555">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="demoCourse">
+Select Course
+</label>
+
+<select
+id="demoCourse"
+name="course"
+required>
+
+<option value="">
+Choose a course
+</option>
+
+<option value="html">
+HTML
+</option>
+
+<option value="css">
+CSS
+</option>
+
+<option value="javascript">
+JavaScript
+</option>
+
+<option value="web-development">
+Web Development
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Learning Level
+</label>
+
+<div class="radio-group">
+
+<label>
+
+<input
+type="radio"
+name="level"
+value="beginner"
+required>
+
+Beginner
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="level"
+value="intermediate">
+
+Intermediate
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="level"
+value="advanced">
+
+Advanced
+
+</label>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Skills
+</label>
+
+<div class="checkbox-group">
+
+<label>
+
+<input
+type="checkbox"
+name="skills"
+value="html">
+
+HTML
+
+</label>
+
+
+<label>
+
+<input
+type="checkbox"
+name="skills"
+value="css">
+
+CSS
+
+</label>
+
+
+<label>
+
+<input
+type="checkbox"
+name="skills"
+value="javascript">
+
+JavaScript
+
+</label>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="demoMessage">
+Message
+</label>
+
+<textarea
+id="demoMessage"
+name="message"
+placeholder="Enter your message"
+required></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="form-button">
+
+Submit Form
+
+</button>
+
+
+<button
+type="reset"
+class="form-button">
+
+Reset
+
+</button>
+
+</form>
+
+
+<div
+id="demoFormResult"
+style="margin-top:20px;">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- INPUT TYPES -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 26. HTML Input Type Reference
+</h2>
+
+<div class="input-grid">
+
+<div class="input-card">
+<h3>text</h3>
+<p>Single-line text.</p>
+</div>
+
+<div class="input-card">
+<h3>email</h3>
+<p>Email address.</p>
+</div>
+
+<div class="input-card">
+<h3>password</h3>
+<p>Password entry.</p>
+</div>
+
+<div class="input-card">
+<h3>number</h3>
+<p>Numerical values.</p>
+</div>
+
+<div class="input-card">
+<h3>tel</h3>
+<p>Telephone numbers.</p>
+</div>
+
+<div class="input-card">
+<h3>url</h3>
+<p>Website addresses.</p>
+</div>
+
+<div class="input-card">
+<h3>search</h3>
+<p>Search fields.</p>
+</div>
+
+<div class="input-card">
+<h3>date</h3>
+<p>Date selection.</p>
+</div>
+
+<div class="input-card">
+<h3>time</h3>
+<p>Time selection.</p>
+</div>
+
+<div class="input-card">
+<h3>datetime-local</h3>
+<p>Local date and time.</p>
+</div>
+
+<div class="input-card">
+<h3>month</h3>
+<p>Month and year.</p>
+</div>
+
+<div class="input-card">
+<h3>week</h3>
+<p>Week selection.</p>
+</div>
+
+<div class="input-card">
+<h3>radio</h3>
+<p>Select one option.</p>
+</div>
+
+<div class="input-card">
+<h3>checkbox</h3>
+<p>Select one or multiple options.</p>
+</div>
+
+<div class="input-card">
+<h3>file</h3>
+<p>Select a file.</p>
+</div>
+
+<div class="input-card">
+<h3>range</h3>
+<p>Select a value using a slider.</p>
+</div>
+
+<div class="input-card">
+<h3>color</h3>
+<p>Select a color.</p>
+</div>
+
+<div class="input-card">
+<h3>hidden</h3>
+<p>Hidden form value.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 27. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Student Registration Form
+</h3>
+
+<p>
+Create a professional student registration form for the
+Web Development Bootcamp.
+</p>
+
+<ul>
+
+<li>Full Name</li>
+
+<li>Email Address</li>
+
+<li>Phone Number</li>
+
+<li>Date of Birth</li>
+
+<li>Password</li>
+
+<li>Course Selection</li>
+
+<li>Learning Level</li>
+
+<li>Programming Skills</li>
+
+<li>Preferred Start Date</li>
+
+<li>Additional Comments</li>
+
+<li>Terms and Conditions checkbox</li>
+
+<li>Submit button</li>
+
+<li>Reset button</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width,
+        initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        Student Registration
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;h1&gt;
+        Web Development Bootcamp
+    &lt;/h1&gt;
+
+
+    &lt;form&gt;
+
+
+        &lt;label for="name"&gt;
+            Full Name
+        &lt;/label&gt;
+
+        &lt;input
+            type="text"
+            id="name"
+            name="name"
+            required&gt;
+
+
+        &lt;!-- Add remaining fields --&gt;
+
+
+        &lt;button type="submit"&gt;
+            Register
+        &lt;/button&gt;
+
+
+        &lt;button type="reset"&gt;
+            Reset
+        &lt;/button&gt;
+
+
+    &lt;/form&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- BEST PRACTICES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 28. Form Best Practices
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+✅ Do
+</h3>
+
+<ul>
+
+<li>Use descriptive labels.</li>
+
+<li>Use appropriate input types.</li>
+
+<li>Mark required fields clearly.</li>
+
+<li>Use helpful validation.</li>
+
+<li>Keep forms organized.</li>
+
+<li>Make forms mobile-friendly.</li>
+
+<li>Use accessible controls.</li>
+
+<li>Validate data on the server.</li>
+
+</ul>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+❌ Avoid
+</h3>
+
+<ul>
+
+<li>Using placeholder text instead of labels.</li>
+
+<li>Collecting unnecessary information.</li>
+
+<li>Making every field required.</li>
+
+<li>Relying only on client-side validation.</li>
+
+<li>Using unclear field names.</li>
+
+<li>Making forms unnecessarily long.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 29. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. Which HTML element creates a form?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. &lt;input&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. &lt;form&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. &lt;formbox&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. &lt;data&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which input type is intended for email addresses?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. text
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. mail
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. email
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. address
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which input type hides typed characters?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. hidden
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. secret
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. password
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. protected
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which input type is appropriate for numerical values?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. digits
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. number
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. numeric
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. integer
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element creates a dropdown menu?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;dropdown&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;menu&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;select&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;choice&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. Which element creates a multi-line text field?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. &lt;multiline&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. &lt;textbox&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. &lt;textarea&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. &lt;longtext&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. Which control is generally used when only one option should be selected?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. Checkbox
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. Radio button
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. Textarea
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. File input
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. Which attribute makes a field mandatory?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. mandatory
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. must
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. required
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. validate
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. What does the label "for" attribute normally match?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. The input's name
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. The input's class
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. The input's id
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. The input's value
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. Why is server-side validation important?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. Users can bypass client-side validation
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. CSS requires it
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. HTML cannot display forms without it
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. It changes the website color
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎉 30. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+HTML forms provide a way for websites to collect information
+from users.
+
+</p>
+
+<p>
+
+You learned how to use the <code>&lt;form&gt;</code> element,
+labels, text fields, email fields, passwords, numbers, dates,
+radio buttons, checkboxes, dropdowns, textareas, file uploads,
+and other input types.
+
+</p>
+
+<p>
+
+You also learned how HTML validation attributes such as
+<code>required</code>, <code>min</code>, <code>max</code>,
+<code>maxlength</code>, and <code>pattern</code> can improve
+form usability.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.9 — Forms & Input Types</strong>.
+
+</p>
+
+<p>
+You are ready to continue to the next lesson.
+</p>
+
+<a
+href="2-10-semantic-html.html"
+class="continue-button">
+
+Continue to 2.10 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-8-tables.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.9 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.9 — Forms & Input Types
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_9_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.9 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_9_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "C",
+q3: "C",
+q4: "B",
+q5: "C",
+q6: "C",
+q7: "B",
+q8: "C",
+q9: "C",
+q10: "A"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML forms and input types.</p>";
+
+localStorage.setItem(
+"ghs_2_9_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   DEMO FORM
+========================= */
+
+function demonstrateForm(event) {
+
+event.preventDefault();
+
+const name =
+document.getElementById(
+"demoName"
+).value;
+
+const email =
+document.getElementById(
+"demoEmail"
+).value;
+
+const course =
+document.getElementById(
+"demoCourse"
+).value;
+
+
+const result =
+document.getElementById(
+"demoFormResult"
+);
+
+
+result.style.background =
+"#eef9f0";
+
+result.style.padding =
+"15px";
+
+result.style.borderRadius =
+"8px";
+
+result.innerHTML =
+
+"<strong>Form submitted successfully!</strong>" +
+
+"<p>This is a demonstration only. No information was sent to a server.</p>" +
+
+"<p>Thank you, " +
+name +
+"!</p>";
+
+return false;
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_9_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_9_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

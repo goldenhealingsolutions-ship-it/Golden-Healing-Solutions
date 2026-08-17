@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.7 — Back-End Development | Web Development Bootcamp
+</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 800px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   INFO BOX
+===================================================== */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.info-box strong {
+    color: #9a7710;
+}
+
+
+/* =====================================================
+   ARCHITECTURE
+===================================================== */
+
+.architecture {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    align-items: center;
+}
+
+.arch-card {
+    background: #111;
+    color: white;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+}
+
+.arch-icon {
+    font-size: 35px;
+}
+
+.arrow {
+    text-align: center;
+    font-size: 25px;
+    color: #d4af37;
+}
+
+
+/* =====================================================
+   TECHNOLOGY CARDS
+===================================================== */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tech-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+}
+
+.tech-icon {
+    font-size: 42px;
+}
+
+
+/* =====================================================
+   BACKEND FEATURES
+===================================================== */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.feature-icon {
+    font-size: 35px;
+}
+
+
+/* =====================================================
+   FILE TREE
+===================================================== */
+
+.file-tree {
+    background: #111;
+    color: #eee;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: "Courier New", monospace;
+    overflow-x: auto;
+}
+
+.gold {
+    color: #d4af37;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,.15);
+}
+
+
+/* =====================================================
+   CODE EDITOR
+===================================================== */
+
+.code-editor {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.editor-header {
+    background: #222;
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.code-editor textarea {
+    background: #111;
+    color: #eee;
+    border: none;
+    border-radius: 0;
+    font-family: "Courier New", monospace;
+    min-height: 230px;
+}
+
+
+/* =====================================================
+   API
+===================================================== */
+
+.api-box {
+    background: #111;
+    color: #eee;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: "Courier New", monospace;
+    overflow-x: auto;
+}
+
+.method {
+    color: #d4af37;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+.database-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.database-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.security-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.danger-box {
+    background: #fff2f2;
+    border-left: 5px solid #b33;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+    background: #eef6ff;
+    border-left: 5px solid #477ca8;
+    border-radius: 7px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .architecture {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-grid,
+    .feature-grid,
+    .database-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.7 — Back-End Development
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🖥️
+</div>
+
+<h1>
+18.7 — Back-End Development
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Build the server-side functionality that powers
+your Capstone application, including routes,
+data processing, APIs, databases, authentication,
+and security.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Explain the role of back-end development.
+</li>
+
+<li>
+Understand the client-server request/response cycle.
+</li>
+
+<li>
+Select an appropriate back-end technology.
+</li>
+
+<li>
+Create server-side routes and endpoints.
+</li>
+
+<li>
+Connect an application to a database.
+</li>
+
+<li>
+Create, read, update, and delete application data.
+</li>
+
+<li>
+Process and validate user-submitted information.
+</li>
+
+<li>
+Understand authentication and authorization.
+</li>
+
+<li>
+Implement basic back-end security practices.
+</li>
+
+<li>
+Connect the front end to the back end using APIs.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHAT IS BACK-END?
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 What Is Back-End Development?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Back-end development</strong> is the server-side
+part of a website or web application.
+
+</p>
+
+<p>
+
+While your front end controls what users see and
+interact with, the back end handles tasks such as
+processing requests, validating information,
+communicating with databases, authentication,
+and returning data to the client. :contentReference[oaicite:1]{index=1}
+
+</p>
+
+<p>
+
+For example, when a user submits a registration form,
+the browser can send the request to the server. The
+server can validate the information, save it to a
+database, and return an appropriate response.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ARCHITECTURE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔄 Client → Server → Database
+</h2>
+
+
+<div class="architecture">
+
+
+<div class="arch-card">
+
+<div class="arch-icon">
+🌐
+</div>
+
+<h3>
+Front End
+</h3>
+
+<p>
+Browser
+</p>
+
+</div>
+
+
+<div class="arrow">
+→
+</div>
+
+
+<div class="arch-card">
+
+<div class="arch-icon">
+🖥️
+</div>
+
+<h3>
+Server
+</h3>
+
+<p>
+Application Logic
+</p>
+
+</div>
+
+
+<div class="arrow">
+→
+</div>
+
+
+<div class="arch-card">
+
+<div class="arch-icon">
+🗄️
+</div>
+
+<h3>
+Database
+</h3>
+
+<p>
+Stored Data
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+Example:
+</strong>
+
+A user submits a form → the browser sends an HTTP
+request → the server processes the request → the
+server communicates with the database → the server
+returns a response to the browser.
+
+This client-server model is fundamental to dynamic
+web applications. :contentReference[oaicite:2]{index=2}
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TECHNOLOGY SELECTION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+1. 🧰 Select Your Back-End Technology
+</h2>
+
+
+<p>
+
+Choose the technology or framework you will use
+for your Capstone.
+
+Common server-side options include Node.js/
+Express, Python/Django, PHP/Laravel, and
+ASP.NET. :contentReference[oaicite:3]{index=3}
+
+</p>
+
+
+<div class="tech-grid">
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+🟢
+</div>
+
+<h3>
+Node.js + Express
+</h3>
+
+<p>
+JavaScript-based server development.
+</p>
+
+</div>
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+🐍
+</div>
+
+<h3>
+Python + Django
+</h3>
+
+<p>
+Python framework for server-side applications.
+</p>
+
+</div>
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+🐘
+</div>
+
+<h3>
+PHP + Laravel
+</h3>
+
+<p>
+PHP framework for web applications.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group">
+
+<label for="backendTechnology">
+
+Selected Back-End Technology
+
+</label>
+
+<select id="backendTechnology">
+
+<option value="">
+Select a technology
+</option>
+
+<option>
+Node.js / Express
+</option>
+
+<option>
+Python / Django
+</option>
+
+<option>
+PHP / Laravel
+</option>
+
+<option>
+ASP.NET
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="technologyReason">
+
+Why Did You Choose This Technology?
+
+</label>
+
+<textarea
+id="technologyReason"
+placeholder="Explain why this technology is appropriate for your Capstone.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECT STRUCTURE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+2. 📁 Back-End Project Structure
+</h2>
+
+
+<div class="file-tree">
+
+<span class="gold">my-capstone-project/</span><br>
+
+├── index.html<br>
+
+├── <span class="gold">css/</span><br>
+
+│&nbsp;&nbsp;&nbsp;└── style.css<br>
+
+├── <span class="gold">js/</span><br>
+
+│&nbsp;&nbsp;&nbsp;└── script.js<br>
+
+├── <span class="gold">server/</span><br>
+
+│&nbsp;&nbsp;&nbsp;├── server.js<br>
+
+│&nbsp;&nbsp;&nbsp;├── routes/<br>
+
+│&nbsp;&nbsp;&nbsp;├── controllers/<br>
+
+│&nbsp;&nbsp;&nbsp;├── models/<br>
+
+│&nbsp;&nbsp;&nbsp;├── middleware/<br>
+
+│&nbsp;&nbsp;&nbsp;└── config/<br>
+
+├── <span class="gold">database/</span><br>
+
+└── README.md
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="backendStructure">
+
+Describe Your Back-End Structure
+
+</label>
+
+<textarea
+id="backendStructure"
+placeholder="Describe how your server-side files, routes, models, controllers, middleware, and configuration will be organized.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SERVER
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+3. 🖥️ Server Configuration
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Your server receives HTTP requests and determines
+how your application should respond.
+
+</p>
+
+<p>
+
+A back-end application commonly includes routing,
+request processing, validation, business logic,
+database operations, and responses.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="serverSetup">
+
+Describe Your Server Setup
+
+</label>
+
+<textarea
+id="serverSetup"
+placeholder="Describe your server, runtime, framework, port, environment, and development setup.">
+</textarea>
+
+</div>
+
+
+<div class="code-editor">
+
+<div class="editor-header">
+Server Code — Optional
+</div>
+
+<textarea
+id="serverCode"
+placeholder="Paste a representative portion of your server code here...">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ROUTES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+4. 🛣️ Routes & Endpoints
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+A route connects a URL and HTTP method to
+server-side functionality.
+
+</p>
+
+<p>
+
+Common HTTP methods include:
+
+</p>
+
+<ul>
+
+<li>
+<strong>GET</strong> — retrieve information
+</li>
+
+<li>
+<strong>POST</strong> — submit or create information
+</li>
+
+<li>
+<strong>PUT/PATCH</strong> — update information
+</li>
+
+<li>
+<strong>DELETE</strong> — remove information
+</li>
+
+</ul>
+
+<p>
+
+For example:
+
+</p>
+
+</div>
+
+
+<div class="api-box">
+
+<span class="method">GET</span>
+&nbsp; /api/products
+
+<br><br>
+
+<span class="method">GET</span>
+&nbsp; /api/products/:id
+
+<br><br>
+
+<span class="method">POST</span>
+&nbsp; /api/products
+
+<br><br>
+
+<span class="method">PUT</span>
+&nbsp; /api/products/:id
+
+<br><br>
+
+<span class="method">DELETE</span>
+&nbsp; /api/products/:id
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="routes">
+
+List Your Capstone Routes
+
+</label>
+
+<textarea
+id="routes"
+placeholder="Example:
+GET /api/users
+POST /api/users
+GET /api/products
+POST /api/contact">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     API
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+5. 🔌 API Development
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+An API provides a structured way for different
+parts of an application to communicate.
+
+</p>
+
+<p>
+
+Your front end may request data from your back end,
+and the server can return data such as JSON.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="apiPurpose">
+
+What Will Your API Do?
+
+</label>
+
+<textarea
+id="apiPurpose"
+placeholder="Explain what information your API will provide or receive.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="apiResponse">
+
+Example API Response
+
+</label>
+
+<textarea
+id="apiResponse"
+placeholder='Example:
+{
+  "name": "Example Product",
+  "price": 49.99
+}'>
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DATABASE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+6. 🗄️ Database Development
+</h2>
+
+
+<div class="database-grid">
+
+
+<div class="database-card">
+
+<h3>
+What Data Will You Store?
+</h3>
+
+<textarea
+id="databaseData"
+placeholder="Example: users, products, orders, messages, appointments, courses, etc.">
+</textarea>
+
+</div>
+
+
+<div class="database-card">
+
+<h3>
+Database Technology
+</h3>
+
+<select id="databaseTechnology">
+
+<option value="">
+Select database
+</option>
+
+<option>
+MySQL
+</option>
+
+<option>
+PostgreSQL
+</option>
+
+<option>
+SQLite
+</option>
+
+<option>
+MongoDB
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+<br><br>
+
+<textarea
+id="databaseReason"
+placeholder="Explain why you selected this database.">
+</textarea>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CRUD
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+7. 🔄 CRUD Operations
+</h2>
+
+
+<div class="feature-grid">
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+➕
+</div>
+
+<h3>
+Create
+</h3>
+
+<p>
+Add new information to the database.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🔍
+</div>
+
+<h3>
+Read
+</h3>
+
+<p>
+Retrieve information from the database.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+✏️
+</div>
+
+<h3>
+Update
+</h3>
+
+<p>
+Modify existing information.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🗑️
+</div>
+
+<h3>
+Delete
+</h3>
+
+<p>
+Remove information when appropriate.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="crudImplementation">
+
+Describe Your CRUD Implementation
+
+</label>
+
+<textarea
+id="crudImplementation"
+placeholder="Describe which records users can create, view, update, or delete.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FORMS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+8. 📝 Server-Side Form Processing
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Forms should not rely only on browser-side
+validation.
+
+</p>
+
+<p>
+
+The server should validate submitted information
+before processing or storing it.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="formProcessing">
+
+Describe Your Form Processing
+
+</label>
+
+<textarea
+id="formProcessing"
+placeholder="Describe what happens after a user submits a form.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="validationRules">
+
+Server-Side Validation Rules
+
+</label>
+
+<textarea
+id="validationRules"
+placeholder="Example: required fields, valid email format, password requirements, numeric ranges, duplicate checks, etc.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AUTHENTICATION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+9. 🔐 Authentication & Authorization
+</h2>
+
+
+<div class="security-box">
+
+<h3>
+Authentication vs. Authorization
+</h3>
+
+<p>
+
+<strong>Authentication</strong> determines who a user is.
+
+</p>
+
+<p>
+
+<strong>Authorization</strong> determines what that
+authenticated user is allowed to access or do.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="authentication">
+
+Authentication Method
+
+</label>
+
+<textarea
+id="authentication"
+placeholder="Describe how users will register, log in, log out, and maintain a session.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="authorization">
+
+Authorization Rules
+
+</label>
+
+<textarea
+id="authorization"
+placeholder="Describe what different users or roles are allowed to access.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SECURITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+10. 🛡️ Back-End Security
+</h2>
+
+
+<div class="danger-box">
+
+<strong>
+⚠️ Security Is Part of Development
+</strong>
+
+<p>
+
+Never assume that information submitted by a
+browser is automatically trustworthy.
+
+</p>
+
+<p>
+
+Your application should validate input,
+protect credentials and secrets, use appropriate
+authentication and authorization controls, and
+avoid exposing sensitive information.
+
+</p>
+
+</div>
+
+
+<div class="checklist"
+     style="margin-top:25px;">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I validate user input on the server.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I do not store passwords as plain text.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I protect sensitive credentials and API keys.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I restrict protected resources appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I avoid exposing sensitive information in responses.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="security-check">
+
+<label>
+I have considered common web application security risks.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FRONT END CONNECTION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+11. 🔗 Connect Front End to Back End
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Your completed front end should communicate
+with your back end when your Capstone requires
+dynamic data or server-side processing.
+
+</p>
+
+<p>
+
+For example:
+
+</p>
+
+<ul>
+
+<li>
+User submits a form.
+</li>
+
+<li>
+JavaScript sends a request to the server.
+</li>
+
+<li>
+The server validates the information.
+</li>
+
+<li>
+The server communicates with the database.
+</li>
+
+<li>
+The server returns a response.
+</li>
+
+<li>
+The front end displays the result.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="frontendBackend">
+
+Describe the Front-End / Back-End Connection
+
+</label>
+
+<textarea
+id="frontendBackend"
+placeholder="Explain how your front end communicates with your server.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ENVIRONMENT VARIABLES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+12. 🔑 Environment Configuration
+</h2>
+
+
+<div class="notice">
+
+<strong>
+Important:
+</strong>
+
+<p>
+
+Sensitive values such as database passwords,
+private API keys, and secret tokens should not
+be hard-coded into publicly accessible source files.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="environmentVariables">
+
+Environment Variables Used
+
+</label>
+
+<textarea
+id="environmentVariables"
+placeholder="Example:
+DATABASE_URL
+API_KEY
+SESSION_SECRET
+PORT">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+13. 🧪 Back-End Testing
+</h2>
+
+
+<div class="form-group">
+
+<label for="backendTesting">
+
+How Did You Test Your Back End?
+
+</label>
+
+<textarea
+id="backendTesting"
+placeholder="Describe how you tested routes, APIs, forms, database operations, authentication, and error handling.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="backendErrors">
+
+Errors Found & Fixed
+
+</label>
+
+<textarea
+id="backendErrors"
+placeholder="Document server errors, database errors, API problems, validation issues, and how you resolved them.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ERROR HANDLING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+14. 🚨 Error Handling
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+A professional application should provide
+appropriate responses when something goes wrong.
+
+</p>
+
+<p>
+
+Examples include:
+
+</p>
+
+<ul>
+
+<li>
+Invalid user input
+</li>
+
+<li>
+Unauthorized requests
+</li>
+
+<li>
+Missing resources
+</li>
+
+<li>
+Database failures
+</li>
+
+<li>
+Server errors
+</li>
+
+<li>
+Network problems
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="errorHandling">
+
+Your Error-Handling Strategy
+
+</label>
+
+<textarea
+id="errorHandling"
+placeholder="Explain how your application handles errors and communicates them to the user or front end.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BACK-END CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+15. ✅ Back-End Development Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I selected a back-end technology/framework.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I configured my server environment.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I created the required server-side routes.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I created the required API endpoints.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I connected my application to a database.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I implemented required CRUD operations.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I implemented server-side validation.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I implemented required authentication.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I implemented appropriate authorization.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I protected sensitive credentials and secrets.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I connected the front end to the back end.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I tested my API and server routes.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I tested database operations.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I implemented error handling.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+I documented my back-end implementation.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="backend-check">
+
+<label>
+My back end is ready for final testing.
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL PROJECT NOTE
+===================================================== -->
+
+<div class="notice">
+
+<strong>
+💡 Capstone Standard:
+</strong>
+
+<p>
+
+Your back end should support the actual requirements
+of your Capstone rather than adding unnecessary
+features.
+
+</p>
+
+<p>
+
+A smaller application with properly implemented
+routes, validation, database operations, security,
+and error handling is better than a larger application
+with incomplete functionality.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Back-End Development Complete!
+</h2>
+
+<p>
+
+You have completed the back-end development
+phase of your Capstone Project.
+
+</p>
+
+<p>
+
+Your project is now ready to move into
+<strong>Testing & Debugging.</strong>
+
+</p>
+
+<a
+href="18-8-testing-debugging.html"
+class="continue-button">
+
+Continue to Testing & Debugging →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveBackend()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-6-front-end-development.html"
+class="continue-button">
+
+← Front-End Development
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeBackend()">
+
+✓ Complete 18.7
+
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.7 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.7 — Back-End Development
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='checkbox']), textarea, select"
+);
+
+const checks =
+document.querySelectorAll(
+".backend-check, .security-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+Math.round(
+(completed / total) * 100
+);
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_backend_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE BACK-END
+===================================================== */
+
+function saveBackend() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_backend_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_backend_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your Back-End Development progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD BACK-END
+===================================================== */
+
+function loadBackend() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_backend_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_backend_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   COMPLETE BACK-END
+===================================================== */
+
+function completeBackend() {
+
+const completed =
+Array.from(checks)
+.filter(
+check =>
+check.checked
+).length;
+
+
+if (
+completed !== checks.length
+) {
+
+alert(
+"Please complete every item in the Back-End Development checklist before continuing."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_18_7_backend_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   LIVE PROGRESS
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_7_backend_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadBackend();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.12 — HTML5 APIs | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.danger-box {
+    background: #fff2f2;
+    border-left: 5px solid #c94b4b;
+    padding: 22px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.api-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.api-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    background: white;
+}
+
+.api-card h3 {
+    color: #8b6b16;
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.checklist {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.api-output {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+    min-height: 60px;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+button:focus,
+a:focus,
+input:focus {
+    outline: 3px solid #d4af37;
+    outline-offset: 3px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .api-grid,
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.12 — HTML5 APIs
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+⚙️
+</div>
+
+<h1>
+2.12 — HTML5 APIs
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how HTML5 APIs allow webpages to interact with browser
+features, store information, work with multimedia, draw graphics,
+respond to user actions, and create more interactive web
+applications.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Define an API and explain what a web API does.</li>
+
+<li>Explain the difference between HTML elements and browser APIs.</li>
+
+<li>Understand the purpose of the DOM API.</li>
+
+<li>Use JavaScript to interact with HTML elements.</li>
+
+<li>Understand the Web Storage API.</li>
+
+<li>Explain localStorage and sessionStorage.</li>
+
+<li>Understand the Canvas API.</li>
+
+<li>Understand the Geolocation API and its permission requirements.</li>
+
+<li>Understand basic multimedia APIs.</li>
+
+<li>Understand browser APIs such as Fetch.</li>
+
+<li>Understand that browser API availability can vary by environment.</li>
+
+<li>Apply HTML5 APIs in a simple web project.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is an API?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>API</strong> stands for
+<strong>Application Programming Interface</strong>.
+
+</p>
+
+<p>
+
+An API provides a defined way for different pieces of software
+to communicate with each other or access functionality.
+
+</p>
+
+<p>
+
+In web development, browser APIs allow JavaScript to interact
+with browser features and webpage content.
+
+</p>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Simple way to think about it:</strong>
+
+<p>
+
+An API is like a set of instructions that tells your program
+how it can request or use a particular service or capability.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HTML5 APIs -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 2. What Are HTML5 APIs?
+</h2>
+
+<p>
+
+HTML5 introduced and standardized many capabilities that allow
+web applications to become more interactive and powerful.
+
+</p>
+
+<div class="api-grid">
+
+<div class="api-card">
+
+<h3>
+🌳 DOM API
+</h3>
+
+<p>
+Allows JavaScript to access and manipulate the document structure.
+</p>
+
+</div>
+
+
+<div class="api-card">
+
+<h3>
+💾 Web Storage API
+</h3>
+
+<p>
+Allows webpages to store data in the browser.
+</p>
+
+</div>
+
+
+<div class="api-card">
+
+<h3>
+🎨 Canvas API
+</h3>
+
+<p>
+Allows JavaScript to draw graphics inside a canvas element.
+</p>
+
+</div>
+
+
+<div class="api-card">
+
+<h3>
+📍 Geolocation API
+</h3>
+
+<p>
+Allows a website to request the user's geographic location.
+</p>
+
+</div>
+
+
+<div class="api-card">
+
+<h3>
+🎥 Media APIs
+</h3>
+
+<p>
+Provide functionality for working with audio and video.
+</p>
+
+</div>
+
+
+<div class="api-card">
+
+<h3>
+🌐 Fetch API
+</h3>
+
+<p>
+Allows JavaScript to make network requests.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DOM -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌳 3. DOM API
+</h2>
+
+<p>
+
+The <strong>Document Object Model (DOM)</strong> represents
+an HTML document as a structure that JavaScript can access
+and manipulate.
+
+</p>
+
+<div class="code-box">
+
+<div class="code-label">
+HTML
+</div>
+
+<pre>
+&lt;h1 id="welcome"&gt;
+    Welcome to the Bootcamp
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+<div class="code-box">
+
+<div class="code-label">
+JavaScript
+</div>
+
+<pre>
+const heading =
+    document.getElementById("welcome");
+
+heading.textContent =
+    "Welcome, Web Developer!";
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Result:</strong>
+
+<p>
+
+JavaScript finds the HTML element and changes its text.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- QUERY SELECTOR -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔎 4. Selecting HTML Elements
+</h2>
+
+<p>
+
+JavaScript provides several methods for selecting elements.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+document.getElementById("title");
+
+document.querySelector(".card");
+
+document.querySelector("#main");
+
+document.querySelectorAll("p");
+</pre>
+
+</div>
+
+<p>
+
+The DOM API is one of the most important browser APIs for
+front-end development.
+
+</p>
+
+</div>
+
+
+<!-- EVENT API -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖱️ 5. Events and the DOM
+</h2>
+
+<p>
+
+Browser events allow JavaScript to respond when users interact
+with a webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+const button =
+    document.getElementById("myButton");
+
+button.addEventListener(
+    "click",
+    function() {
+
+        alert("Button clicked!");
+
+    }
+);
+</pre>
+
+</div>
+
+<p>
+
+Common events include:
+
+</p>
+
+<ul>
+
+<li><code>click</code></li>
+
+<li><code>submit</code></li>
+
+<li><code>change</code></li>
+
+<li><code>input</code></li>
+
+<li><code>keydown</code></li>
+
+<li><code>mouseover</code></li>
+
+<li><code>load</code></li>
+
+</ul>
+
+</div>
+
+
+<!-- WEB STORAGE -->
+
+<div class="section">
+
+<h2 class="section-title">
+💾 6. Web Storage API
+</h2>
+
+<p>
+
+The Web Storage API provides browser-based storage through
+<code>localStorage</code> and <code>sessionStorage</code>.
+
+</p>
+
+<div class="comparison">
+
+<div class="info-box">
+
+<h3>
+localStorage
+</h3>
+
+<p>
+
+Data generally remains available after the browser is closed
+and reopened, until it is removed.
+
+</p>
+
+</div>
+
+
+<div class="info-box">
+
+<h3>
+sessionStorage
+</h3>
+
+<p>
+
+Data is associated with the current browser tab/session and
+is generally cleared when that page session ends.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOCAL STORAGE -->
+
+<div class="section">
+
+<h2 class="section-title">
+💾 7. localStorage
+</h2>
+
+<p>
+
+You can store a value using <code>setItem()</code>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+localStorage.setItem(
+    "studentName",
+    "Jordan"
+);
+</pre>
+
+</div>
+
+<p>
+
+Retrieve the value with <code>getItem()</code>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+const name =
+    localStorage.getItem(
+        "studentName"
+    );
+
+console.log(name);
+</pre>
+
+</div>
+
+<p>
+
+Remove an item using:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+localStorage.removeItem(
+    "studentName"
+);
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- SESSION -->
+
+<div class="section">
+
+<h2 class="section-title">
+🕐 8. sessionStorage
+</h2>
+
+<div class="code-box">
+
+<pre>
+sessionStorage.setItem(
+    "lesson",
+    "2.12"
+);
+
+const lesson =
+    sessionStorage.getItem(
+        "lesson"
+    );
+
+console.log(lesson);
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Web Storage stores strings. When working with objects or arrays,
+you can use <code>JSON.stringify()</code> and
+<code>JSON.parse()</code> to convert data.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- JSON -->
+
+<div class="section">
+
+<h2 class="section-title">
+🗃️ 9. Storing Objects
+</h2>
+
+<div class="code-box">
+
+<pre>
+const student = {
+
+    name: "Jordan",
+    course: "Web Development",
+    progress: 85
+
+};
+
+
+localStorage.setItem(
+    "student",
+    JSON.stringify(student)
+);
+</pre>
+
+</div>
+
+<p>
+
+To retrieve the object:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+const savedStudent =
+    JSON.parse(
+        localStorage.getItem(
+            "student"
+        )
+    );
+
+console.log(
+    savedStudent.name
+);
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- CANVAS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 10. Canvas API
+</h2>
+
+<p>
+
+The Canvas API allows JavaScript to draw graphics, shapes,
+images, and other visual content inside a
+<code>&lt;canvas&gt;</code> element.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;canvas
+    id="myCanvas"
+    width="400"
+    height="200"&gt;
+&lt;/canvas&gt;
+</pre>
+
+</div>
+
+<p>
+
+JavaScript can access the drawing context.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+const canvas =
+    document.getElementById(
+        "myCanvas"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+ctx.fillRect(
+    50,
+    50,
+    150,
+    75
+);
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- CANVAS DEMO -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖌️ 11. Canvas Demonstration
+</h2>
+
+<canvas
+id="demoCanvas"
+width="600"
+height="250"
+style="
+width:100%;
+max-width:600px;
+border:2px solid #d4af37;
+border-radius:10px;
+background:white;
+">
+</canvas>
+
+<div class="button-area">
+
+<button
+type="button"
+class="primary-button"
+onclick="drawCanvas()">
+
+Draw on Canvas
+
+</button>
+
+<button
+type="button"
+class="secondary-button"
+onclick="clearCanvas()">
+
+Clear Canvas
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GEOLOCATION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📍 12. Geolocation API
+</h2>
+
+<p>
+
+The Geolocation API can allow a website to request the user's
+geographic location.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+        console.log(
+            position.coords.latitude
+        );
+
+        console.log(
+            position.coords.longitude
+        );
+
+    }
+
+);
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Privacy and permission:</strong>
+
+<p>
+
+Browsers generally require the user to grant permission before
+a website can access their location.
+
+Never assume that a website automatically has access to a user's
+location.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GEO DEMO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📍 13. Geolocation Demonstration
+</h2>
+
+<p>
+
+Click the button below to request the browser's location
+permission.
+
+</p>
+
+<button
+type="button"
+class="primary-button"
+onclick="getLocation()">
+
+Request My Location
+
+</button>
+
+<div
+class="api-output"
+id="locationOutput">
+
+Location information will appear here.
+
+</div>
+
+</div>
+
+
+<!-- FETCH -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 14. Fetch API
+</h2>
+
+<p>
+
+The <strong>Fetch API</strong> allows JavaScript to make network
+requests and work with responses.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+fetch("https://example.com/data.json")
+
+    .then(response =>
+        response.json()
+    )
+
+    .then(data => {
+
+        console.log(data);
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+    });
+</pre>
+
+</div>
+
+<p>
+
+Fetch is commonly used to communicate with web services and
+APIs.
+
+</p>
+
+</div>
+
+
+<!-- MEDIA -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎥 15. Audio and Video APIs
+</h2>
+
+<p>
+
+HTML provides native multimedia elements such as
+<code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;video
+    id="courseVideo"
+    controls
+    width="600"&gt;
+
+    &lt;source
+        src="lesson.mp4"
+        type="video/mp4"&gt;
+
+&lt;/video&gt;
+</pre>
+
+</div>
+
+<p>
+
+JavaScript can interact with media elements.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+const video =
+    document.getElementById(
+        "courseVideo"
+    );
+
+video.play();
+
+video.pause();
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- DRAG DROP -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖱️ 16. Drag and Drop
+</h2>
+
+<p>
+
+Browser drag-and-drop functionality can allow users to move
+elements or files through a webpage interface.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;div
+    draggable="true"
+    id="dragItem"&gt;
+
+    Drag Me
+
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<p>
+
+JavaScript can listen for events such as:
+
+</p>
+
+<ul>
+
+<li><code>dragstart</code></li>
+
+<li><code>dragover</code></li>
+
+<li><code>drop</code></li>
+
+<li><code>dragend</code></li>
+
+</ul>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🕘 17. History API
+</h2>
+
+<p>
+
+The History API allows JavaScript to interact with the browser's
+session history.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+history.back();
+
+history.forward();
+
+history.go(-1);
+</pre>
+
+</div>
+
+<p>
+
+Modern web applications can also use methods such as
+<code>pushState()</code> to update browser history without
+performing a traditional full-page navigation.
+
+</p>
+
+</div>
+
+
+<!-- CLIPBOARD -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 18. Clipboard API
+</h2>
+
+<p>
+
+The Clipboard API can be used to interact with clipboard data,
+subject to browser security and permission rules.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+navigator.clipboard.writeText(
+    "Hello from the Web Development Bootcamp!"
+);
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Security reminder:</strong>
+
+<p>
+
+Clipboard access can be restricted by browsers and usually
+requires a secure context and appropriate user interaction.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NOTIFICATION -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔔 19. Browser Notifications
+</h2>
+
+<p>
+
+Some browsers provide a Notifications API that allows websites
+to request permission to display notifications.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+Notification.requestPermission()
+    .then(permission => {
+
+        if (permission === "granted") {
+
+            new Notification(
+                "Lesson Complete!"
+            );
+
+        }
+
+    });
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Users must control whether websites can send notifications.
+Browser support, security requirements, and permissions apply.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- API SECURITY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔐 20. APIs, Security & Privacy
+</h2>
+
+<p>
+
+Browser APIs can provide access to powerful capabilities.
+Developers must consider security and privacy.
+
+</p>
+
+<ul>
+
+<li>Request only the permissions you actually need.</li>
+
+<li>Explain why a permission is needed.</li>
+
+<li>Do not expose sensitive information unnecessarily.</li>
+
+<li>Validate data received from external sources.</li>
+
+<li>Use secure connections when required.</li>
+
+<li>Respect browser security restrictions.</li>
+
+</ul>
+
+<div class="danger-box">
+
+<strong>Never assume that an API gives unrestricted access.</strong>
+
+<p>
+
+Modern browsers use permissions, security policies, and other
+restrictions to protect users.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- API SUPPORT -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 21. Browser Compatibility
+</h2>
+
+<p>
+
+Not every browser or environment supports every API in exactly
+the same way.
+
+</p>
+
+<p>
+
+Professional developers should verify API support before relying
+on a browser feature.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+if ("geolocation" in navigator) {
+
+    console.log(
+        "Geolocation is available."
+    );
+
+} else {
+
+    console.log(
+        "Geolocation is not available."
+    );
+
+}
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 22. Hands-On HTML5 API Lab
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build an Interactive Student Dashboard
+</h3>
+
+<p>
+
+Create a webpage that uses browser APIs to provide a simple
+interactive student dashboard.
+
+</p>
+
+<p>Your project should include:</p>
+
+<ul>
+
+<li>A student name field.</li>
+
+<li>A button that saves the student name to localStorage.</li>
+
+<li>A button that retrieves the saved name.</li>
+
+<li>A progress value stored in localStorage.</li>
+
+<li>A canvas demonstration.</li>
+
+<li>A button that requests geolocation permission.</li>
+
+<li>A DOM-based status message.</li>
+
+<li>Accessible labels and buttons.</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter Code
+</div>
+
+<pre>
+&lt;label for="studentName"&gt;
+    Student Name
+&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="studentName"
+    name="studentName"&gt;
+
+
+&lt;button
+    type="button"
+    onclick="saveStudent()"&gt;
+
+    Save Student
+
+&lt;/button&gt;
+
+
+&lt;button
+    type="button"
+    onclick="loadStudent()"&gt;
+
+    Load Student
+
+&lt;/button&gt;
+
+
+&lt;p id="studentMessage"&gt;
+
+    Student information will appear here.
+
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- IMPORTANT CONCEPTS -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 23. Key Concepts to Remember
+</h2>
+
+<div class="api-grid">
+
+<div class="api-card">
+
+<h3>
+DOM
+</h3>
+
+<p>
+Used to access and manipulate webpage content and structure.
+</p>
+
+</div>
+
+<div class="api-card">
+
+<h3>
+localStorage
+</h3>
+
+<p>
+Stores browser data that can persist between sessions.
+</p>
+
+</div>
+
+<div class="api-card">
+
+<h3>
+sessionStorage
+</h3>
+
+<p>
+Stores data for the current page session.
+</p>
+
+</div>
+
+<div class="api-card">
+
+<h3>
+Canvas
+</h3>
+
+<p>
+Provides a drawing surface controlled through JavaScript.
+</p>
+
+</div>
+
+<div class="api-card">
+
+<h3>
+Geolocation
+</h3>
+
+<p>
+Allows a site to request geographic location with permission.
+</p>
+
+</div>
+
+<div class="api-card">
+
+<h3>
+Fetch
+</h3>
+
+<p>
+Makes network requests from JavaScript.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- KNOWLEDGE CHECK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 24. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. What does API stand for?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. Application Programming Interface
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. Application Page Internet
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. Automated Programming Internet
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. Advanced Page Interface
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. What does the DOM represent?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. A database server
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. The structure of an HTML document
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. A CSS framework
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. An image format
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which API is commonly used to store data in a browser?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. Web Storage API
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. Canvas API
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. History API
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. Media API
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which method stores a value in localStorage?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. save()
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. store()
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. setItem()
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. addItem()
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which method retrieves a value from localStorage?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. getItem()
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. retrieve()
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. loadItem()
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. read()
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. Which API is used to draw graphics using JavaScript?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. Canvas API
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. Storage API
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. History API
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. Clipboard API
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. What does the Geolocation API allow a website to request?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. The user's password
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. The user's geographic location
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. The user's browser history
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. The user's private files
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. Which API is commonly used to make network requests?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. Canvas API
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. Fetch API
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. History API
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. Storage API
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. Why should developers consider browser compatibility?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. Every browser supports every API identically
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. Some APIs may not be supported or behave identically in every environment
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. APIs only work on mobile phones
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. Browser compatibility only matters for CSS
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. Why should developers request permission before using sensitive browser features?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. To protect user privacy and security
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. To make HTML shorter
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. To disable JavaScript
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. To remove the DOM
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 25. Lesson Completion Checklist
+</h2>
+
+<div class="checklist">
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand what an API is.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand the DOM API.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand localStorage.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand sessionStorage.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand the Canvas API.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand the Geolocation API.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand the Fetch API.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I completed the HTML5 API lab.
+</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎓 26. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+HTML5 APIs and browser APIs allow web developers to create
+interactive applications that go beyond static HTML documents.
+
+</p>
+
+<p>
+
+The DOM allows JavaScript to manipulate webpages. Web Storage
+allows browser-based data storage. Canvas provides drawing
+capabilities. Geolocation can request geographic information.
+Fetch allows network requests, while other browser APIs provide
+additional capabilities.
+
+</p>
+
+<p>
+
+Professional developers should always consider accessibility,
+security, privacy, permissions, and browser compatibility when
+using APIs.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+
+<strong>
+2.12 — HTML5 APIs
+</strong>.
+
+</p>
+
+<p>
+You are ready to continue to the next lesson.
+</p>
+
+<a
+href="2-13-html5-multimedia.html"
+class="continue-button">
+
+Continue to Next Lesson →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-11-html-accessibility.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.12 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.12 — HTML5 APIs
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   LESSON PROGRESS
+===================================== */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================
+   UPDATE PROGRESS
+===================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_12_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================
+   SAVE PROGRESS
+===================================== */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.12 progress has been saved."
+);
+
+}
+
+
+/* =====================================
+   LOAD PROGRESS
+===================================== */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_12_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =====================================
+   CANVAS DEMO
+===================================== */
+
+function drawCanvas() {
+
+const canvas =
+document.getElementById(
+"demoCanvas"
+);
+
+const ctx =
+canvas.getContext("2d");
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+ctx.font =
+"28px Arial";
+
+ctx.fillText(
+"HTML5 APIs",
+50,
+70
+);
+
+
+ctx.fillRect(
+50,
+100,
+180,
+70
+);
+
+
+ctx.beginPath();
+
+ctx.arc(
+380,
+135,
+55,
+0,
+Math.PI * 2
+);
+
+ctx.stroke();
+
+
+ctx.font =
+"18px Arial";
+
+ctx.fillText(
+"Canvas API",
+320,
+220
+);
+
+}
+
+
+/* =====================================
+   CLEAR CANVAS
+===================================== */
+
+function clearCanvas() {
+
+const canvas =
+document.getElementById(
+"demoCanvas"
+);
+
+const ctx =
+canvas.getContext("2d");
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
+
+
+/* =====================================
+   GEOLOCATION
+===================================== */
+
+function getLocation() {
+
+const output =
+document.getElementById(
+"locationOutput"
+);
+
+
+if (
+!"geolocation" in navigator
+) {
+
+output.innerHTML =
+"Geolocation is not supported by this browser.";
+
+return;
+
+}
+
+
+output.innerHTML =
+"Requesting location permission...";
+
+
+navigator.geolocation.getCurrentPosition(
+
+function(position) {
+
+const latitude =
+position.coords.latitude;
+
+const longitude =
+position.coords.longitude;
+
+
+output.innerHTML =
+
+"<strong>Location received.</strong><br><br>" +
+
+"Latitude: " +
+latitude +
+"<br>" +
+
+"Longitude: " +
+longitude;
+
+},
+
+function(error) {
+
+output.innerHTML =
+
+"Unable to retrieve your location. " +
+"Permission may have been denied or the location may be unavailable.";
+
+}
+
+);
+
+}
+
+
+/* =====================================
+   STUDENT STORAGE DEMO
+===================================== */
+
+function saveStudent() {
+
+const input =
+document.getElementById(
+"studentName"
+);
+
+const message =
+document.getElementById(
+"studentMessage"
+);
+
+const name =
+input.value.trim();
+
+
+if (!name) {
+
+message.textContent =
+"Please enter a student name.";
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_student_name",
+name
+);
+
+
+message.textContent =
+"Student name saved successfully.";
+
+}
+
+
+function loadStudent() {
+
+const message =
+document.getElementById(
+"studentMessage"
+);
+
+const savedName =
+localStorage.getItem(
+"ghs_student_name"
+);
+
+
+if (savedName) {
+
+message.textContent =
+"Saved student: " +
+savedName;
+
+} else {
+
+message.textContent =
+"No student information has been saved yet.";
+
+}
+
+}
+
+
+/* =====================================
+   KNOWLEDGE CHECK
+===================================== */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "A",
+q2: "B",
+q3: "A",
+q4: "C",
+q5: "A",
+q6: "A",
+q7: "B",
+q8: "B",
+q9: "B",
+q10: "A"
+
+};
+
+
+let score = 0;
+let answered = 0;
+
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML5 APIs.</p>";
+
+localStorage.setItem(
+"ghs_2_12_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =====================================
+   COMPLETE LESSON
+===================================== */
+
+function completeLesson() {
+
+let incomplete = [];
+
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_12_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================
+   CHECKBOX EVENTS
+===================================== */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================
+   RESTORE COMPLETION
+===================================== */
+
+if (
+localStorage.getItem(
+"ghs_2_12_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================
+   INITIALIZE
+===================================== */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

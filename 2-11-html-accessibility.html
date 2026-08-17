@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.11 — HTML Accessibility | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.accessibility-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.accessibility-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    background: white;
+}
+
+.accessibility-card h3 {
+    color: #8b6b16;
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.bad-example {
+    background: #fff2f2;
+    border-left: 5px solid #c94b4b;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.good-example {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.checklist {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+button:focus,
+a:focus,
+input:focus {
+    outline: 3px solid #d4af37;
+    outline-offset: 3px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .accessibility-grid,
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.11 — HTML Accessibility
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+♿
+</div>
+
+<h1>
+2.11 — HTML Accessibility
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to create HTML webpages that are usable and
+understandable by people with disabilities, including users
+who rely on keyboards, screen readers, magnification,
+voice control, and other assistive technologies.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Define web accessibility.</li>
+
+<li>Explain why accessibility is important.</li>
+
+<li>Understand the role of semantic HTML in accessibility.</li>
+
+<li>Write useful alternative text for images.</li>
+
+<li>Associate labels with form controls.</li>
+
+<li>Use headings to create a logical page structure.</li>
+
+<li>Create keyboard-friendly webpages.</li>
+
+<li>Understand the purpose of ARIA.</li>
+
+<li>Use accessible links and buttons.</li>
+
+<li>Understand basic color and contrast considerations.</li>
+
+<li>Use accessible tables and forms.</li>
+
+<li>Apply accessibility principles to a webpage.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRO -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is Web Accessibility?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Web accessibility</strong> means designing and developing
+websites and applications so that people with disabilities can
+use them effectively.
+
+</p>
+
+<p>
+
+Accessibility can benefit people with:
+
+</p>
+
+<ul>
+
+<li>Visual disabilities</li>
+
+<li>Hearing disabilities</li>
+
+<li>Motor disabilities</li>
+
+<li>Cognitive disabilities</li>
+
+<li>Speech disabilities</li>
+
+</ul>
+
+<p>
+
+Accessibility also benefits users in temporary or situational
+circumstances, such as someone using a phone in bright sunlight
+or someone who cannot use a mouse.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- WHY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 2. Why Accessibility Matters
+</h2>
+
+<div class="accessibility-grid">
+
+<div class="accessibility-card">
+
+<h3>
+♿ Inclusion
+</h3>
+
+<p>
+
+Accessible websites help more people participate in digital
+experiences.
+
+</p>
+
+</div>
+
+
+<div class="accessibility-card">
+
+<h3>
+⌨️ Keyboard Access
+</h3>
+
+<p>
+
+Some users navigate websites without a mouse.
+
+</p>
+
+</div>
+
+
+<div class="accessibility-card">
+
+<h3>
+🔊 Screen Readers
+</h3>
+
+<p>
+
+Screen readers convert webpage content into speech or
+other forms of output.
+
+</p>
+
+</div>
+
+
+<div class="accessibility-card">
+
+<h3>
+📱 Better Usability
+</h3>
+
+<p>
+
+Many accessibility practices improve usability for everyone.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SEMANTIC -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 3. Semantic HTML and Accessibility
+</h2>
+
+<p>
+
+One of the easiest ways to improve accessibility is to use
+HTML elements according to their intended meaning.
+
+</p>
+
+<div class="good-example">
+
+<strong>Good:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;nav&gt;
+
+    &lt;a href="courses.html"&gt;
+        Courses
+    &lt;/a&gt;
+
+&lt;/nav&gt;
+</pre>
+
+</div>
+
+</div>
+
+<div class="bad-example">
+
+<strong>Avoid using generic elements when a semantic element
+already describes the purpose:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;div onclick="openCourses()"&gt;
+    Courses
+&lt;/div&gt;
+</pre>
+
+</div>
+
+</div>
+
+<p>
+
+Semantic elements provide meaningful information to browsers
+and assistive technologies.
+
+</p>
+
+</div>
+
+
+<!-- ALT -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖼️ 4. Alternative Text
+</h2>
+
+<p>
+
+Images should have appropriate <code>alt</code> text when the
+image provides meaningful information.
+
+</p>
+
+<div class="good-example">
+
+<strong>Good example:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="student-coding.jpg"
+    alt="Student writing HTML code on a laptop"&gt;
+</pre>
+
+</div>
+
+</div>
+
+<div class="bad-example">
+
+<strong>Weak example:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="student-coding.jpg"
+    alt="image"&gt;
+</pre>
+
+</div>
+
+</div>
+
+<p>
+
+The purpose of alternative text is to communicate the important
+information conveyed by the image.
+
+</p>
+
+</div>
+
+
+<!-- DECORATIVE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 5. Decorative Images
+</h2>
+
+<p>
+
+If an image is purely decorative and provides no meaningful
+information, an empty <code>alt</code> attribute can be used.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="decorative-line.png"
+    alt=""&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+Do not write "decorative image" as the alt text for every
+decorative image. If the image adds no useful information,
+an empty <code>alt=""</code> allows assistive technology to
+skip it.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HEADINGS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 6. Accessible Headings
+</h2>
+
+<p>
+
+Headings provide structure and help users understand the
+organization of a webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Web Development Bootcamp
+&lt;/h1&gt;
+
+&lt;h2&gt;
+    HTML Fundamentals
+&lt;/h2&gt;
+
+&lt;h3&gt;
+    HTML Accessibility
+&lt;/h3&gt;
+
+&lt;h2&gt;
+    CSS Fundamentals
+&lt;/h2&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Do not choose headings only because of their visual size.</strong>
+
+<p>
+
+Heading levels should represent the structure and hierarchy
+of the content.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- LINKS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔗 7. Accessible Links
+</h2>
+
+<p>
+
+Link text should communicate where the link goes or what it does.
+
+</p>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Avoid
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="courses.html"&gt;
+    Click here
+&lt;/a&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+✅ Better
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="courses.html"&gt;
+    View Web Development Courses
+&lt;/a&gt;
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔘 8. Accessible Buttons
+</h2>
+
+<p>
+
+Use a real <code>&lt;button&gt;</code> element when the user
+performs an action on the current page.
+
+</p>
+
+<div class="good-example">
+
+<div class="code-box">
+
+<pre>
+&lt;button type="button"&gt;
+    Submit Quiz
+&lt;/button&gt;
+</pre>
+
+</div>
+
+</div>
+
+<p>
+
+Use an anchor when the user is navigating to another resource
+or webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="course-completion.html"&gt;
+    View Course Completion
+&lt;/a&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FORMS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 9. Accessible Forms
+</h2>
+
+<p>
+
+Form controls should have clear labels.
+
+</p>
+
+<div class="bad-example">
+
+<strong>Less accessible:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="text"
+    placeholder="Enter your name"&gt;
+</pre>
+
+</div>
+
+</div>
+
+<div class="good-example">
+
+<strong>Better:</strong>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="studentName"&gt;
+    Student Name
+&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="studentName"
+    name="studentName"&gt;
+</pre>
+
+</div>
+
+</div>
+
+<p>
+
+The <code>for</code> attribute on the label should correspond
+to the input's <code>id</code>.
+
+</p>
+
+</div>
+
+
+<!-- REQUIRED -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 10. Required Form Fields
+</h2>
+
+<p>
+
+When a field is required, HTML can communicate this using
+the <code>required</code> attribute.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;label for="email"&gt;
+    Email Address
+&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="email"
+    name="email"
+    required&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- FIELDSET -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 11. Fieldsets and Legends
+</h2>
+
+<p>
+
+Use <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>
+to group related form controls.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;fieldset&gt;
+
+    &lt;legend&gt;
+        Preferred Contact Method
+    &lt;/legend&gt;
+
+    &lt;label&gt;
+
+        &lt;input
+            type="radio"
+            name="contact"
+            value="email"&gt;
+
+        Email
+
+    &lt;/label&gt;
+
+
+    &lt;label&gt;
+
+        &lt;input
+            type="radio"
+            name="contact"
+            value="phone"&gt;
+
+        Phone
+
+    &lt;/label&gt;
+
+&lt;/fieldset&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- KEYBOARD -->
+
+<div class="section">
+
+<h2 class="section-title">
+⌨️ 12. Keyboard Accessibility
+</h2>
+
+<p>
+
+A webpage should be usable by people who navigate with a
+keyboard rather than a mouse.
+
+</p>
+
+<p>
+
+Common keyboard controls include:
+
+</p>
+
+<ul>
+
+<li><strong>Tab</strong> — Move between interactive elements.</li>
+
+<li><strong>Shift + Tab</strong> — Move backward.</li>
+
+<li><strong>Enter</strong> — Activate links and some controls.</li>
+
+<li><strong>Space</strong> — Activate buttons and certain controls.</li>
+
+</ul>
+
+<div class="success-box">
+
+<strong>Good Practice:</strong>
+
+<p>
+
+Use native HTML interactive elements such as
+<code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> whenever
+possible.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- FOCUS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎯 13. Focus Indicators
+</h2>
+
+<p>
+
+Keyboard users need to know which element currently has focus.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+button:focus,
+a:focus,
+input:focus {
+
+    outline: 3px solid #d4af37;
+    outline-offset: 3px;
+
+}
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Never remove focus indicators without providing
+another visible focus style.</strong>
+
+</div>
+
+</div>
+
+
+<!-- COLOR -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 14. Color and Contrast
+</h2>
+
+<p>
+
+Text should have sufficient contrast against its background
+so that it can be read by users with low vision or color
+vision deficiencies.
+
+</p>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Poor Contrast
+</h3>
+
+<div style="
+background:#eeeeee;
+color:#cccccc;
+padding:20px;
+border-radius:8px;
+">
+
+Difficult to read text
+
+</div>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+✅ Better Contrast
+</h3>
+
+<div style="
+background:#111111;
+color:white;
+padding:20px;
+border-radius:8px;
+">
+
+Easy to read text
+
+</div>
+
+</div>
+
+</div>
+
+<p>
+
+Do not rely on color alone to communicate important
+information.
+
+</p>
+
+</div>
+
+
+<!-- ARIA -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧩 15. Introduction to ARIA
+</h2>
+
+<p>
+
+<strong>ARIA</strong> stands for
+<strong>Accessible Rich Internet Applications</strong>.
+
+ARIA provides additional information to assistive technologies
+when native HTML does not adequately communicate the behavior
+or state of an interface.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;button
+    aria-label="Close menu"&gt;
+
+    ×
+
+&lt;/button&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+ARIA should not replace proper semantic HTML when an appropriate
+native HTML element already exists.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ARIA LABEL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 16. aria-label
+</h2>
+
+<p>
+
+The <code>aria-label</code> attribute can provide an accessible
+name when visible text is unavailable or insufficient.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;button
+    aria-label="Search"&gt;
+
+    🔍
+
+&lt;/button&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TABLES -->
+
+<div class="section">
+
+<h2 class="section-title">
+📊 17. Accessible Tables
+</h2>
+
+<p>
+
+Tables should have appropriate headers so users can understand
+the relationship between data cells and their headings.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;table&gt;
+
+    &lt;caption&gt;
+        Course Grades
+    &lt;/caption&gt;
+
+    &lt;thead&gt;
+
+        &lt;tr&gt;
+
+            &lt;th scope="col"&gt;
+                Student
+            &lt;/th&gt;
+
+            &lt;th scope="col"&gt;
+                Grade
+            &lt;/th&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/thead&gt;
+
+
+    &lt;tbody&gt;
+
+        &lt;tr&gt;
+
+            &lt;td&gt;
+                Student 1
+            &lt;/td&gt;
+
+            &lt;td&gt;
+                92%
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+    &lt;/tbody&gt;
+
+&lt;/table&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- LANGUAGE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 18. Document Language
+</h2>
+
+<p>
+
+The <code>lang</code> attribute identifies the primary language
+of a webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;html lang="en"&gt;
+</pre>
+
+</div>
+
+<p>
+
+This information helps browsers and assistive technologies
+interpret the content correctly.
+
+</p>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 19. Page Titles
+</h2>
+
+<p>
+
+Every webpage should have a meaningful document title.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;title&gt;
+    Web Development Bootcamp
+&lt;/title&gt;
+</pre>
+
+</div>
+
+<p>
+
+A useful title helps users identify the page when navigating
+browser tabs, history, bookmarks, and assistive technology.
+
+</p>
+
+</div>
+
+
+<!-- LANDMARKS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🗺️ 20. Accessibility Landmarks
+</h2>
+
+<p>
+
+Semantic elements create useful structural landmarks.
+
+</p>
+
+<div class="accessibility-grid">
+
+<div class="accessibility-card">
+
+<h3>
+&lt;header&gt;
+</h3>
+
+<p>
+Introductory content.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+&lt;nav&gt;
+</h3>
+
+<p>
+Navigation links.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+&lt;main&gt;
+</h3>
+
+<p>
+Primary page content.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+&lt;aside&gt;
+</h3>
+
+<p>
+Related secondary content.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+&lt;footer&gt;
+</h3>
+
+<p>
+Footer information.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+&lt;section&gt;
+</h3>
+
+<p>
+Thematic content group.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SKIP LINK -->
+
+<div class="section">
+
+<h2 class="section-title">
+⏭️ 21. Skip Navigation Links
+</h2>
+
+<p>
+
+A skip link allows keyboard users to bypass repetitive
+navigation and move directly to the main content.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="#main-content"
+   class="skip-link"&gt;
+
+    Skip to main content
+
+&lt;/a&gt;
+
+
+&lt;main id="main-content"&gt;
+
+    ...
+
+&lt;/main&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Why is this useful?</strong>
+
+<p>
+
+Keyboard users should not have to repeatedly tab through
+the same navigation links every time they visit a page.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETE EXAMPLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 22. Complete Accessible HTML Example
+</h2>
+
+<div class="code-box">
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width,
+        initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        Web Development Course
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;a href="#main-content"&gt;
+        Skip to main content
+    &lt;/a&gt;
+
+
+    &lt;header&gt;
+
+        &lt;h1&gt;
+            Web Development Bootcamp
+        &lt;/h1&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;nav aria-label="Main navigation"&gt;
+
+        &lt;a href="index.html"&gt;
+            Home
+        &lt;/a&gt;
+
+        &lt;a href="courses.html"&gt;
+            Courses
+        &lt;/a&gt;
+
+        &lt;a href="contact.html"&gt;
+            Contact
+        &lt;/a&gt;
+
+    &lt;/nav&gt;
+
+
+    &lt;main id="main-content"&gt;
+
+
+        &lt;section&gt;
+
+            &lt;h2&gt;
+                HTML Accessibility
+            &lt;/h2&gt;
+
+            &lt;p&gt;
+                Learn how to create accessible webpages.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+
+        &lt;section&gt;
+
+            &lt;h2&gt;
+                Contact Instructor
+            &lt;/h2&gt;
+
+
+            &lt;form&gt;
+
+                &lt;label for="name"&gt;
+                    Name
+                &lt;/label&gt;
+
+                &lt;input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required&gt;
+
+
+                &lt;label for="email"&gt;
+                    Email
+                &lt;/label&gt;
+
+                &lt;input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required&gt;
+
+
+                &lt;button type="submit"&gt;
+                    Submit Question
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+        &lt;/section&gt;
+
+
+    &lt;/main&gt;
+
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Golden Healing Solutions
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- TESTING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧪 23. Accessibility Testing
+</h2>
+
+<p>
+
+Accessibility should be tested during development rather than
+only at the end of a project.
+
+</p>
+
+<ul>
+
+<li>Navigate the page using only the keyboard.</li>
+
+<li>Check that interactive elements receive visible focus.</li>
+
+<li>Verify that images have appropriate alternative text.</li>
+
+<li>Check heading structure.</li>
+
+<li>Check form labels.</li>
+
+<li>Check color contrast.</li>
+
+<li>Test with browser accessibility tools.</li>
+
+<li>Test with assistive technologies when possible.</li>
+
+</ul>
+
+<div class="success-box">
+
+<strong>Developer Mindset:</strong>
+
+<p>
+
+Accessibility should be considered throughout the development
+process.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 24. Hands-On Accessibility Lab
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Accessibility Improvement Challenge
+</h3>
+
+<p>
+
+Create an HTML page for a fictional Web Development Bootcamp.
+
+Your page must include:
+
+</p>
+
+<ul>
+
+<li>A meaningful <code>&lt;title&gt;</code></li>
+
+<li><code>lang="en"</code> on the HTML element</li>
+
+<li>A semantic header</li>
+
+<li>A semantic navigation area</li>
+
+<li>A main content area</li>
+
+<li>Proper heading hierarchy</li>
+
+<li>An accessible image with useful alt text</li>
+
+<li>An accessible form</li>
+
+<li>Labels associated with form controls</li>
+
+<li>A required email field</li>
+
+<li>An accessible button</li>
+
+<li>A footer</li>
+
+<li>Keyboard-friendly navigation</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter Code
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;title&gt;
+        Accessibility Practice
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;header&gt;
+
+        &lt;!-- Add website heading --&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;nav aria-label="Main navigation"&gt;
+
+        &lt;!-- Add navigation links --&gt;
+
+    &lt;/nav&gt;
+
+
+    &lt;main id="main-content"&gt;
+
+
+        &lt;section&gt;
+
+            &lt;!-- Add accessible content --&gt;
+
+        &lt;/section&gt;
+
+
+        &lt;section&gt;
+
+            &lt;h2&gt;
+                Contact Us
+            &lt;/h2&gt;
+
+
+            &lt;form&gt;
+
+                &lt;!-- Add accessible form fields --&gt;
+
+            &lt;/form&gt;
+
+        &lt;/section&gt;
+
+
+    &lt;/main&gt;
+
+
+    &lt;footer&gt;
+
+        &lt;!-- Add footer --&gt;
+
+    &lt;/footer&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- KNOWLEDGE CHECK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 25. Knowledge Check
+</h2>
+
+
+<!-- Q1 -->
+
+<div class="quiz-question">
+
+<h3>
+1. What is web accessibility?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. Making a website available only on mobile devices
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. Designing websites so people with disabilities can use them effectively
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. Adding more animations to a website
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. Making every webpage use JavaScript
+</label>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="quiz-question">
+
+<h3>
+2. Which attribute provides alternative text for an image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. title
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. description
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. alt
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. text
+</label>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="quiz-question">
+
+<h3>
+3. Which element should normally be used for a clickable action?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. &lt;button&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. &lt;div&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. &lt;span&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. &lt;p&gt;
+</label>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="quiz-question">
+
+<h3>
+4. What is the purpose of a form label?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. To change the input's color
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. To identify what a form control is for
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. To submit the form automatically
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. To hide the input
+</label>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="quiz-question">
+
+<h3>
+5. Which attribute connects a label to an input?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. connect
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. link
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. for
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. target
+</label>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="quiz-question">
+
+<h3>
+6. What does ARIA stand for?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. Accessible Rich Internet Applications
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. Advanced Responsive Internet Architecture
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. Automated Responsive Interface Applications
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. Accessible Responsive Interface Architecture
+</label>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="quiz-question">
+
+<h3>
+7. Why are visible focus indicators important?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. They make the page load faster
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. They show keyboard users which element currently has focus
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. They automatically translate the page
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. They replace HTML headings
+</label>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="quiz-question">
+
+<h3>
+8. Which keyboard key commonly moves focus to the next interactive element?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. Escape
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. Tab
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. Caps Lock
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. Shift
+</label>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="quiz-question">
+
+<h3>
+9. What should you do with a purely decorative image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. Give it the alt text "picture"
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. Give it a long unrelated description
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. Use an empty alt attribute when appropriate
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. Remove all images from the page
+</label>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="quiz-question">
+
+<h3>
+10. Why is semantic HTML important for accessibility?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. It gives HTML meaning and structure that assistive technologies can understand
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. It automatically makes every website colorful
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. It eliminates the need for CSS
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. It prevents users from using keyboards
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 26. Lesson Completion Checklist
+</h2>
+
+<div class="checklist">
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand what web accessibility means.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand why accessibility is important.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I can write useful alt text.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I can create accessible forms.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand keyboard accessibility.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I understand the basic purpose of ARIA.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I completed the accessibility lab.
+</label>
+</div>
+
+<div class="check-item">
+<label>
+<input type="checkbox" class="completion-check">
+I am ready for the next lesson.
+</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎓 27. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+Accessibility is a fundamental part of professional web
+development.
+
+</p>
+
+<p>
+
+Accessible HTML uses meaningful structure, descriptive
+alternative text, properly labeled forms, keyboard-friendly
+controls, logical headings, appropriate color contrast, and
+other techniques to make websites usable by a wider audience.
+
+</p>
+
+<p>
+
+The goal is not simply to make a website technically
+accessible. The goal is to create an experience that people
+with different abilities can successfully navigate and use.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+
+<strong>
+2.11 — HTML Accessibility
+</strong>.
+
+</p>
+
+<p>
+
+You are ready to continue to the next lesson.
+
+</p>
+
+<a
+href="3-1-introduction-to-css.html"
+class="continue-button">
+
+Continue to Module 3 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-10-semantic-html.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.11 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.11 — HTML Accessibility
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_11_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.11 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_11_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   KNOWLEDGE CHECK
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "C",
+q3: "A",
+q4: "B",
+q5: "C",
+q6: "A",
+q7: "B",
+q8: "B",
+q9: "C",
+q10: "A"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML accessibility.</p>";
+
+localStorage.setItem(
+"ghs_2_11_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_11_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_11_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

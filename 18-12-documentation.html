@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>18.12 — Documentation | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff2f2;
+    border-left: 5px solid #b33;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.security-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,.15);
+}
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+.doc-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.doc-number {
+    display: inline-block;
+    background: #111;
+    color: #d4af37;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.file-box {
+    background: #111;
+    color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Courier New", monospace;
+    overflow-x: auto;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.12 — Documentation
+</span>
+
+</div>
+
+
+<div class="title-section">
+
+<div class="module-icon">
+📚
+</div>
+
+<h1>
+18.12 — Documentation
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Create professional documentation that explains your
+Capstone project, how it works, how it was built,
+how it is deployed, and how another developer or user
+could understand and work with it.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>Create professional technical documentation.</li>
+
+<li>Write a clear project overview.</li>
+
+<li>Document technologies and tools used.</li>
+
+<li>Explain project installation and setup.</li>
+
+<li>Document application features.</li>
+
+<li>Document database structure.</li>
+
+<li>Document authentication functionality.</li>
+
+<li>Document testing procedures and results.</li>
+
+<li>Document deployment information.</li>
+
+<li>Create troubleshooting instructions.</li>
+
+<li>Document known limitations and future improvements.</li>
+
+<li>Prepare a professional Capstone documentation package.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. Project Documentation Overview
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Documentation explains how your application works
+and provides information that allows another person
+to understand, use, maintain, or continue developing
+your project.
+
+</p>
+
+<p>
+
+For your Capstone, your documentation should tell
+the complete story of your project from planning
+through deployment.
+
+</p>
+
+</div>
+
+<div class="success-box">
+
+<strong>
+Professional Developer Standard
+</strong>
+
+<p>
+
+A completed application is stronger when another
+developer can understand the project without needing
+you to explain every part of it verbally.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT INFORMATION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 2. Project Information
+</h2>
+
+
+<div class="form-group">
+
+<label for="projectName">
+Project Name
+</label>
+
+<input
+type="text"
+id="projectName"
+placeholder="Enter your Capstone project name.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="studentName">
+Student Name
+</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter your name.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="projectVersion">
+Project Version
+</label>
+
+<input
+type="text"
+id="projectVersion"
+placeholder="Example: Version 1.0">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="documentationDate">
+Documentation Date
+</label>
+
+<input
+type="date"
+id="documentationDate">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="projectDescription">
+Project Description
+</label>
+
+<textarea
+id="projectDescription"
+placeholder="Describe what your application does, who it is designed for, and the problem it solves.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- TECHNOLOGIES -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 3. Technologies & Tools
+</h2>
+
+<div class="info-box">
+
+<p>
+Document every major technology used to create your application.
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="frontendTech">
+Front-End Technologies
+</label>
+
+<textarea
+id="frontendTech"
+placeholder="Example:
+HTML5
+CSS3
+JavaScript
+React
+Bootstrap">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="backendTech">
+Back-End Technologies
+</label>
+
+<textarea
+id="backendTech"
+placeholder="Example:
+Node.js
+Express
+Python
+Django
+PHP">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="databaseTech">
+Database Technology
+</label>
+
+<textarea
+id="databaseTech"
+placeholder="Example:
+MySQL
+PostgreSQL
+MongoDB
+Firebase">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="hostingTech">
+Hosting / Deployment Technology
+</label>
+
+<textarea
+id="hostingTech"
+placeholder="Enter the platform used to deploy your application.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="developmentTools">
+Development Tools
+</label>
+
+<textarea
+id="developmentTools"
+placeholder="Example:
+Visual Studio Code
+Git
+GitHub
+Chrome DevTools">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- FEATURES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 4. Application Features
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Document the major functionality available in your
+Capstone application.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="features">
+
+Major Application Features
+
+</label>
+
+<textarea
+id="features"
+placeholder="List and explain the major features of your application.
+
+Example:
+1. User registration
+2. User login
+3. Dashboard
+4. Search
+5. Database records
+6. Contact form
+7. Administrative functions">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Major features are documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+User-facing functionality is explained.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Important business rules are documented.
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SETUP -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚙️ 5. Installation & Setup
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Write instructions that explain how another developer
+could set up the project in a development environment.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="requirements">
+
+System Requirements
+
+</label>
+
+<textarea
+id="requirements"
+placeholder="List the software, versions, tools, accounts, or other requirements needed to run your project.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="installationSteps">
+
+Installation Steps
+
+</label>
+
+<textarea
+id="installationSteps"
+placeholder="Write step-by-step instructions for installing and running your application.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="configuration">
+
+Configuration Instructions
+
+</label>
+
+<textarea
+id="configuration"
+placeholder="Explain configuration requirements such as environment variables, configuration files, or service connections.
+
+Do NOT include actual passwords, API keys, or private secrets.">
+</textarea>
+
+</div>
+
+
+<div class="file-box">
+
+Example Documentation Structure:
+
+README.md
+
+# Project Name
+
+## Project Description
+
+## Features
+
+## Technologies
+
+## Installation
+
+## Configuration
+
+## Database
+
+## Authentication
+
+## Testing
+
+## Deployment
+
+## Troubleshooting
+
+## Known Issues
+
+## Future Improvements
+
+</div>
+
+</div>
+
+
+<!-- FILE STRUCTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📁 6. Project File Structure
+</h2>
+
+
+<div class="form-group">
+
+<label for="fileStructure">
+
+Project File Structure
+
+</label>
+
+<textarea
+id="fileStructure"
+placeholder="Document the important folders and files in your project.
+
+Example:
+
+project/
+│
+├── index.html
+├── css/
+├── js/
+├── images/
+├── components/
+├── server/
+├── database/
+└── README.md">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="fileDescriptions">
+
+File & Folder Descriptions
+
+</label>
+
+<textarea
+id="fileDescriptions"
+placeholder="Explain what the important folders and files are responsible for.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- DATABASE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🗄️ 7. Database Documentation
+</h2>
+
+
+<div class="form-group">
+
+<label for="databaseOverview">
+
+Database Overview
+
+</label>
+
+<textarea
+id="databaseOverview"
+placeholder="Explain what database technology your application uses and why.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="databaseTables">
+
+Database Tables / Collections
+
+</label>
+
+<textarea
+id="databaseTables"
+placeholder="List the important tables or collections and explain what information each stores.
+
+Do NOT include real passwords or sensitive personal information.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="databaseRelationships">
+
+Database Relationships
+
+</label>
+
+<textarea
+id="databaseRelationships"
+placeholder="Explain important relationships between tables or collections.">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database technology is documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Important tables or collections are documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Important database relationships are documented.
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- AUTHENTICATION -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔐 8. Authentication Documentation
+</h2>
+
+
+<div class="form-group">
+
+<label for="authenticationOverview">
+
+Authentication Overview
+
+</label>
+
+<textarea
+id="authenticationOverview"
+placeholder="Explain how users authenticate with your application.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="authenticationFlow">
+
+Authentication Flow
+
+</label>
+
+<textarea
+id="authenticationFlow"
+placeholder="Describe the process from registration/login through authentication and access to protected features.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="authorization">
+
+Authorization / User Roles
+
+</label>
+
+<textarea
+id="authorization"
+placeholder="Document any user roles or permissions used by your application.">
+</textarea>
+
+</div>
+
+
+<div class="security-box">
+
+<strong>
+Security Reminder
+</strong>
+
+<p>
+
+Never place real passwords, authentication tokens,
+API keys, private keys, or other secrets into your
+documentation.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TESTING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧪 9. Testing Documentation
+</h2>
+
+
+<div class="form-group">
+
+<label for="testingMethods">
+
+Testing Methods
+
+</label>
+
+<textarea
+id="testingMethods"
+placeholder="Describe the testing methods used during your Capstone.
+
+Example:
+Functional testing
+Usability testing
+Responsive testing
+Browser testing
+Authentication testing
+Database testing">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="testingResults">
+
+Testing Results
+
+</label>
+
+<textarea
+id="testingResults"
+placeholder="Summarize your testing results and identify any issues that were fixed.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="remainingIssues">
+
+Remaining Issues
+
+</label>
+
+<textarea
+id="remainingIssues"
+placeholder="Document any known issues that remain in the application.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- DEPLOYMENT -->
+
+<div class="section">
+
+<h2 class="section-title">
+🚀 10. Deployment Documentation
+</h2>
+
+
+<div class="form-group">
+
+<label for="deploymentPlatform">
+
+Deployment Platform
+
+</label>
+
+<input
+type="text"
+id="deploymentPlatform"
+placeholder="Enter your hosting/deployment platform.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentProcess">
+
+Deployment Process
+
+</label>
+
+<textarea
+id="deploymentProcess"
+placeholder="Explain how the application was deployed from development to production.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="liveApplication">
+
+Live Application URL
+
+</label>
+
+<input
+type="url"
+id="liveApplication"
+placeholder="https://your-live-application.com">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentVerification">
+
+Post-Deployment Verification
+
+</label>
+
+<textarea
+id="deploymentVerification"
+placeholder="Explain what you tested after deployment to confirm the production application worked correctly.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- USER GUIDE -->
+
+<div class="section">
+
+<h2 class="section-title">
+👤 11. User Guide
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Write instructions for someone who needs to use your
+application rather than develop it.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="userGuide">
+
+User Instructions
+
+</label>
+
+<textarea
+id="userGuide"
+placeholder="Explain how a normal user should navigate and use your application.
+
+Include important steps such as:
+Registration
+Login
+Navigation
+Using features
+Submitting forms
+Logging out">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- TROUBLESHOOTING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔧 12. Troubleshooting
+</h2>
+
+
+<div class="form-group">
+
+<label for="troubleshooting">
+
+Common Problems & Solutions
+
+</label>
+
+<textarea
+id="troubleshooting"
+placeholder="Document common problems a user or developer might encounter and how to resolve them.
+
+Example:
+
+Problem: Login does not work.
+Solution: Verify the user credentials and database connection.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="errorHandling">
+
+Error Handling
+
+</label>
+
+<textarea
+id="errorHandling"
+placeholder="Explain how your application handles errors and what users should do when an error occurs.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- SCREENSHOTS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📸 13. Screenshots & Visual Documentation
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Include screenshots that demonstrate the major parts
+of your completed application.
+
+</p>
+
+</div>
+
+
+<div class="checklist">
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Homepage screenshot included.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Navigation screenshot included.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Major feature screenshots included.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Authentication screenshots included when appropriate.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Responsive/mobile screenshot included.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Live production application screenshot included.
+</label>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="screenshotNotes">
+
+Screenshot Notes
+
+</label>
+
+<textarea
+id="screenshotNotes"
+placeholder="Describe the screenshots you included and what each demonstrates.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- LIMITATIONS -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚠️ 14. Known Limitations
+</h2>
+
+
+<div class="form-group">
+
+<label for="limitations">
+
+Known Limitations
+
+</label>
+
+<textarea
+id="limitations"
+placeholder="Describe any limitations, unfinished features, technical constraints, or known issues.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- FUTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔮 15. Future Improvements
+</h2>
+
+
+<div class="form-group">
+
+<label for="futureImprovements">
+
+Future Features & Improvements
+
+</label>
+
+<textarea
+id="futureImprovements"
+placeholder="Describe features or improvements you would add if you continued developing the project.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="scalability">
+
+Scalability Plans
+
+</label>
+
+<textarea
+id="scalability"
+placeholder="Explain how you could improve the application if the number of users, data, or traffic increased.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- DOCUMENTATION CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 16. Documentation Checklist
+</h2>
+
+
+<div class="checklist">
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Project overview completed.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Technologies documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Installation instructions completed.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Project file structure documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Application features documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Authentication documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Testing documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Deployment documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+User guide completed.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Troubleshooting section completed.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Screenshots collected.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Known limitations documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Future improvements documented.
+</label>
+
+</div>
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+No private credentials or secrets are included.
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FINAL README -->
+
+<div class="section">
+
+<h2 class="section-title">
+📄 17. Final README
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Your final project should include a professional
+README or equivalent documentation file.
+
+</p>
+
+<p>
+
+Use the following structure as a starting point:
+
+</p>
+
+</div>
+
+
+<div class="file-box">
+
+# CAPSTONE PROJECT
+
+## Project Overview
+
+Describe the application.
+
+## Features
+
+List major features.
+
+## Technologies
+
+List technologies used.
+
+## Installation
+
+Explain how to install the project.
+
+## Configuration
+
+Explain required configuration.
+
+## Project Structure
+
+Explain important files and folders.
+
+## Database
+
+Explain the database.
+
+## Authentication
+
+Explain authentication and user roles.
+
+## Testing
+
+Explain testing performed.
+
+## Deployment
+
+Explain how the application was deployed.
+
+## User Guide
+
+Explain how users operate the application.
+
+## Troubleshooting
+
+Document common problems and solutions.
+
+## Known Limitations
+
+Document current limitations.
+
+## Future Improvements
+
+Describe planned improvements.
+
+## Live Application
+
+Add the production URL.
+
+</div>
+
+</div>
+
+
+<!-- FINAL REVIEW -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏆 18. Final Documentation Review
+</h2>
+
+
+<div class="form-group">
+
+<label for="documentationReview">
+
+Documentation Quality Review
+
+</label>
+
+<textarea
+id="documentationReview"
+placeholder="Review your documentation as if another developer received your project without meeting you.
+
+What information is clear?
+What information is missing?
+What would another developer need to know?">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="professionalStandard">
+
+Professional Standard Statement
+
+</label>
+
+<textarea
+id="professionalStandard"
+placeholder="Explain why you believe your documentation is complete and professional.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Documentation Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>18.12 — Documentation</strong>.
+
+</p>
+
+<p>
+
+Your Capstone documentation package is now ready
+for the final project review.
+
+</p>
+
+<a
+href="18-13-final-project-review.html"
+class="continue-button">
+
+Continue to Final Project Review →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveDocumentation()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-11-deployment.html"
+class="continue-button">
+
+← Deployment
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeDocumentation()">
+
+✓ Complete 18.12
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.12 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.12 — Documentation
+</p>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='checkbox']), textarea, select"
+);
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_documentation_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+function saveDocumentation() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_documentation_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_documentation_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your Documentation progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+function loadDocumentation() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_documentation_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_documentation_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   COMPLETE DOCUMENTATION
+===================================================== */
+
+function completeDocumentation() {
+
+const requiredChecks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const incomplete =
+Array.from(
+requiredChecks
+).filter(
+check =>
+!check.checked
+);
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all Documentation Checklist items before continuing."
+);
+
+return;
+
+}
+
+
+const projectName =
+document.getElementById(
+"projectName"
+).value.trim();
+
+
+const projectDescription =
+document.getElementById(
+"projectDescription"
+).value.trim();
+
+
+const liveApplication =
+document.getElementById(
+"liveApplication"
+).value.trim();
+
+
+if (
+projectName === ""
+) {
+
+alert(
+"Please enter your Project Name."
+);
+
+return;
+
+}
+
+
+if (
+projectDescription === ""
+) {
+
+alert(
+"Please complete your Project Description."
+);
+
+return;
+
+}
+
+
+if (
+liveApplication === ""
+) {
+
+alert(
+"Please enter your Live Application URL."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_18_12_documentation_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   AUTO UPDATE
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_12_documentation_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadDocumentation();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

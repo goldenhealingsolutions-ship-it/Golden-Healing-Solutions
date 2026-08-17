@@ -1,0 +1,3293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>18.10 — Testing | Web Development Bootcamp</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   INFO BOXES
+===================================================== */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.info-box strong {
+    color: #9a7710;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff2f2;
+    border-left: 5px solid #b33;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.security-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   TEST CARDS
+===================================================== */
+
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.test-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+}
+
+.test-icon {
+    font-size: 40px;
+}
+
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,.15);
+}
+
+
+/* =====================================================
+   TEST CASE TABLE
+===================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   BUG TRACKER
+===================================================== */
+
+.bug-box {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.bug-header {
+    font-weight: bold;
+    color: #9a7710;
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   CODE AREA
+===================================================== */
+
+.code-editor {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.editor-header {
+    background: #222;
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.code-editor textarea {
+    background: #111;
+    color: #eee;
+    border: none;
+    border-radius: 0;
+    font-family: "Courier New", monospace;
+    min-height: 220px;
+}
+
+
+/* =====================================================
+   SCORE BOX
+===================================================== */
+
+.score-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.score-number {
+    color: #d4af37;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .test-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.10 — Testing
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🧪
+</div>
+
+<h1>
+18.10 — Testing
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Test your Capstone application systematically,
+identify defects, fix problems, verify functionality,
+and document the final results.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Create a structured testing plan for the Capstone.
+</li>
+
+<li>
+Test front-end functionality.
+</li>
+
+<li>
+Test back-end functionality.
+</li>
+
+<li>
+Test database operations.
+</li>
+
+<li>
+Test authentication and authorization.
+</li>
+
+<li>
+Test forms and user input.
+</li>
+
+<li>
+Test responsive behavior.
+</li>
+
+<li>
+Test accessibility.
+</li>
+
+<li>
+Identify, document, and prioritize defects.
+</li>
+
+<li>
+Fix identified defects.
+</li>
+
+<li>
+Perform regression testing.
+</li>
+
+<li>
+Document final testing results.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHAT IS TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is Software Testing?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Software testing is the process of evaluating an
+application to determine whether it behaves as
+expected and satisfies its requirements.
+
+</p>
+
+<p>
+
+Testing should happen throughout development rather
+than only immediately before submission.
+
+</p>
+
+</div>
+
+
+<div class="success-box">
+
+<strong>
+Capstone Testing Goal
+</strong>
+
+<p>
+
+Your goal is not simply to prove that the application
+works when everything goes perfectly.
+
+You should also test what happens when users enter
+incorrect information, leave fields empty, navigate
+unexpectedly, use unsupported input, or attempt actions
+they should not be allowed to perform.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TEST TYPES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧰 2. Types of Testing
+</h2>
+
+
+<div class="test-grid">
+
+
+<div class="test-card">
+
+<div class="test-icon">
+🖥️
+</div>
+
+<h3>
+Functional Testing
+</h3>
+
+<p>
+Does each feature perform its intended function?
+</p>
+
+</div>
+
+
+<div class="test-card">
+
+<div class="test-icon">
+📱
+</div>
+
+<h3>
+Responsive Testing
+</h3>
+
+<p>
+Does the application work across different screen sizes?
+</p>
+
+</div>
+
+
+<div class="test-card">
+
+<div class="test-icon">
+♿
+</div>
+
+<h3>
+Accessibility Testing
+</h3>
+
+<p>
+Can users with different abilities access and use the application?
+</p>
+
+</div>
+
+
+<div class="test-card">
+
+<div class="test-icon">
+🔐
+</div>
+
+<h3>
+Security Testing
+</h3>
+
+<p>
+Are authentication, authorization, and sensitive operations protected?
+</p>
+
+</div>
+
+
+<div class="test-card">
+
+<div class="test-icon">
+🗄️
+</div>
+
+<h3>
+Database Testing
+</h3>
+
+<p>
+Are records created, retrieved, updated, and deleted correctly?
+</p>
+
+</div>
+
+
+<div class="test-card">
+
+<div class="test-icon">
+🧭
+</div>
+
+<h3>
+User Experience Testing
+</h3>
+
+<p>
+Can users understand and successfully navigate the application?
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TEST PLAN
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 3. Create Your Testing Plan
+</h2>
+
+
+<div class="form-group">
+
+<label for="testingGoal">
+
+Testing Goal
+
+</label>
+
+<textarea
+id="testingGoal"
+placeholder="Describe what you need to prove about your Capstone application through testing.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="testingEnvironment">
+
+Testing Environment
+
+</label>
+
+<textarea
+id="testingEnvironment"
+placeholder="Example:
+Windows 11
+Chrome
+Microsoft Edge
+Android phone
+Local development server
+Production deployment">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="browsers">
+
+Browsers Tested
+
+</label>
+
+<textarea
+id="browsers"
+placeholder="List the browsers you tested.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     REQUIREMENT TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎯 4. Requirements Testing
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Every major requirement from your Capstone should
+have at least one corresponding test.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="requirementsTesting">
+
+List Your Requirements and Tests
+
+</label>
+
+<textarea
+id="requirementsTesting"
+placeholder="Example:
+
+Requirement: Users can create an account.
+Test: Submit valid registration information.
+Expected Result: Account is created successfully.
+
+Requirement: Users can log in.
+Test: Enter valid credentials.
+Expected Result: User reaches dashboard.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FRONT END TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖥️ 5. Front-End Testing
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Navigation links work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Buttons perform their intended actions.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Forms submit correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Form validation works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Error messages display appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Success messages display appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Images and media load correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+JavaScript interactions work correctly.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="frontendTesting">
+
+Front-End Testing Results
+
+</label>
+
+<textarea
+id="frontendTesting"
+placeholder="Document your front-end tests and results.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BACK END TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚙️ 6. Back-End Testing
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+API endpoints respond correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Valid requests return expected results.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Invalid requests are handled appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Server-side validation works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Errors are handled without exposing sensitive information.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="backendTesting">
+
+Back-End Testing Results
+
+</label>
+
+<textarea
+id="backendTesting"
+placeholder="Document your back-end/API testing results.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DATABASE TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🗄️ 7. Database Testing
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Records can be created successfully.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Records can be retrieved successfully.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Records can be updated successfully.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Records can be deleted when appropriate.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database relationships work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Invalid database operations are handled appropriately.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="databaseTesting">
+
+Database Testing Results
+
+</label>
+
+<textarea
+id="databaseTesting"
+placeholder="Document your database tests and results.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AUTHENTICATION TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔐 8. Authentication Testing
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Valid registration works.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Invalid registration is rejected appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Valid login works.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Invalid credentials are rejected.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Logout works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Protected pages require authentication.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Unauthorized users cannot access restricted resources.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="authenticationTesting">
+
+Authentication Testing Results
+
+</label>
+
+<textarea
+id="authenticationTesting"
+placeholder="Document authentication and authorization tests.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESPONSIVE TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📱 9. Responsive Testing
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Test your application at multiple screen sizes.
+
+Check for:
+
+</p>
+
+<ul>
+
+<li>Horizontal scrolling</li>
+
+<li>Overlapping elements</li>
+
+<li>Unreadable text</li>
+
+<li>Broken navigation</li>
+
+<li>Buttons that are difficult to tap</li>
+
+<li>Images that overflow containers</li>
+
+<li>Forms that do not fit the screen</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="mobileDevices">
+
+Devices / Screen Sizes Tested
+
+</label>
+
+<textarea
+id="mobileDevices"
+placeholder="Example:
+Desktop — 1920 × 1080
+Laptop — 1366 × 768
+Tablet — 768 × 1024
+Mobile — 390 × 844">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="responsiveResults">
+
+Responsive Testing Results
+
+</label>
+
+<textarea
+id="responsiveResults"
+placeholder="Document what worked, what failed, and what you fixed.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESSIBILITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 10. Accessibility Testing
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Images have appropriate alternative text where needed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Form controls have meaningful labels.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Headings follow a logical structure.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Keyboard navigation works appropriately.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Text remains readable at different screen sizes.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Interactive elements have clear focus states.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="accessibilityTesting">
+
+Accessibility Testing Results
+
+</label>
+
+<textarea
+id="accessibilityTesting"
+placeholder="Describe your accessibility checks and results.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     USER EXPERIENCE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧭 11. User Experience Testing
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Pretend you are a first-time user.
+
+Try completing the most important tasks in your
+application without relying on your knowledge of
+how the application was built.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="userTasks">
+
+Primary User Tasks
+
+</label>
+
+<textarea
+id="userTasks"
+placeholder="Example:
+
+1. Create an account.
+2. Log in.
+3. Navigate to dashboard.
+4. Complete a course.
+5. Submit information.
+6. Log out.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="uxResults">
+
+User Experience Testing Results
+
+</label>
+
+<textarea
+id="uxResults"
+placeholder="Describe where users may become confused or encounter unnecessary steps.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TEST CASE TABLE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧪 12. Test Case Documentation
+</h2>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Test ID
+</th>
+
+<th>
+Feature
+</th>
+
+<th>
+Test Action
+</th>
+
+<th>
+Expected Result
+</th>
+
+<th>
+Actual Result
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+TC-001
+</td>
+
+<td>
+Registration
+</td>
+
+<td>
+Submit valid registration
+</td>
+
+<td>
+Account created
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+TC-002
+</td>
+
+<td>
+Login
+</td>
+
+<td>
+Enter valid credentials
+</td>
+
+<td>
+Dashboard opens
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+TC-003
+</td>
+
+<td>
+Invalid Login
+</td>
+
+<td>
+Enter incorrect password
+</td>
+
+<td>
+Login rejected
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+TC-004
+</td>
+
+<td>
+Protected Route
+</td>
+
+<td>
+Access while logged out
+</td>
+
+<td>
+Access denied / redirected
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+TC-005
+</td>
+
+<td>
+Database
+</td>
+
+<td>
+Create record
+</td>
+
+<td>
+Record stored
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="additionalTests">
+
+Additional Test Cases
+
+</label>
+
+<textarea
+id="additionalTests"
+placeholder="Add additional test cases for your Capstone.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUG TRACKING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🐛 13. Bug Tracking
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+When a test fails, document the problem before fixing
+it. This creates a record of the development and
+debugging process.
+
+</p>
+
+</div>
+
+
+<div class="bug-box">
+
+<div class="bug-header">
+Bug #1
+</div>
+
+<div class="form-group">
+
+<label for="bug1">
+
+Problem Description
+
+</label>
+
+<textarea
+id="bug1"
+placeholder="What went wrong?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug1Cause">
+
+Likely Cause
+
+</label>
+
+<textarea
+id="bug1Cause"
+placeholder="What caused the problem?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug1Fix">
+
+Solution
+
+</label>
+
+<textarea
+id="bug1Fix"
+placeholder="How did you fix the problem?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug1Status">
+
+Status
+
+</label>
+
+<select id="bug1Status">
+
+<option value="">
+Select
+</option>
+
+<option>
+Open
+</option>
+
+<option>
+Fixed
+</option>
+
+<option>
+Unable to Reproduce
+</option>
+
+<option>
+Accepted / Known Issue
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="bug-box">
+
+<div class="bug-header">
+Bug #2
+</div>
+
+<div class="form-group">
+
+<label for="bug2">
+
+Problem Description
+
+</label>
+
+<textarea
+id="bug2"
+placeholder="What went wrong?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug2Cause">
+
+Likely Cause
+
+</label>
+
+<textarea
+id="bug2Cause"
+placeholder="What caused the problem?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug2Fix">
+
+Solution
+
+</label>
+
+<textarea
+id="bug2Fix"
+placeholder="How did you fix the problem?">
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="bug2Status">
+
+Status
+
+</label>
+
+<select id="bug2Status">
+
+<option value="">
+Select
+</option>
+
+<option>
+Open
+</option>
+
+<option>
+Fixed
+</option>
+
+<option>
+Unable to Reproduce
+</option>
+
+<option>
+Accepted / Known Issue
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="otherBugs">
+
+Additional Bugs
+
+</label>
+
+<textarea
+id="otherBugs"
+placeholder="Document any additional bugs discovered during testing.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     REGRESSION TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔁 14. Regression Testing
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+After fixing a defect, test the affected feature again
+and then test related features to make sure the fix did
+not introduce a new problem.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="regression">
+
+Regression Testing Results
+
+</label>
+
+<textarea
+id="regression"
+placeholder="Describe the bugs you fixed and the tests you repeated afterward.">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I retested every major bug after fixing it.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I tested features related to each major fix.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Previously working functionality still works.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PERFORMANCE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚡ 15. Performance Testing
+</h2>
+
+
+<div class="form-group">
+
+<label for="performance">
+
+Performance Testing Results
+
+</label>
+
+<textarea
+id="performance"
+placeholder="Document any performance checks you performed, including page loading, images, API responses, database queries, or other relevant areas.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SECURITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛡️ 16. Security Testing
+</h2>
+
+
+<div class="security-box">
+
+<strong>
+Security Testing Reminder
+</strong>
+
+<p>
+
+Only test systems and accounts that you own or have
+explicit permission to test.
+
+For your Capstone, focus on your own application,
+including authentication, authorization, input
+validation, session handling, and error handling.
+
+</p>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Unauthorized users cannot access protected resources.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Users cannot access another user's private information.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Server-side validation is implemented.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Sensitive credentials are not exposed in front-end code.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production configuration does not expose secrets.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+     style="margin-top:25px;">
+
+<label for="securityTesting">
+
+Security Testing Results
+
+</label>
+
+<textarea
+id="securityTesting"
+placeholder="Document the security checks performed on your Capstone.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL TEST RESULTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📊 17. Final Test Results
+</h2>
+
+
+<div class="form-group">
+
+<label for="totalTests">
+
+Total Tests Performed
+
+</label>
+
+<input
+type="number"
+id="totalTests"
+min="0"
+placeholder="Example: 35">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="passedTests">
+
+Tests Passed
+
+</label>
+
+<input
+type="number"
+id="passedTests"
+min="0"
+placeholder="Example: 35">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="failedTests">
+
+Tests Failed
+
+</label>
+
+<input
+type="number"
+id="failedTests"
+min="0"
+placeholder="Example: 0">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="remainingIssues">
+
+Remaining Known Issues
+
+</label>
+
+<textarea
+id="remainingIssues"
+placeholder="List any known issues that remain in the application.">
+</textarea>
+
+</div>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="calculateTestScore()">
+
+Calculate Test Pass Rate
+
+</button>
+
+
+<div
+class="score-box"
+id="scoreBox"
+style="display:none;">
+
+<div>
+Final Test Pass Rate
+</div>
+
+<div
+class="score-number"
+id="scoreNumber">
+
+0%
+
+</div>
+
+<div id="scoreMessage">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL TESTING CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏆 18. Final Testing Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+All major Capstone requirements have been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Front-end functionality has been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Back-end functionality has been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database functionality has been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Authentication and authorization have been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Forms and validation have been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Responsive design has been tested.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Accessibility has been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Security has been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Known bugs have been documented.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Major bugs have been fixed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Regression testing has been completed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Final test results have been documented.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+The Capstone is ready for final review.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL REFLECTION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 19. Testing Reflection
+</h2>
+
+
+<div class="form-group">
+
+<label for="testingReflection">
+
+What Did Testing Teach You About Your Application?
+
+</label>
+
+<textarea
+id="testingReflection"
+placeholder="Explain the most important problems you discovered, how you solved them, and what you would improve in a future version.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="futureImprovements">
+
+Future Improvements
+
+</label>
+
+<textarea
+id="futureImprovements"
+placeholder="List features, improvements, or technical changes you would make in a future version.">
+</textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Testing Phase Complete!
+</h2>
+
+<p>
+
+You have completed the testing phase of your
+Capstone Project.
+
+</p>
+
+<p>
+
+Your application has been tested, defects have been
+documented, and the project is ready to move toward
+final submission and review.
+
+</p>
+
+<a
+href="18-11-project-submission.html"
+class="continue-button">
+
+Continue to Project Submission →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveTesting()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-9-authentication.html"
+class="continue-button">
+
+← Authentication
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeTesting()">
+
+✓ Complete 18.10
+
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.10 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.10 — Testing
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='checkbox']), textarea, select"
+);
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_testing_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE PROGRESS
+===================================================== */
+
+function saveTesting() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_testing_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_testing_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your Testing progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD PROGRESS
+===================================================== */
+
+function loadTesting() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_testing_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_testing_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   CALCULATE TEST SCORE
+===================================================== */
+
+function calculateTestScore() {
+
+const total =
+parseInt(
+document.getElementById(
+"totalTests"
+).value
+);
+
+const passed =
+parseInt(
+document.getElementById(
+"passedTests"
+).value
+);
+
+const failed =
+parseInt(
+document.getElementById(
+"failedTests"
+).value
+);
+
+
+if (
+isNaN(total) ||
+isNaN(passed) ||
+total <= 0
+) {
+
+alert(
+"Please enter the total number of tests and the number of tests passed."
+);
+
+return;
+
+}
+
+
+if (
+passed > total
+) {
+
+alert(
+"Tests passed cannot be greater than total tests."
+);
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(passed / total) * 100
+);
+
+
+document.getElementById(
+"scoreBox"
+).style.display =
+"block";
+
+
+document.getElementById(
+"scoreNumber"
+).textContent =
+percentage + "%";
+
+
+let message;
+
+
+if (
+percentage === 100
+) {
+
+message =
+"Excellent! All recorded tests passed.";
+
+}
+
+else if (
+percentage >= 90
+) {
+
+message =
+"Strong testing result. Review and resolve any remaining failures.";
+
+}
+
+else if (
+percentage >= 80
+) {
+
+message =
+"Good progress. Resolve remaining issues before final submission.";
+
+}
+
+else {
+
+message =
+"Additional testing and debugging are required.";
+
+}
+
+
+document.getElementById(
+"scoreMessage"
+).textContent =
+message;
+
+}
+
+
+/* =====================================================
+   COMPLETE TESTING
+===================================================== */
+
+function completeTesting() {
+
+const requiredChecks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const incomplete =
+Array.from(
+requiredChecks
+).filter(
+check =>
+!check.checked
+);
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete every item in the Final Testing Checklist before continuing."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_18_10_testing_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   LIVE PROGRESS
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_10_testing_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadTesting();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

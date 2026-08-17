@@ -1,0 +1,2877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.6 — Images & Multimedia | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.demo-box {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.demo-image {
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #d4af37;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.media-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.media-card h3 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: #fafafa;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison,
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.6 — Images & Multimedia
+</span>
+
+</div>
+
+
+<div class="title-section">
+
+<div class="module-icon">
+🖼️
+</div>
+
+<h1>
+2.6 — Images & Multimedia
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to add images, audio, video, captions,
+responsive media, and accessible multimedia content
+to HTML webpages.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Use the HTML <code>&lt;img&gt;</code> element.</li>
+
+<li>Understand the <code>src</code> and <code>alt</code> attributes.</li>
+
+<li>Use appropriate image file formats.</li>
+
+<li>Control image dimensions with HTML and CSS.</li>
+
+<li>Create responsive images.</li>
+
+<li>Understand <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>.</li>
+
+<li>Add audio to a webpage.</li>
+
+<li>Add video to a webpage.</li>
+
+<li>Use media controls.</li>
+
+<li>Understand multimedia accessibility.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is Multimedia?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Multimedia</strong> refers to content that combines
+different types of media such as text, images, audio, video,
+animations, and interactive elements.
+
+</p>
+
+<p>
+
+Modern websites use multimedia to communicate information,
+demonstrate concepts, tell stories, and improve user
+engagement.
+
+</p>
+
+</div>
+
+<div class="media-grid">
+
+<div class="media-card">
+
+<h3>🖼️ Images</h3>
+
+<p>
+Photographs, graphics, logos, icons, illustrations,
+and diagrams.
+</p>
+
+</div>
+
+<div class="media-card">
+
+<h3>🎵 Audio</h3>
+
+<p>
+Music, narration, podcasts, sound effects, and recordings.
+</p>
+
+</div>
+
+<div class="media-card">
+
+<h3>🎥 Video</h3>
+
+<p>
+Tutorials, demonstrations, presentations, and promotional
+content.
+</p>
+
+</div>
+
+<div class="media-card">
+
+<h3>🎞️ Animation</h3>
+
+<p>
+Motion graphics and animated visual content.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- IMAGE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖼️ 2. Adding Images with &lt;img&gt;
+</h2>
+
+<p>
+
+The HTML <code>&lt;img&gt;</code> element displays an image
+on a webpage.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="images/logo.png"
+    alt="Golden Healing Solutions logo"&gt;
+</pre>
+
+</div>
+
+<p>
+
+The <code>&lt;img&gt;</code> element is a void element,
+meaning it does not require a closing
+<code>&lt;/img&gt;</code> tag.
+
+</p>
+
+</div>
+
+
+<!-- SRC -->
+
+<div class="section">
+
+<h2 class="section-title">
+📁 3. The src Attribute
+</h2>
+
+<p>
+
+The <code>src</code> attribute specifies the location
+of the image file.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="images/student.jpg"
+    alt="Student working on a laptop"&gt;
+</pre>
+
+</div>
+
+<p>
+
+The image can be located in the same directory:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+src="photo.jpg"
+</pre>
+
+</div>
+
+<p>
+
+Or inside a folder:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+src="images/photo.jpg"
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- ALT -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 4. The alt Attribute
+</h2>
+
+<p>
+
+The <code>alt</code> attribute provides alternative text
+for an image.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="student.jpg"
+    alt="Student completing a web development project"&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Why is alt text important?</strong>
+
+<ul>
+
+<li>
+It helps users who use screen readers.
+</li>
+
+<li>
+It provides information if an image cannot load.
+</li>
+
+<li>
+It improves accessibility.
+</li>
+
+<li>
+It communicates the purpose of meaningful images.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- DECORATIVE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 5. Decorative Images
+</h2>
+
+<p>
+
+If an image is purely decorative and provides no meaningful
+information, its alternative text can be empty.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="decorative-line.png"
+    alt=""&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+<p>
+
+Do not leave <code>alt</code> out simply because an image
+does not appear important. Determine whether the image is
+meaningful or decorative first.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- WIDTH HEIGHT -->
+
+<div class="section">
+
+<h2 class="section-title">
+📐 6. Image Dimensions
+</h2>
+
+<p>
+
+Images can have width and height attributes.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="photo.jpg"
+    alt="Mountain landscape"
+    width="600"
+    height="400"&gt;
+</pre>
+
+</div>
+
+<p>
+
+CSS is often preferred when controlling presentation and
+responsive sizing.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+img {
+    max-width: 100%;
+    height: auto;
+}
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- RESPONSIVE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📱 7. Responsive Images
+</h2>
+
+<p>
+
+A responsive image adjusts to fit the available screen size.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+img {
+    max-width: 100%;
+    height: auto;
+}
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Key Concept:</strong>
+
+<p>
+
+<code>max-width: 100%</code> prevents an image from becoming
+wider than its containing element.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- DEMO -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 8. Image Demonstration
+</h2>
+
+<div class="demo-box">
+
+<svg
+class="demo-image"
+viewBox="0 0 800 400"
+xmlns="http://www.w3.org/2000/svg"
+role="img"
+aria-label="Web development illustration">
+
+<rect
+width="800"
+height="400"
+fill="#f5f2eb"/>
+
+<circle
+cx="400"
+cy="190"
+r="110"
+fill="#d4af37"/>
+
+<rect
+x="220"
+y="260"
+width="360"
+height="30"
+rx="15"
+fill="#111"/>
+
+<rect
+x="290"
+y="285"
+width="220"
+height="20"
+rx="10"
+fill="#777"/>
+
+<text
+x="400"
+y="185"
+text-anchor="middle"
+font-size="42"
+font-family="Arial"
+fill="#111">
+
+HTML
+
+</text>
+
+<text
+x="400"
+y="370"
+text-anchor="middle"
+font-size="24"
+font-family="Arial"
+fill="#111">
+
+WEB DEVELOPMENT
+
+</text>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- FILE FORMATS -->
+
+<div class="section">
+
+<h2 class="section-title">
+📦 9. Common Image File Formats
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Format</th>
+<th>Common Uses</th>
+<th>Important Characteristics</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>JPEG / JPG</td>
+
+<td>Photographs</td>
+
+<td>Good compression and broad browser support</td>
+
+</tr>
+
+<tr>
+
+<td>PNG</td>
+
+<td>Graphics and transparency</td>
+
+<td>Supports transparency and lossless compression</td>
+
+</tr>
+
+<tr>
+
+<td>GIF</td>
+
+<td>Simple animations</td>
+
+<td>Supports animation but has limited color capability</td>
+
+</tr>
+
+<tr>
+
+<td>SVG</td>
+
+<td>Logos, icons, vector graphics</td>
+
+<td>Scales without losing vector quality</td>
+
+</tr>
+
+<tr>
+
+<td>WebP</td>
+
+<td>Modern web images</td>
+
+<td>Efficient compression with broad modern browser support</td>
+
+</tr>
+
+<tr>
+
+<td>AVIF</td>
+
+<td>Modern web images</td>
+
+<td>Highly efficient image compression</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- FIGURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 10. Figure & Figcaption
+</h2>
+
+<p>
+
+The <code>&lt;figure&gt;</code> element can group an image
+with related content such as a caption.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;figure&gt;
+
+    &lt;img
+        src="workspace.jpg"
+        alt="Developer working at a computer"&gt;
+
+    &lt;figcaption&gt;
+        A web developer working on a website.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- AUDIO -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎵 11. Adding Audio
+</h2>
+
+<p>
+
+The <code>&lt;audio&gt;</code> element embeds sound content.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;audio controls&gt;
+
+    &lt;source
+        src="lesson-audio.mp3"
+        type="audio/mpeg"&gt;
+
+    Your browser does not support audio.
+
+&lt;/audio&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>controls</strong>
+
+<p>
+
+The <code>controls</code> attribute provides browser controls
+such as play, pause, volume, and progress.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- AUDIO TYPES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎧 12. Audio File Types
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Format</th>
+<th>MIME Type</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>MP3</td>
+<td>audio/mpeg</td>
+</tr>
+
+<tr>
+<td>WAV</td>
+<td>audio/wav</td>
+</tr>
+
+<tr>
+<td>Ogg</td>
+<td>audio/ogg</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎥 13. Adding Video
+</h2>
+
+<p>
+
+The <code>&lt;video&gt;</code> element embeds video content.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;video controls width="640"&gt;
+
+    &lt;source
+        src="lesson-video.mp4"
+        type="video/mp4"&gt;
+
+    Your browser does not support video.
+
+&lt;/video&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO CONTROLS -->
+
+<div class="section">
+
+<h2 class="section-title">
+▶️ 14. Video Controls
+</h2>
+
+<p>
+
+Common video attributes include:
+
+</p>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Attribute</th>
+<th>Purpose</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>controls</td>
+<td>Displays playback controls</td>
+</tr>
+
+<tr>
+<td>autoplay</td>
+<td>Requests automatic playback</td>
+</tr>
+
+<tr>
+<td>muted</td>
+<td>Starts media muted</td>
+</tr>
+
+<tr>
+<td>loop</td>
+<td>Repeats the media</td>
+</tr>
+
+<tr>
+<td>poster</td>
+<td>Specifies an image shown before video playback</td>
+</tr>
+
+<tr>
+<td>preload</td>
+<td>Provides a hint about how the browser should load media</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Accessibility Tip:</strong>
+
+<p>
+
+Avoid automatically playing media with sound. Users should
+generally have control over when audio or video begins.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- POSTER -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎬 15. Video Poster Images
+</h2>
+
+<p>
+
+A poster image provides a preview image before video playback.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;video
+    controls
+    poster="video-preview.jpg"&gt;
+
+    &lt;source
+        src="lesson.mp4"
+        type="video/mp4"&gt;
+
+&lt;/video&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- CAPTIONS -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 16. Video Captions
+</h2>
+
+<p>
+
+The <code>&lt;track&gt;</code> element can provide timed text
+such as captions.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;video controls&gt;
+
+    &lt;source
+        src="lesson.mp4"
+        type="video/mp4"&gt;
+
+    &lt;track
+        src="captions.vtt"
+        kind="captions"
+        srclang="en"
+        label="English"
+        default&gt;
+
+&lt;/video&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Why captions matter:</strong>
+
+<ul>
+
+<li>
+They help deaf and hard-of-hearing users.
+</li>
+
+<li>
+They allow users to follow video when audio is unavailable.
+</li>
+
+<li>
+They can help users understand technical terminology.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- MULTIPLE SOURCES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔄 17. Multiple Media Sources
+</h2>
+
+<p>
+
+You can provide multiple source formats so the browser can
+select a supported format.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;video controls&gt;
+
+    &lt;source
+        src="lesson.mp4"
+        type="video/mp4"&gt;
+
+    &lt;source
+        src="lesson.webm"
+        type="video/webm"&gt;
+
+    Your browser does not support video.
+
+&lt;/video&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- EMBEDDED -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 18. Embedded Multimedia
+</h2>
+
+<p>
+
+Webpages can also embed content from other services using
+elements such as <code>&lt;iframe&gt;</code>, when the external
+service permits embedding.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;iframe
+    src="https://example.com"
+    title="Example embedded content"
+    width="800"
+    height="450"&gt;
+
+&lt;/iframe&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Security & Privacy:</strong>
+
+<p>
+
+Only embed content from sources you trust, and follow the
+service's embedding policies.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ACCESSIBILITY -->
+
+<div class="section">
+
+<h2 class="section-title">
+♿ 19. Multimedia Accessibility
+</h2>
+
+<div class="info-box">
+
+<ul>
+
+<li>
+Provide meaningful <code>alt</code> text for informative images.
+</li>
+
+<li>
+Use empty <code>alt=""</code> for appropriate decorative images.
+</li>
+
+<li>
+Provide captions for video when needed.
+</li>
+
+<li>
+Provide transcripts for important audio content.
+</li>
+
+<li>
+Avoid flashing content that could create accessibility problems.
+</li>
+
+<li>
+Allow users to control audio and video playback.
+</li>
+
+<li>
+Use descriptive titles for embedded content.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PERFORMANCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚡ 20. Multimedia Performance
+</h2>
+
+<p>
+
+Large images and videos can significantly increase page
+loading time.
+
+</p>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Poor Practice
+</h3>
+
+<ul>
+
+<li>Huge image files</li>
+
+<li>Uncompressed photographs</li>
+
+<li>Unnecessary videos</li>
+
+<li>No responsive sizing</li>
+
+<li>Loading every image immediately</li>
+
+</ul>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+✅ Better Practice
+</h3>
+
+<ul>
+
+<li>Compress images appropriately</li>
+
+<li>Use suitable file formats</li>
+
+<li>Resize images appropriately</li>
+
+<li>Use responsive techniques</li>
+
+<li>Use lazy loading when appropriate</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LAZY LOADING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🚀 21. Lazy Loading Images
+</h2>
+
+<p>
+
+The <code>loading="lazy"</code> attribute can tell the browser
+that an image may be loaded when it approaches the user's
+viewport.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="large-image.jpg"
+    alt="Web development classroom"
+    loading="lazy"&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+Lazy loading can help reduce unnecessary initial resource
+loading, especially on pages containing many images.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- IMAGE LINK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔗 22. Making an Image a Link
+</h2>
+
+<p>
+
+Images can be placed inside links.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="courses.html"&gt;
+
+    &lt;img
+        src="course-image.jpg"
+        alt="View web development courses"&gt;
+
+&lt;/a&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 23. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Multimedia Webpage
+</h3>
+
+<p>
+
+Create a webpage that includes:
+
+</p>
+
+<ul>
+
+<li>At least two images</li>
+
+<li>Meaningful alt text</li>
+
+<li>A figure and caption</li>
+
+<li>An audio player</li>
+
+<li>A video player</li>
+
+<li>Video captions or a transcript</li>
+
+<li>A responsive image</li>
+
+<li>A navigation link</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        My Multimedia Page
+    &lt;/title&gt;
+
+    &lt;style&gt;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;header&gt;
+
+        &lt;nav&gt;
+
+            &lt;a href="index.html"&gt;
+                Home
+            &lt;/a&gt;
+
+            &lt;a href="courses.html"&gt;
+                Courses
+            &lt;/a&gt;
+
+        &lt;/nav&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;main&gt;
+
+        &lt;h1&gt;
+            My Multimedia Page
+        &lt;/h1&gt;
+
+
+        &lt;figure&gt;
+
+            &lt;img
+                src="images/project.jpg"
+                alt="Student working on a web development project"
+                loading="lazy"&gt;
+
+            &lt;figcaption&gt;
+                Web development project.
+            &lt;/figcaption&gt;
+
+        &lt;/figure&gt;
+
+
+        &lt;h2&gt;
+            Audio
+        &lt;/h2&gt;
+
+        &lt;audio controls&gt;
+
+            &lt;source
+                src="audio/lesson.mp3"
+                type="audio/mpeg"&gt;
+
+            Your browser does not support audio.
+
+        &lt;/audio&gt;
+
+
+        &lt;h2&gt;
+            Video
+        &lt;/h2&gt;
+
+        &lt;video
+            controls
+            width="640"
+            poster="images/video-preview.jpg"&gt;
+
+            &lt;source
+                src="video/lesson.mp4"
+                type="video/mp4"&gt;
+
+            &lt;track
+                src="captions.vtt"
+                kind="captions"
+                srclang="en"
+                label="English"
+                default&gt;
+
+            Your browser does not support video.
+
+        &lt;/video&gt;
+
+
+    &lt;/main&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- QUICK REFERENCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 24. Quick Reference
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Element / Attribute</th>
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>&lt;img&gt;</td>
+<td>Displays an image</td>
+</tr>
+
+<tr>
+<td>src</td>
+<td>Specifies the image source</td>
+</tr>
+
+<tr>
+<td>alt</td>
+<td>Provides alternative text</td>
+</tr>
+
+<tr>
+<td>&lt;figure&gt;</td>
+<td>Groups media with related content</td>
+</tr>
+
+<tr>
+<td>&lt;figcaption&gt;</td>
+<td>Provides a caption for a figure</td>
+</tr>
+
+<tr>
+<td>&lt;audio&gt;</td>
+<td>Embeds audio</td>
+</tr>
+
+<tr>
+<td>&lt;video&gt;</td>
+<td>Embeds video</td>
+</tr>
+
+<tr>
+<td>&lt;source&gt;</td>
+<td>Specifies a media source</td>
+</tr>
+
+<tr>
+<td>&lt;track&gt;</td>
+<td>Provides timed text such as captions</td>
+</tr>
+
+<tr>
+<td>controls</td>
+<td>Displays media controls</td>
+</tr>
+
+<tr>
+<td>poster</td>
+<td>Sets a preview image for video</td>
+</tr>
+
+<tr>
+<td>loading="lazy"</td>
+<td>Provides a lazy-loading hint for images</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- BEST PRACTICES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 25. Multimedia Best Practices
+</h2>
+
+<ul>
+
+<li>
+Use descriptive alternative text for meaningful images.
+</li>
+
+<li>
+Use appropriate image formats.
+</li>
+
+<li>
+Compress large media files.
+</li>
+
+<li>
+Make images responsive.
+</li>
+
+<li>
+Provide captions for video when appropriate.
+</li>
+
+<li>
+Provide transcripts for important audio.
+</li>
+
+<li>
+Allow users to control media.
+</li>
+
+<li>
+Avoid unnecessary autoplay with sound.
+</li>
+
+<li>
+Use <code>loading="lazy"</code> where appropriate.
+</li>
+
+<li>
+Use descriptive captions and titles.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 26. Lesson Completion Checklist
+</h2>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of the &lt;img&gt; element.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the src attribute.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the alt attribute.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can add images to a webpage.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create responsive images.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand figure and figcaption.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can add audio to a webpage.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can add video to a webpage.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand video captions.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand multimedia accessibility and performance.
+</label>
+</div>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 27. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. Which HTML element is used to display an image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. &lt;image&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. &lt;img&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. &lt;picture&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. &lt;media&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which attribute specifies the image file location?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. alt
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. file
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. What is the primary purpose of alt text?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. To make images larger
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. To describe the image when appropriate
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. To change the image color
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. To compress the image
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. Which element is used to embed audio?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. &lt;sound&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. &lt;music&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. &lt;audio&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. &lt;voice&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element is used to embed video?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;movie&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;video&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;media&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;film&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. What does the controls attribute provide?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. CSS styling
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. Playback controls
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. Image compression
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. Navigation links
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. Which element can provide a caption for an image in a figure?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. &lt;caption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. &lt;figcaption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. &lt;label&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. &lt;description&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. Which CSS rule helps an image remain within its container?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. max-width: 100%;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. image-width: auto;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. responsive: true;
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. width-limit: 100%;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. Which element provides timed text such as video captions?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. &lt;caption&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. &lt;subtitle&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. &lt;track&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. &lt;text&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. What does loading="lazy" provide for an image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. A hint to defer loading until the image is near the viewport
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+A. Automatic image editing
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. Automatic image deletion
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. Automatic image conversion
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎉 28. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+You now understand how to add images, audio, video, captions,
+and other multimedia content to HTML webpages.
+
+</p>
+
+<p>
+
+You also learned how accessibility, responsive design,
+performance, and proper media selection affect the quality
+of a website.
+
+</p>
+
+<p>
+
+These skills will be used throughout your Web Development
+Bootcamp projects and especially in your final capstone.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.6 — Images & Multimedia</strong>.
+
+</p>
+
+<p>
+
+You are ready to continue to the next lesson.
+
+</p>
+
+<a
+href="2-7-lists.html"
+class="continue-button">
+
+Continue to 2.7 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-5-links-navigation.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.6 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.6 — Images & Multimedia
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_6_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.6 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_6_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "C",
+q3: "B",
+q4: "C",
+q5: "B",
+q6: "B",
+q7: "B",
+q8: "A",
+q9: "C",
+q10: "A"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML images and multimedia.</p>";
+
+localStorage.setItem(
+"ghs_2_6_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_6_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_6_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Final Project Review | Golden Healing Solutions
+</title>
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+.title-icon {
+
+    font-size: 55px;
+
+}
+
+.title h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.title p {
+
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   NOTICE
+========================================= */
+
+.notice {
+
+    background: #fff8dc;
+
+    border-left: 5px solid #d4af37;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    margin-bottom: 30px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+
+    margin-top: 35px;
+
+}
+
+.section h2 {
+
+    font-family: Georgia, serif;
+
+    border-bottom: 2px solid #d4af37;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 22px;
+
+}
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+}
+
+.required {
+
+    color: #b00020;
+
+}
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+}
+
+textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 2px rgba(212,175,55,.15);
+
+}
+
+
+/* =========================================
+   TWO COLUMNS
+========================================= */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================
+   CHECKLIST
+========================================= */
+
+.checklist {
+
+    background: #faf7ed;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e4d7a5;
+
+}
+
+.check-item {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+    margin: 15px 0;
+
+    line-height: 1.5;
+
+}
+
+.check-item input {
+
+    width: auto;
+
+    margin-top: 4px;
+
+}
+
+
+/* =========================================
+   FILE UPLOAD
+========================================= */
+
+.upload-box {
+
+    border: 2px dashed #d4af37;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #fffdf5;
+
+}
+
+.upload-box input {
+
+    border: none;
+
+    padding: 10px;
+
+}
+
+
+/* =========================================
+   REQUIREMENTS
+========================================= */
+
+.requirements {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+.requirement {
+
+    background: #f8f8f8;
+
+    padding: 18px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ddd;
+
+}
+
+.requirement strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #a27c12;
+
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.submit-area {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+}
+
+.submit-button {
+
+    background: #d4af37;
+
+    color: white;
+
+    border: none;
+
+    padding: 17px 35px;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.submit-button:hover {
+
+    background: #b18a16;
+
+}
+
+
+/* =========================================
+   SUCCESS
+========================================= */
+
+.success {
+
+    display: none;
+
+    margin-top: 35px;
+
+    padding: 30px;
+
+    background: #eef9f0;
+
+    border: 1px solid #65a66b;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+.success-icon {
+
+    font-size: 50px;
+
+}
+
+.success h2 {
+
+    color: #287333;
+
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status-card {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #f5f5f5;
+
+    border-radius: 8px;
+
+}
+
+.status-label {
+
+    font-weight: bold;
+
+}
+
+.status-pending {
+
+    color: #a27c12;
+
+}
+
+
+/* =========================================
+   EXAM BUTTON
+========================================= */
+
+.exam-button {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 15px 30px;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+}
+
+.exam-button:hover {
+
+    background: #333;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width: 700px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .card {
+
+        padding: 25px 18px;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .requirements {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .title h1 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        GOLDEN HEALING SOLUTIONS
+
+    </div>
+
+    <div class="course-name">
+
+        Web Development Bootcamp
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =========================================
+     TITLE
+========================================= -->
+
+<div class="title">
+
+    <div class="title-icon">
+        🎓
+    </div>
+
+    <h1>
+        Final Project Review
+    </h1>
+
+    <p>
+
+        Congratulations on reaching the final
+        stage of the Web Development Bootcamp.
+
+        <br><br>
+
+        Submit your completed project for review
+        before proceeding to the Final Examination.
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================================
+     NOTICE
+========================================= -->
+
+<div class="notice">
+
+<strong>
+📋 Important:
+</strong>
+
+<br>
+
+Your Final Project demonstrates the practical
+skills you developed throughout this course.
+
+Your project must be submitted and reviewed
+before you can proceed to the Final Examination.
+
+The instructor will review your submission and
+determine whether it meets the project requirements.
+
+</div>
+
+
+
+<form
+    id="projectForm"
+    enctype="multipart/form-data">
+
+
+
+<!-- =========================================
+     STUDENT INFORMATION
+========================================= -->
+
+<div class="section">
+
+<h2>
+👤 Student Information
+</h2>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="studentName">
+
+Full Name
+<span class="required">*</span>
+
+</label>
+
+<input
+    type="text"
+    id="studentName"
+    name="studentName"
+    placeholder="Enter your full name"
+    required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="studentEmail">
+
+Email Address
+<span class="required">*</span>
+
+</label>
+
+<input
+    type="email"
+    id="studentEmail"
+    name="studentEmail"
+    placeholder="you@example.com"
+    required>
+
+</div>
+
+
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="course">
+
+Course
+</label>
+
+<input
+    type="text"
+    id="course"
+    value="Web Development Bootcamp"
+    readonly>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="projectDate">
+
+Submission Date
+</label>
+
+<input
+    type="date"
+    id="projectDate"
+    name="projectDate"
+    required>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     PROJECT INFORMATION
+========================================= -->
+
+<div class="section">
+
+<h2>
+💻 Project Information
+</h2>
+
+
+<div class="form-group">
+
+<label for="projectName">
+
+Project Name
+<span class="required">*</span>
+
+</label>
+
+<input
+    type="text"
+    id="projectName"
+    name="projectName"
+    placeholder="Example: Luxora Gift Basket Website"
+    required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="projectType">
+
+Project Type
+<span class="required">*</span>
+
+</label>
+
+<select
+    id="projectType"
+    name="projectType"
+    required>
+
+<option value="">
+Select project type
+</option>
+
+<option value="business">
+
+Business Website
+
+</option>
+
+<option value="ecommerce">
+
+E-Commerce Website
+
+</option>
+
+<option value="portfolio">
+
+Portfolio Website
+
+</option>
+
+<option value="blog">
+
+Blog / Content Website
+
+</option>
+
+<option value="web-app">
+
+Web Application
+
+</option>
+
+<option value="other">
+
+Other
+
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="liveUrl">
+
+🌐 Live Website URL
+
+</label>
+
+<input
+    type="url"
+    id="liveUrl"
+    name="liveUrl"
+    placeholder="https://yourwebsite.com">
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="githubUrl">
+
+💻 GitHub Repository URL
+
+</label>
+
+<input
+    type="url"
+    id="githubUrl"
+    name="githubUrl"
+    placeholder="https://github.com/username/project">
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="projectDescription">
+
+Project Description
+<span class="required">*</span>
+
+</label>
+
+<textarea
+    id="projectDescription"
+    name="projectDescription"
+    placeholder="Describe your website or application, its purpose, target audience, and the problem it solves."
+    required></textarea>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="technologies">
+
+Technologies Used
+<span class="required">*</span>
+
+</label>
+
+<textarea
+    id="technologies"
+    name="technologies"
+    placeholder="Example: HTML5, CSS3, JavaScript, GitHub, Responsive Design"
+    required></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     PROJECT REQUIREMENTS
+========================================= -->
+
+<div class="section">
+
+<h2>
+✅ Project Requirements
+</h2>
+
+<p>
+
+Check each item after confirming that it has
+been completed in your project.
+
+</p>
+
+
+<div class="checklist">
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement1"
+    required>
+
+<span>
+
+My project contains properly structured
+HTML5.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement2"
+    required>
+
+<span>
+
+My project uses CSS for layout, styling,
+spacing, colors, and typography.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement3"
+    required>
+
+<span>
+
+My website is responsive and works across
+different screen sizes.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement4"
+    required>
+
+<span>
+
+My project includes functional navigation
+and working links.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement5"
+    required>
+
+<span>
+
+My project includes JavaScript functionality
+where appropriate.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement6"
+    required>
+
+<span>
+
+My forms and user-input areas have been
+properly tested.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement7"
+    required>
+
+<span>
+
+I tested my project for broken links,
+layout problems, and JavaScript errors.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement8"
+    required>
+
+<span>
+
+My website follows basic accessibility
+and usability principles.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement9"
+    required>
+
+<span>
+
+My project contains original work or
+properly credited resources.
+
+</span>
+
+</label>
+
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    name="requirement10"
+    required>
+
+<span>
+
+I have reviewed the entire website before
+submitting it for evaluation.
+
+</span>
+
+</label>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     PROJECT FEATURES
+========================================= -->
+
+<div class="section">
+
+<h2>
+⭐ Project Features
+</h2>
+
+<p>
+
+Select the features included in your project.
+
+</p>
+
+
+<div class="requirements">
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="responsive">
+
+<strong>
+Responsive Design
+</strong>
+
+Website adapts to different devices.
+
+</label>
+
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="forms">
+
+<strong>
+Forms
+</strong>
+
+User input or contact forms.
+
+</label>
+
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="javascript">
+
+<strong>
+JavaScript
+</strong>
+
+Interactive functionality.
+
+</label>
+
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="navigation">
+
+<strong>
+Navigation
+</strong>
+
+Working menus and page navigation.
+
+</label>
+
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="animations">
+
+<strong>
+Animations
+</strong>
+
+CSS or JavaScript animations.
+
+</label>
+
+
+
+<label class="requirement">
+
+<input
+    type="checkbox"
+    name="feature"
+    value="accessibility">
+
+<strong>
+Accessibility
+</strong>
+
+Accessibility-focused features.
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     CHALLENGES
+========================================= -->
+
+<div class="section">
+
+<h2>
+🧠 Project Reflection
+</h2>
+
+
+<div class="form-group">
+
+<label for="challenge">
+
+What was the biggest challenge you
+encountered while building your project?
+
+<span class="required">*</span>
+
+</label>
+
+<textarea
+    id="challenge"
+    name="challenge"
+    placeholder="Describe the problem you encountered and how you solved it."
+    required></textarea>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="skills">
+
+What skills did you improve during this project?
+
+<span class="required">*</span>
+
+</label>
+
+<textarea
+    id="skills"
+    name="skills"
+    placeholder="Describe the HTML, CSS, JavaScript, design, debugging, or other skills you developed."
+    required></textarea>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="futureChanges">
+
+If you had more time, what would you improve
+or add to your project?
+
+<span class="required">*</span>
+
+</label>
+
+<textarea
+    id="futureChanges"
+    name="futureChanges"
+    placeholder="Describe future improvements or features."
+    required></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     FILE UPLOAD
+========================================= -->
+
+<div class="section">
+
+<h2>
+📁 Project Files
+</h2>
+
+
+<div class="upload-box">
+
+<p>
+
+<strong>
+Upload your project files
+</strong>
+
+</p>
+
+<p>
+
+You may upload screenshots, documentation,
+or project files required by your instructor.
+
+</p>
+
+
+<input
+    type="file"
+    id="projectFiles"
+    name="projectFiles"
+    multiple
+    accept=".zip,.pdf,.html,.css,.js,.png,.jpg,.jpeg">
+
+<p id="fileList">
+
+No files selected.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     STUDENT ATTESTATION
+========================================= -->
+
+<div class="section">
+
+<h2>
+✍️ Student Certification
+</h2>
+
+
+<div class="checklist">
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    id="attestation"
+    required>
+
+<span>
+
+I certify that this project represents my
+own work and that the information provided
+in this submission is accurate.
+
+</span>
+
+</label>
+
+
+<label class="check-item">
+
+<input
+    type="checkbox"
+    id="reviewAgreement"
+    required>
+
+<span>
+
+I understand that my project must be reviewed
+and approved before I can proceed to the
+Final Examination.
+
+</span>
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     SUBMIT
+========================================= -->
+
+<div class="submit-area">
+
+<button
+    type="submit"
+    class="submit-button">
+
+📤 Submit Project for Review
+
+</button>
+
+</div>
+
+
+</form>
+
+
+
+<!-- =========================================
+     SUCCESS
+========================================= -->
+
+<div
+    class="success"
+    id="successMessage">
+
+<div class="success-icon">
+    ✅
+</div>
+
+<h2>
+Project Submitted Successfully
+</h2>
+
+<p>
+
+Your Final Project has been submitted for review.
+
+</p>
+
+<div class="status-card">
+
+<p>
+
+<span class="status-label">
+Project Status:
+</span>
+
+<span class="status-pending">
+Pending Instructor Review
+</span>
+
+</p>
+
+<p>
+
+Your instructor will review your project
+and determine whether it meets the requirements.
+
+</p>
+
+</div>
+
+
+<a
+    href="final-exam.html"
+    class="exam-button"
+    id="examButton">
+
+🎓 Proceed to Final Examination
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+</main>
+
+
+
+<script>
+
+/* =========================================
+   SET SUBMISSION DATE
+========================================= */
+
+const today =
+    new Date()
+    .toISOString()
+    .split("T")[0];
+
+document.getElementById(
+    "projectDate"
+).value = today;
+
+
+
+/* =========================================
+   FILE DISPLAY
+========================================= */
+
+const fileInput =
+    document.getElementById(
+        "projectFiles"
+    );
+
+const fileList =
+    document.getElementById(
+        "fileList"
+    );
+
+
+fileInput.addEventListener(
+    "change",
+    function() {
+
+        if (
+            fileInput.files.length === 0
+        ) {
+
+            fileList.textContent =
+                "No files selected.";
+
+            return;
+
+        }
+
+
+        let files = [];
+
+        for (
+            let i = 0;
+            i < fileInput.files.length;
+            i++
+        ) {
+
+            files.push(
+                fileInput.files[i].name
+            );
+
+        }
+
+
+        fileList.innerHTML =
+            "<strong>Selected Files:</strong><br>" +
+            files.join("<br>");
+
+    }
+);
+
+
+
+/* =========================================
+   FORM SUBMISSION
+========================================= */
+
+const projectForm =
+    document.getElementById(
+        "projectForm"
+    );
+
+
+projectForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        /* Browser validation */
+
+        if (
+            !projectForm.checkValidity()
+        ) {
+
+            projectForm.reportValidity();
+
+            return;
+
+        }
+
+
+        /* Store submission status */
+
+        localStorage.setItem(
+            "ghs_final_project_submitted",
+            "true"
+        );
+
+
+        localStorage.setItem(
+            "ghs_final_project_status",
+            "pending"
+        );
+
+
+        /* Hide form */
+
+        projectForm.style.display =
+            "none";
+
+
+        /* Show confirmation */
+
+        document.getElementById(
+            "successMessage"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+
+/* =========================================
+   CHECK PROJECT STATUS
+========================================= */
+
+const submitted =
+    localStorage.getItem(
+        "ghs_final_project_submitted"
+    );
+
+
+const status =
+    localStorage.getItem(
+        "ghs_final_project_status"
+    );
+
+
+/*
+
+If the project was already submitted,
+show the confirmation page.
+
+*/
+
+if (
+    submitted === "true"
+) {
+
+    projectForm.style.display =
+        "none";
+
+
+    document.getElementById(
+        "successMessage"
+    ).style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

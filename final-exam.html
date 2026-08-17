@@ -1,0 +1,3778 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Final Examination | Golden Healing Solutions
+</title>
+
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 1050px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   EXAM CARD
+========================================= */
+
+.exam-card {
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.exam-title {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+.exam-icon {
+
+    font-size: 55px;
+
+}
+
+.exam-title h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.exam-title p {
+
+    color: #666;
+
+}
+
+
+/* =========================================
+   EXAM INFORMATION
+========================================= */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0;
+
+}
+
+.info-box {
+
+    background: #faf7ed;
+
+    border: 1px solid #e2d39a;
+
+    padding: 18px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+}
+
+.info-box strong {
+
+    display: block;
+
+    color: #b18a16;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+
+}
+
+
+/* =========================================
+   ATTEMPT
+========================================= */
+
+.attempt {
+
+    background: #fff8dc;
+
+    border: 1px solid #d4af37;
+
+    padding: 15px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================
+   TIMER
+========================================= */
+
+.timer {
+
+    background: #111;
+
+    color: white;
+
+    padding: 17px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+
+    position: sticky;
+
+    top: 76px;
+
+    z-index: 900;
+
+}
+
+.timer strong {
+
+    color: #d4af37;
+
+    font-size: 24px;
+
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-section {
+
+    margin: 25px 0;
+
+}
+
+.progress-text {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+}
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.progress {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+
+}
+
+
+/* =========================================
+   SECTION HEADERS
+========================================= */
+
+.section-heading {
+
+    margin-top: 45px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #d4af37;
+
+}
+
+.section-heading h2 {
+
+    font-family: Georgia, serif;
+
+    margin: 0;
+
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin: 20px 0;
+
+}
+
+.question h3 {
+
+    margin-top: 0;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   ANSWER OPTIONS
+========================================= */
+
+.option {
+
+    display: block;
+
+    padding: 13px;
+
+    margin: 10px 0;
+
+    background: #f7f7f7;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.option:hover {
+
+    background: #f0ead6;
+
+}
+
+.option input {
+
+    margin-right: 10px;
+
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.submit-area {
+
+    text-align: center;
+
+    margin-top: 45px;
+
+}
+
+.submit-button {
+
+    background: #d4af37;
+
+    color: white;
+
+    border: none;
+
+    padding: 17px 40px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+}
+
+.submit-button:hover {
+
+    background: #b18a16;
+
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: #faf7ed;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 10px;
+
+}
+
+.results h2 {
+
+    font-family: Georgia, serif;
+
+}
+
+.score {
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    color: #b18a16;
+
+}
+
+.pass {
+
+    color: green;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.fail {
+
+    color: #b00020;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.certificate-button {
+
+    display: none;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 15px 28px;
+
+    border-radius: 7px;
+
+    margin-top: 20px;
+
+    font-weight: bold;
+
+}
+
+.retake-button {
+
+    display: none;
+
+    background: #d4af37;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 7px;
+
+    margin-top: 20px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+.course-retake {
+
+    display: none;
+
+    background: #ffe5e5;
+
+    color: #8b1a1a;
+
+    border: 1px solid #d9534f;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    border-radius: 8px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width: 750px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .exam-card {
+
+        padding: 25px 17px;
+
+    }
+
+    .info-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .exam-title h1 {
+
+        font-size: 30px;
+
+    }
+
+    .timer {
+
+        top: 0;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        GOLDEN HEALING SOLUTIONS
+
+    </div>
+
+    <div class="course-name">
+
+        Web Development Bootcamp
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="exam-card">
+
+
+<!-- =========================================
+     TITLE
+========================================= -->
+
+<div class="exam-title">
+
+    <div class="exam-icon">
+        🎓
+    </div>
+
+    <h1>
+        Final Examination
+    </h1>
+
+    <p>
+        Web Development Bootcamp
+    </p>
+
+</div>
+
+
+
+<!-- =========================================
+     INFORMATION
+========================================= -->
+
+<div class="info-grid">
+
+    <div class="info-box">
+
+        <strong>75</strong>
+
+        Questions
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>80%</strong>
+
+        Passing Score
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>2 Hours</strong>
+
+        Time Limit
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>2</strong>
+
+        Maximum Attempts
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     ATTEMPT
+========================================= -->
+
+<div class="attempt">
+
+    Attempt
+
+    <span id="attemptNumber">
+        1
+    </span>
+
+    of 2
+
+</div>
+
+
+
+<!-- =========================================
+     TIMER
+========================================= -->
+
+<div class="timer">
+
+    ⏱️ Time Remaining:
+
+    <strong id="timer">
+        120:00
+    </strong>
+
+</div>
+
+
+
+<!-- =========================================
+     PROGRESS
+========================================= -->
+
+<div class="progress-section">
+
+    <div class="progress-text">
+
+        <span>
+            Exam Progress
+        </span>
+
+        <span>
+            <span id="answered">0</span>
+            / 75 Answered
+        </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            class="progress"
+            id="progress">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<form id="examForm">
+
+
+
+<!-- =========================================
+     SECTION 1
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+1. HTML & HTML5
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+1. What does HTML stand for?
+</h3>
+
+<label class="option">
+<input type="radio" name="q1" value="a">
+A. Hyper Text Markup Language
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="b">
+B. High Technology Modern Language
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="c">
+C. Hyperlink Text Management Language
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="d">
+D. Home Tool Markup Language
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+2. Which HTML element represents the largest heading?
+</h3>
+
+<label class="option">
+<input type="radio" name="q2" value="a">
+A. &lt;h6&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="b">
+B. &lt;heading&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="c">
+C. &lt;h1&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="d">
+D. &lt;head&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+3. Which HTML element creates a hyperlink?
+</h3>
+
+<label class="option">
+<input type="radio" name="q3" value="a">
+A. &lt;link&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="b">
+B. &lt;a&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="c">
+C. &lt;href&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="d">
+D. &lt;url&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+4. Which attribute specifies the destination of a hyperlink?
+</h3>
+
+<label class="option">
+<input type="radio" name="q4" value="a">
+A. src
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="b">
+B. link
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="c">
+C. href
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="d">
+D. destination
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+5. Which HTML element displays an image?
+</h3>
+
+<label class="option">
+<input type="radio" name="q5" value="a">
+A. &lt;picture&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="b">
+B. &lt;image&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="c">
+C. &lt;img&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="d">
+D. &lt;src&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+6. What is the purpose of the alt attribute?
+</h3>
+
+<label class="option">
+<input type="radio" name="q6" value="a">
+A. Changes image size
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="b">
+B. Provides alternative text for an image
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="c">
+C. Changes image format
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="d">
+D. Creates a hyperlink
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+7. Which element creates an unordered list?
+</h3>
+
+<label class="option">
+<input type="radio" name="q7" value="a">
+A. &lt;ol&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="b">
+B. &lt;list&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="c">
+C. &lt;ul&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="d">
+D. &lt;li&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+8. Which element represents an individual list item?
+</h3>
+
+<label class="option">
+<input type="radio" name="q8" value="a">
+A. &lt;item&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="b">
+B. &lt;li&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="c">
+C. &lt;list-item&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="d">
+D. &lt;ul&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+9. Which HTML element creates a paragraph?
+</h3>
+
+<label class="option">
+<input type="radio" name="q9" value="a">
+A. &lt;paragraph&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="b">
+B. &lt;text&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="c">
+C. &lt;p&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="d">
+D. &lt;para&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+10. Which HTML element creates a form?
+</h3>
+
+<label class="option">
+<input type="radio" name="q10" value="a">
+A. &lt;input&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="b">
+B. &lt;form&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="c">
+C. &lt;fieldset&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="d">
+D. &lt;data&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+11. Which HTML5 element represents the main content of a webpage?
+</h3>
+
+<label class="option">
+<input type="radio" name="q11" value="a">
+A. &lt;main&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="b">
+B. &lt;content&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="c">
+C. &lt;body-content&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="d">
+D. &lt;primary&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+12. Which HTML5 element represents navigation links?
+</h3>
+
+<label class="option">
+<input type="radio" name="q12" value="a">
+A. &lt;links&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="b">
+B. &lt;navigate&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="c">
+C. &lt;nav&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="d">
+D. &lt;navigation&gt;
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 2 — CSS
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+2. CSS & CSS3
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+13. What does CSS stand for?
+</h3>
+
+<label class="option">
+<input type="radio" name="q13" value="a">
+A. Computer Style Sheets
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="b">
+B. Cascading Style Sheets
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="c">
+C. Creative Style Syntax
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="d">
+D. Colorful Style Sheets
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+14. Which CSS property changes text color?
+</h3>
+
+<label class="option">
+<input type="radio" name="q14" value="a">
+A. text-color
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="b">
+B. font-color
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="c">
+C. color
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="d">
+D. foreground
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+15. Which CSS property changes background color?
+</h3>
+
+<label class="option">
+<input type="radio" name="q15" value="a">
+A. background-color
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="b">
+B. color-background
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="c">
+C. bg-color
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="d">
+D. background-style
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+16. Which CSS property changes font size?
+</h3>
+
+<label class="option">
+<input type="radio" name="q16" value="a">
+A. text-size
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="b">
+B. font-size
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="c">
+C. size
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="d">
+D. font-height
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+17. Which CSS property controls font thickness?
+</h3>
+
+<label class="option">
+<input type="radio" name="q17" value="a">
+A. font-style
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="b">
+B. text-bold
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="c">
+C. font-weight
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="d">
+D. weight
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+18. Which selector targets an element with the ID "header"?
+</h3>
+
+<label class="option">
+<input type="radio" name="q18" value="a">
+A. .header
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="b">
+B. #header
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="c">
+C. header.
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="d">
+D. *header
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+19. Which selector targets a class named "button"?
+</h3>
+
+<label class="option">
+<input type="radio" name="q19" value="a">
+A. #button
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="b">
+B. .button
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="c">
+C. button#
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="d">
+D. *button
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+20. Which property controls space inside an element's border?
+</h3>
+
+<label class="option">
+<input type="radio" name="q20" value="a">
+A. margin
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="b">
+B. spacing
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="c">
+C. padding
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="d">
+D. border-spacing
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+21. Which property controls space outside an element's border?
+</h3>
+
+<label class="option">
+<input type="radio" name="q21" value="a">
+A. padding
+</label>
+
+<label class="option">
+<input type="radio" name="q21" value="b">
+B. margin
+</label>
+
+<label class="option">
+<input type="radio" name="q21" value="c">
+C. outside-space
+</label>
+
+<label class="option">
+<input type="radio" name="q21" value="d">
+D. spacing
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+22. Which layout system is primarily one-dimensional?
+</h3>
+
+<label class="option">
+<input type="radio" name="q22" value="a">
+A. Flexbox
+</label>
+
+<label class="option">
+<input type="radio" name="q22" value="b">
+B. Grid
+</label>
+
+<label class="option">
+<input type="radio" name="q22" value="c">
+C. Float
+</label>
+
+<label class="option">
+<input type="radio" name="q22" value="d">
+D. Position
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+23. Which layout system is designed for two-dimensional layouts?
+</h3>
+
+<label class="option">
+<input type="radio" name="q23" value="a">
+A. Flexbox
+</label>
+
+<label class="option">
+<input type="radio" name="q23" value="b">
+B. CSS Grid
+</label>
+
+<label class="option">
+<input type="radio" name="q23" value="c">
+C. Inline-block
+</label>
+
+<label class="option">
+<input type="radio" name="q23" value="d">
+D. Float
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+24. Which property creates rounded corners?
+</h3>
+
+<label class="option">
+<input type="radio" name="q24" value="a">
+A. corner-radius
+</label>
+
+<label class="option">
+<input type="radio" name="q24" value="b">
+B. radius
+</label>
+
+<label class="option">
+<input type="radio" name="q24" value="c">
+C. border-radius
+</label>
+
+<label class="option">
+<input type="radio" name="q24" value="d">
+D. round-border
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 3 — JAVASCRIPT
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+3. JavaScript
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+25. Which language adds interactivity to webpages?
+</h3>
+
+<label class="option">
+<input type="radio" name="q25" value="a">
+A. HTML
+</label>
+
+<label class="option">
+<input type="radio" name="q25" value="b">
+B. CSS
+</label>
+
+<label class="option">
+<input type="radio" name="q25" value="c">
+C. JavaScript
+</label>
+
+<label class="option">
+<input type="radio" name="q25" value="d">
+D. SQL
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+26. Which keyword declares a variable that can be reassigned?
+</h3>
+
+<label class="option">
+<input type="radio" name="q26" value="a">
+A. let
+</label>
+
+<label class="option">
+<input type="radio" name="q26" value="b">
+B. constant
+</label>
+
+<label class="option">
+<input type="radio" name="q26" value="c">
+C. define
+</label>
+
+<label class="option">
+<input type="radio" name="q26" value="d">
+D. variable
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+27. Which keyword declares a variable that cannot be reassigned?
+</h3>
+
+<label class="option">
+<input type="radio" name="q27" value="a">
+A. let
+</label>
+
+<label class="option">
+<input type="radio" name="q27" value="b">
+B. var
+</label>
+
+<label class="option">
+<input type="radio" name="q27" value="c">
+C. const
+</label>
+
+<label class="option">
+<input type="radio" name="q27" value="d">
+D. fixed
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+28. Which is a Boolean value?
+</h3>
+
+<label class="option">
+<input type="radio" name="q28" value="a">
+A. "true"
+</label>
+
+<label class="option">
+<input type="radio" name="q28" value="b">
+B. 1
+</label>
+
+<label class="option">
+<input type="radio" name="q28" value="c">
+C. true
+</label>
+
+<label class="option">
+<input type="radio" name="q28" value="d">
+D. "yes"
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+29. Which operator performs strict equality?
+</h3>
+
+<label class="option">
+<input type="radio" name="q29" value="a">
+A. =
+</label>
+
+<label class="option">
+<input type="radio" name="q29" value="b">
+B. ==
+</label>
+
+<label class="option">
+<input type="radio" name="q29" value="c">
+C. ===
+</label>
+
+<label class="option">
+<input type="radio" name="q29" value="d">
+D. !=
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+30. What does = generally do?
+</h3>
+
+<label class="option">
+<input type="radio" name="q30" value="a">
+A. Compares values
+</label>
+
+<label class="option">
+<input type="radio" name="q30" value="b">
+B. Assigns a value
+</label>
+
+<label class="option">
+<input type="radio" name="q30" value="c">
+C. Creates a function
+</label>
+
+<label class="option">
+<input type="radio" name="q30" value="d">
+D. Ends a statement
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+31. Which data type represents an ordered collection?
+</h3>
+
+<label class="option">
+<input type="radio" name="q31" value="a">
+A. Boolean
+</label>
+
+<label class="option">
+<input type="radio" name="q31" value="b">
+B. Array
+</label>
+
+<label class="option">
+<input type="radio" name="q31" value="c">
+C. String
+</label>
+
+<label class="option">
+<input type="radio" name="q31" value="d">
+D. Object
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+32. Which data type stores key-value pairs?
+</h3>
+
+<label class="option">
+<input type="radio" name="q32" value="a">
+A. Array
+</label>
+
+<label class="option">
+<input type="radio" name="q32" value="b">
+B. String
+</label>
+
+<label class="option">
+<input type="radio" name="q32" value="c">
+C. Object
+</label>
+
+<label class="option">
+<input type="radio" name="q32" value="d">
+D. Boolean
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+33. Which method adds an item to the end of an array?
+</h3>
+
+<label class="option">
+<input type="radio" name="q33" value="a">
+A. add()
+</label>
+
+<label class="option">
+<input type="radio" name="q33" value="b">
+B. append()
+</label>
+
+<label class="option">
+<input type="radio" name="q33" value="c">
+C. push()
+</label>
+
+<label class="option">
+<input type="radio" name="q33" value="d">
+D. insert()
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+34. Which method removes the last array item?
+</h3>
+
+<label class="option">
+<input type="radio" name="q34" value="a">
+A. remove()
+</label>
+
+<label class="option">
+<input type="radio" name="q34" value="b">
+B. pop()
+</label>
+
+<label class="option">
+<input type="radio" name="q34" value="c">
+C. delete()
+</label>
+
+<label class="option">
+<input type="radio" name="q34" value="d">
+D. shift()
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+35. Which statement makes a decision based on a condition?
+</h3>
+
+<label class="option">
+<input type="radio" name="q35" value="a">
+A. if
+</label>
+
+<label class="option">
+<input type="radio" name="q35" value="b">
+B. choose
+</label>
+
+<label class="option">
+<input type="radio" name="q35" value="c">
+C. condition
+</label>
+
+<label class="option">
+<input type="radio" name="q35" value="d">
+D. when
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+36. Which loop is commonly used for controlled repetition?
+</h3>
+
+<label class="option">
+<input type="radio" name="q36" value="a">
+A. if loop
+</label>
+
+<label class="option">
+<input type="radio" name="q36" value="b">
+B. for loop
+</label>
+
+<label class="option">
+<input type="radio" name="q36" value="c">
+C. condition loop
+</label>
+
+<label class="option">
+<input type="radio" name="q36" value="d">
+D. repeat-if
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+37. Which keyword defines a function?
+</h3>
+
+<label class="option">
+<input type="radio" name="q37" value="a">
+A. function
+</label>
+
+<label class="option">
+<input type="radio" name="q37" value="b">
+B. define
+</label>
+
+<label class="option">
+<input type="radio" name="q37" value="c">
+C. method
+</label>
+
+<label class="option">
+<input type="radio" name="q37" value="d">
+D. procedure
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+38. What does console.log() commonly do?
+</h3>
+
+<label class="option">
+<input type="radio" name="q38" value="a">
+A. Creates a webpage
+</label>
+
+<label class="option">
+<input type="radio" name="q38" value="b">
+B. Displays information in the browser console
+</label>
+
+<label class="option">
+<input type="radio" name="q38" value="c">
+C. Opens a database
+</label>
+
+<label class="option">
+<input type="radio" name="q38" value="d">
+D. Changes CSS
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+39. Which operator represents logical AND?
+</h3>
+
+<label class="option">
+<input type="radio" name="q39" value="a">
+A. ||
+</label>
+
+<label class="option">
+<input type="radio" name="q39" value="b">
+B. &&
+</label>
+
+<label class="option">
+<input type="radio" name="q39" value="c">
+C. AND
+</label>
+
+<label class="option">
+<input type="radio" name="q39" value="d">
+D. &|
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 4 — DOM
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+4. DOM & Events
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+40. What does DOM stand for?
+</h3>
+
+<label class="option">
+<input type="radio" name="q40" value="a">
+A. Document Object Model
+</label>
+
+<label class="option">
+<input type="radio" name="q40" value="b">
+B. Data Object Management
+</label>
+
+<label class="option">
+<input type="radio" name="q40" value="c">
+C. Document Operation Method
+</label>
+
+<label class="option">
+<input type="radio" name="q40" value="d">
+D. Digital Object Model
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+41. Which method selects an element by ID?
+</h3>
+
+<label class="option">
+<input type="radio" name="q41" value="a">
+A. getElementById()
+</label>
+
+<label class="option">
+<input type="radio" name="q41" value="b">
+B. selectById()
+</label>
+
+<label class="option">
+<input type="radio" name="q41" value="c">
+C. findID()
+</label>
+
+<label class="option">
+<input type="radio" name="q41" value="d">
+D. getID()
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+42. Which method selects the first element matching a CSS selector?
+</h3>
+
+<label class="option">
+<input type="radio" name="q42" value="a">
+A. getSelector()
+</label>
+
+<label class="option">
+<input type="radio" name="q42" value="b">
+B. querySelector()
+</label>
+
+<label class="option">
+<input type="radio" name="q42" value="c">
+C. selectFirst()
+</label>
+
+<label class="option">
+<input type="radio" name="q42" value="d">
+D. findSelector()
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+43. Which method attaches an event handler?
+</h3>
+
+<label class="option">
+<input type="radio" name="q43" value="a">
+A. addEventListener()
+</label>
+
+<label class="option">
+<input type="radio" name="q43" value="b">
+B. attachAction()
+</label>
+
+<label class="option">
+<input type="radio" name="q43" value="c">
+C. eventAdd()
+</label>
+
+<label class="option">
+<input type="radio" name="q43" value="d">
+D. listenEvent()
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+44. Which event occurs when a user clicks an element?
+</h3>
+
+<label class="option">
+<input type="radio" name="q44" value="a">
+A. hover
+</label>
+
+<label class="option">
+<input type="radio" name="q44" value="b">
+B. submit
+</label>
+
+<label class="option">
+<input type="radio" name="q44" value="c">
+C. click
+</label>
+
+<label class="option">
+<input type="radio" name="q44" value="d">
+D. press
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+45. Which event commonly occurs when a form is submitted?
+</h3>
+
+<label class="option">
+<input type="radio" name="q45" value="a">
+A. send
+</label>
+
+<label class="option">
+<input type="radio" name="q45" value="b">
+B. submit
+</label>
+
+<label class="option">
+<input type="radio" name="q45" value="c">
+C. formSubmitOnly
+</label>
+
+<label class="option">
+<input type="radio" name="q45" value="d">
+D. enter
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+46. Which property can change the text inside an element?
+</h3>
+
+<label class="option">
+<input type="radio" name="q46" value="a">
+A. innerText
+</label>
+
+<label class="option">
+<input type="radio" name="q46" value="b">
+B. textChange
+</label>
+
+<label class="option">
+<input type="radio" name="q46" value="c">
+C. changeText
+</label>
+
+<label class="option">
+<input type="radio" name="q46" value="d">
+D. replaceTextOnly
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+47. Which method creates a new HTML element?
+</h3>
+
+<label class="option">
+<input type="radio" name="q47" value="a">
+A. createElement()
+</label>
+
+<label class="option">
+<input type="radio" name="q47" value="b">
+B. newHTML()
+</label>
+
+<label class="option">
+<input type="radio" name="q47" value="c">
+C. makeElement()
+</label>
+
+<label class="option">
+<input type="radio" name="q47" value="d">
+D. buildElement()
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 5 — RESPONSIVE
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+5. Responsive Web Design
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+48. What is responsive web design?
+</h3>
+
+<label class="option">
+<input type="radio" name="q48" value="a">
+A. Designing only for desktop
+</label>
+
+<label class="option">
+<input type="radio" name="q48" value="b">
+B. Designing webpages that adapt to different screen sizes
+</label>
+
+<label class="option">
+<input type="radio" name="q48" value="c">
+C. Designing without CSS
+</label>
+
+<label class="option">
+<input type="radio" name="q48" value="d">
+D. Designing only for mobile
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+49. Which CSS feature applies styles based on conditions such as screen width?
+</h3>
+
+<label class="option">
+<input type="radio" name="q49" value="a">
+A. Media queries
+</label>
+
+<label class="option">
+<input type="radio" name="q49" value="b">
+B. Screen selectors
+</label>
+
+<label class="option">
+<input type="radio" name="q49" value="c">
+C. Device rules
+</label>
+
+<label class="option">
+<input type="radio" name="q49" value="d">
+D. Resolution commands
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+50. Which viewport setting is commonly used for responsive websites?
+</h3>
+
+<label class="option">
+<input type="radio" name="q50" value="a">
+A. &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q50" value="b">
+B. &lt;meta responsive="true"&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q50" value="c">
+C. &lt;responsive viewport="yes"&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q50" value="d">
+D. &lt;screen width="device"&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+51. Why is mobile-friendly design important?
+</h3>
+
+<label class="option">
+<input type="radio" name="q51" value="a">
+A. Most websites only run on phones
+</label>
+
+<label class="option">
+<input type="radio" name="q51" value="b">
+B. Users access websites from many different devices
+</label>
+
+<label class="option">
+<input type="radio" name="q51" value="c">
+C. Desktop computers cannot display HTML
+</label>
+
+<label class="option">
+<input type="radio" name="q51" value="d">
+D. CSS only works on mobile devices
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+52. Which unit is relative to the root element's font size?
+</h3>
+
+<label class="option">
+<input type="radio" name="q52" value="a">
+A. px
+</label>
+
+<label class="option">
+<input type="radio" name="q52" value="b">
+B. rem
+</label>
+
+<label class="option">
+<input type="radio" name="q52" value="c">
+C. cm
+</label>
+
+<label class="option">
+<input type="radio" name="q52" value="d">
+D. pt
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+53. Which unit is relative to the font size of the relevant parent/context?
+</h3>
+
+<label class="option">
+<input type="radio" name="q53" value="a">
+A. em
+</label>
+
+<label class="option">
+<input type="radio" name="q53" value="b">
+B. px
+</label>
+
+<label class="option">
+<input type="radio" name="q53" value="c">
+C. rem
+</label>
+
+<label class="option">
+<input type="radio" name="q53" value="d">
+D. vh
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 6 — FORMS
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+6. Forms & User Input
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+54. Which input type is appropriate for an email address?
+</h3>
+
+<label class="option">
+<input type="radio" name="q54" value="a">
+A. text-email
+</label>
+
+<label class="option">
+<input type="radio" name="q54" value="b">
+B. email
+</label>
+
+<label class="option">
+<input type="radio" name="q54" value="c">
+C. mail
+</label>
+
+<label class="option">
+<input type="radio" name="q54" value="d">
+D. address
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+55. Which input type masks characters entered by a user?
+</h3>
+
+<label class="option">
+<input type="radio" name="q55" value="a">
+A. hidden
+</label>
+
+<label class="option">
+<input type="radio" name="q55" value="b">
+B. private
+</label>
+
+<label class="option">
+<input type="radio" name="q55" value="c">
+C. password
+</label>
+
+<label class="option">
+<input type="radio" name="q55" value="d">
+D. secure
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+56. Which attribute makes a form field mandatory?
+</h3>
+
+<label class="option">
+<input type="radio" name="q56" value="a">
+A. required
+</label>
+
+<label class="option">
+<input type="radio" name="q56" value="b">
+B. mandatory
+</label>
+
+<label class="option">
+<input type="radio" name="q56" value="c">
+C. needed
+</label>
+
+<label class="option">
+<input type="radio" name="q56" value="d">
+D. validate
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+57. Which input type allows one option to be selected from a group?
+</h3>
+
+<label class="option">
+<input type="radio" name="q57" value="a">
+A. checkbox
+</label>
+
+<label class="option">
+<input type="radio" name="q57" value="b">
+B. radio
+</label>
+
+<label class="option">
+<input type="radio" name="q57" value="c">
+C. select-one-only
+</label>
+
+<label class="option">
+<input type="radio" name="q57" value="d">
+D. option
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+58. Which input type allows multiple independent selections?
+</h3>
+
+<label class="option">
+<input type="radio" name="q58" value="a">
+A. radio
+</label>
+
+<label class="option">
+<input type="radio" name="q58" value="b">
+B. checkbox
+</label>
+
+<label class="option">
+<input type="radio" name="q58" value="c">
+C. multiple-choice
+</label>
+
+<label class="option">
+<input type="radio" name="q58" value="d">
+D. multi-select-input
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 7 — ACCESSIBILITY
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+7. Accessibility
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+59. What is the primary purpose of web accessibility?
+</h3>
+
+<label class="option">
+<input type="radio" name="q59" value="a">
+A. Make websites more expensive
+</label>
+
+<label class="option">
+<input type="radio" name="q59" value="b">
+B. Make websites usable by people with different abilities
+</label>
+
+<label class="option">
+<input type="radio" name="q59" value="c">
+C. Prevent mobile access
+</label>
+
+<label class="option">
+<input type="radio" name="q59" value="d">
+D. Increase JavaScript
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+60. Why is alternative text important for images?
+</h3>
+
+<label class="option">
+<input type="radio" name="q60" value="a">
+A. It increases image resolution
+</label>
+
+<label class="option">
+<input type="radio" name="q60" value="b">
+B. It communicates image information to users who cannot see the image
+</label>
+
+<label class="option">
+<input type="radio" name="q60" value="c">
+C. It compresses images
+</label>
+
+<label class="option">
+<input type="radio" name="q60" value="d">
+D. It changes image color
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+61. Which element should generally contain main navigation?
+</h3>
+
+<label class="option">
+<input type="radio" name="q61" value="a">
+A. &lt;div&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q61" value="b">
+B. &lt;nav&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q61" value="c">
+C. &lt;section&gt;
+</label>
+
+<label class="option">
+<input type="radio" name="q61" value="d">
+D. &lt;links&gt;
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+62. Why should headings be structured logically?
+</h3>
+
+<label class="option">
+<input type="radio" name="q62" value="a">
+A. To help users and assistive technologies understand page structure
+</label>
+
+<label class="option">
+<input type="radio" name="q62" value="b">
+B. To make every heading the same size
+</label>
+
+<label class="option">
+<input type="radio" name="q62" value="c">
+C. To remove CSS
+</label>
+
+<label class="option">
+<input type="radio" name="q62" value="d">
+D. To prevent scrolling
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+63. Which practice improves keyboard accessibility?
+</h3>
+
+<label class="option">
+<input type="radio" name="q63" value="a">
+A. Removing focus indicators
+</label>
+
+<label class="option">
+<input type="radio" name="q63" value="b">
+B. Making interactive elements usable with a keyboard
+</label>
+
+<label class="option">
+<input type="radio" name="q63" value="c">
+C. Requiring a mouse for every action
+</label>
+
+<label class="option">
+<input type="radio" name="q63" value="d">
+D. Disabling keyboard navigation
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 8 — DEBUGGING
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+8. Debugging & Development Tools
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+64. What is debugging?
+</h3>
+
+<label class="option">
+<input type="radio" name="q64" value="a">
+A. Designing a logo
+</label>
+
+<label class="option">
+<input type="radio" name="q64" value="b">
+B. Finding and fixing problems in code
+</label>
+
+<label class="option">
+<input type="radio" name="q64" value="c">
+C. Installing an operating system
+</label>
+
+<label class="option">
+<input type="radio" name="q64" value="d">
+D. Creating a database
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+65. Which browser tool is used to inspect HTML and CSS?
+</h3>
+
+<label class="option">
+<input type="radio" name="q65" value="a">
+A. Developer Tools
+</label>
+
+<label class="option">
+<input type="radio" name="q65" value="b">
+B. Word Processor
+</label>
+
+<label class="option">
+<input type="radio" name="q65" value="c">
+C. File Explorer
+</label>
+
+<label class="option">
+<input type="radio" name="q65" value="d">
+D. Media Player
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+66. Which browser developer tool commonly displays JavaScript errors?
+</h3>
+
+<label class="option">
+<input type="radio" name="q66" value="a">
+A. Elements panel
+</label>
+
+<label class="option">
+<input type="radio" name="q66" value="b">
+B. Console
+</label>
+
+<label class="option">
+<input type="radio" name="q66" value="c">
+C. Network cable
+</label>
+
+<label class="option">
+<input type="radio" name="q66" value="d">
+D. Sources folder
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+67. What does HTTP status code 404 generally mean?
+</h3>
+
+<label class="option">
+<input type="radio" name="q67" value="a">
+A. Server successful
+</label>
+
+<label class="option">
+<input type="radio" name="q67" value="b">
+B. Unauthorized access
+</label>
+
+<label class="option">
+<input type="radio" name="q67" value="c">
+C. Requested resource was not found
+</label>
+
+<label class="option">
+<input type="radio" name="q67" value="d">
+D. Website permanently deleted
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+68. What does HTTP status code 500 generally indicate?
+</h3>
+
+<label class="option">
+<input type="radio" name="q68" value="a">
+A. A server-side error
+</label>
+
+<label class="option">
+<input type="radio" name="q68" value="b">
+B. A successful request
+</label>
+
+<label class="option">
+<input type="radio" name="q68" value="c">
+C. A missing image
+</label>
+
+<label class="option">
+<input type="radio" name="q68" value="d">
+D. A browser update
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 9 — SECURITY
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+9. Web Security
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+69. What does HTTPS provide?
+</h3>
+
+<label class="option">
+<input type="radio" name="q69" value="a">
+A. An encrypted connection between browser and server
+</label>
+
+<label class="option">
+<input type="radio" name="q69" value="b">
+B. Unlimited website storage
+</label>
+
+<label class="option">
+<input type="radio" name="q69" value="c">
+C. Faster HTML development
+</label>
+
+<label class="option">
+<input type="radio" name="q69" value="d">
+D. Automatic website design
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+70. Why should developers validate and sanitize user input?
+</h3>
+
+<label class="option">
+<input type="radio" name="q70" value="a">
+A. To make websites colorful
+</label>
+
+<label class="option">
+<input type="radio" name="q70" value="b">
+B. To help prevent malicious or invalid data from being processed
+</label>
+
+<label class="option">
+<input type="radio" name="q70" value="c">
+C. To increase font size
+</label>
+
+<label class="option">
+<input type="radio" name="q70" value="d">
+D. To remove CSS
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+71. What is phishing?
+</h3>
+
+<label class="option">
+<input type="radio" name="q71" value="a">
+A. A method of styling webpages
+</label>
+
+<label class="option">
+<input type="radio" name="q71" value="b">
+B. A fraudulent attempt to obtain sensitive information
+</label>
+
+<label class="option">
+<input type="radio" name="q71" value="c">
+C. A database language
+</label>
+
+<label class="option">
+<input type="radio" name="q71" value="d">
+D. A CSS technique
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+72. Which is a good password-security practice?
+</h3>
+
+<label class="option">
+<input type="radio" name="q72" value="a">
+A. Store passwords as plain text
+</label>
+
+<label class="option">
+<input type="radio" name="q72" value="b">
+B. Use strong passwords and securely hash stored passwords
+</label>
+
+<label class="option">
+<input type="radio" name="q72" value="c">
+C. Use the same password everywhere
+</label>
+
+<label class="option">
+<input type="radio" name="q72" value="d">
+D. Put passwords directly into HTML
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SECTION 10 — CONCEPTS
+========================================= -->
+
+<div class="section-heading">
+
+<h2>
+10. Web Development Concepts
+</h2>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+73. What is the primary role of a web browser?
+</h3>
+
+<label class="option">
+<input type="radio" name="q73" value="a">
+A. Interpret and display web content
+</label>
+
+<label class="option">
+<input type="radio" name="q73" value="b">
+B. Create electricity
+</label>
+
+<label class="option">
+<input type="radio" name="q73" value="c">
+C. Replace a database server
+</label>
+
+<label class="option">
+<input type="radio" name="q73" value="d">
+D. Automatically write all website code
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+74. What is the purpose of version control systems such as Git?
+</h3>
+
+<label class="option">
+<input type="radio" name="q74" value="a">
+A. Track changes to files and collaborate on code
+</label>
+
+<label class="option">
+<input type="radio" name="q74" value="b">
+B. Replace HTML
+</label>
+
+<label class="option">
+<input type="radio" name="q74" value="c">
+C. Design images
+</label>
+
+<label class="option">
+<input type="radio" name="q74" value="d">
+D. Host email only
+</label>
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+75. Which sequence best represents the basic front-end technologies covered in this bootcamp?
+</h3>
+
+<label class="option">
+<input type="radio" name="q75" value="a">
+A. HTML → CSS → JavaScript
+</label>
+
+<label class="option">
+<input type="radio" name="q75" value="b">
+B. JavaScript → SQL → HTML
+</label>
+
+<label class="option">
+<input type="radio" name="q75" value="c">
+C. CSS → Python → HTML
+</label>
+
+<label class="option">
+<input type="radio" name="q75" value="d">
+D. SQL → CSS → XML
+</label>
+
+</div>
+
+
+
+<!-- =========================================
+     SUBMIT
+========================================= -->
+
+<div class="submit-area">
+
+<button
+    type="button"
+    class="submit-button"
+    id="submitButton">
+
+    Submit Final Examination
+
+</button>
+
+</div>
+
+
+</form>
+
+
+
+<!-- =========================================
+     RESULTS
+========================================= -->
+
+<div
+    class="results"
+    id="results">
+
+<h2>
+Examination Results
+</h2>
+
+<p>
+Your Final Score
+</p>
+
+<div
+    class="score"
+    id="score">
+
+0%
+
+</div>
+
+
+<p id="resultMessage"></p>
+
+
+
+<a
+    href="certificate.html"
+    class="certificate-button"
+    id="certificateButton">
+
+🎓 Get Your Certificate of Completion
+
+</a>
+
+
+
+<button
+    class="retake-button"
+    id="retakeButton">
+
+🔄 Start Your Retake
+
+</button>
+
+
+
+<div
+    class="course-retake"
+    id="courseRetake">
+
+<strong>
+Course Retake Required
+</strong>
+
+<p>
+
+You did not achieve the required
+80% passing score after your
+two examination attempts.
+
+You must retake the Web Development
+Bootcamp before becoming eligible
+to take the Final Examination again.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<script>
+
+/* =========================================
+   EXAM SETTINGS
+========================================= */
+
+const TOTAL_QUESTIONS = 75;
+
+const PASSING_PERCENTAGE = 80;
+
+const PASSING_SCORE = 60;
+
+const TIME_LIMIT = 120 * 60;
+
+
+/* =========================================
+   ANSWER KEY
+========================================= */
+
+const answers = {
+
+    q1: "a",
+    q2: "c",
+    q3: "b",
+    q4: "c",
+    q5: "c",
+    q6: "b",
+    q7: "c",
+    q8: "b",
+    q9: "c",
+    q10: "b",
+    q11: "a",
+    q12: "c",
+
+    q13: "b",
+    q14: "c",
+    q15: "a",
+    q16: "b",
+    q17: "c",
+    q18: "b",
+    q19: "b",
+    q20: "c",
+    q21: "b",
+    q22: "a",
+    q23: "b",
+    q24: "c",
+
+    q25: "c",
+    q26: "a",
+    q27: "c",
+    q28: "c",
+    q29: "c",
+    q30: "b",
+    q31: "b",
+    q32: "c",
+    q33: "c",
+    q34: "b",
+    q35: "a",
+    q36: "b",
+    q37: "a",
+    q38: "b",
+    q39: "b",
+
+    q40: "a",
+    q41: "a",
+    q42: "b",
+    q43: "a",
+    q44: "c",
+    q45: "b",
+    q46: "a",
+    q47: "a",
+
+    q48: "b",
+    q49: "a",
+    q50: "a",
+    q51: "b",
+    q52: "b",
+    q53: "a",
+
+    q54: "b",
+    q55: "c",
+    q56: "a",
+    q57: "b",
+    q58: "b",
+
+    q59: "b",
+    q60: "b",
+    q61: "b",
+    q62: "a",
+    q63: "b",
+
+    q64: "b",
+    q65: "a",
+    q66: "b",
+    q67: "c",
+    q68: "a",
+
+    q69: "a",
+    q70: "b",
+    q71: "b",
+    q72: "b",
+
+    q73: "a",
+    q74: "a",
+    q75: "a"
+
+};
+
+
+/* =========================================
+   ATTEMPT MANAGEMENT
+========================================= */
+
+let attempt =
+    parseInt(
+        localStorage.getItem(
+            "ghs_webdev_exam_attempt"
+        )
+    ) || 1;
+
+
+document.getElementById(
+    "attemptNumber"
+).textContent = attempt;
+
+
+/* =========================================
+   TIMER
+========================================= */
+
+let timeRemaining = TIME_LIMIT;
+
+let submitted = false;
+
+
+const timerInterval =
+    setInterval(function() {
+
+        if (submitted) {
+
+            clearInterval(timerInterval);
+
+            return;
+
+        }
+
+
+        let minutes =
+            Math.floor(
+                timeRemaining / 60
+            );
+
+
+        let seconds =
+            timeRemaining % 60;
+
+
+        seconds =
+            seconds < 10
+                ? "0" + seconds
+                : seconds;
+
+
+        document.getElementById(
+            "timer"
+        ).textContent =
+            minutes + ":" + seconds;
+
+
+        if (timeRemaining <= 0) {
+
+            clearInterval(timerInterval);
+
+            alert(
+                "Your 2-hour time limit has expired. Your examination will now be submitted."
+            );
+
+            gradeExam();
+
+            return;
+
+        }
+
+
+        timeRemaining--;
+
+    }, 1000);
+
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+document
+    .getElementById("examForm")
+    .addEventListener(
+        "change",
+        updateProgress
+    );
+
+
+function updateProgress() {
+
+    const selected =
+        document.querySelectorAll(
+            'input[type="radio"]:checked'
+        ).length;
+
+
+    document.getElementById(
+        "answered"
+    ).textContent = selected;
+
+
+    const percentage =
+        (selected / TOTAL_QUESTIONS) * 100;
+
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+        percentage + "%";
+
+}
+
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+document
+    .getElementById("submitButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            const confirmed =
+                confirm(
+                    "Are you sure you want to submit your Final Examination? You will not be able to change your answers after submission."
+                );
+
+
+            if (confirmed) {
+
+                gradeExam();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================
+   GRADE EXAM
+========================================= */
+
+function gradeExam() {
+
+    if (submitted) {
+
+        return;
+
+    }
+
+
+    submitted = true;
+
+
+    clearInterval(timerInterval);
+
+
+    let correct = 0;
+
+
+    for (
+        let question in answers
+    ) {
+
+        const selected =
+            document.querySelector(
+                `input[name="${question}"]:checked`
+            );
+
+
+        if (
+            selected &&
+            selected.value ===
+            answers[question]
+        ) {
+
+            correct++;
+
+        }
+
+    }
+
+
+    const percentage =
+        Math.round(
+            (correct / TOTAL_QUESTIONS) * 100
+        );
+
+
+    document.getElementById(
+        "score"
+    ).textContent =
+        percentage + "%";
+
+
+    const resultMessage =
+        document.getElementById(
+            "resultMessage"
+        );
+
+
+    const certificate =
+        document.getElementById(
+            "certificateButton"
+        );
+
+
+    const retake =
+        document.getElementById(
+            "retakeButton"
+        );
+
+
+    const courseRetake =
+        document.getElementById(
+            "courseRetake"
+        );
+
+
+
+    /* =====================================
+       PASS
+    ===================================== */
+
+    if (
+        correct >= PASSING_SCORE
+    ) {
+
+        resultMessage.innerHTML =
+
+            `🎉 Congratulations! You passed with ${correct} out of ${TOTAL_QUESTIONS} correct answers. You achieved the required 80% passing score.`;
+
+
+        resultMessage.className =
+            "pass";
+
+
+        certificate.style.display =
+            "inline-block";
+
+
+        retake.style.display =
+            "none";
+
+
+        courseRetake.style.display =
+            "none";
+
+
+        localStorage.setItem(
+            "ghs_webdev_exam_passed",
+            "true"
+        );
+
+    }
+
+
+
+    /* =====================================
+       FIRST FAILURE
+    ===================================== */
+
+    else if (
+        attempt === 1
+    ) {
+
+        resultMessage.innerHTML =
+
+            `You scored ${percentage}%. A minimum score of 80% is required to pass. You have ONE retake available.`;
+
+
+        resultMessage.className =
+            "fail";
+
+
+        certificate.style.display =
+            "none";
+
+
+        retake.style.display =
+            "inline-block";
+
+
+        courseRetake.style.display =
+            "none";
+
+
+        localStorage.setItem(
+            "ghs_webdev_exam_attempt",
+            "2"
+        );
+
+    }
+
+
+
+    /* =====================================
+       SECOND FAILURE
+    ===================================== */
+
+    else {
+
+        resultMessage.innerHTML =
+
+            `You scored ${percentage}%. You did not achieve the required 80% passing score on your second attempt.`;
+
+
+        resultMessage.className =
+            "fail";
+
+
+        certificate.style.display =
+            "none";
+
+
+        retake.style.display =
+            "none";
+
+
+        courseRetake.style.display =
+            "block";
+
+
+        localStorage.setItem(
+            "ghs_webdev_course_retake_required",
+            "true"
+        );
+
+    }
+
+
+
+    /* =====================================
+       LOCK EXAM
+    ===================================== */
+
+    document
+        .querySelectorAll(
+            "#examForm input"
+        )
+        .forEach(
+            function(input) {
+
+                input.disabled =
+                    true;
+
+            }
+        );
+
+
+    document.getElementById(
+        "submitButton"
+    ).disabled = true;
+
+
+    document.getElementById(
+        "results"
+    ).style.display =
+        "block";
+
+
+    window.scrollTo({
+
+        top:
+            document.getElementById(
+                "results"
+            ).offsetTop,
+
+        behavior:
+            "smooth"
+
+    });
+
+}
+
+
+
+/* =========================================
+   RETAKE
+========================================= */
+
+document
+    .getElementById("retakeButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            localStorage.setItem(
+                "ghs_webdev_exam_attempt",
+                "2"
+            );
+
+
+            location.reload();
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.6 — Front-End Development | Web Development Bootcamp
+</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #222;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+.breadcrumb span {
+
+    color: #a27c12;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.module-icon {
+
+    font-size: 60px;
+
+}
+
+h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.subtitle {
+
+    max-width: 780px;
+
+    margin: auto;
+
+    color: #666;
+
+    font-size: 17px;
+
+}
+
+.gold-line {
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+
+    background: #faf7ed;
+
+    border-left: 5px solid #d4af37;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+}
+
+.objectives h2 {
+
+    margin-top: 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+
+    margin-top: 45px;
+
+}
+
+.section-title {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    border-bottom:
+        2px solid #d4af37;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   INFO BOX
+===================================================== */
+
+.info-box {
+
+    background: #f8f8f8;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+}
+
+.info-box strong {
+
+    color: #9a7710;
+
+}
+
+
+/* =====================================================
+   DEVELOPMENT STEPS
+===================================================== */
+
+.steps {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.step {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    background: white;
+
+}
+
+.step-number {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+.step h3 {
+
+    margin-top: 0;
+
+}
+
+
+/* =====================================================
+   TECH STACK
+===================================================== */
+
+.tech-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.tech-card {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+.tech-icon {
+
+    font-size: 45px;
+
+}
+
+
+/* =====================================================
+   CODE STRUCTURE
+===================================================== */
+
+.folder-tree {
+
+    background: #111;
+
+    color: #eee;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    overflow-x: auto;
+
+}
+
+.folder-tree .gold {
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 22px;
+
+}
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+}
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+}
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(212,175,55,.15);
+
+}
+
+
+/* =====================================================
+   CODE EDITOR
+===================================================== */
+
+.code-editor {
+
+    background: #111;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 20px;
+
+}
+
+.editor-header {
+
+    background: #222;
+
+    color: #ccc;
+
+    padding: 10px 15px;
+
+    font-size: 13px;
+
+}
+
+.code-editor textarea {
+
+    background: #111;
+
+    color: #eee;
+
+    border: none;
+
+    border-radius: 0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    min-height: 230px;
+
+    resize: vertical;
+
+}
+
+
+/* =====================================================
+   DEVELOPMENT TASKS
+===================================================== */
+
+.task {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+.task-number {
+
+    color: #9a7710;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+.responsive-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+.device-card {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+}
+
+.device-icon {
+
+    font-size: 40px;
+
+}
+
+
+/* =====================================================
+   TESTING
+===================================================== */
+
+.test-box {
+
+    background: #f4f8fb;
+
+    border-left:
+        5px solid #477ca8;
+
+    padding: 22px;
+
+    border-radius: 8px;
+
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+.check-item {
+
+    display: flex;
+
+    gap: 13px;
+
+    padding: 17px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.check-item:last-child {
+
+    border-bottom: none;
+
+}
+
+.check-item input {
+
+    width: 19px;
+
+    height: 19px;
+
+    margin-top: 4px;
+
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+
+    background: #fff8e6;
+
+    border-left:
+        5px solid #d4af37;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+}
+
+.warning {
+
+    background: #fff2f2;
+
+    border-left:
+        5px solid #b33;
+
+    border-radius: 7px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+
+    display: none;
+
+    background: #eef9f0;
+
+    border: 1px solid #70ad78;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    margin-top: 30px;
+
+}
+
+.completion h2 {
+
+    color: #287333;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+
+}
+
+button,
+.continue-button {
+
+    padding: 15px 30px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+.save-button {
+
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+}
+
+.continue-button {
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: none;
+
+}
+
+.save-button:hover {
+
+    background: #333;
+
+}
+
+.continue-button:hover {
+
+    background: #b18a16;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+
+    margin-top: 45px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+.progress-text {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+}
+
+.progress-bar {
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 35px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .card {
+
+        padding: 25px 18px;
+
+    }
+
+    h1 {
+
+        font-size: 30px;
+
+    }
+
+    .steps,
+    .tech-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .responsive-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.6 — Front-End Development
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+💻
+</div>
+
+<h1>
+18.6 — Front-End Development
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Build the front end of your Capstone project
+using HTML, CSS, and JavaScript.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Translate your wireframe into a functional webpage.
+</li>
+
+<li>
+Build semantic HTML page structures.
+</li>
+
+<li>
+Apply the UI design system using CSS.
+</li>
+
+<li>
+Create responsive layouts.
+</li>
+
+<li>
+Add client-side interactivity using JavaScript.
+</li>
+
+<li>
+Create functional navigation and forms.
+</li>
+
+<li>
+Organize front-end project files professionally.
+</li>
+
+<li>
+Test the interface across different screen sizes.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHAT IS FRONT-END DEVELOPMENT?
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 What Is Front-End Development?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Front-end development</strong> is the process
+of building the part of a website or web application
+that users see and interact with.
+
+</p>
+
+<p>
+
+Your Capstone should now move from the planning
+stages into actual development.
+
+</p>
+
+<p>
+
+You will use <strong>HTML</strong> to structure content,
+<strong>CSS</strong> to style and lay out the interface,
+and <strong>JavaScript</strong> to add behavior and
+interactivity. :contentReference[oaicite:1]{index=1}
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DEVELOPMENT PROCESS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ Front-End Development Process
+</h2>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+Build the Structure
+</h3>
+
+<p>
+
+Create the HTML structure based on your
+approved wireframe.
+
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+Apply the Design
+</h3>
+
+<p>
+
+Use CSS to implement your approved UI design,
+layout, typography, colors, and spacing.
+
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+Add Interactivity
+</h3>
+
+<p>
+
+Use JavaScript to make buttons, forms,
+menus, and other interface elements functional.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TECHNOLOGIES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧰 Required Technologies
+</h2>
+
+
+<div class="tech-grid">
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+🌐
+</div>
+
+<h3>
+HTML
+</h3>
+
+<p>
+
+Use semantic HTML to structure your webpage
+and content.
+
+</p>
+
+</div>
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+🎨
+</div>
+
+<h3>
+CSS
+</h3>
+
+<p>
+
+Use CSS to create the visual design, layout,
+spacing, and responsive behavior.
+
+</p>
+
+</div>
+
+
+<div class="tech-card">
+
+<div class="tech-icon">
+⚡
+</div>
+
+<h3>
+JavaScript
+</h3>
+
+<p>
+
+Use JavaScript to add client-side behavior
+and interactivity.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECT STRUCTURE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📁 1. Project File Structure
+</h2>
+
+<p>
+
+Organize your project files so another developer
+can easily understand your code.
+
+</p>
+
+
+<div class="folder-tree">
+
+<span class="gold">my-capstone-project/</span><br>
+
+├── index.html<br>
+
+├── about.html<br>
+
+├── contact.html<br>
+
+├── services.html<br>
+
+├── <span class="gold">css/</span><br>
+
+│&nbsp;&nbsp;&nbsp;└── style.css<br>
+
+├── <span class="gold">js/</span><br>
+
+│&nbsp;&nbsp;&nbsp;└── script.js<br>
+
+├── <span class="gold">images/</span><br>
+
+│&nbsp;&nbsp;&nbsp;├── logo.png<br>
+
+│&nbsp;&nbsp;&nbsp;└── images...<br>
+
+└── README.md
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+Best Practice:
+</strong>
+
+Keep HTML, CSS, JavaScript, images, and other
+assets organized rather than placing everything
+into one file.
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HTML DEVELOPMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+2. 🌐 HTML Development
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Build the page structure using semantic HTML
+elements where appropriate.
+
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+header
+</li>
+
+<li>
+nav
+</li>
+
+<li>
+main
+</li>
+
+<li>
+section
+</li>
+
+<li>
+article
+</li>
+
+<li>
+footer
+</li>
+
+<li>
+form
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="htmlProgress">
+
+Describe What You Have Built With HTML
+
+</label>
+
+<textarea
+id="htmlProgress"
+placeholder="List the pages, sections, forms, navigation, images, and other HTML structures you have completed."></textarea>
+
+</div>
+
+
+<div class="code-editor">
+
+<div class="editor-header">
+HTML — Optional Code Notes
+</div>
+
+<textarea
+id="htmlCode"
+placeholder="Paste a representative section of your HTML code here..."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CSS DEVELOPMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+3. 🎨 CSS Development
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Apply the visual system created in 18.5.
+
+Your CSS should control the appearance,
+layout, spacing, typography, colors, and
+responsive behavior of your interface.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cssProgress">
+
+Describe What You Have Styled
+
+</label>
+
+<textarea
+id="cssProgress"
+placeholder="Describe your colors, typography, navigation, cards, buttons, forms, layout, responsive styles, etc."></textarea>
+
+</div>
+
+
+<div class="code-editor">
+
+<div class="editor-header">
+CSS — Optional Code Notes
+</div>
+
+<textarea
+id="cssCode"
+placeholder="Paste a representative section of your CSS code here..."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+4. ⚡ JavaScript Development
+</h2>
+
+<div class="info-box">
+
+<p>
+
+JavaScript should be used where your project
+requires client-side interaction.
+
+</p>
+
+<p>
+Possible examples include:
+</p>
+
+<ul>
+
+<li>
+Mobile navigation menus
+</li>
+
+<li>
+Form validation
+</li>
+
+<li>
+Buttons and click events
+</li>
+
+<li>
+Interactive menus
+</li>
+
+<li>
+Modals
+</li>
+
+<li>
+Tabs
+</li>
+
+<li>
+Dynamic content
+</li>
+
+<li>
+Calculators
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="jsProgress">
+
+Describe Your JavaScript Features
+
+</label>
+
+<textarea
+id="jsProgress"
+placeholder="List the interactive features you have implemented."></textarea>
+
+</div>
+
+
+<div class="code-editor">
+
+<div class="editor-header">
+JavaScript — Optional Code Notes
+</div>
+
+<textarea
+id="jsCode"
+placeholder="Paste a representative section of your JavaScript code here..."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DEVELOPMENT TASKS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+5. 💻 Capstone Development Tasks
+</h2>
+
+
+<div class="task">
+
+<div class="task-number">
+TASK 01
+</div>
+
+<h3>
+Build the Homepage
+</h3>
+
+<p>
+
+Convert your approved wireframe and UI design
+into a functional homepage.
+
+</p>
+
+</div>
+
+
+<div class="task">
+
+<div class="task-number">
+TASK 02
+</div>
+
+<h3>
+Build Additional Pages
+</h3>
+
+<p>
+
+Create the remaining pages identified in your
+Capstone requirements.
+
+</p>
+
+</div>
+
+
+<div class="task">
+
+<div class="task-number">
+TASK 03
+</div>
+
+<h3>
+Connect Navigation
+</h3>
+
+<p>
+
+Ensure users can navigate between the appropriate
+pages.
+
+</p>
+
+</div>
+
+
+<div class="task">
+
+<div class="task-number">
+TASK 04
+</div>
+
+<h3>
+Implement UI Components
+</h3>
+
+<p>
+
+Build the buttons, cards, forms, menus, sections,
+and other components defined during UI Design.
+
+</p>
+
+</div>
+
+
+<div class="task">
+
+<div class="task-number">
+TASK 05
+</div>
+
+<h3>
+Add Interactivity
+</h3>
+
+<p>
+
+Implement JavaScript functionality required by
+your project.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESPONSIVE DEVELOPMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+6. 📱 Responsive Development
+</h2>
+
+
+<div class="responsive-grid">
+
+
+<div class="device-card">
+
+<div class="device-icon">
+🖥️
+</div>
+
+<h3>
+Desktop
+</h3>
+
+<textarea
+id="desktopTesting"
+placeholder="Describe how you tested the desktop version."></textarea>
+
+</div>
+
+
+<div class="device-card">
+
+<div class="device-icon">
+📱
+</div>
+
+<h3>
+Mobile
+</h3>
+
+<textarea
+id="mobileTesting"
+placeholder="Describe how you tested the mobile version."></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group" style="margin-top:20px;">
+
+<label for="responsiveNotes">
+
+Responsive Design Notes
+
+</label>
+
+<textarea
+id="responsiveNotes"
+placeholder="Describe breakpoints, mobile navigation, stacked layouts, responsive images, etc."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FORMS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+7. 📝 Forms & User Interaction
+</h2>
+
+
+<div class="form-group">
+
+<label for="formFeatures">
+
+Describe Your Forms
+
+</label>
+
+<textarea
+id="formFeatures"
+placeholder="Describe login, contact, registration, checkout, search, or other forms used by your project."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="validation">
+
+Form Validation
+
+</label>
+
+<textarea
+id="validation"
+placeholder="Describe how you prevent or identify invalid user input."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESSIBILITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+8. ♿ Accessibility Implementation
+</h2>
+
+
+<div class="test-box">
+
+<h3>
+Accessibility During Development
+</h3>
+
+<ul>
+
+<li>
+Use semantic HTML where appropriate.
+</li>
+
+<li>
+Provide meaningful labels for forms.
+</li>
+
+<li>
+Use alt text for appropriate images.
+</li>
+
+<li>
+Ensure interactive elements are keyboard accessible.
+</li>
+
+<li>
+Maintain readable contrast.
+</li>
+
+<li>
+Provide visible focus states.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group" style="margin-top:20px;">
+
+<label for="accessibilityImplementation">
+
+What Accessibility Features Did You Implement?
+
+</label>
+
+<textarea
+id="accessibilityImplementation"
+placeholder="Describe the accessibility features included in your Capstone."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BROWSER TESTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+9. 🌎 Browser Testing
+</h2>
+
+
+<div class="form-group">
+
+<label for="browsers">
+
+Browsers Tested
+
+</label>
+
+<input
+type="text"
+id="browsers"
+placeholder="Example: Chrome, Edge, Firefox, Safari">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="browserIssues">
+
+Issues Found & Fixed
+
+</label>
+
+<textarea
+id="browserIssues"
+placeholder="Document any browser compatibility issues and how you resolved them."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DEVELOPMENT CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+10. ✅ Front-End Development Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I created the project file structure.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I built the HTML structure.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I implemented my UI design with CSS.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I created responsive layouts.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I implemented the required JavaScript functionality.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+My navigation works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+My forms work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I tested my website on desktop.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I tested my website on mobile.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I tested multiple browsers.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I implemented accessibility considerations.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+I fixed major front-end errors.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+My completed front end matches my approved design.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="dev-check">
+
+<label>
+My project is ready for testing and debugging.
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     IMPORTANT
+===================================================== -->
+
+<div class="warning">
+
+<strong>
+⚠️ Important:
+</strong>
+
+<p>
+
+Do not consider the front end complete simply
+because the pages look finished.
+
+Links, buttons, forms, menus, responsive layouts,
+JavaScript interactions, and other required
+functionality should also be tested.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Front-End Development Complete!
+</h2>
+
+<p>
+
+You have completed the front-end development
+phase of your Capstone Project.
+
+</p>
+
+<p>
+
+Your project is now ready to move into
+<strong>Testing & Debugging.</strong>
+
+</p>
+
+<a
+href="18-7-testing-debugging.html"
+class="continue-button">
+
+Continue to Testing & Debugging →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveDevelopment()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-5-ui-design.html"
+class="continue-button">
+
+← UI Design
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeDevelopment()">
+
+✓ Complete 18.6
+
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.6 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.6 — Front-End Development
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='file']), textarea"
+);
+
+const checks =
+document.querySelectorAll(
+".dev-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+Math.round(
+(completed / total) * 100
+);
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_dev_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE DEVELOPMENT
+===================================================== */
+
+function saveDevelopment() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_dev_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_dev_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your Front-End Development progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD DEVELOPMENT
+===================================================== */
+
+function loadDevelopment() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_dev_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_dev_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   COMPLETE DEVELOPMENT
+===================================================== */
+
+function completeDevelopment() {
+
+const completed =
+Array.from(checks)
+.filter(
+check =>
+check.checked
+).length;
+
+
+if (
+completed !== checks.length
+) {
+
+alert(
+"Please complete every item in the Front-End Development checklist before continuing."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_18_6_frontend_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   LIVE PROGRESS
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_6_frontend_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadDevelopment();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

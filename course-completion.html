@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Course Completion | Golden Healing Solutions
+</title>
+
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #222;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.logo {
+
+    color: #d4af37;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+}
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.container {
+
+    max-width: 1000px;
+
+    margin: 45px auto;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   COMPLETION CARD
+========================================= */
+
+.completion-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 50px 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.completion-icon {
+
+    font-size: 75px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 42px;
+
+    margin: 10px 0;
+
+    color: #111;
+
+}
+
+.subtitle {
+
+    color: #666;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   GOLD DIVIDER
+========================================= */
+
+.gold-line {
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+
+}
+
+
+/* =========================================
+   CONGRATULATIONS
+========================================= */
+
+.congratulations {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #b18a16;
+
+    margin: 25px 0;
+
+}
+
+
+/* =========================================
+   COURSE SUMMARY
+========================================= */
+
+.course-summary {
+
+    background: #faf7ed;
+
+    border: 1px solid #e3d5a0;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    margin: 35px 0;
+
+    text-align: left;
+
+}
+
+.course-summary h2 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    margin-top: 0;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   COMPLETION GRID
+========================================= */
+
+.completion-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+.completion-item {
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+
+}
+
+.completion-item .icon {
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+
+}
+
+.completion-item strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+.completed {
+
+    color: #287333;
+
+}
+
+
+/* =========================================
+   COURSE DETAILS
+========================================= */
+
+.details {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+.detail-box {
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+}
+
+.detail-label {
+
+    color: #777;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+
+}
+
+.detail-value {
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   CERTIFICATE
+========================================= */
+
+.certificate-section {
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #111;
+
+    color: white;
+
+    border-radius: 12px;
+
+}
+
+.certificate-section h2 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    color: #d4af37;
+
+    font-size: 28px;
+
+}
+
+.certificate-section p {
+
+    color: #ddd;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.certificate-button {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 16px 35px;
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    transition: .2s;
+
+}
+
+.certificate-button:hover {
+
+    background: #b18a16;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================
+   DASHBOARD BUTTON
+========================================= */
+
+.dashboard-button {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 13px 25px;
+
+    border: 1px solid #d4af37;
+
+    color: #8b6b13;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    margin-top: 40px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width: 700px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .completion-card {
+
+        padding: 35px 20px;
+
+    }
+
+    h1 {
+
+        font-size: 32px;
+
+    }
+
+    .completion-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        GOLDEN HEALING SOLUTIONS
+
+    </div>
+
+    <div class="course-name">
+
+        Web Development Bootcamp
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="completion-card">
+
+
+<!-- =========================================
+     ICON
+========================================= -->
+
+<div class="completion-icon">
+
+    🎉
+
+</div>
+
+
+
+<!-- =========================================
+     TITLE
+========================================= -->
+
+<h1>
+
+Course Completed!
+
+</h1>
+
+
+
+<div class="gold-line"></div>
+
+
+
+<p class="congratulations">
+
+Congratulations, <span id="studentName">
+Student
+</span>!
+
+</p>
+
+
+
+<p class="subtitle">
+
+You have successfully completed the
+<strong>Web Development Bootcamp</strong>
+with Golden Healing Solutions.
+
+</p>
+
+
+
+<!-- =========================================
+     COURSE SUMMARY
+========================================= -->
+
+<div class="course-summary">
+
+
+<h2>
+
+🏆 Course Completion Summary
+
+</h2>
+
+
+
+<div class="completion-grid">
+
+
+<div class="completion-item">
+
+<div class="icon">
+✅
+</div>
+
+<strong>
+Course Modules
+</strong>
+
+<span class="completed">
+Completed
+</span>
+
+</div>
+
+
+
+<div class="completion-item">
+
+<div class="icon">
+✅
+</div>
+
+<strong>
+Final Project
+</strong>
+
+<span class="completed">
+Approved
+</span>
+
+</div>
+
+
+
+<div class="completion-item">
+
+<div class="icon">
+✅
+</div>
+
+<strong>
+Final Examination
+</strong>
+
+<span class="completed">
+Passed
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     DETAILS
+========================================= -->
+
+<div class="details">
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+Course
+</div>
+
+<div class="detail-value">
+
+Web Development Bootcamp
+
+</div>
+
+</div>
+
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+Provider
+</div>
+
+<div class="detail-value">
+
+Golden Healing Solutions
+
+</div>
+
+</div>
+
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+Completion Date
+</div>
+
+<div
+    class="detail-value"
+    id="completionDate">
+
+</div>
+
+</div>
+
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+Final Exam Status
+</div>
+
+<div class="detail-value">
+
+Passed — 80% Required
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     CERTIFICATE
+========================================= -->
+
+<div class="certificate-section">
+
+
+<h2>
+
+🎓 Your Certificate Is Ready
+
+</h2>
+
+
+<p>
+
+You have successfully completed all required
+components of the Web Development Bootcamp.
+
+Your Certificate of Completion is now available.
+
+</p>
+
+
+<a
+    href="certificate.html"
+    class="certificate-button">
+
+🎓 View & Download Certificate
+
+</a>
+
+
+</div>
+
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<a
+    href="dashboard.html"
+    class="dashboard-button">
+
+← Return to Course Dashboard
+
+</a>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<div class="footer">
+
+<p>
+
+<strong>
+Golden Healing Solutions
+</strong>
+
+</p>
+
+<p>
+
+Web Development Bootcamp
+
+</p>
+
+<p>
+
+This completion page confirms that the
+student has fulfilled the course completion
+requirements.
+
+</p>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<script>
+
+/* =========================================
+   COMPLETION DATE
+========================================= */
+
+const date =
+    new Date();
+
+
+const formattedDate =
+    date.toLocaleDateString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        }
+    );
+
+
+document.getElementById(
+    "completionDate"
+).textContent =
+    formattedDate;
+
+
+
+/* =========================================
+   STUDENT NAME
+========================================= */
+
+const savedName =
+    localStorage.getItem(
+        "ghs_student_name"
+    );
+
+
+if (savedName) {
+
+    document.getElementById(
+        "studentName"
+    ).textContent =
+        savedName;
+
+}
+
+
+/* =========================================
+   CHECK EXAM STATUS
+========================================= */
+
+const examPassed =
+    localStorage.getItem(
+        "ghs_webdev_exam_passed"
+    );
+
+
+/*
+
+For the prototype:
+
+If the student has passed the exam,
+the completion page is displayed.
+
+For a production system, this should
+be verified by your server/database.
+
+*/
+
+if (
+    examPassed !== "true"
+) {
+
+    console.log(
+        "Course completion status should be verified by the server."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

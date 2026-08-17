@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+18.5 — UI Design | Web Development Bootcamp
+</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 780px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   INFO BOX
+===================================================== */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.info-box strong {
+    color: #9a7710;
+}
+
+
+/* =====================================================
+   UI PRINCIPLES
+===================================================== */
+
+.ui-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.ui-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+}
+
+.ui-card:hover {
+    border-color: #d4af37;
+}
+
+.ui-icon {
+    font-size: 35px;
+}
+
+.ui-card h3 {
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   COLOR PALETTE
+===================================================== */
+
+.palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.color-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.color-preview {
+    height: 70px;
+}
+
+.color-label {
+    padding: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.color-card input {
+    border: none;
+    border-top: 1px solid #ddd;
+    border-radius: 0;
+    text-align: center;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.type-preview {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: #fafafa;
+}
+
+.type-heading {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    margin: 0;
+}
+
+.type-body {
+    font-size: 16px;
+    color: #555;
+}
+
+
+/* =====================================================
+   UI COMPONENTS
+===================================================== */
+
+.component-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.component-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.demo-button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.demo-button:hover {
+    background: #333;
+}
+
+.demo-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.demo-card h3 {
+    margin-top: 0;
+}
+
+.demo-input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,.15);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+.device-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.device-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.device-icon {
+    font-size: 35px;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.accessibility-box {
+    background: #f0f7ff;
+    border-left: 5px solid #3d78a8;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    border-radius: 7px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.warning {
+    background: #fff2f2;
+    border-left: 5px solid #b33;
+    border-radius: 7px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .ui-grid,
+    .device-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .component-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .palette {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.5 — UI Design
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🎨
+</div>
+
+<h1>
+18.5 — UI Design
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Transform your Capstone wireframe into a
+professional user interface by establishing
+your visual design system and interface components.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Define the visual identity of your Capstone project.
+</li>
+
+<li>
+Select an appropriate color palette.
+</li>
+
+<li>
+Establish typography and text hierarchy.
+</li>
+
+<li>
+Design consistent buttons, cards, forms,
+navigation, and other interface components.
+</li>
+
+<li>
+Apply spacing and visual hierarchy principles.
+</li>
+
+<li>
+Design for accessibility and responsive layouts.
+</li>
+
+<li>
+Create a consistent user interface across pages.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHAT IS UI DESIGN?
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 What Is UI Design?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>User Interface (UI) Design</strong> is the
+process of designing the visual elements users
+interact with on a website or application.
+
+</p>
+
+<p>
+
+This includes colors, typography, buttons,
+forms, navigation, cards, icons, spacing,
+images, and other visual elements.
+
+</p>
+
+<p>
+
+Your wireframe established <strong>where</strong>
+elements belong. Your UI design establishes
+<strong>what those elements look like and how
+they interact.</strong>
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     UI PRINCIPLES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 Core UI Design Principles
+</h2>
+
+
+<div class="ui-grid">
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+🎯
+</div>
+
+<h3>
+Consistency
+</h3>
+
+<p>
+
+Use consistent colors, typography, spacing,
+buttons, and components throughout the website.
+
+</p>
+
+</div>
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+👁️
+</div>
+
+<h3>
+Visual Hierarchy
+</h3>
+
+<p>
+
+Use size, spacing, contrast, and positioning
+to guide the user's attention.
+
+</p>
+
+</div>
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+📐
+</div>
+
+<h3>
+Alignment
+</h3>
+
+<p>
+
+Align elements intentionally to create an
+organized and professional interface.
+
+</p>
+
+</div>
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+⚖️
+</div>
+
+<h3>
+Balance
+</h3>
+
+<p>
+
+Distribute content and visual elements so
+the interface does not feel overcrowded.
+
+</p>
+
+</div>
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+🔍
+</div>
+
+<h3>
+Clarity
+</h3>
+
+<p>
+
+Users should understand what information is
+being presented and what actions they can take.
+
+</p>
+
+</div>
+
+
+<div class="ui-card">
+
+<div class="ui-icon">
+♿
+</div>
+
+<h3>
+Accessibility
+</h3>
+
+<p>
+
+Design interfaces that can be understood and
+used by as many people as possible.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECT BRANDING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+1. ✨ Project Visual Identity
+</h2>
+
+
+<div class="form-group">
+
+<label for="brandName">
+Project / Brand Name
+</label>
+
+<input
+type="text"
+id="brandName"
+placeholder="Enter your project or brand name">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="designStyle">
+Describe Your UI Design Style
+</label>
+
+<textarea
+id="designStyle"
+placeholder="Example: Modern, minimalist, luxury, corporate, playful, clean, bold, etc."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="designAudience">
+Target Audience
+</label>
+
+<textarea
+id="designAudience"
+placeholder="Who is the website designed for?"></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     COLOR PALETTE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+2. 🎨 Color Palette
+</h2>
+
+<p>
+
+Choose colors that support your brand, improve
+readability, and create a consistent visual identity.
+
+</p>
+
+
+<div class="palette">
+
+
+<div class="color-card">
+
+<div
+class="color-preview"
+style="background:#111;">
+</div>
+
+<div class="color-label">
+Primary
+</div>
+
+<input
+type="text"
+id="primaryColor"
+placeholder="#000000">
+
+</div>
+
+
+<div class="color-card">
+
+<div
+class="color-preview"
+style="background:#d4af37;">
+</div>
+
+<div class="color-label">
+Secondary
+</div>
+
+<input
+type="text"
+id="secondaryColor"
+placeholder="#D4AF37">
+
+</div>
+
+
+<div class="color-card">
+
+<div
+class="color-preview"
+style="background:#ffffff;">
+</div>
+
+<div class="color-label">
+Background
+</div>
+
+<input
+type="text"
+id="backgroundColor"
+placeholder="#FFFFFF">
+
+</div>
+
+
+<div class="color-card">
+
+<div
+class="color-preview"
+style="background:#333;">
+</div>
+
+<div class="color-label">
+Text
+</div>
+
+<input
+type="text"
+id="textColor"
+placeholder="#333333">
+
+</div>
+
+
+<div class="color-card">
+
+<div
+class="color-preview"
+style="background:#e9e9e9;">
+</div>
+
+<div class="color-label">
+Accent
+</div>
+
+<input
+type="text"
+id="accentColor"
+placeholder="#E9E9E9">
+
+</div>
+
+</div>
+
+
+<div class="form-group" style="margin-top:25px;">
+
+<label for="colorReason">
+
+Why did you choose these colors?
+
+</label>
+
+<textarea
+id="colorReason"
+placeholder="Explain how your color palette supports your brand and target audience."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TYPOGRAPHY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+3. 🔤 Typography
+</h2>
+
+
+<div class="type-preview">
+
+<h2 class="type-heading">
+Your Website Heading
+</h2>
+
+<p class="type-body">
+
+This is an example of body text. Your typography
+should be easy to read and create a clear hierarchy
+between headings, subheadings, and paragraphs.
+
+</p>
+
+</div>
+
+
+<br>
+
+
+<div class="device-grid">
+
+
+<div class="form-group">
+
+<label for="headingFont">
+Heading Font
+</label>
+
+<input
+type="text"
+id="headingFont"
+placeholder="Example: Cinzel, Georgia, serif">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="bodyFont">
+Body Font
+</label>
+
+<input
+type="text"
+id="bodyFont"
+placeholder="Example: Montserrat, Arial, sans-serif">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="headingSize">
+Heading Size
+</label>
+
+<input
+type="text"
+id="headingSize"
+placeholder="Example: 36px">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="bodySize">
+Body Text Size
+</label>
+
+<input
+type="text"
+id="bodySize"
+placeholder="Example: 16px">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     UI COMPONENTS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+4. 🧩 Interface Components
+</h2>
+
+<p>
+
+Identify the primary interface components you
+will use throughout your project.
+
+</p>
+
+
+<div class="component-grid">
+
+
+<div class="component-card">
+
+<h3>
+Buttons
+</h3>
+
+<button
+class="demo-button">
+
+Primary Button
+
+</button>
+
+<p>
+Define your primary and secondary button styles.
+</p>
+
+</div>
+
+
+<div class="component-card">
+
+<h3>
+Cards
+</h3>
+
+<div class="demo-card">
+
+<h3>
+Card Title
+</h3>
+
+<p>
+Example card content.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="component-card">
+
+<h3>
+Forms
+</h3>
+
+<input
+class="demo-input"
+placeholder="Example form field">
+
+<p>
+Design consistent form controls.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group" style="margin-top:25px;">
+
+<label for="components">
+
+List Your UI Components
+
+</label>
+
+<textarea
+id="components"
+placeholder="Example: Navbar, buttons, cards, forms, dropdowns, alerts, modals, footer, etc."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVIGATION DESIGN
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+5. 🧭 Navigation Design
+</h2>
+
+
+<div class="form-group">
+
+<label for="navDesign">
+
+Describe Your Navigation Design
+
+</label>
+
+<textarea
+id="navDesign"
+placeholder="Describe your navigation style, menu placement, logo placement, active states, and mobile navigation."></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="navStates">
+
+Navigation States
+
+</label>
+
+<textarea
+id="navStates"
+placeholder="Describe hover, active, focus, and selected states."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SPACING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+6. 📏 Spacing & Layout
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Professional interfaces use intentional spacing
+between sections, headings, paragraphs, buttons,
+cards, and other components.
+
+</p>
+
+</div>
+
+
+<div class="device-grid">
+
+
+<div class="form-group">
+
+<label for="sectionSpacing">
+Section Spacing
+</label>
+
+<input
+type="text"
+id="sectionSpacing"
+placeholder="Example: 60px">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cardSpacing">
+Card Spacing
+</label>
+
+<input
+type="text"
+id="cardSpacing"
+placeholder="Example: 24px">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="contentWidth">
+Maximum Content Width
+</label>
+
+<input
+type="text"
+id="contentWidth"
+placeholder="Example: 1200px">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="borderRadius">
+Border Radius
+</label>
+
+<input
+type="text"
+id="borderRadius"
+placeholder="Example: 8px">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESPONSIVE UI
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+7. 📱 Responsive UI Design
+</h2>
+
+
+<div class="device-grid">
+
+
+<div class="device-card">
+
+<div class="device-icon">
+🖥️
+</div>
+
+<h3>
+Desktop
+</h3>
+
+<textarea
+id="desktopUI"
+placeholder="How will your interface appear on desktop?"></textarea>
+
+</div>
+
+
+<div class="device-card">
+
+<div class="device-icon">
+📱
+</div>
+
+<h3>
+Mobile
+</h3>
+
+<textarea
+id="mobileUI"
+placeholder="How will your interface adapt to mobile?"></textarea>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+Remember:
+</strong>
+
+Responsive design may require changes to
+navigation, columns, font sizes, spacing,
+images, buttons, and other components.
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESSIBILITY
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+8. ♿ Accessibility
+</h2>
+
+
+<div class="accessibility-box">
+
+<h3>
+Accessibility Checklist
+</h3>
+
+<ul>
+
+<li>
+Use readable text sizes.
+</li>
+
+<li>
+Maintain appropriate color contrast.
+</li>
+
+<li>
+Provide visible focus states.
+</li>
+
+<li>
+Use meaningful labels for forms.
+</li>
+
+<li>
+Use alternative text for appropriate images.
+</li>
+
+<li>
+Do not rely on color alone to communicate information.
+</li>
+
+<li>
+Make interactive controls easy to identify.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group" style="margin-top:25px;">
+
+<label for="accessibilityPlan">
+
+Your Accessibility Plan
+
+</label>
+
+<textarea
+id="accessibilityPlan"
+placeholder="Describe the accessibility decisions you will implement in your Capstone."></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     UI DESIGN CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+9. ✅ UI Design Completion Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have established a visual identity for my project.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have selected a consistent color palette.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have selected appropriate typography.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have established heading and body-text hierarchy.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have designed consistent buttons.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have planned consistent cards and content sections.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have planned my navigation design.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have planned spacing and layout rules.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have planned the mobile interface.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+I have considered accessibility.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+My UI design is consistent with my wireframe.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="ui-check">
+
+<label>
+My UI design is ready for development.
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     WARNING
+===================================================== -->
+
+<div class="warning">
+
+<strong>
+⚠️ Important:
+</strong>
+
+<p>
+
+Your UI design should support the purpose of your
+website and the needs of your target audience.
+
+Avoid adding visual effects simply because they
+look impressive. Every design choice should serve
+a purpose.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 UI Design Complete!
+</h2>
+
+<p>
+
+You have completed the UI Design planning phase
+of your Capstone Project.
+
+</p>
+
+<p>
+
+Your visual design system is now ready to guide
+the development of your website or web application.
+
+</p>
+
+<a
+href="18-6-project-development.html"
+class="continue-button">
+
+Continue to Project Development →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveUIDesign()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-4-wireframes.html"
+class="continue-button">
+
+← Wireframes
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeUIDesign()">
+
+✓ Complete 18.5
+
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.5 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.5 — UI Design
+</p>
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='file']), textarea"
+);
+
+const checks =
+document.querySelectorAll(
+".ui-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+Math.round(
+(completed / total) * 100
+);
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+/* Save checkbox states */
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_ui_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE UI DESIGN
+===================================================== */
+
+function saveUIDesign() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_ui_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_ui_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your UI Design progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD UI DESIGN
+===================================================== */
+
+function loadUIDesign() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_ui_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_ui_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   COMPLETE UI DESIGN
+===================================================== */
+
+function completeUIDesign() {
+
+const completed =
+Array.from(checks)
+.filter(
+check =>
+check.checked
+).length;
+
+
+if (
+completed !== checks.length
+) {
+
+alert(
+"Please complete every item in the UI Design checklist before continuing."
+);
+
+return;
+
+}
+
+
+/* Save completion */
+
+localStorage.setItem(
+"ghs_18_5_ui_design_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   LIVE PROGRESS
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_5_ui_design_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadUIDesign();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

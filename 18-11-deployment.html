@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>18.11 — Deployment | Web Development Bootcamp</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* =====================================================
+   INFO BOXES
+===================================================== */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff2f2;
+    border-left: 5px solid #b33;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.security-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+/* =====================================================
+   DEPLOYMENT STAGES
+===================================================== */
+
+.deployment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.deployment-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+}
+
+.deployment-icon {
+    font-size: 40px;
+}
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,.15);
+}
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.check-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    margin-top: 4px;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* =====================================================
+   CODE
+===================================================== */
+
+.code-editor {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.editor-header {
+    background: #222;
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.code-editor textarea {
+    background: #111;
+    color: #eee;
+    border: none;
+    border-radius: 0;
+    font-family: "Courier New", monospace;
+    min-height: 180px;
+}
+
+/* =====================================================
+   DEPLOYMENT STATUS
+===================================================== */
+
+.status-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.status-number {
+    color: #d4af37;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+.continue-button:hover {
+    background: #b18a16;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .deployment-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 18
+&nbsp; / &nbsp;
+
+<span>
+18.11 — Deployment
+</span>
+
+</div>
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🚀
+</div>
+
+<h1>
+18.11 — Deployment
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Take your completed Capstone application from
+development to a live production environment.
+
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     OBJECTIVES
+===================================================== -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<ul>
+
+<li>
+Explain the purpose of application deployment.
+</li>
+
+<li>
+Prepare an application for production.
+</li>
+
+<li>
+Select an appropriate hosting platform.
+</li>
+
+<li>
+Configure production environment settings.
+</li>
+
+<li>
+Configure environment variables and application secrets.
+</li>
+
+<li>
+Deploy the application to a live environment.
+</li>
+
+<li>
+Configure a production database when required.
+</li>
+
+<li>
+Configure HTTPS and secure connections.
+</li>
+
+<li>
+Verify the deployed application.
+</li>
+
+<li>
+Perform post-deployment testing.
+</li>
+
+<li>
+Document the deployment process.
+</li>
+
+<li>
+Create a rollback or recovery plan.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     WHAT IS DEPLOYMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is Deployment?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+<strong>Deployment</strong> is the process of making an
+application available in an environment where its
+intended users can access it.
+
+</p>
+
+<p>
+
+For this Capstone, your goal is to move your completed
+application from your development environment into a
+live production environment.
+
+</p>
+
+</div>
+
+
+<div class="success-box">
+
+<strong>
+Development → Production
+</strong>
+
+<p>
+
+Your application should first be tested in development
+or staging. Once it has been validated, it can be
+prepared for production deployment.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DEPLOYMENT STAGES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🚀 2. Deployment Stages
+</h2>
+
+
+<div class="deployment-grid">
+
+
+<div class="deployment-card">
+
+<div class="deployment-icon">
+💻
+</div>
+
+<h3>
+Development
+</h3>
+
+<p>
+Build and modify the application locally.
+</p>
+
+</div>
+
+
+<div class="deployment-card">
+
+<div class="deployment-icon">
+🧪
+</div>
+
+<h3>
+Testing / Staging
+</h3>
+
+<p>
+Validate functionality before releasing the application.
+</p>
+
+</div>
+
+
+<div class="deployment-card">
+
+<div class="deployment-icon">
+🌎
+</div>
+
+<h3>
+Production
+</h3>
+
+<p>
+Make the application available to its intended users.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     HOSTING
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+☁️ 3. Select a Hosting Platform
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Choose a hosting platform appropriate for your
+application's technology stack.
+
+</p>
+
+<p>
+Examples may include:
+</p>
+
+<ul>
+
+<li>Static website hosting</li>
+
+<li>Cloud application platforms</li>
+
+<li>Virtual servers</li>
+
+<li>Managed hosting</li>
+
+<li>Container platforms</li>
+
+<li>Full-stack application hosting</li>
+
+</ul>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="hostingPlatform">
+
+Hosting Platform
+
+</label>
+
+<input
+type="text"
+id="hostingPlatform"
+placeholder="Enter the platform you selected.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="hostingReason">
+
+Why Did You Select This Platform?
+
+</label>
+
+<textarea
+id="hostingReason"
+placeholder="Explain why this hosting platform is appropriate for your Capstone.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentMethod">
+
+Deployment Method
+
+</label>
+
+<select id="deploymentMethod">
+
+<option value="">
+Select deployment method
+</option>
+
+<option>
+Git Repository / Automated Deployment
+</option>
+
+<option>
+Manual File Upload
+</option>
+
+<option>
+CLI Deployment
+</option>
+
+<option>
+Container Deployment
+</option>
+
+<option>
+Cloud Platform Deployment
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCTION PREPARATION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🛠️ 4. Production Preparation
+</h2>
+
+<div class="info-box">
+
+<p>
+
+Before deployment, review your application and remove
+development-only configuration, test data, debugging
+settings, and unnecessary files.
+
+</p>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+All required application files are included.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Development-only files have been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Test or placeholder content has been removed where appropriate.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production configuration has been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Application dependencies have been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+The latest tested version of the application is being deployed.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ENVIRONMENT VARIABLES
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔐 5. Environment Variables & Secrets
+</h2>
+
+<div class="security-box">
+
+<strong>
+Important Security Rule
+</strong>
+
+<p>
+
+Do not place passwords, API keys, database credentials,
+private tokens, or other secrets directly into publicly
+accessible source code.
+
+Use your hosting platform's secure environment-variable
+or secret-management features when available.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="environmentVariables">
+
+Environment Variables Used
+
+</label>
+
+<textarea
+id="environmentVariables"
+placeholder="List variable NAMES only.
+
+Example:
+DATABASE_URL
+API_URL
+NODE_ENV
+JWT_SECRET
+
+Do NOT enter actual passwords, tokens, API keys, or secrets here.">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production secrets are stored securely.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Secrets are not hard-coded into source code.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Secrets are not included in screenshots or public documentation.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Development and production credentials are separated.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DATABASE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🗄️ 6. Production Database
+</h2>
+
+<div class="info-box">
+
+<p>
+
+If your Capstone uses a database, make sure the
+production application connects to the correct
+production database.
+
+</p>
+
+<p>
+
+Do not accidentally connect the live application to
+your development database.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="databasePlatform">
+
+Production Database Platform
+
+</label>
+
+<input
+type="text"
+id="databasePlatform"
+placeholder="Enter your production database platform.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="databasePlan">
+
+Database Deployment Plan
+
+</label>
+
+<textarea
+id="databasePlan"
+placeholder="Explain how your application will connect to and use the production database.">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production database configuration has been reviewed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database credentials are protected.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database tables/schema are available in production.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database operations were tested after deployment.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     HTTPS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔒 7. HTTPS & Secure Connections
+</h2>
+
+<div class="security-box">
+
+<strong>
+Production Security
+</strong>
+
+<p>
+
+A production application that handles user accounts
+or sensitive information should use HTTPS so data is
+encrypted while traveling between the user's browser
+and the application.
+
+</p>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+The deployed application uses HTTPS.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+HTTP requests redirect to HTTPS when appropriate.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+There are no unnecessary mixed-content warnings.
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group"
+style="margin-top:25px;">
+
+<label for="securityConfiguration">
+
+Security Configuration Notes
+
+</label>
+
+<textarea
+id="securityConfiguration"
+placeholder="Document how HTTPS and other production security settings were configured.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DOMAIN
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌐 8. Domain & URL
+</h2>
+
+
+<div class="form-group">
+
+<label for="liveUrl">
+
+Live Application URL
+
+</label>
+
+<input
+type="url"
+id="liveUrl"
+placeholder="https://your-domain.com">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="domainName">
+
+Domain Name
+
+</label>
+
+<input
+type="text"
+id="domainName"
+placeholder="Enter your domain name.">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="domainConfiguration">
+
+Domain Configuration
+
+</label>
+
+<textarea
+id="domainConfiguration"
+placeholder="Describe how the domain was connected to your deployed application.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DEPLOYMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🚀 9. Deploy Your Application
+</h2>
+
+
+<div class="info-box">
+
+<p>
+
+Follow the deployment instructions for your selected
+hosting platform.
+
+</p>
+
+<p>
+
+Your deployment process may include:
+
+</p>
+
+<ol>
+
+<li>Connect your source repository or upload your files.</li>
+
+<li>Configure the build command if required.</li>
+
+<li>Configure the start command if required.</li>
+
+<li>Configure environment variables.</li>
+
+<li>Configure the database.</li>
+
+<li>Deploy the application.</li>
+
+<li>Wait for the deployment to complete.</li>
+
+<li>Open the live application.</li>
+
+</ol>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentSteps">
+
+Your Deployment Steps
+
+</label>
+
+<textarea
+id="deploymentSteps"
+placeholder="Document the actual steps you used to deploy your application.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentDate">
+
+Deployment Date
+
+</label>
+
+<input
+type="date"
+id="deploymentDate">
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     POST DEPLOYMENT
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧪 10. Post-Deployment Testing
+</h2>
+
+<div class="info-box">
+
+<p>
+
+A successful deployment does not automatically mean
+the application works correctly in production.
+
+Perform a new round of testing against the live
+application.
+
+</p>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+The live URL loads successfully.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Home page loads correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Navigation works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Images and assets load correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Forms work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Authentication works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Database operations work correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Responsive design works on the deployed site.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+HTTPS works correctly.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+No critical console or application errors remain.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SMOKE TEST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔥 11. Production Smoke Test
+</h2>
+
+<div class="info-box">
+
+<p>
+
+A smoke test is a short set of checks used to determine
+whether the most important functions of the deployed
+application are working.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="smokeTest">
+
+Smoke Test Results
+
+</label>
+
+<textarea
+id="smokeTest"
+placeholder="Example:
+
+1. Opened live website — PASS
+2. Created account — PASS
+3. Logged in — PASS
+4. Opened dashboard — PASS
+5. Submitted form — PASS
+6. Logged out — PASS">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="productionIssues">
+
+Production Issues Discovered
+
+</label>
+
+<textarea
+id="productionIssues"
+placeholder="Document any issues discovered after deployment.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PERFORMANCE
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚡ 12. Production Performance
+</h2>
+
+
+<div class="form-group">
+
+<label for="performanceReview">
+
+Performance Review
+
+</label>
+
+<textarea
+id="performanceReview"
+placeholder="Describe how the application performs after deployment.
+
+Consider:
+Page loading
+Images
+JavaScript
+API requests
+Database operations
+Mobile performance">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="performanceImprovements">
+
+Performance Improvements
+
+</label>
+
+<textarea
+id="performanceImprovements"
+placeholder="Document any performance improvements you made.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     BACKUPS
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+💾 13. Backup & Recovery
+</h2>
+
+<div class="warning-box">
+
+<strong>
+Why Backups Matter
+</strong>
+
+<p>
+
+A production application should have a recovery plan
+for important application data and configuration.
+
+Do not assume that a deployment platform automatically
+provides everything you need for recovery.
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="backupPlan">
+
+Backup Plan
+
+</label>
+
+<textarea
+id="backupPlan"
+placeholder="Explain what you would back up, where backups would be stored, and how often they would be performed.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="recoveryPlan">
+
+Recovery / Rollback Plan
+
+</label>
+
+<textarea
+id="recoveryPlan"
+placeholder="If the deployment fails, explain how you would restore the previous working version.">
+</textarea>
+
+</div>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I have identified the important application data that needs protection.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I have documented a recovery strategy.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+I understand how to restore or redeploy a previous version.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DEPLOYMENT LOG
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 14. Deployment Log
+</h2>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Step
+</th>
+
+<th>
+Action
+</th>
+
+<th>
+Result
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+Prepare production build
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+Configure hosting
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+Configure environment variables
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+Configure database
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+5
+</td>
+
+<td>
+Deploy application
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+6
+</td>
+
+<td>
+Configure domain / HTTPS
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+7
+</td>
+
+<td>
+Perform smoke test
+</td>
+
+<td>
+Enter result
+</td>
+
+<td>
+PASS / FAIL
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentLog">
+
+Additional Deployment Notes
+
+</label>
+
+<textarea
+id="deploymentLog"
+placeholder="Document any additional deployment events, errors, solutions, or important observations.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCTION CHECKLIST
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏆 15. Production Readiness Checklist
+</h2>
+
+
+<div class="checklist">
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Application has been successfully deployed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Live URL is accessible.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+HTTPS is enabled.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production environment variables are configured.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production secrets are protected.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production database is configured when required.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Authentication has been tested in production.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Forms have been tested in production.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Responsive design has been tested in production.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Production smoke testing has been completed.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Backup and recovery strategy has been documented.
+</label>
+
+</div>
+
+
+<div class="check-item">
+
+<input
+type="checkbox"
+class="completion-check">
+
+<label>
+Deployment documentation has been completed.
+</label>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     REFLECTION
+===================================================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+📝 16. Deployment Reflection
+</h2>
+
+
+<div class="form-group">
+
+<label for="deploymentReflection">
+
+What Did You Learn From Deploying Your Application?
+
+</label>
+
+<textarea
+id="deploymentReflection"
+placeholder="Explain what you learned while moving your application from development to production.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="deploymentChallenge">
+
+Biggest Deployment Challenge
+
+</label>
+
+<textarea
+id="deploymentChallenge"
+placeholder="Describe the biggest challenge you encountered and how you solved it.">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="futureDeployment">
+
+What Would You Do Differently Next Time?
+
+</label>
+
+<textarea
+id="futureDeployment"
+placeholder="Describe improvements you would make to your deployment process in the future.">
+</textarea>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     COMPLETION
+===================================================== -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Deployment Phase Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed the deployment
+phase of your Capstone Project.
+
+</p>
+
+<p>
+
+Your application has been prepared for production,
+deployed, and reviewed using the production-readiness
+checklist.
+
+</p>
+
+<a
+href="18-12-final-project-review.html"
+class="continue-button">
+
+Continue to Final Project Review →
+
+</a>
+
+</div>
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="save-button"
+onclick="saveDeployment()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="18-10-testing.html"
+class="continue-button">
+
+← Testing
+
+</a>
+
+
+<button
+type="button"
+class="continue-button"
+onclick="completeDeployment()">
+
+✓ Complete 18.11
+
+</button>
+
+</div>
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+18.11 Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+18.11 — Deployment
+</p>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fields =
+document.querySelectorAll(
+"input:not([type='checkbox']), textarea, select"
+);
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+let completed = 0;
+
+let total =
+fields.length +
+checks.length;
+
+
+fields.forEach(
+field => {
+
+if (
+field.value.trim() !== ""
+) {
+
+completed++;
+
+}
+
+});
+
+
+checks.forEach(
+check => {
+
+if (
+check.checked
+) {
+
+completed++;
+
+}
+
+});
+
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check,index) => {
+
+localStorage.setItem(
+"ghs_deployment_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+function saveDeployment() {
+
+fields.forEach(
+field => {
+
+localStorage.setItem(
+"ghs_deployment_" + field.id,
+field.value
+);
+
+});
+
+
+localStorage.setItem(
+"ghs_deployment_saved",
+"true"
+);
+
+
+updateProgress();
+
+
+alert(
+"Your Deployment progress has been saved."
+);
+
+}
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+function loadDeployment() {
+
+fields.forEach(
+field => {
+
+const saved =
+localStorage.getItem(
+"ghs_deployment_" + field.id
+);
+
+
+if (
+saved !== null
+) {
+
+field.value =
+saved;
+
+}
+
+});
+
+
+checks.forEach(
+(check,index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_deployment_check_" + index
+);
+
+
+if (
+saved === "true"
+) {
+
+check.checked =
+true;
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   COMPLETE DEPLOYMENT
+===================================================== */
+
+function completeDeployment() {
+
+const requiredChecks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const incomplete =
+Array.from(
+requiredChecks
+).filter(
+check =>
+!check.checked
+);
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete every item in the Production Readiness Checklist before continuing."
+);
+
+return;
+
+}
+
+
+const liveUrl =
+document.getElementById(
+"liveUrl"
+).value.trim();
+
+
+if (
+liveUrl === ""
+) {
+
+alert(
+"Please enter your Live Application URL before completing this section."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_18_11_deployment_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   LIVE PROGRESS
+===================================================== */
+
+fields.forEach(
+field => {
+
+field.addEventListener(
+"input",
+updateProgress
+);
+
+field.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =====================================================
+   RESTORE COMPLETION
+===================================================== */
+
+if (
+localStorage.getItem(
+"ghs_18_11_deployment_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadDeployment();
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

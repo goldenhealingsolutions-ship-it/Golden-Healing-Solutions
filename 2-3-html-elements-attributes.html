@@ -1,0 +1,3066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.3 — HTML Elements & Attributes | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+/* =========================
+   OBJECTIVES
+========================= */
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   INFO BOXES
+========================= */
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+/* =========================
+   CODE
+========================= */
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+code {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+/* =========================
+   DIAGRAM
+========================= */
+
+.structure-diagram {
+    background: #111;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    font-family: "Courier New", monospace;
+    overflow-x: auto;
+}
+
+.highlight {
+    color: #d4af37;
+}
+
+.blue-text {
+    color: #75b8ff;
+}
+
+.green-text {
+    color: #8fd694;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* =========================
+   COMPARISON
+========================= */
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+/* =========================
+   ATTRIBUTE CARDS
+========================= */
+
+.attribute-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.attribute-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    background: white;
+}
+
+.attribute-card h3 {
+    color: #a27c12;
+    margin-top: 0;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+/* =========================
+   COMPLETION
+========================= */
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .attribute-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.3 — HTML Elements & Attributes
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title-section">
+
+<div class="module-icon">
+🧩
+</div>
+
+<h1>
+2.3 — HTML Elements & Attributes
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how HTML elements create the structure of a webpage
+and how attributes provide additional information and
+functionality.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Define an HTML element.</li>
+
+<li>Identify opening and closing tags.</li>
+
+<li>Explain the difference between elements and tags.</li>
+
+<li>Identify HTML attributes.</li>
+
+<li>Explain the purpose of attributes.</li>
+
+<li>Use attributes correctly.</li>
+
+<li>Identify global attributes.</li>
+
+<li>Use common HTML attributes such as <code>id</code>, <code>class</code>, and <code>title</code>.</li>
+
+<li>Use link and image attributes such as <code>href</code> and <code>src</code>.</li>
+
+<li>Understand Boolean attributes.</li>
+
+<li>Create properly structured HTML elements.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Is an HTML Element?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An <strong>HTML element</strong> is a complete piece of
+HTML that represents content or structure on a webpage.
+
+</p>
+
+<p>
+
+Elements are created using HTML tags and may contain
+text, other elements, attributes, or a combination of
+these.
+
+</p>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;p&gt;
+    Welcome to my website.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+
+<p>
+
+The entire structure above is a paragraph element.
+
+</p>
+
+</div>
+
+
+<!-- ELEMENT VS TAG -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 2. HTML Tags vs. HTML Elements
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+HTML Tag
+</h3>
+
+<p>
+
+A tag is the markup used to create an element.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+HTML Element
+</h3>
+
+<p>
+
+An element includes the opening tag, content,
+and closing tag when applicable.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p&gt;
+    Hello World
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>
+Remember:
+</strong>
+
+<p>
+
+A <strong>tag</strong> is part of an HTML element.
+
+An <strong>element</strong> is the complete structure.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- OPENING CLOSING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔓 3. Opening and Closing Tags
+</h2>
+
+<p>
+
+Many HTML elements have an opening tag and a closing tag.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+    Welcome
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+<p>
+
+The opening tag is:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1&gt;
+</pre>
+
+</div>
+
+<p>
+
+The closing tag contains a forward slash:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- VOID ELEMENTS -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚡ 4. Void Elements
+</h2>
+
+<p>
+
+Some HTML elements do not contain content and do not
+require closing tags.
+
+These are commonly called <strong>void elements</strong>.
+
+</p>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Element
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;img&gt;
+</td>
+
+<td>
+Displays an image.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;br&gt;
+</td>
+
+<td>
+Creates a line break.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;hr&gt;
+</td>
+
+<td>
+Represents a thematic break.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;input&gt;
+</td>
+
+<td>
+Creates a form input.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;meta&gt;
+</td>
+
+<td>
+Provides metadata.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;link&gt;
+</td>
+
+<td>
+Connects external resources.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="code-box">
+
+<pre>
+&lt;img src="photo.jpg" alt="A beautiful landscape"&gt;
+
+&lt;br&gt;
+
+&lt;hr&gt;
+
+&lt;input type="text"&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- ATTRIBUTES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚙️ 5. What Is an HTML Attribute?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An <strong>attribute</strong> provides additional information
+about an HTML element.
+
+</p>
+
+<p>
+
+Attributes are normally placed inside the opening tag.
+
+</p>
+
+</div>
+
+<div class="code-box">
+
+<pre>
+&lt;p class="intro"&gt;
+    Welcome to my website.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+In this example:
+
+</p>
+
+<ul>
+
+<li>
+<code>&lt;p&gt;</code> is the HTML element.
+</li>
+
+<li>
+<code>class</code> is the attribute.
+</li>
+
+<li>
+<code>"intro"</code> is the attribute value.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- ATTRIBUTE STRUCTURE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔍 6. Anatomy of an Attribute
+</h2>
+
+<div class="structure-diagram">
+
+<span class="highlight">&lt;a</span>
+
+&nbsp;
+
+<span class="blue-text">href</span>
+
+<span class="green-text">="https://example.com"</span>
+
+<span class="highlight">&gt;</span>
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Visit Website
+
+<br>
+
+<span class="highlight">&lt;/a&gt;</span>
+
+</div>
+
+<br>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Part
+</th>
+
+<th>
+Example
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+Element
+</td>
+
+<td>
+&lt;a&gt;
+</td>
+
+<td>
+Creates a hyperlink.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Attribute
+</td>
+
+<td>
+href
+</td>
+
+<td>
+Specifies the destination.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Attribute Value
+</td>
+
+<td>
+"https://example.com"
+</td>
+
+<td>
+Provides the destination address.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- COMMON ATTRIBUTES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧰 7. Common HTML Attributes
+</h2>
+
+<div class="attribute-grid">
+
+
+<div class="attribute-card">
+
+<h3>
+id
+</h3>
+
+<p>
+Uniquely identifies an element within a page.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p id="intro"&gt;
+    Welcome
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="attribute-card">
+
+<h3>
+class
+</h3>
+
+<p>
+Assigns an element to one or more classes.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p class="highlight"&gt;
+    Important
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="attribute-card">
+
+<h3>
+title
+</h3>
+
+<p>
+Provides additional advisory information.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p title="More information"&gt;
+    Hover over me
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="attribute-card">
+
+<h3>
+style
+</h3>
+
+<p>
+Applies inline CSS styling.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p style="color: gold;"&gt;
+    Hello
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="attribute-card">
+
+<h3>
+lang
+</h3>
+
+<p>
+Specifies the language of an element or document.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p lang="en"&gt;
+    Hello
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<div class="attribute-card">
+
+<h3>
+hidden
+</h3>
+
+<p>
+Indicates that an element is not currently relevant or displayed.
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p hidden&gt;
+    Hidden content
+&lt;/p&gt;
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ID -->
+
+<div class="section">
+
+<h2 class="section-title">
+🆔 8. The id Attribute
+</h2>
+
+<p>
+
+The <code>id</code> attribute provides a unique identifier
+for an HTML element.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;h1 id="main-title"&gt;
+    Golden Healing Solutions
+&lt;/h1&gt;
+</pre>
+
+</div>
+
+<p>
+
+An ID should generally be unique within a document.
+
+</p>
+
+
+<div class="tip-box">
+
+<strong>
+Example:
+</strong>
+
+<p>
+
+JavaScript can use an ID to find a specific element.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+document.getElementById("main-title");
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CLASS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏷️ 9. The class Attribute
+</h2>
+
+<p>
+
+The <code>class</code> attribute assigns an element to
+one or more classes.
+
+Classes are commonly used with CSS and JavaScript.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p class="intro"&gt;
+    Welcome to our website.
+&lt;/p&gt;
+
+&lt;p class="intro"&gt;
+    Learn web development.
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+Multiple elements can use the same class.
+
+</p>
+
+
+<div class="code-box">
+
+<pre>
+&lt;p class="text gold"&gt;
+    Welcome
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+An element can also have multiple classes separated
+by spaces.
+
+</p>
+
+</div>
+
+
+<!-- LINKS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔗 10. The href Attribute
+</h2>
+
+<p>
+
+The <code>href</code> attribute specifies the destination
+of a hyperlink.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="https://example.com"&gt;
+    Visit Website
+&lt;/a&gt;
+</pre>
+
+</div>
+
+
+<p>
+
+Links can also point to another page on your own website.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;a href="about.html"&gt;
+    About Us
+&lt;/a&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- IMAGES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🖼️ 11. The src and alt Attributes
+</h2>
+
+<p>
+
+The <code>src</code> attribute specifies the location of
+an image.
+
+The <code>alt</code> attribute provides alternative text
+describing the image.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;img
+    src="logo.png"
+    alt="Golden Healing Solutions logo"
+&gt;
+</pre>
+
+</div>
+
+
+<div class="success-box">
+
+<strong>
+Accessibility Best Practice
+</strong>
+
+<p>
+
+Use meaningful alternative text for informative images.
+
+This helps users who rely on screen readers and also
+provides useful information when an image cannot load.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BOOLEAN -->
+
+<div class="section">
+
+<h2 class="section-title">
+☑️ 12. Boolean Attributes
+</h2>
+
+<p>
+
+Boolean attributes represent a true/false condition.
+
+When a Boolean attribute is present, it is generally
+considered enabled.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input type="checkbox" checked&gt;
+
+&lt;input type="text" disabled&gt;
+
+&lt;button disabled&gt;
+    Submit
+&lt;/button&gt;
+</pre>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Attribute
+</th>
+
+<th>
+Meaning
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+checked
+</td>
+
+<td>
+Checkbox or radio control is selected.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+disabled
+</td>
+
+<td>
+Form control is disabled.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+required
+</td>
+
+<td>
+Form control must be completed.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+readonly
+</td>
+
+<td>
+Value cannot normally be edited by the user.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+multiple
+</td>
+
+<td>
+Allows multiple selections where supported.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- ATTRIBUTE ORDER -->
+
+<div class="section">
+
+<h2 class="section-title">
+📋 13. Multiple Attributes
+</h2>
+
+<p>
+
+An HTML element can contain multiple attributes.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;input
+    type="text"
+    id="username"
+    class="form-input"
+    placeholder="Enter your username"
+    required
+&gt;
+</pre>
+
+</div>
+
+<p>
+
+Each attribute provides additional information about the
+element.
+
+</p>
+
+<div class="warning-box">
+
+<strong>
+Important:
+</strong>
+
+<p>
+
+Separate attributes with spaces.
+
+Do not place multiple attributes together without
+spaces.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ATTRIBUTE QUOTES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔤 14. Attribute Values and Quotes
+</h2>
+
+<p>
+
+Attribute values are normally written inside quotation
+marks.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p class="intro"&gt;
+    Welcome
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+Double quotation marks are the standard convention.
+
+Single quotation marks can also be used in HTML.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;p class='intro'&gt;
+    Welcome
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<div class="tip-box">
+
+<strong>
+Best Practice:
+</strong>
+
+<p>
+
+Choose one quotation style and use it consistently
+throughout your project.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NESTING -->
+
+<div class="section">
+
+<h2 class="section-title">
+🪆 15. Attributes and Nested Elements
+</h2>
+
+<p>
+
+Attributes belong to the element in whose opening tag
+they are written.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;section id="about"&gt;
+
+    &lt;h2 class="section-title"&gt;
+        About Us
+    &lt;/h2&gt;
+
+    &lt;p class="description"&gt;
+        Learn more about our company.
+    &lt;/p&gt;
+
+&lt;/section&gt;
+</pre>
+
+</div>
+
+<p>
+
+Here:
+
+</p>
+
+<ul>
+
+<li>
+The <code>section</code> has an <code>id</code>.
+</li>
+
+<li>
+The <code>h2</code> has a <code>class</code>.
+</li>
+
+<li>
+The <code>p</code> has a <code>class</code>.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- VALID HTML -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 16. Writing Valid HTML
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Incorrect
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;p class="intro" id="text"&gt;
+
+Welcome
+
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<p>
+
+The opening element and closing element do not match.
+
+</p>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+✅ Correct
+</h3>
+
+<div class="code-box">
+
+<pre>
+&lt;p
+    class="intro"
+    id="text"
+&gt;
+
+    Welcome
+
+&lt;/p&gt;
+</pre>
+
+</div>
+
+<p>
+
+The opening and closing tags match.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HANDS ON -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 17. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build an Accessible Profile Card
+</h3>
+
+<p>
+
+Create a profile card using HTML.
+
+Your card should contain:
+
+</p>
+
+<ul>
+
+<li>An image.</li>
+
+<li>Alternative text.</li>
+
+<li>A heading.</li>
+
+<li>A paragraph.</li>
+
+<li>A link.</li>
+
+<li>At least one <code>class</code> attribute.</li>
+
+<li>At least one <code>id</code> attribute.</li>
+
+<li>At least one additional attribute.</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;section id="profile-card" class="profile"&gt;
+
+    &lt;img
+        src="profile.jpg"
+        alt="Profile photograph"
+    &gt;
+
+    &lt;h2 class="profile-name"&gt;
+        Your Name
+    &lt;/h2&gt;
+
+    &lt;p class="profile-description"&gt;
+        Write a short description about yourself.
+    &lt;/p&gt;
+
+    &lt;a
+        href="contact.html"
+        class="profile-link"
+    &gt;
+        Contact Me
+    &lt;/a&gt;
+
+&lt;/section&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- REAL WORLD EXAMPLE -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 18. Real-World Example
+</h2>
+
+<p>
+
+Consider a button on a website:
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;button
+    id="submitButton"
+    class="primary-button"
+    type="submit"
+    title="Submit your application"
+&gt;
+
+    Submit Application
+
+&lt;/button&gt;
+</pre>
+
+</div>
+
+<p>
+
+This single element contains several attributes.
+
+</p>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Attribute
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+id
+</td>
+
+<td>
+Uniquely identifies the button.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+class
+</td>
+
+<td>
+Allows CSS or JavaScript to target the button.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+type
+</td>
+
+<td>
+Defines the type of button.
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+title
+</td>
+
+<td>
+Provides additional information.
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- QUICK REFERENCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 19. Quick Reference
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Element
+</th>
+
+<th>
+Common Attribute
+</th>
+
+<th>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;a&gt;
+</td>
+
+<td>
+href
+</td>
+
+<td>
+Link destination
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;img&gt;
+</td>
+
+<td>
+src, alt
+</td>
+
+<td>
+Image location and alternative text
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;input&gt;
+</td>
+
+<td>
+type, name, value
+</td>
+
+<td>
+Form configuration
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+&lt;button&gt;
+</td>
+
+<td>
+type, disabled
+</td>
+
+<td>
+Button behavior
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Any element
+</td>
+
+<td>
+id
+</td>
+
+<td>
+Unique identifier
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Any element
+</td>
+
+<td>
+class
+</td>
+
+<td>
+Groups elements for CSS/JavaScript
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Any element
+</td>
+
+<td>
+title
+</td>
+
+<td>
+Additional information
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 20. Lesson Completion Checklist
+</h2>
+
+<div class="checklist">
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand what an HTML element is.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand the difference between a tag and an element.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand opening and closing tags.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand void elements.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand what HTML attributes are.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I can identify an attribute and its value.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand the id attribute.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand the class attribute.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand href, src, and alt.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I understand Boolean attributes.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I can use multiple attributes on one element.</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>I can create properly structured HTML.</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- KNOWLEDGE CHECK -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 21. Knowledge Check
+</h2>
+
+
+<!-- Q1 -->
+
+<div class="quiz-question">
+
+<h3>
+1. What is an HTML element?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. Only the opening tag
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. A complete HTML structure representing content or functionality
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. Only the closing tag
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. A CSS rule
+</label>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="quiz-question">
+
+<h3>
+2. What is an attribute used for?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. Providing additional information about an element
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. Replacing the HTML document
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. Creating a database
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. Deleting elements
+</label>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="quiz-question">
+
+<h3>
+3. Where are HTML attributes normally placed?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. Inside the closing tag
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. Inside the opening tag
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. Inside the CSS file
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. Outside the HTML document
+</label>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="quiz-question">
+
+<h3>
+4. Which attribute specifies the destination of a hyperlink?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. alt
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. link
+</label>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="quiz-question">
+
+<h3>
+5. Which attribute identifies an element uniquely within a document?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. class
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. id
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. name
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. unique
+</label>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="quiz-question">
+
+<h3>
+6. Which attribute specifies the location of an image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. alt
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. image
+</label>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="quiz-question">
+
+<h3>
+7. What is the purpose of the alt attribute on an image?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. It changes the image color
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. It provides alternative text describing the image
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. It creates a hyperlink
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. It resizes the image
+</label>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="quiz-question">
+
+<h3>
+8. Which attribute is commonly used to group elements for CSS?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. class
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. alt
+</label>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="quiz-question">
+
+<h3>
+9. Which is an example of a Boolean attribute?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. href
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. src
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. disabled
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. title
+</label>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="quiz-question">
+
+<h3>
+10. Which example correctly uses multiple attributes?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. &lt;input type="text" id="name" required&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. &lt;input type text id name required&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. &lt;input type="text"id="name"required&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. &lt;input: type="text": id="name"&gt;
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.3 — HTML Elements & Attributes</strong>.
+
+</p>
+
+<p>
+
+You are ready to continue to the next HTML lesson.
+
+</p>
+
+<a
+href="2-4-headings-paragraphs.html"
+class="continue-button">
+
+Continue to 2.4 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTON AREA -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-2-html-document-structure.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.3 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.3 — HTML Elements & Attributes
+</p>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_3_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.3 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_3_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "A",
+q3: "B",
+q4: "C",
+q5: "B",
+q6: "B",
+q7: "B",
+q8: "A",
+q9: "C",
+q10: "A"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML elements and attributes.</p>";
+
+localStorage.setItem(
+"ghs_2_3_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_3_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_3_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate of Completion</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f4f1eb;
+            font-family: Arial, sans-serif;
+        }
+
+        .certificate {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            padding: 15px;
+            border: 3px solid #c9a227;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+
+        .certificate-inner {
+            border: 1px solid #c9a227;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #c9a227;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            color: #222;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .presented {
+            margin-top: 45px;
+            font-size: 17px;
+            color: #555;
+        }
+
+        .student-name {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            color: #c9a227;
+            margin: 15px 0;
+            border-bottom: 1px solid #c9a227;
+            display: inline-block;
+            padding: 0 40px 8px;
+        }
+
+        .completion-text {
+            font-size: 17px;
+            color: #444;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 25px auto;
+        }
+
+        .course-name {
+            font-size: 25px;
+            font-weight: bold;
+            color: #222;
+            margin: 20px 0;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .detail {
+            flex: 1;
+            border-top: 1px solid #999;
+            padding-top: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .signature {
+            font-family: "Brush Script MT", cursive;
+            font-size: 28px;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .seal {
+            width: 85px;
+            height: 85px;
+            border: 3px solid #c9a227;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #c9a227;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .certificate-number {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .print-button {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background: #c9a227;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .print-button:hover {
+            background: #a9871b;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .certificate {
+                box-shadow: none;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .certificate-inner {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .student-name {
+                font-size: 30px;
+                padding: 0 10px 8px;
+            }
+
+            .details {
+                flex-direction: column;
+                gap: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="certificate">
+
+        <div class="certificate-inner">
+
+            <div class="logo">
+                GOLDEN HEALING SOLUTIONS
+            </div>
+
+            <div class="icon">🎓</div>
+
+            <h1>Certificate of Completion</h1>
+
+            <div class="subtitle">
+                Professional Technical Training
+            </div>
+
+            <p class="presented">
+                This certificate is proudly presented to
+            </p>
+
+            <div class="student-name">
+                Student Name
+            </div>
+
+            <p class="completion-text">
+                In recognition of successfully completing all required
+                coursework, training activities, assessments, and practical
+                assignments for the following program:
+            </p>
+
+            <div class="course-name">
+                Web Development Bootcamp
+            </div>
+
+            <p class="completion-text">
+                The recipient has demonstrated successful completion of the
+                program requirements and has earned this Certificate of
+                Completion from Golden Healing Solutions.
+            </p>
+
+            <div class="details">
+
+                <div class="detail">
+                    <div class="signature">
+                        Golden Healing Solutions
+                    </div>
+                    Instructor / Program Director
+                </div>
+
+                <div class="detail">
+                    <div id="completionDate">
+                        August 17, 2026
+                    </div>
+                    Completion Date
+                </div>
+
+            </div>
+
+            <div class="seal">
+                GOLDEN<br>
+                HEALING<br>
+                SOLUTIONS
+            </div>
+
+            <div class="certificate-number">
+                Certificate No. GHS-WD-2026-00001
+            </div>
+
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        🖨️ Print / Save Certificate
+    </button>
+
+</body>
+</html>

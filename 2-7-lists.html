@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2.7 — Lists | Web Development Bootcamp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f2eb;
+    color: #222;
+    line-height: 1.7;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.course-name {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb span {
+    color: #a27c12;
+    font-weight: bold;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-icon {
+    font-size: 60px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 3px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.objectives {
+    background: #faf7ed;
+    border-left: 5px solid #d4af37;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.objectives h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.success-box {
+    background: #eef9f0;
+    border-left: 5px solid #4d9255;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.warning-box {
+    background: #fff8e6;
+    border-left: 5px solid #d4af37;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.tip-box {
+    background: #f1f5ff;
+    border-left: 5px solid #4a6fa5;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #111;
+    color: #f4f4f4;
+    border-radius: 10px;
+    padding: 22px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-label {
+    color: #d4af37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+code {
+    background: #eee;
+    color: #222;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.demo-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    background: #fff;
+}
+
+.demo-card h3 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.nested-example {
+    background: #faf7ed;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.comparison-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.comparison-card h3 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.practice-box {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.practice-box h3 {
+    color: #d4af37;
+}
+
+.quiz-question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+.answer {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background: #faf7ed;
+}
+
+.quiz-result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.check-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: #fafafa;
+    border-radius: 7px;
+}
+
+.check-item input {
+    margin-right: 10px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+button,
+.continue-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #d4af37;
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.continue-button {
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover,
+.continue-button:hover {
+    opacity: .88;
+}
+
+.progress-section {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #d4af37;
+    transition: width .3s;
+}
+
+.completion {
+    display: none;
+    background: #eef9f0;
+    border: 1px solid #70ad78;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.completion h2 {
+    color: #287333;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media(max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .comparison,
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+GOLDEN HEALING SOLUTIONS
+</div>
+
+<div class="course-name">
+Web Development Bootcamp
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+2.7 — Lists
+</span>
+
+</div>
+
+
+<div class="title-section">
+
+<div class="module-icon">
+📋
+</div>
+
+<h1>
+2.7 — Lists
+</h1>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+Learn how to organize information using unordered lists,
+ordered lists, description lists, nested lists, and
+list items in HTML.
+
+</p>
+
+</div>
+
+
+<!-- OBJECTIVES -->
+
+<div class="objectives">
+
+<h2>
+🎯 Learning Objectives
+</h2>
+
+<p>
+By the end of this lesson, you should be able to:
+</p>
+
+<ul>
+
+<li>Understand the purpose of HTML lists.</li>
+
+<li>Create unordered lists using <code>&lt;ul&gt;</code>.</li>
+
+<li>Create ordered lists using <code>&lt;ol&gt;</code>.</li>
+
+<li>Create list items using <code>&lt;li&gt;</code>.</li>
+
+<li>Create description lists using <code>&lt;dl&gt;</code>.</li>
+
+<li>Use <code>&lt;dt&gt;</code> and <code>&lt;dd&gt;</code>.</li>
+
+<li>Create nested lists.</li>
+
+<li>Understand ordered-list attributes.</li>
+
+<li>Use CSS to style lists.</li>
+
+<li>Choose the correct list type for different situations.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<div class="section">
+
+<h2 class="section-title">
+📖 1. What Are HTML Lists?
+</h2>
+
+<div class="info-box">
+
+<p>
+
+An HTML <strong>list</strong> is a collection of related
+items grouped together in a structured format.
+
+</p>
+
+<p>
+
+Lists are commonly used for navigation menus, instructions,
+features, requirements, steps, shopping lists, course
+objectives, and many other types of information.
+
+</p>
+
+</div>
+
+<div class="success-box">
+
+<strong>Important:</strong>
+
+<p>
+
+HTML lists provide <strong>structure and meaning</strong>.
+CSS can then be used to control how the list looks.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- UL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔵 2. Unordered Lists
+</h2>
+
+<p>
+
+An unordered list is used when the order of the items does
+not matter.
+
+</p>
+
+<p>
+
+The <code>&lt;ul&gt;</code> element creates an unordered list,
+while each item is placed inside an <code>&lt;li&gt;</code>
+element.
+
+</p>
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;ul&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+</div>
+
+<div class="demo-card">
+
+<h3>
+Result
+</h3>
+
+<ul>
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- OL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔢 3. Ordered Lists
+</h2>
+
+<p>
+
+An ordered list is used when the order of the items matters.
+
+</p>
+
+<p>
+
+The <code>&lt;ol&gt;</code> element creates an ordered list.
+
+</p>
+
+<div class="code-box">
+
+<div class="code-label">
+Example
+</div>
+
+<pre>
+&lt;ol&gt;
+
+    &lt;li&gt;Create your HTML file.&lt;/li&gt;
+
+    &lt;li&gt;Add your CSS.&lt;/li&gt;
+
+    &lt;li&gt;Test your webpage.&lt;/li&gt;
+
+&lt;/ol&gt;
+</pre>
+
+</div>
+
+<div class="demo-card">
+
+<h3>
+Result
+</h3>
+
+<ol>
+
+<li>Create your HTML file.</li>
+
+<li>Add your CSS.</li>
+
+<li>Test your webpage.</li>
+
+</ol>
+
+</div>
+
+</div>
+
+
+<!-- LI -->
+
+<div class="section">
+
+<h2 class="section-title">
+📌 4. The &lt;li&gt; Element
+</h2>
+
+<p>
+
+The <code>&lt;li&gt;</code> element represents an individual
+list item.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ul&gt;
+
+    &lt;li&gt;First item&lt;/li&gt;
+
+    &lt;li&gt;Second item&lt;/li&gt;
+
+    &lt;li&gt;Third item&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+</div>
+
+<div class="warning-box">
+
+<strong>Remember:</strong>
+
+<p>
+
+A list item should normally be contained within a list such
+as <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, or
+<code>&lt;menu&gt;</code>.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPARISON -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚖️ 5. Unordered vs. Ordered Lists
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+🔵 Unordered List
+</h3>
+
+<p>
+Use when sequence does not matter.
+</p>
+
+<ul>
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+</ul>
+
+<code>&lt;ul&gt;</code>
+
+</div>
+
+
+<div class="comparison-card">
+
+<h3>
+🔢 Ordered List
+</h3>
+
+<p>
+Use when sequence or ranking matters.
+</p>
+
+<ol>
+
+<li>Register</li>
+
+<li>Complete training</li>
+
+<li>Take exam</li>
+
+</ol>
+
+<code>&lt;ol&gt;</code>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ORDER TYPES -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔠 6. Ordered List Types
+</h2>
+
+<p>
+
+Ordered lists can display different numbering systems.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ol type="A"&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ol&gt;
+</pre>
+
+</div>
+
+<p>
+
+The <code>type</code> attribute can specify different
+numbering styles.
+
+</p>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Type</th>
+<th>Example</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>1</td>
+
+<td>1, 2, 3</td>
+
+</tr>
+
+<tr>
+
+<td>A</td>
+
+<td>A, B, C</td>
+
+</tr>
+
+<tr>
+
+<td>a</td>
+
+<td>a, b, c</td>
+
+</tr>
+
+<tr>
+
+<td>I</td>
+
+<td>I, II, III</td>
+
+</tr>
+
+<tr>
+
+<td>i</td>
+
+<td>i, ii, iii</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<strong>Best Practice:</strong>
+
+<p>
+
+For most visual styling, CSS is preferred over the HTML
+<code>type</code> attribute.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- START -->
+
+<div class="section">
+
+<h2 class="section-title">
+▶️ 7. Changing the Starting Number
+</h2>
+
+<p>
+
+The <code>start</code> attribute can change the starting number
+of an ordered list.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ol start="5"&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ol&gt;
+</pre>
+
+</div>
+
+<p>
+
+This produces:
+
+</p>
+
+<ol start="5">
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+</ol>
+
+</div>
+
+
+<!-- REVERSED -->
+
+<div class="section">
+
+<h2 class="section-title">
+🔄 8. Reversed Lists
+</h2>
+
+<p>
+
+The <code>reversed</code> attribute causes an ordered list
+to count downward.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ol reversed&gt;
+
+    &lt;li&gt;Final Step&lt;/li&gt;
+
+    &lt;li&gt;Second Step&lt;/li&gt;
+
+    &lt;li&gt;First Step&lt;/li&gt;
+
+&lt;/ol&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- NESTED -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌳 9. Nested Lists
+</h2>
+
+<p>
+
+A nested list is a list placed inside another list item.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ul&gt;
+
+    &lt;li&gt;
+        Front-End Development
+
+        &lt;ul&gt;
+
+            &lt;li&gt;HTML&lt;/li&gt;
+
+            &lt;li&gt;CSS&lt;/li&gt;
+
+            &lt;li&gt;JavaScript&lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+
+
+    &lt;li&gt;
+        Back-End Development
+
+        &lt;ul&gt;
+
+            &lt;li&gt;Server&lt;/li&gt;
+
+            &lt;li&gt;Database&lt;/li&gt;
+
+            &lt;li&gt;API&lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+</div>
+
+
+<div class="nested-example">
+
+<h3>
+Web Development
+</h3>
+
+<ul>
+
+<li>
+
+Front-End Development
+
+<ul>
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+</ul>
+
+</li>
+
+<li>
+
+Back-End Development
+
+<ul>
+
+<li>Server</li>
+
+<li>Database</li>
+
+<li>API</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- DESCRIPTION LIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 10. Description Lists
+</h2>
+
+<p>
+
+A description list is used to group terms with their
+corresponding descriptions.
+
+</p>
+
+<p>
+
+A description list uses:
+
+</p>
+
+<ul>
+
+<li>
+<code>&lt;dl&gt;</code> — Description list
+</li>
+
+<li>
+<code>&lt;dt&gt;</code> — Description term
+</li>
+
+<li>
+<code>&lt;dd&gt;</code> — Description/details
+</li>
+
+</ul>
+
+<div class="code-box">
+
+<pre>
+&lt;dl&gt;
+
+    &lt;dt&gt;HTML&lt;/dt&gt;
+
+    &lt;dd&gt;
+        HyperText Markup Language
+    &lt;/dd&gt;
+
+
+    &lt;dt&gt;CSS&lt;/dt&gt;
+
+    &lt;dd&gt;
+        Cascading Style Sheets
+    &lt;/dd&gt;
+
+
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+
+    &lt;dd&gt;
+        A programming language used to
+        create interactive webpages.
+    &lt;/dd&gt;
+
+&lt;/dl&gt;
+</pre>
+
+</div>
+
+<div class="demo-card">
+
+<h3>
+Result
+</h3>
+
+<dl>
+
+<dt><strong>HTML</strong></dt>
+
+<dd>
+HyperText Markup Language
+</dd>
+
+<dt><strong>CSS</strong></dt>
+
+<dd>
+Cascading Style Sheets
+</dd>
+
+<dt><strong>JavaScript</strong></dt>
+
+<dd>
+A programming language used to create interactive webpages.
+</dd>
+
+</dl>
+
+</div>
+
+</div>
+
+
+<!-- LISTS IN NAVIGATION -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧭 11. Lists & Navigation Menus
+</h2>
+
+<p>
+
+Lists are commonly used to structure website navigation.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;nav&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;
+            &lt;a href="index.html"&gt;
+                Home
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="courses.html"&gt;
+                Courses
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="contact.html"&gt;
+                Contact
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+    &lt;/ul&gt;
+
+&lt;/nav&gt;
+</pre>
+
+</div>
+
+<div class="success-box">
+
+<strong>Why use a list?</strong>
+
+<p>
+
+A navigation menu is conceptually a group of related links,
+so a list provides useful structural meaning.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CSS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎨 12. Styling Lists with CSS
+</h2>
+
+<p>
+
+CSS can change the appearance of list markers.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+ul {
+    list-style-type: square;
+}
+</pre>
+
+</div>
+
+<p>
+
+Common unordered list marker values include:
+
+</p>
+
+<ul style="list-style-type: disc;">
+<li>disc</li>
+</ul>
+
+<ul style="list-style-type: circle;">
+<li>circle</li>
+</ul>
+
+<ul style="list-style-type: square;">
+<li>square</li>
+</ul>
+
+</div>
+
+
+<!-- NO MARKERS -->
+
+<div class="section">
+
+<h2 class="section-title">
+🚫 13. Removing List Markers
+</h2>
+
+<p>
+
+A common technique for navigation menus is removing the
+default list markers.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- HORIZONTAL -->
+
+<div class="section">
+
+<h2 class="section-title">
+↔️ 14. Horizontal Navigation
+</h2>
+
+<p>
+
+CSS can also turn list items into horizontal navigation links.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav li {
+    display: inline;
+}
+</pre>
+
+</div>
+
+<div class="info-box">
+
+<strong>HTML provides the structure.</strong>
+
+<p>
+
+CSS controls the presentation and layout.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MULTI LEVEL -->
+
+<div class="section">
+
+<h2 class="section-title">
+🏗️ 15. Multi-Level Lists
+</h2>
+
+<p>
+
+Lists can contain multiple levels of information.
+
+</p>
+
+<div class="code-box">
+
+<pre>
+&lt;ol&gt;
+
+    &lt;li&gt;
+        Learn HTML
+
+        &lt;ol&gt;
+
+            &lt;li&gt;Elements&lt;/li&gt;
+
+            &lt;li&gt;Attributes&lt;/li&gt;
+
+            &lt;li&gt;Forms&lt;/li&gt;
+
+        &lt;/ol&gt;
+
+    &lt;/li&gt;
+
+
+    &lt;li&gt;
+        Learn CSS
+
+        &lt;ol&gt;
+
+            &lt;li&gt;Selectors&lt;/li&gt;
+
+            &lt;li&gt;Properties&lt;/li&gt;
+
+            &lt;li&gt;Responsive Design&lt;/li&gt;
+
+        &lt;/ol&gt;
+
+    &lt;/li&gt;
+
+&lt;/ol&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- COMMON MISTAKES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⚠️ 16. Common List Mistakes
+</h2>
+
+<div class="comparison">
+
+<div class="comparison-card">
+
+<h3>
+❌ Avoid
+</h3>
+
+<ul>
+
+<li>Using random paragraphs instead of lists</li>
+
+<li>Using lists only for visual indentation</li>
+
+<li>Incorrect nesting</li>
+
+<li>Leaving out list item elements</li>
+
+<li>Using excessive nested lists</li>
+
+</ul>
+
+</div>
+
+<div class="comparison-card">
+
+<h3>
+✅ Use
+</h3>
+
+<ul>
+
+<li>Semantic list elements</li>
+
+<li>Logical grouping</li>
+
+<li>Proper nesting</li>
+
+<li>CSS for visual styling</li>
+
+<li>Lists when information is genuinely list-like</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REAL WORLD -->
+
+<div class="section">
+
+<h2 class="section-title">
+🌎 17. Real-World Examples
+</h2>
+
+<div class="demo-grid">
+
+<div class="demo-card">
+
+<h3>
+🎓 Course Objectives
+</h3>
+
+<ul>
+
+<li>Learn HTML</li>
+
+<li>Learn CSS</li>
+
+<li>Learn JavaScript</li>
+
+</ul>
+
+</div>
+
+
+<div class="demo-card">
+
+<h3>
+🛒 Shopping List
+</h3>
+
+<ul>
+
+<li>Milk</li>
+
+<li>Bread</li>
+
+<li>Fruit</li>
+
+</ul>
+
+</div>
+
+
+<div class="demo-card">
+
+<h3>
+📝 Instructions
+</h3>
+
+<ol>
+
+<li>Open the editor</li>
+
+<li>Create a file</li>
+
+<li>Save the file</li>
+
+</ol>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT -->
+
+<div class="section">
+
+<h2 class="section-title">
+💻 18. Hands-On Practice
+</h2>
+
+<div class="practice-box">
+
+<h3>
+Build a Course Outline
+</h3>
+
+<p>
+Create a webpage containing a structured course outline.
+Your webpage should include:
+</p>
+
+<ul>
+
+<li>An unordered list of course features.</li>
+
+<li>An ordered list showing enrollment steps.</li>
+
+<li>A nested list showing course modules and lessons.</li>
+
+<li>A description list defining HTML, CSS, and JavaScript.</li>
+
+<li>A navigation menu using a list.</li>
+
+</ul>
+
+</div>
+
+
+<div class="code-box">
+
+<div class="code-label">
+Practice Starter
+</div>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;
+        Web Development Course
+    &lt;/title&gt;
+
+&lt;/head&gt;
+
+
+&lt;body&gt;
+
+
+    &lt;header&gt;
+
+        &lt;nav&gt;
+
+            &lt;ul&gt;
+
+                &lt;li&gt;
+                    &lt;a href="index.html"&gt;
+                        Home
+                    &lt;/a&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;
+                    &lt;a href="courses.html"&gt;
+                        Courses
+                    &lt;/a&gt;
+                &lt;/li&gt;
+
+            &lt;/ul&gt;
+
+        &lt;/nav&gt;
+
+    &lt;/header&gt;
+
+
+    &lt;main&gt;
+
+        &lt;h1&gt;
+            Web Development Course
+        &lt;/h1&gt;
+
+
+        &lt;h2&gt;
+            Course Features
+        &lt;/h2&gt;
+
+        &lt;ul&gt;
+
+            &lt;li&gt;
+                Video lessons
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                Hands-on projects
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                Knowledge checks
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+
+        &lt;h2&gt;
+            Enrollment Steps
+        &lt;/h2&gt;
+
+        &lt;ol&gt;
+
+            &lt;li&gt;
+                Create an account
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                Enroll in the course
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                Begin Module 1
+            &lt;/li&gt;
+
+        &lt;/ol&gt;
+
+
+        &lt;h2&gt;
+            Course Modules
+        &lt;/h2&gt;
+
+        &lt;ul&gt;
+
+            &lt;li&gt;
+
+                HTML
+
+                &lt;ul&gt;
+
+                    &lt;li&gt;
+                        Document Structure
+                    &lt;/li&gt;
+
+                    &lt;li&gt;
+                        Elements
+                    &lt;/li&gt;
+
+                    &lt;li&gt;
+                        Lists
+                    &lt;/li&gt;
+
+                &lt;/ul&gt;
+
+            &lt;/li&gt;
+
+
+            &lt;li&gt;
+
+                CSS
+
+                &lt;ul&gt;
+
+                    &lt;li&gt;
+                        Selectors
+                    &lt;/li&gt;
+
+                    &lt;li&gt;
+                        Colors
+                    &lt;/li&gt;
+
+                    &lt;li&gt;
+                        Layout
+                    &lt;/li&gt;
+
+                &lt;/ul&gt;
+
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+
+        &lt;h2&gt;
+            Web Technologies
+        &lt;/h2&gt;
+
+        &lt;dl&gt;
+
+            &lt;dt&gt;
+                HTML
+            &lt;/dt&gt;
+
+            &lt;dd&gt;
+                Structures webpage content.
+            &lt;/dd&gt;
+
+
+            &lt;dt&gt;
+                CSS
+            &lt;/dt&gt;
+
+            &lt;dd&gt;
+                Controls webpage presentation.
+            &lt;/dd&gt;
+
+
+            &lt;dt&gt;
+                JavaScript
+            &lt;/dt&gt;
+
+            &lt;dd&gt;
+                Adds behavior and interactivity.
+            &lt;/dd&gt;
+
+        &lt;/dl&gt;
+
+
+    &lt;/main&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+</div>
+
+</div>
+
+
+<!-- QUICK REFERENCE -->
+
+<div class="section">
+
+<h2 class="section-title">
+📚 19. Quick Reference
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Element / Attribute</th>
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>&lt;ul&gt;</td>
+<td>Creates an unordered list</td>
+</tr>
+
+<tr>
+<td>&lt;ol&gt;</td>
+<td>Creates an ordered list</td>
+</tr>
+
+<tr>
+<td>&lt;li&gt;</td>
+<td>Creates a list item</td>
+</tr>
+
+<tr>
+<td>&lt;dl&gt;</td>
+<td>Creates a description list</td>
+</tr>
+
+<tr>
+<td>&lt;dt&gt;</td>
+<td>Defines a description term</td>
+</tr>
+
+<tr>
+<td>&lt;dd&gt;</td>
+<td>Provides a description or details</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Specifies ordered-list numbering style</td>
+</tr>
+
+<tr>
+<td>start</td>
+<td>Specifies the starting number of an ordered list</td>
+</tr>
+
+<tr>
+<td>reversed</td>
+<td>Reverses the numbering of an ordered list</td>
+</tr>
+
+<tr>
+<td>list-style-type</td>
+<td>Controls list marker appearance with CSS</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- BEST PRACTICES -->
+
+<div class="section">
+
+<h2 class="section-title">
+⭐ 20. List Best Practices
+</h2>
+
+<ul>
+
+<li>
+Use <code>&lt;ul&gt;</code> when item order does not matter.
+</li>
+
+<li>
+Use <code>&lt;ol&gt;</code> when sequence matters.
+</li>
+
+<li>
+Use <code>&lt;dl&gt;</code> for terms and corresponding descriptions.
+</li>
+
+<li>
+Place individual items inside <code>&lt;li&gt;</code>.
+</li>
+
+<li>
+Use proper nesting for multi-level lists.
+</li>
+
+<li>
+Use CSS to control visual appearance.
+</li>
+
+<li>
+Use semantic HTML rather than creating fake lists with paragraphs.
+</li>
+
+<li>
+Keep lists organized and easy to understand.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="section">
+
+<h2 class="section-title">
+✅ 21. Lesson Completion Checklist
+</h2>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of HTML lists.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create an unordered list.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create an ordered list.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand the purpose of the li element.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can create nested lists.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand description lists.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can use dt and dd.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand ordered-list numbering.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I can style lists with CSS.
+</label>
+</div>
+
+<div class="check-item">
+<input type="checkbox" class="completion-check">
+<label>
+I understand when to use each type of list.
+</label>
+</div>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="section">
+
+<h2 class="section-title">
+🧠 22. Knowledge Check
+</h2>
+
+
+<div class="quiz-question">
+
+<h3>
+1. Which element creates an unordered list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q1" value="A">
+A. &lt;ol&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="B">
+B. &lt;ul&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="C">
+C. &lt;list&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q1" value="D">
+D. &lt;items&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. Which element creates an ordered list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q2" value="A">
+A. &lt;ol&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="B">
+B. &lt;ul&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="C">
+C. &lt;order&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q2" value="D">
+D. &lt;number&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which element represents an individual list item?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q3" value="A">
+A. &lt;item&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="B">
+B. &lt;li&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="C">
+C. &lt;list-item&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q3" value="D">
+D. &lt;point&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+4. When should you normally use an ordered list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q4" value="A">
+A. When the sequence matters
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="B">
+B. When every item is an image
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="C">
+C. When the items have no relationship
+</label>
+
+<label class="answer">
+<input type="radio" name="q4" value="D">
+D. Only for navigation
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+5. Which element creates a description list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q5" value="A">
+A. &lt;description&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="B">
+B. &lt;dl&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="C">
+C. &lt;list-description&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q5" value="D">
+D. &lt;details-list&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+6. Which element defines a term in a description list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q6" value="A">
+A. &lt;term&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="B">
+B. &lt;dt&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="C">
+C. &lt;title&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q6" value="D">
+D. &lt;define&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+7. Which element provides the description in a description list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q7" value="A">
+A. &lt;dd&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="B">
+B. &lt;describe&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="C">
+C. &lt;description&gt;
+</label>
+
+<label class="answer">
+<input type="radio" name="q7" value="D">
+D. &lt;info&gt;
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+8. What is a nested list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q8" value="A">
+A. A list inside another list item
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="B">
+B. A list with no items
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="C">
+C. A list outside the HTML document
+</label>
+
+<label class="answer">
+<input type="radio" name="q8" value="D">
+D. A list with only one item
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+9. Which CSS property controls list marker styles?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q9" value="A">
+A. marker-style
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="B">
+B. list-style-type
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="C">
+C. list-marker
+</label>
+
+<label class="answer">
+<input type="radio" name="q9" value="D">
+D. bullet-style
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+10. Which attribute can change the starting number of an ordered list?
+</h3>
+
+<label class="answer">
+<input type="radio" name="q10" value="A">
+A. begin
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="B">
+B. first
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="C">
+C. start
+</label>
+
+<label class="answer">
+<input type="radio" name="q10" value="D">
+D. number
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="gradeQuiz()">
+
+Submit Knowledge Check
+
+</button>
+
+
+<div
+class="quiz-result"
+id="quizResult">
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="section">
+
+<h2 class="section-title">
+🎉 23. Lesson Summary
+</h2>
+
+<div class="success-box">
+
+<p>
+
+HTML lists provide a semantic way to organize related
+information.
+
+</p>
+
+<p>
+
+You learned how to use unordered lists, ordered lists,
+description lists, nested lists, and CSS list styling.
+
+</p>
+
+<p>
+
+You will use lists frequently when creating navigation,
+course content, instructions, features, requirements,
+and structured webpage information.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMPLETION -->
+
+<div
+class="completion"
+id="completion">
+
+<h2>
+🎉 Lesson Complete!
+</h2>
+
+<p>
+
+Congratulations! You have completed
+<strong>2.7 — Lists</strong>.
+
+</p>
+
+<p>
+You are ready to continue to the next lesson.
+</p>
+
+<a
+href="2-8-tables.html"
+class="continue-button">
+
+Continue to 2.8 →
+
+</a>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="button-area">
+
+<button
+type="button"
+class="secondary-button"
+onclick="saveProgress()">
+
+💾 Save Progress
+
+</button>
+
+
+<a
+href="2-6-images-multimedia.html"
+class="continue-button">
+
+← Previous Lesson
+
+</a>
+
+
+<button
+type="button"
+class="primary-button"
+onclick="completeLesson()">
+
+✓ Complete Lesson
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<div class="progress-text">
+
+<span>
+2.7 Lesson Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+
+<p>
+<strong>
+Golden Healing Solutions
+</strong>
+</p>
+
+<p>
+Web Development Bootcamp
+</p>
+
+<p>
+2.7 — Lists
+</p>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECKLIST
+========================= */
+
+const checks =
+document.querySelectorAll(
+".completion-check"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressText =
+document.getElementById(
+"progressText"
+);
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress() {
+
+let completed = 0;
+
+const total =
+checks.length;
+
+checks.forEach(check => {
+
+if (check.checked) {
+completed++;
+}
+
+});
+
+const percentage =
+total > 0
+?
+Math.round(
+(completed / total) * 100
+)
+:
+0;
+
+progressFill.style.width =
+percentage + "%";
+
+progressText.textContent =
+percentage + "%";
+
+
+checks.forEach(
+(check, index) => {
+
+localStorage.setItem(
+"ghs_2_7_check_" + index,
+check.checked
+);
+
+});
+
+}
+
+
+/* =========================
+   SAVE PROGRESS
+========================= */
+
+function saveProgress() {
+
+updateProgress();
+
+alert(
+"Your 2.7 progress has been saved."
+);
+
+}
+
+
+/* =========================
+   LOAD PROGRESS
+========================= */
+
+function loadProgress() {
+
+checks.forEach(
+(check, index) => {
+
+const saved =
+localStorage.getItem(
+"ghs_2_7_check_" + index
+);
+
+if (saved === "true") {
+
+check.checked = true;
+
+}
+
+});
+
+updateProgress();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function gradeQuiz() {
+
+const answers = {
+
+q1: "B",
+q2: "A",
+q3: "B",
+q4: "A",
+q5: "B",
+q6: "B",
+q7: "A",
+q8: "A",
+q9: "B",
+q10: "C"
+
+};
+
+let score = 0;
+let answered = 0;
+
+Object.keys(answers).forEach(
+question => {
+
+const selected =
+document.querySelector(
+'input[name="' +
+question +
+'"]:checked'
+);
+
+if (selected) {
+
+answered++;
+
+if (
+selected.value ===
+answers[question]
+) {
+
+score++;
+
+}
+
+}
+
+});
+
+
+const result =
+document.getElementById(
+"quizResult"
+);
+
+
+if (answered < 10) {
+
+result.style.display =
+"block";
+
+result.style.background =
+"#fff8e6";
+
+result.innerHTML =
+
+"<strong>Please answer all 10 questions before submitting.</strong>";
+
+return;
+
+}
+
+
+const percentage =
+Math.round(
+(score / 10) * 100
+);
+
+result.style.display =
+"block";
+
+
+if (percentage >= 80) {
+
+result.style.background =
+"#eef9f0";
+
+result.innerHTML =
+
+"<h3>🎉 Knowledge Check Passed!</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Excellent work! You demonstrated an understanding of HTML lists.</p>";
+
+localStorage.setItem(
+"ghs_2_7_quiz_passed",
+"true"
+);
+
+} else {
+
+result.style.background =
+"#fff2f2";
+
+result.innerHTML =
+
+"<h3>Keep Practicing</h3>" +
+
+"<p>You scored <strong>" +
+score +
+"/10 (" +
+percentage +
+"%)</strong>.</p>" +
+
+"<p>Review the lesson material and try the knowledge check again.</p>";
+
+}
+
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson() {
+
+let incomplete = [];
+
+checks.forEach(
+(check, index) => {
+
+if (!check.checked) {
+
+incomplete.push(
+index + 1
+);
+
+}
+
+});
+
+
+if (
+incomplete.length > 0
+) {
+
+alert(
+"Please complete all lesson checklist items before marking this lesson complete."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"ghs_2_7_complete",
+"true"
+);
+
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+
+updateProgress();
+
+
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+}
+
+
+/* =========================
+   CHECKBOX EVENTS
+========================= */
+
+checks.forEach(
+check => {
+
+check.addEventListener(
+"change",
+updateProgress
+);
+
+});
+
+
+/* =========================
+   RESTORE COMPLETION
+========================= */
+
+if (
+localStorage.getItem(
+"ghs_2_7_complete"
+) === "true"
+) {
+
+document.getElementById(
+"completion"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadProgress();
+
+</script>
+
+</body>
+
+</html>

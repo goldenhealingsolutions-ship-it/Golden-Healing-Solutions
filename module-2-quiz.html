@@ -1,0 +1,3657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Module 2 Quiz | Web Development Bootcamp</title>
+
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #222;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    background: #111;
+
+    color: white;
+
+    padding: 20px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    color: #d4af37;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.course-name {
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+}
+
+
+.card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+}
+
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+.breadcrumb span {
+
+    color: #a27c12;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.title-section {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.quiz-icon {
+
+    font-size: 60px;
+}
+
+
+h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+}
+
+
+.subtitle {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    color: #666;
+
+    font-size: 17px;
+}
+
+
+.gold-line {
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+
+.info-card {
+
+    background: #faf7ed;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border: 1px solid #eadfbf;
+}
+
+
+.info-card strong {
+
+    display: block;
+
+    color: #8b6b16;
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   INSTRUCTIONS
+========================================= */
+
+.instructions {
+
+    background: #111;
+
+    color: white;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    margin-bottom: 35px;
+}
+
+
+.instructions h2 {
+
+    color: #d4af37;
+
+    font-family: Georgia, serif;
+
+    margin-top: 0;
+}
+
+
+.instructions li {
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question {
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    transition: .2s;
+}
+
+
+.question:hover {
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+}
+
+
+.question.correct {
+
+    border: 2px solid #4d9255;
+
+    background: #f4fbf5;
+}
+
+
+.question.incorrect {
+
+    border: 2px solid #c94b4b;
+
+    background: #fff7f7;
+}
+
+
+.question-number {
+
+    color: #a27c12;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+.question h3 {
+
+    margin-top: 0;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   ANSWERS
+========================================= */
+
+.answer {
+
+    display: block;
+
+    padding: 13px 15px;
+
+    margin: 9px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.answer:hover {
+
+    background: #faf7ed;
+
+    border-color: #d4af37;
+}
+
+
+.answer input {
+
+    margin-right: 10px;
+}
+
+
+.answer.correct-answer {
+
+    background: #eaf7ed;
+
+    border-color: #4d9255;
+}
+
+
+.answer.wrong-answer {
+
+    background: #fff0f0;
+
+    border-color: #c94b4b;
+}
+
+
+/* =========================================
+   EXPLANATIONS
+========================================= */
+
+.explanation {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    background: #f4f4f4;
+
+    border-left: 4px solid #d4af37;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SUBMIT AREA
+========================================= */
+
+.submit-area {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+button {
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.primary-button {
+
+    background: #d4af37;
+
+    color: white;
+}
+
+
+.primary-button:hover {
+
+    opacity: .88;
+}
+
+
+.secondary-button {
+
+    background: #111;
+
+    color: white;
+}
+
+
+button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.result {
+
+    display: none;
+
+    margin-top: 35px;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.result.pass {
+
+    display: block;
+
+    background: #eef9f0;
+
+    border: 2px solid #4d9255;
+}
+
+
+.result.fail {
+
+    display: block;
+
+    background: #fff2f2;
+
+    border: 2px solid #c94b4b;
+}
+
+
+.score {
+
+    font-size: 48px;
+
+    font-weight: bold;
+
+    color: #8b6b16;
+}
+
+
+.result h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+}
+
+
+/* =========================================
+   RETAKE
+========================================= */
+
+.retake-area {
+
+    display: none;
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+
+.retake-info {
+
+    background: #fff8e6;
+
+    border-left: 5px solid #d4af37;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.continue-area {
+
+    display: none;
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    padding: 30px;
+
+    background: #faf7ed;
+
+    border-radius: 12px;
+}
+
+
+.continue-button {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: #d4af37;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.continue-button:hover {
+
+    opacity: .88;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-container {
+
+    margin-bottom: 30px;
+}
+
+
+.progress-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+
+.progress-bar {
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #d4af37;
+
+    transition: width .3s;
+}
+
+
+/* =========================================
+   WARNING
+========================================= */
+
+.warning {
+
+    display: none;
+
+    background: #fff8e6;
+
+    border-left: 5px solid #d4af37;
+
+    padding: 18px;
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin: 35px 0;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width: 800px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+
+    .card {
+
+        padding: 25px 18px;
+    }
+
+
+    h1 {
+
+        font-size: 30px;
+    }
+
+
+    .info-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media(max-width: 500px) {
+
+    .info-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+<div class="logo">
+
+GOLDEN HEALING SOLUTIONS
+
+</div>
+
+
+<div class="course-name">
+
+Web Development Bootcamp
+
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="card">
+
+
+<!-- =========================================
+     BREADCRUMB
+========================================= -->
+
+<div class="breadcrumb">
+
+Web Development Bootcamp
+&nbsp; / &nbsp;
+
+Module 2
+&nbsp; / &nbsp;
+
+<span>
+
+Module 2 Quiz
+
+</span>
+
+</div>
+
+
+
+<!-- =========================================
+     TITLE
+========================================= -->
+
+<div class="title-section">
+
+<div class="quiz-icon">
+
+📝
+
+</div>
+
+
+<h1>
+
+MODULE 2 QUIZ
+
+</h1>
+
+
+<div class="gold-line"></div>
+
+
+<p class="subtitle">
+
+HTML & HTML5 Fundamentals
+
+</p>
+
+
+<p class="subtitle">
+
+Test your understanding of HTML document structure,
+elements, attributes, navigation, multimedia, lists,
+tables, forms, semantic HTML, accessibility, and HTML5 APIs.
+
+</p>
+
+</div>
+
+
+
+<!-- =========================================
+     QUIZ INFORMATION
+========================================= -->
+
+<div class="info-grid">
+
+
+<div class="info-card">
+
+<strong>20</strong>
+
+Questions
+
+</div>
+
+
+<div class="info-card">
+
+<strong>80%</strong>
+
+Passing Score
+
+</div>
+
+
+<div class="info-card">
+
+<strong>20</strong>
+
+Points
+
+</div>
+
+
+<div class="info-card">
+
+<strong>∞</strong>
+
+Practice Retakes
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     INSTRUCTIONS
+========================================= -->
+
+<div class="instructions">
+
+<h2>
+
+📋 Quiz Instructions
+
+</h2>
+
+
+<ul>
+
+<li>
+Answer all 20 questions.
+</li>
+
+<li>
+Each question has four answer choices.
+</li>
+
+<li>
+Select the best answer for each question.
+</li>
+
+<li>
+You must answer every question before submitting.
+</li>
+
+<li>
+A score of <strong>80%</strong> or higher is required to pass.
+</li>
+
+<li>
+After submission, you will receive your score and explanations.
+</li>
+
+<li>
+If you do not pass, you may retake the Module 2 quiz.
+</li>
+
+<li>
+Your highest passing result will be saved in this browser.
+</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- =========================================
+     PROGRESS
+========================================= -->
+
+<div class="progress-container">
+
+<div class="progress-label">
+
+<span>
+
+Questions Answered
+
+</span>
+
+
+<span id="answeredCount">
+
+0 / 20
+
+</span>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     WARNING
+========================================= -->
+
+<div
+class="warning"
+id="warning">
+
+<strong>
+
+Please answer every question.
+
+</strong>
+
+<p>
+
+You must select an answer for all 20 questions before
+you can submit the quiz.
+
+</p>
+
+</div>
+
+
+
+<!-- =========================================
+     QUESTIONS
+========================================= -->
+
+<form id="quizForm">
+
+
+
+<!-- QUESTION 1 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 1 OF 20
+
+</div>
+
+
+<h3>
+
+Which declaration tells the browser that an HTML document
+uses the HTML5 standard?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q1"
+value="A">
+
+A. &lt;!DOCTYPE html&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q1"
+value="B">
+
+B. &lt;html5&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q1"
+value="C">
+
+C. &lt;doctype html5&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q1"
+value="D">
+
+D. &lt;version html&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation1">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+&lt;!DOCTYPE html&gt; tells the browser that the document
+uses the modern HTML standard.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 2 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 2 OF 20
+
+</div>
+
+
+<h3>
+
+Which element contains the visible content of an HTML webpage?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q2"
+value="A">
+
+A. &lt;head&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q2"
+value="B">
+
+B. &lt;body&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q2"
+value="C">
+
+C. &lt;meta&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q2"
+value="D">
+
+D. &lt;title&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation2">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The &lt;body&gt; element contains the primary visible content
+of the webpage.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 3 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 3 OF 20
+
+</div>
+
+
+<h3>
+
+What is an HTML attribute?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q3"
+value="A">
+
+A. Additional information specified on an HTML element
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q3"
+value="B">
+
+B. A replacement for every HTML element
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q3"
+value="C">
+
+C. A CSS stylesheet stored outside the page
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q3"
+value="D">
+
+D. A JavaScript function required by every element
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation3">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+Attributes provide additional information or configuration
+for HTML elements.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 4 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 4 OF 20
+
+</div>
+
+
+<h3>
+
+Which element represents the highest-level heading?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q4"
+value="A">
+
+A. &lt;h1&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q4"
+value="B">
+
+B. &lt;h6&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q4"
+value="C">
+
+C. &lt;head&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q4"
+value="D">
+
+D. &lt;header&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation4">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The heading hierarchy runs from h1 through h6, with h1
+representing the highest level.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 5 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 5 OF 20
+
+</div>
+
+
+<h3>
+
+Which element creates a hyperlink?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q5"
+value="A">
+
+A. &lt;link&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q5"
+value="B">
+
+B. &lt;a&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q5"
+value="C">
+
+C. &lt;href&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q5"
+value="D">
+
+D. &lt;nav&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation5">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The anchor &lt;a&gt; element creates hyperlinks. The href
+attribute specifies the destination.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 6 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 6 OF 20
+
+</div>
+
+
+<h3>
+
+Which attribute specifies the destination of a hyperlink?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q6"
+value="A">
+
+A. src
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q6"
+value="B">
+
+B. href
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q6"
+value="C">
+
+C. target
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q6"
+value="D">
+
+D. action
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation6">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The href attribute specifies the URL or destination of
+an anchor link.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 7 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 7 OF 20
+
+</div>
+
+
+<h3>
+
+Which attribute provides alternative text for an image?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q7"
+value="A">
+
+A. title
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q7"
+value="B">
+
+B. alt
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q7"
+value="C">
+
+C. caption
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q7"
+value="D">
+
+D. description
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation7">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The alt attribute provides alternative text for an image
+and is important for accessibility.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 8 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 8 OF 20
+
+</div>
+
+
+<h3>
+
+Which element creates an unordered list?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q8"
+value="A">
+
+A. &lt;ol&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q8"
+value="B">
+
+B. &lt;ul&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q8"
+value="C">
+
+C. &lt;li&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q8"
+value="D">
+
+D. &lt;list&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation8">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The &lt;ul&gt; element creates an unordered list.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 9 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 9 OF 20
+
+</div>
+
+
+<h3>
+
+Which element represents an individual list item?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q9"
+value="A">
+
+A. &lt;item&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q9"
+value="B">
+
+B. &lt;li&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q9"
+value="C">
+
+C. &lt;ul&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q9"
+value="D">
+
+D. &lt;row&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation9">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The &lt;li&gt; element represents an individual list item.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 10 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 10 OF 20
+
+</div>
+
+
+<h3>
+
+Which element represents a table row?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q10"
+value="A">
+
+A. &lt;td&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q10"
+value="B">
+
+B. &lt;tr&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q10"
+value="C">
+
+C. &lt;th&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q10"
+value="D">
+
+D. &lt;table-row&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation10">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The &lt;tr&gt; element represents a table row.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 11 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 11 OF 20
+
+</div>
+
+
+<h3>
+
+Which input type is designed for entering an email address?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q11"
+value="A">
+
+A. type="text"
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q11"
+value="B">
+
+B. type="email"
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q11"
+value="C">
+
+C. type="address"
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q11"
+value="D">
+
+D. type="mailbox"
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation11">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The email input type provides semantics and browser validation
+appropriate for email addresses.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 12 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 12 OF 20
+
+</div>
+
+
+<h3>
+
+Which form attribute identifies where submitted data is sent?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q12"
+value="A">
+
+A. action
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q12"
+value="B">
+
+B. method
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q12"
+value="C">
+
+C. target
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q12"
+value="D">
+
+D. destination
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation12">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The action attribute identifies the destination URL for
+submitted form data.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 13 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 13 OF 20
+
+</div>
+
+
+<h3>
+
+Which semantic element identifies a navigation section?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q13"
+value="A">
+
+A. &lt;section&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q13"
+value="B">
+
+B. &lt;nav&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q13"
+value="C">
+
+C. &lt;navigate&gt;
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q13"
+value="D">
+
+D. &lt;menu-bar&gt;
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation13">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+The &lt;nav&gt; element identifies a section containing
+navigation links.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 14 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 14 OF 20
+
+</div>
+
+
+<h3>
+
+What is a major benefit of semantic HTML?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q14"
+value="A">
+
+A. It communicates the meaning and structure of content
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q14"
+value="B">
+
+B. It automatically replaces JavaScript
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q14"
+value="C">
+
+C. It guarantees a specific visual design
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q14"
+value="D">
+
+D. It prevents CSS from being used
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation14">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+Semantic HTML communicates the meaning and structure of
+content to browsers, developers, and assistive technologies.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 15 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 15 OF 20
+
+</div>
+
+
+<h3>
+
+Which attribute associates a label with a form control?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q15"
+value="A">
+
+A. for
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q15"
+value="B">
+
+B. label-id
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q15"
+value="C">
+
+C. connect
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q15"
+value="D">
+
+D. control
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation15">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The label's for attribute should match the id of the
+associated form control.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 16 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 16 OF 20
+
+</div>
+
+
+<h3>
+
+Which feature provides alternative text for users who cannot perceive an image?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q16"
+value="A">
+
+A. The alt attribute
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q16"
+value="B">
+
+B. The width attribute
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q16"
+value="C">
+
+C. The loading attribute
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q16"
+value="D">
+
+D. The height attribute
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation16">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+Alternative text helps communicate the purpose or content
+of an image when the image cannot be perceived.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 17 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 17 OF 20
+
+</div>
+
+
+<h3>
+
+Which Web Storage object generally persists data after the browser is closed?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q17"
+value="A">
+
+A. sessionStorage
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q17"
+value="B">
+
+B. localStorage
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q17"
+value="C">
+
+C. pageStorage
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q17"
+value="D">
+
+D. browserStorage
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation17">
+
+<strong>Correct Answer: B</strong>
+
+<p>
+
+localStorage generally persists data between browser sessions
+until the stored data is removed.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 18 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 18 OF 20
+
+</div>
+
+
+<h3>
+
+Which API provides a drawing surface controlled by JavaScript?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q18"
+value="A">
+
+A. Canvas API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q18"
+value="B">
+
+B. Storage API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q18"
+value="C">
+
+C. History API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q18"
+value="D">
+
+D. Geolocation API
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation18">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The Canvas API allows JavaScript to draw graphics on a
+canvas element.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 19 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 19 OF 20
+
+</div>
+
+
+<h3>
+
+Which API can request a user's geographic location?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q19"
+value="A">
+
+A. Geolocation API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q19"
+value="B">
+
+B. Canvas API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q19"
+value="C">
+
+C. Storage API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q19"
+value="D">
+
+D. History API
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation19">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The Geolocation API allows a website to request geographic
+location, subject to browser permissions and availability.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUESTION 20 -->
+
+<div class="question">
+
+<div class="question-number">
+
+QUESTION 20 OF 20
+
+</div>
+
+
+<h3>
+
+Which API is commonly used by JavaScript to make network requests?
+
+</h3>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q20"
+value="A">
+
+A. Fetch API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q20"
+value="B">
+
+B. Canvas API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q20"
+value="C">
+
+C. Clipboard API
+
+</label>
+
+
+<label class="answer">
+
+<input
+type="radio"
+name="q20"
+value="D">
+
+D. History API
+
+</label>
+
+
+<div
+class="explanation"
+id="explanation20">
+
+<strong>Correct Answer: A</strong>
+
+<p>
+
+The Fetch API provides a modern way for JavaScript to make
+network requests and process responses.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     SUBMIT
+========================================= -->
+
+<div class="submit-area">
+
+<button
+type="button"
+class="primary-button"
+id="submitButton"
+onclick="submitQuiz()">
+
+Submit Module 2 Quiz
+
+</button>
+
+</div>
+
+
+</form>
+
+
+
+<!-- =========================================
+     RESULT
+========================================= -->
+
+<div
+class="result"
+id="result">
+
+<div
+class="score"
+id="score">
+
+</div>
+
+
+<h2 id="resultTitle">
+
+</h2>
+
+
+<p id="resultMessage">
+
+</p>
+
+
+<p id="resultDetails">
+
+</p>
+
+</div>
+
+
+
+<!-- =========================================
+     RETAKE
+========================================= -->
+
+<div
+class="retake-area"
+id="retakeArea">
+
+
+<div class="retake-info">
+
+<strong>
+Quiz Not Passed
+</strong>
+
+<p>
+
+You did not reach the required 80% passing score.
+
+Review the Module 2 lessons and try again.
+
+</p>
+
+</div>
+
+
+<button
+type="button"
+class="secondary-button"
+onclick="retakeQuiz()">
+
+↻ Retake Module 2 Quiz
+
+</button>
+
+</div>
+
+
+
+<!-- =========================================
+     CONTINUE
+========================================= -->
+
+<div
+class="continue-area"
+id="continueArea">
+
+<h2>
+
+🎉 Module 2 Complete!
+
+</h2>
+
+
+<p>
+
+Congratulations! You passed the Module 2 Quiz.
+
+</p>
+
+
+<p>
+
+Your passing result has been saved.
+
+You may continue to the next module.
+
+</p>
+
+
+<a
+href="module-3.html"
+class="continue-button">
+
+Continue to Module 3 →
+
+</a>
+
+</div>
+
+
+
+</div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+<strong>
+Golden Healing Solutions
+</strong>
+
+<br>
+
+Web Development Bootcamp
+
+<br>
+
+Module 2 — HTML & HTML5
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   ANSWER KEY
+========================================= */
+
+const correctAnswers = {
+
+    q1: "A",
+
+    q2: "B",
+
+    q3: "A",
+
+    q4: "A",
+
+    q5: "B",
+
+    q6: "B",
+
+    q7: "B",
+
+    q8: "B",
+
+    q9: "B",
+
+    q10: "B",
+
+    q11: "B",
+
+    q12: "A",
+
+    q13: "B",
+
+    q14: "A",
+
+    q15: "A",
+
+    q16: "A",
+
+    q17: "B",
+
+    q18: "A",
+
+    q19: "A",
+
+    q20: "A"
+
+};
+
+
+/* =========================================
+   QUIZ SETTINGS
+========================================= */
+
+const totalQuestions = 20;
+
+const passingPercentage = 80;
+
+
+/* =========================================
+   UPDATE QUESTION PROGRESS
+========================================= */
+
+document
+.querySelectorAll(
+    'input[type="radio"]'
+)
+.forEach(
+    input => {
+
+        input.addEventListener(
+            "change",
+            updateProgress
+        );
+
+    }
+);
+
+
+function updateProgress() {
+
+    let answered = 0;
+
+
+    for (
+        let i = 1;
+        i <= totalQuestions;
+        i++
+    ) {
+
+        const answer =
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            );
+
+
+        if (answer) {
+
+            answered++;
+
+        }
+
+    }
+
+
+    const percentage =
+        (answered / totalQuestions) * 100;
+
+
+    document
+    .getElementById(
+        "progressFill"
+    )
+    .style.width =
+        percentage + "%";
+
+
+    document
+    .getElementById(
+        "answeredCount"
+    )
+    .textContent =
+        answered +
+        " / " +
+        totalQuestions;
+
+}
+
+
+/* =========================================
+   SUBMIT QUIZ
+========================================= */
+
+function submitQuiz() {
+
+
+    let unanswered = [];
+
+
+    for (
+        let i = 1;
+        i <= totalQuestions;
+        i++
+    ) {
+
+        const answer =
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            );
+
+
+        if (!answer) {
+
+            unanswered.push(i);
+
+        }
+
+    }
+
+
+    /* =========================
+       CHECK ALL ANSWERED
+    ========================= */
+
+    if (
+        unanswered.length > 0
+    ) {
+
+        const warning =
+            document.getElementById(
+                "warning"
+            );
+
+
+        warning.style.display =
+            "block";
+
+
+        warning.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+
+        return;
+
+    }
+
+
+    document
+    .getElementById(
+        "warning"
+    )
+    .style.display =
+        "none";
+
+
+    let score = 0;
+
+
+    /* =========================
+       GRADE QUESTIONS
+    ========================= */
+
+    for (
+        let i = 1;
+        i <= totalQuestions;
+        i++
+    ) {
+
+        const selected =
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            );
+
+
+        const question =
+            selected.closest(
+                ".question"
+            );
+
+
+        const correct =
+            correctAnswers[
+                "q" + i
+            ];
+
+
+        const explanation =
+            document.getElementById(
+                "explanation" + i
+            );
+
+
+        explanation.style.display =
+            "block";
+
+
+        /* =====================
+           FIND ALL ANSWERS
+        ===================== */
+
+        const answers =
+            question.querySelectorAll(
+                ".answer"
+            );
+
+
+        answers.forEach(
+            label => {
+
+                label.classList.remove(
+                    "correct-answer",
+                    "wrong-answer"
+                );
+
+            }
+        );
+
+
+        /* =====================
+           CORRECT
+        ===================== */
+
+        if (
+            selected.value ===
+            correct
+        ) {
+
+            score++;
+
+            question.classList.add(
+                "correct"
+            );
+
+
+            question.classList.remove(
+                "incorrect"
+            );
+
+
+            selected
+            .closest(".answer")
+            .classList.add(
+                "correct-answer"
+            );
+
+        }
+
+
+        /* =====================
+           INCORRECT
+        ===================== */
+
+        else {
+
+            question.classList.add(
+                "incorrect"
+            );
+
+
+            question.classList.remove(
+                "correct"
+            );
+
+
+            selected
+            .closest(".answer")
+            .classList.add(
+                "wrong-answer"
+            );
+
+
+            /* Highlight correct answer */
+
+            answers.forEach(
+                label => {
+
+                    const radio =
+                        label.querySelector(
+                            "input"
+                        );
+
+
+                    if (
+                        radio &&
+                        radio.value ===
+                        correct
+                    ) {
+
+                        label.classList.add(
+                            "correct-answer"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =====================================
+       CALCULATE PERCENTAGE
+    ===================================== */
+
+    const percentage =
+        Math.round(
+            (score / totalQuestions) * 100
+        );
+
+
+    /* =====================================
+       SHOW RESULT
+    ===================================== */
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    const scoreElement =
+        document.getElementById(
+            "score"
+        );
+
+
+    const resultTitle =
+        document.getElementById(
+            "resultTitle"
+        );
+
+
+    const resultMessage =
+        document.getElementById(
+            "resultMessage"
+        );
+
+
+    const resultDetails =
+        document.getElementById(
+            "resultDetails"
+        );
+
+
+    result.className =
+        "result";
+
+
+    result.style.display =
+        "block";
+
+
+    scoreElement.textContent =
+        percentage + "%";
+
+
+    resultDetails.textContent =
+
+        "You answered " +
+        score +
+        " out of " +
+        totalQuestions +
+        " questions correctly.";
+
+
+    /* =====================================
+       PASSED
+    ===================================== */
+
+    if (
+        percentage >=
+        passingPercentage
+    ) {
+
+
+        result.classList.add(
+            "pass"
+        );
+
+
+        resultTitle.textContent =
+            "🎉 Congratulations! You Passed!";
+
+
+        resultMessage.textContent =
+
+            "You have successfully passed the Module 2 Quiz with the required 80% or higher.";
+
+
+        /* ===============================
+           SAVE PASSING RESULT
+        =============================== */
+
+        localStorage.setItem(
+            "ghs_module2_quiz_passed",
+            "true"
+        );
+
+
+        localStorage.setItem(
+            "ghs_module2_quiz_score",
+            percentage
+        );
+
+
+        localStorage.setItem(
+            "ghs_module2_quiz_date",
+            new Date().toISOString()
+        );
+
+
+        /* ===============================
+           SHOW CONTINUE
+        =============================== */
+
+        document
+        .getElementById(
+            "continueArea"
+        )
+        .style.display =
+            "block";
+
+
+        document
+        .getElementById(
+            "retakeArea"
+        )
+        .style.display =
+            "none";
+
+
+    }
+
+
+    /* =====================================
+       FAILED
+    ===================================== */
+
+    else {
+
+
+        result.classList.add(
+            "fail"
+        );
+
+
+        resultTitle.textContent =
+            "📚 Keep Studying";
+
+
+        resultMessage.textContent =
+
+            "You did not reach the 80% passing score. Review Module 2 and try again.";
+
+
+        /* ===============================
+           SHOW RETAKE
+        =============================== */
+
+        document
+        .getElementById(
+            "retakeArea"
+        )
+        .style.display =
+            "block";
+
+
+        document
+        .getElementById(
+            "continueArea"
+        )
+        .style.display =
+            "none";
+
+    }
+
+
+    /* =====================================
+       DISABLE SUBMIT
+    ===================================== */
+
+    document
+    .getElementById(
+        "submitButton"
+    )
+    .disabled =
+        true;
+
+
+    /* =====================================
+       SCROLL TO RESULT
+    ===================================== */
+
+    result.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =========================================
+   RETAKE QUIZ
+========================================= */
+
+function retakeQuiz() {
+
+
+    /* =====================================
+       CLEAR RADIO BUTTONS
+    ===================================== */
+
+    document
+    .querySelectorAll(
+        'input[type="radio"]'
+    )
+    .forEach(
+        input => {
+
+            input.checked =
+                false;
+
+        }
+    );
+
+
+    /* =====================================
+       REMOVE QUESTION STATES
+    ===================================== */
+
+    document
+    .querySelectorAll(
+        ".question"
+    )
+    .forEach(
+        question => {
+
+            question.classList.remove(
+                "correct",
+                "incorrect"
+            );
+
+        }
+    );
+
+
+    /* =====================================
+       REMOVE ANSWER COLORS
+    ===================================== */
+
+    document
+    .querySelectorAll(
+        ".answer"
+    )
+    .forEach(
+        answer => {
+
+            answer.classList.remove(
+                "correct-answer",
+                "wrong-answer"
+            );
+
+        }
+    );
+
+
+    /* =====================================
+       HIDE EXPLANATIONS
+    ===================================== */
+
+    document
+    .querySelectorAll(
+        ".explanation"
+    )
+    .forEach(
+        explanation => {
+
+            explanation.style.display =
+                "none";
+
+        }
+    );
+
+
+    /* =====================================
+       HIDE RESULTS
+    ===================================== */
+
+    document
+    .getElementById(
+        "result"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "retakeArea"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "continueArea"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "warning"
+    )
+    .style.display =
+        "none";
+
+
+    /* =====================================
+       ENABLE SUBMIT
+    ===================================== */
+
+    document
+    .getElementById(
+        "submitButton"
+    )
+    .disabled =
+        false;
+
+
+    /* =====================================
+       RESET PROGRESS
+    ===================================== */
+
+    document
+    .getElementById(
+        "progressFill"
+    )
+    .style.width =
+        "0%";
+
+
+    document
+    .getElementById(
+        "answeredCount"
+    )
+    .textContent =
+        "0 / 20";
+
+
+    /* =====================================
+       SCROLL TO TOP
+    ===================================== */
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* =========================================
+   CHECK PREVIOUS PASS
+========================================= */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+
+        const passed =
+            localStorage.getItem(
+                "ghs_module2_quiz_passed"
+            );
+
+
+        const savedScore =
+            localStorage.getItem(
+                "ghs_module2_quiz_score"
+            );
+
+
+        if (
+            passed === "true"
+        ) {
+
+
+            document
+            .getElementById(
+                "continueArea"
+            )
+            .style.display =
+                "block";
+
+
+            document
+            .getElementById(
+                "result"
+            )
+            .style.display =
+                "block";
+
+
+            document
+            .getElementById(
+                "result"
+            )
+            .classList.add(
+                "pass"
+            );
+
+
+            document
+            .getElementById(
+                "score"
+            )
+            .textContent =
+                savedScore + "%";
+
+
+            document
+            .getElementById(
+                "resultTitle"
+            )
+            .textContent =
+                "🎉 Module 2 Already Passed";
+
+
+            document
+            .getElementById(
+                "resultMessage"
+            )
+            .textContent =
+
+                "Your passing Module 2 quiz result has been saved.";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
