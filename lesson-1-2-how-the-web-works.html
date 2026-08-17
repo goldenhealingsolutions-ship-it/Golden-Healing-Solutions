@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Golden Healing Solutions Web Development Bootcamp — Lesson 1.2: How the Web Works">
+    <title>Lesson 1.2 — How the Web Works | Golden Healing Solutions</title>
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           GOLDEN HEALING SOLUTIONS
+           LESSON 1.2
+           HOW THE WEB WORKS
+           ========================================================= */
+
+        :root {
+            --black: #08080A;
+            --black-2: #111116;
+            --black-3: #18181D;
+            --gold: #D4AF37;
+            --gold-dark: #B8860B;
+            --gold-light: #F8F0D8;
+            --gold-soft: #FBF8EE;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-200: #E4E4E7;
+            --gray-400: #A1A1AA;
+            --gray-500: #71717A;
+            --gray-700: #3F3F46;
+            --green: #166534;
+            --red: #991B1B;
+            --blue: #1D4ED8;
+            --max-width: 1200px;
+            --shadow: 0 10px 30px rgba(0,0,0,.06);
+            --shadow-dark: 0 15px 40px rgba(0,0,0,.25);
+        }
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--gray-50);
+            color: var(--black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        /* =========================================================
+           TYPOGRAPHY
+           ========================================================= */
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.2;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* =========================================================
+           TOP NAVIGATION
+           ========================================================= */
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8,8,10,.97);
+            color: var(--white);
+            border-bottom: 1px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: .75rem;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: .82rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .lesson-label {
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: .72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           PROGRESS BAR
+           ========================================================= */
+
+        .progress-container {
+            position: fixed;
+            top: 71px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #24242A;
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #AA771C, #D4AF37, #FCF6BA, #D4AF37);
+            transition: width .25s ease;
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .hero {
+            background: radial-gradient(circle at 50% 0%, #25252D 0%, #111116 42%, #08080A 100%);
+            color: var(--white);
+            padding: 100px 20px 80px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            border: 1px solid rgba(212,175,55,.45);
+            background: rgba(212,175,55,.08);
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: .72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 7vw, 4.5rem);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            max-width: 850px;
+            margin: 0 auto 25px;
+            color: #D4D4D8;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .lesson-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .meta-pill {
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 50px;
+            color: #D4D4D8;
+            font-size: .78rem;
+        }
+
+        /* =========================================================
+           MAIN CONTAINER & SECTIONS
+           ========================================================= */
+
+        .container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .lesson-section {
+            margin-bottom: 80px;
+        }
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-number {
+            color: var(--gold-dark);
+            font-family: 'Cinzel', serif;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--gray-500);
+            max-width: 800px;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 15px;
+        }
+
+        /* =========================================================
+           OBJECTIVES
+           ========================================================= */
+
+        .objectives {
+            background: var(--black);
+            color: var(--white);
+            padding: 45px;
+            border-radius: 8px;
+            border: 1px solid rgba(212,175,55,.4);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .objectives h2 {
+            color: var(--gold);
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .objective-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .objective {
+            display: flex;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 5px;
+        }
+
+        .objective-icon {
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* =========================================================
+           CONTENT CARDS & KEY CONCEPTS
+           ========================================================= */
+
+        .content-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 7px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .content-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+        }
+
+        .content-card p {
+            color: var(--gray-700);
+            margin-bottom: 15px;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .key-concept {
+            background: var(--gold-soft);
+            border-left: 5px solid var(--gold);
+            padding: 25px 30px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .key-concept strong {
+            display: block;
+            font-family: 'Cinzel', serif;
+            color: var(--gold-dark);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .example-box {
+            background: #F8F8FA;
+            border: 1px solid var(--gray-200);
+            padding: 25px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+
+        .example-title {
+            font-family: 'Cinzel', serif;
+            font-size: .8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        /* =========================================================
+           COMPARISON & DIAGRAMS
+           ========================================================= */
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            padding: 30px;
+            border: 1px solid var(--gray-200);
+            border-radius: 7px;
+            background: var(--white);
+        }
+
+        .comparison-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .comparison-card.website {
+            border-top: 4px solid var(--gold);
+        }
+
+        .comparison-card.application {
+            border-top: 4px solid var(--black);
+        }
+
+        .comparison-card ul {
+            padding-left: 20px;
+            color: var(--gray-700);
+        }
+
+        .comparison-card li {
+            margin-bottom: 8px;
+        }
+
+        .stack-container {
+            background: var(--black);
+            border: 1px solid rgba(212,175,55,.35);
+            border-radius: 8px;
+            padding: 35px;
+            margin: 30px 0;
+        }
+
+        .stack-title {
+            color: var(--gold);
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .stack-layer {
+            padding: 22px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .stack-layer.front {
+            background: rgba(212,175,55,.15);
+            border-color: rgba(212,175,55,.45);
+        }
+
+        .stack-layer.back {
+            background: rgba(255,255,255,.06);
+        }
+
+        .stack-layer.database {
+            background: rgba(255,255,255,.03);
+        }
+
+        .stack-layer strong {
+            display: block;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 5px;
+        }
+
+        /* =========================================================
+           INTERACTIVE DEMOS
+           ========================================================= */
+
+        .interactive-demo {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 35px;
+            border: 1px solid rgba(212,175,55,.35);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .demo-window {
+            background: var(--white);
+            color: var(--black);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 25px;
+        }
+
+        .demo-toolbar {
+            background: #E4E4E7;
+            padding: 10px 15px;
+            display: flex;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #A1A1AA;
+        }
+
+        .demo-content {
+            padding: 35px;
+            text-align: center;
+        }
+
+        .demo-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .demo-content input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border: 1px solid var(--gray-400);
+            border-radius: 4px;
+        }
+
+        .demo-content button {
+            margin-top: 20px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 4px;
+            background: var(--black);
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        #dnsOutput, #httpOutput {
+            margin-top: 15px;
+            min-height: 30px;
+            font-weight: 600;
+            text-align: left;
+            background: #F4F4F5;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: none;
+        }
+
+        #dnsOutput.show, #httpOutput.show {
+            display: block;
+        }
+
+        /* =========================================================
+           TABLES
+           ========================================================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        th {
+            background: var(--black);
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: .8rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            color: var(--gray-700);
+            font-size: .9rem;
+        }
+
+        /* =========================================================
+           QUIZ
+           ========================================================= */
+
+        .quiz {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-question {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .quiz-question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .quiz-question h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            margin-bottom: 7px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: var(--gold-soft);
+            border-color: rgba(212,175,55,.3);
+        }
+
+        .option input {
+            margin-top: 5px;
+        }
+
+        .quiz-button {
+            background: var(--black);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 15px 30px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .quiz-button:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 5px;
+            background: var(--gold-soft);
+            border: 1px solid var(--gold);
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .score {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* =========================================================
+           GLOSSARY
+           ========================================================= */
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .term {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .term strong {
+            color: var(--gold-dark);
+            font-family: 'Cinzel', serif;
+            font-size: .85rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .term span {
+            color: var(--gray-500);
+            font-size: .85rem;
+        }
+
+        /* =========================================================
+           COMPLETION & FOOTER
+           ========================================================= */
+
+        .completion {
+            background: radial-gradient(circle at center, #24242C, #08080A);
+            color: var(--white);
+            border: 1px solid rgba(212,175,55,.45);
+            border-radius: 8px;
+            padding: 55px 35px;
+            text-align: center;
+        }
+
+        .completion h2 {
+            color: var(--gold);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .completion p {
+            color: #D4D4D8;
+            max-width: 750px;
+            margin: 0 auto 25px;
+        }
+
+        .next-button {
+            display: inline-block;
+            padding: 16px 30px;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .next-button:hover {
+            background: var(--white);
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--gray-400);
+            text-align: center;
+            padding: 35px 20px;
+            font-size: .8rem;
+            border-top: 1px solid rgba(212,175,55,.2);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 750px) {
+            .objective-grid, .comparison, .glossary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .objectives, .content-card, .quiz {
+                padding: 25px;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px 15px;
+            }
+
+            .progress-container {
+                top: 103px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero {
+                padding: 80px 18px 65px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 50px 15px;
+            }
+
+            .lesson-section {
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+    <header class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand" aria-label="Golden Healing Solutions home">
+                <div class="brand-mark">GH</div>
+                <div class="brand-name">Golden Healing Solutions</div>
+            </a>
+            <div class="lesson-label">Module 1 • Lesson 1.2</div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         READING PROGRESS
+         ========================================================= -->
+    <div class="progress-container" aria-hidden="true">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero">
+        <span class="eyebrow">Module 1 — Web Development Fundamentals</span>
+        <h1>Lesson 1.2<br><span>How the Web Works</span></h1>
+        <p class="hero-subtitle">
+            Uncover the underlying infrastructure of the web: explore clients, servers, HTTP protocols, 
+            URLs, domain name systems (DNS), and modern web hosting architecture.
+        </p>
+        <div class="lesson-meta">
+            <span class="meta-pill">Core Infrastructure</span>
+            <span class="meta-pill">Interactive Simulators</span>
+            <span class="meta-pill">Knowledge Check</span>
+            <span class="meta-pill">Protocol Deep Dive</span>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- =====================================================
+             LEARNING OBJECTIVES
+             ===================================================== -->
+        <section class="lesson-section">
+            <div class="objectives">
+                <h2>What You Will Learn</h2>
+                <div class="objective-grid">
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Distinguish between the global Internet network and the World Wide Web service.</span>
+                    </div>
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Define the Client-Server model and explain the dynamic roles of clients, servers, and web browsers.</span>
+                    </div>
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Understand HTTP/HTTPS request-response cycles, methods, and status codes.</span>
+                    </div>
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Deconstruct a complete URL into its core architectural components.</span>
+                    </div>
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Trace the complete Domain Name System (DNS) resolution workflow step-by-step.</span>
+                    </div>
+                    <div class="objective">
+                        <span class="objective-icon">✦</span>
+                        <span>Compare web hosting models (Shared, VPS, Dedicated, Cloud, Serverless) and deployment options.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 1 — INTERNET VS WWW
+             ===================================================== -->
+        <section class="lesson-section" id="internet-vs-www">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 01</div>
+                <h2>Internet vs. World Wide Web</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    Though commonly used interchangeably in everyday conversation, the <strong>Internet</strong> and the <strong>World Wide Web (WWW)</strong> refer to two distinct layers of digital technology.
+                </p>
+                <p>
+                    The <strong>Internet</strong> is the underlying global physical infrastructure—a massive interconnected network of computers, servers, cables, routers, and wireless systems spanning the globe.
+                </p>
+                <p>
+                    The <strong>World Wide Web</strong> is a standardized service running on top of the Internet infrastructure that allows users to view, share, and navigate interlinked multimedia documents via web browsers using the HTTP protocol.
+                </p>
+
+                <div class="key-concept">
+                    <strong>THE HIGHWAY ANALOGY</strong>
+                    Think of the Internet as a global network of physical roads and highways. The World Wide Web is one specific type of vehicle traveling on those roads (like delivery vans). Other services—such as Email (SMTP), File Transfer (FTP), and Online Gaming—are different vehicles using the exact same physical highway system.
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-card website">
+                    <h3>🌐 THE INTERNET</h3>
+                    <ul>
+                        <li>Physical global network of hardware</li>
+                        <li>Includes cables, satellites, and routers</li>
+                        <li>Governed by IP and TCP protocols</li>
+                        <li>Hosts multiple independent services</li>
+                        <li>Established in the late 1969s (ARPANET)</li>
+                    </ul>
+                </div>
+                <div class="comparison-card application">
+                    <h3>💻 THE WORLD WIDE WEB</h3>
+                    <ul>
+                        <li>Software service operating on the Internet</li>
+                        <li>Consists of HTML documents, assets, and APIs</li>
+                        <li>Governed by HTTP/HTTPS protocols</li>
+                        <li>Navigated using web browsers</li>
+                        <li>Invented by Tim Berners-Lee in 1989</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 2 — CLIENTS, SERVERS, & BROWSERS
+             ===================================================== -->
+        <section class="lesson-section" id="clients-servers-browsers">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 02</div>
+                <h2>Clients, Servers, & Browsers</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    The modern web functions primarily on a <strong>Client-Server Model</strong>. This architecture divides tasks between resource requesters (clients) and resource providers (servers).
+                </p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Entity</th>
+                               <th>Primary Function</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Client</strong></td>
+                                <td>Devices and applications connected to the web that request data on behalf of the user.</td>
+                                <td>Laptops, smartphones, smart TVs, mobile apps.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Web Browser</strong></td>
+                                <td>Software running on client devices that translates technical requests into visual, interactive UI. Parses HTML, CSS, and JS.</td>
+                                <td>Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Web Server</strong></td>
+                                <td>Specialized hardware/software constantly connected to the web, listening for incoming client requests to process logic and serve files.</td>
+                                <td>Nginx, Apache, Node.js servers hosted on AWS, GCP, or Azure.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="key-concept">
+                    <strong>THE BROWSER ENGINE</strong>
+                    A web browser's main engine takes raw HTML, CSS, and JavaScript files returned by a server, parses the code, constructs the Document Object Model (DOM) and CSS Object Model (CSSOM), paints the visual interface onto your screen, and listens for user events.
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 3 — HTTP & HTTPS
+             ===================================================== -->
+        <section class="lesson-section" id="http-https">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 03</div>
+                <h2>HTTP & HTTPS Protocols</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    <strong>HTTP</strong> (Hypertext Transfer Protocol) is the foundational set of rules governing how data is structured, transmitted, and interpreted across the web.
+                </p>
+                <p>
+                    <strong>HTTPS</strong> (Hypertext Transfer Protocol Secure) is the encrypted version of HTTP. It uses <strong>TLS/SSL</strong> (Transport Layer Security) protocols to encrypt data exchanged between client and server, preventing eavesdropping or tampering.
+                </p>
+
+                <h3>Common HTTP Request Methods</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Action Purpose</th>
+                                <th>Real-World Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>GET</strong></td>
+                                <td>Retrieve data from a server without modifying server state.</td>
+                                <td>Loading a blog post page.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>POST</strong></td>
+                                <td>Submit data to a server to create a new resource or process data.</td>
+                                <td>Submitting a registration form.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PUT / PATCH</strong></td>
+                                <td>Update existing data stored on the server.</td>
+                                <td>Updating profile details.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DELETE</strong></td>
+                                <td>Remove a specified resource from the server.</td>
+                                <td>Deleting a account comment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Common HTTP Response Status Codes</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code Range</th>
+                                <th>Category</th>
+                                <th>Key Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>2xx (Success)</strong></td>
+                                <td>Request successfully received and processed.</td>
+                                <td><code>200 OK</code>, <code>201 Created</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3xx (Redirection)</strong></td>
+                                <td>Further action needed to complete the request.</td>
+                                <td><code>301 Moved Permanently</code>, <code>302 Found</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>4xx (Client Error)</strong></td>
+                                <td>The request contained bad syntax or cannot be fulfilled.</td>
+                                <td><code>400 Bad Request</code>, <code>403 Forbidden</code>, <code>404 Not Found</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>5xx (Server Error)</strong></td>
+                                <td>The server failed to fulfill an apparently valid request.</td>
+                                <td><code>500 Internal Server Error</code>, <code>502 Bad Gateway</code>, <code>503 Service Unavailable</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- HTTP DEMO -->
+            <div class="interactive-demo">
+                <h3 style="color: var(--gold); font-size: 2rem;">HTTP Request Simulator</h3>
+                <p style="color: #D4D4D8; margin-top: 10px;">Select an HTTP Method and Resource Endpoint to simulate a web server request/response exchange.</p>
+
+                <div class="demo-window">
+                    <div class="demo-toolbar">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="demo-content">
+                        <select id="httpMethod" style="padding: 10px; margin-right: 10px;">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="DELETE">DELETE</option>
+                        </select>
+                        <input type="text" id="httpEndpoint" value="/api/v1/bootcamp/lessons/1.2" style="max-width:300px;">
+                        <button type="button" id="sendHttpBtn">Send Request</button>
+                        <div id="httpOutput" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 4 — URL ANATOMY
+             ===================================================== -->
+        <section class="lesson-section" id="url-anatomy">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 04</div>
+                <h2>Anatomy of a URL</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    A <strong>URL</strong> (Uniform Resource Locator) is a formatted web address that specifies the precise location of a resource on the web and the protocol used to retrieve it.
+                </p>
+
+                <div class="example-box">
+                    <div class="example-title">Complete URL Breakdown</div>
+                    <p style="font-family: monospace; font-size: 1.1rem; color: var(--gold-dark); word-break: break-all;">
+                        https://www.goldenhealing.com:443/courses/web-dev?module=1&sort=asc#summary
+                    </p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Segment</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Scheme / Protocol</strong></td>
+                                <td><code>https://</code></td>
+                                <td>Defines protocol for communicating with the resource (HTTPS, HTTP, FTP).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Domain / Hostname</strong></td>
+                                <td><code>www.goldenhealing.com</code></td>
+                                <td>Human-readable name of the server holding the resource. Includes subdomain (www).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Port</strong></td>
+                                <td><code>:443</code></td>
+                                <td>Specific technical gate on server. (Port 80 for HTTP, Port 443 for HTTPS). Usually hidden.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Path</strong></td>
+                                <td><code>/courses/web-dev</code></td>
+                                <td>Exact folder/file path to the requested resource on the server.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Query Parameters</strong></td>
+                                <td><code>?module=1&sort=asc</code></td>
+                                <td>Key-value parameters providing parameters to dynamic server scripts (starts with <code>?</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anchor / Fragment</strong></td>
+                                <td><code>#summary</code></td>
+                                <td>Points to a specific element ID within the loaded webpage (starts with <code>#</code>).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 5 — DNS RESOLUTION
+             ===================================================== -->
+        <section class="lesson-section" id="dns-resolution">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 05</div>
+                <h2>The Domain Name System (DNS)</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    Computers communicate using numerical addresses called <strong>IP (Internet Protocol) addresses</strong> (e.g., <code>192.0.2.1</code> for IPv4 or <code>2001:db8::1</code> for IPv6). Because humans are better at remembering words than numbers, the <strong>DNS</strong> serves as the internet's phonebook.
+                </p>
+                <p>
+                    DNS translates human-readable domain names (e.g., <code>goldenhealing.com</code>) into computer-friendly IP addresses.
+                </p>
+
+                <div class="stack-container">
+                    <div class="stack-title">THE STEP-BY-STEP DNS LOOKUP PROCESS</div>
+                    <div class="stack-layer front">
+                        <strong>1. Browser & OS Cache Check</strong>
+                        Checks local memory to see if IP is already known. If missing, queries DNS Resolver (ISP).
+                    </div>
+                    <div class="stack-layer back">
+                        <strong>2. Root Nameserver Query</strong>
+                        Resolver asks Root Server (<code>.</code>), which directs resolver to Top-Level Domain (TLD) Server (<code>.com</code>).
+                    </div>
+                    <div class="stack-layer back">
+                        <strong>3. TLD Nameserver Query</strong>
+                        Resolver queries <code>.com</code> TLD Server, which returns the Authoritative Nameserver IP.
+                    </div>
+                    <div class="stack-layer database">
+                        <strong>4. Authoritative Nameserver Query</strong>
+                        Resolver asks Authoritative Server for <code>goldenhealing.com</code> and receives the destination IP address.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DNS DEMO -->
+            <div class="interactive-demo">
+                <h3 style="color: var(--gold); font-size: 2rem;">Interactive DNS Resolver Tool</h3>
+                <p style="color: #D4D4D8; margin-top: 10px;">Type a web domain to simulate the step-by-step DNS lookup process.</p>
+
+                <div class="demo-window">
+                    <div class="demo-toolbar">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="demo-content">
+                        <input type="text" id="dnsInput" placeholder="goldenhealing.com" value="goldenhealing.com">
+                        <button type="button" id="lookupDnsBtn">Lookup IP Address</button>
+                        <div id="dnsOutput" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 6 — WEB HOSTING
+             ===================================================== -->
+        <section class="lesson-section" id="web-hosting">
+            <div class="section-heading">
+                <div class="section-number">Lesson Concept 06</div>
+                <h2>Web Hosting Infrastructure</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <p>
+                    <strong>Web hosting</strong> is a service where specialized server hardware and network infrastructure store website files and databases, making them continuously accessible to users worldwide 24/7.
+                </p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hosting Model</th>
+                                <th>How It Works</th>
+                                <th>Best Used For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Shared Hosting</strong></td>
+                                <td>Multiple websites share compute resources (CPU, RAM, storage) on a single physical server.</td>
+                                <td>Beginner blogs, small personal sites, low traffic.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VPS (Virtual Private Server)</strong></td>
+                                <td>Physical server is partitioned into virtual servers giving dedicated resource allocations.</td>
+                                <td>Growing businesses, custom apps, mid-range traffic.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dedicated Server</strong></td>
+                                <td>An entire physical server dedicated exclusively to a single client organization.</td>
+                                <td>High enterprise traffic, high security compliance needs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cloud Hosting</strong></td>
+                                <td>Virtual cluster of connected servers dynamically scale resources on demand.</td>
+                                <td>Modern web apps, highly dynamic web applications (AWS, GCP).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Static Host / Serverless</strong></td>
+                                <td>Files deployed directly across global Content Delivery Networks (CDNs) automatically.</td>
+                                <td>Modern front-end applications, JAMstack sites (Vercel, Netlify).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 7 — GLOSSARY
+             ===================================================== -->
+        <section class="lesson-section" id="glossary">
+            <div class="section-heading">
+                <div class="section-number">Lesson Reference</div>
+                <h2>Lesson 1.2 Glossary</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="glossary-grid">
+                <div class="term">
+                    <strong>Internet</strong>
+                    <span>The physical global infrastructure connecting billions of computing devices.</span>
+                </div>
+                <div class="term">
+                    <strong>World Wide Web</strong>
+                    <span>An information network service running on top of the Internet using HTTP.</span>
+                </div>
+                <div class="term">
+                    <strong>HTTP / HTTPS</strong>
+                    <span>Protocols governing web communication; HTTPS adds TLS encryption.</span>
+                </div>
+                <div class="term">
+                    <strong>IP Address</strong>
+                    <span>A unique numerical label identifying devices connected to a network.</span>
+                </div>
+                <div class="term">
+                    <strong>DNS</strong>
+                    <span>Domain Name System — translates human domain names into IP addresses.</span>
+                </div>
+                <div class="term">
+                    <strong>URL</strong>
+                    <span>Uniform Resource Locator — complete path address pointing to web resources.</span>
+                </div>
+                <div class="term">
+                    <strong>Web Server</strong>
+                    <span>Software/hardware providing data responses to incoming client requests.</span>
+                </div>
+                <div class="term">
+                    <strong>CDN</strong>
+                    <span>Content Delivery Network — distributed servers serving assets fast based on location.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             KNOWLEDGE CHECK
+             ===================================================== -->
+        <section class="lesson-section" id="knowledge-check">
+            <div class="section-heading">
+                <div class="section-number">Knowledge Check</div>
+                <h2>Test Your Understanding</h2>
+                <div class="gold-line"></div>
+                <p>Answer all five questions. Your score will be calculated automatically.</p>
+            </div>
+
+            <form class="quiz" id="lessonQuiz">
+
+                <!-- QUESTION 1 -->
+                <div class="quiz-question">
+                    <h3>1. What is the fundamental difference between the Internet and the World Wide Web?</h3>
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        <span>They are identical terms describing the exact same software.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        <span>The Internet is the physical network infrastructure; the Web is a service that runs on top of it.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        <span>The Web consists of physical network routers; the Internet consists of HTML web pages.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d">
+                        <span>The Internet only works on computers; the Web only works on smartphones.</span>
+                    </label>
+                </div>
+
+                <!-- QUESTION 2 -->
+                <div class="quiz-question">
+                    <h3>2. What does an HTTP 404 Status Code signify?</h3>
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        <span>The request succeeded and data was returned.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        <span>The server suffered a critical internal error.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        <span>The requested resource could not be found on the server.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d">
+                        <span>The request was redirected to another URL.</span>
+                    </label>
+                </div>
+
+                <!-- QUESTION 3 -->
+                <div class="quiz-question">
+                    <h3>3. What role does the Domain Name System (DNS) play on the web?</h3>
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        <span>It styles HTML elements with colors and fonts.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        <span>It encrypts credit card transactions on e-commerce sites.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        <span>It translates human-readable domain names into numerical IP addresses.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d">
+                        <span>It hosts database tables on backend cloud servers.</span>
+                    </label>
+                </div>
+
+                <!-- QUESTION 4 -->
+                <div class="quiz-question">
+                    <h3>4. In the URL "https://example.com/blog?id=42", what is "?id=42"?</h3>
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        <span>The scheme / protocol.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        <span>The domain hostname.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        <span>The query parameter string.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d">
+                        <span>The anchor fragment ID.</span>
+                    </label>
+                </div>
+
+                <!-- QUESTION 5 -->
+                <div class="quiz-question">
+                    <h3>5. Which HTTP request method is standard for submitting form data to create new records?</h3>
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        <span>GET</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        <span>POST</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        <span>DELETE</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d">
+                        <span>OPTIONS</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="quiz-button">Submit Knowledge Check</button>
+
+                <div class="quiz-result" id="quizResult" aria-live="polite"></div>
+            </form>
+        </section>
+
+        <!-- =====================================================
+             LESSON SUMMARY
+             ===================================================== -->
+        <section class="lesson-section" id="summary">
+            <div class="section-heading">
+                <div class="section-number">Lesson Summary</div>
+                <h2>What You Should Know Now</h2>
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="content-card">
+                <h3>You should now be able to explain:</h3>
+                <ul style="padding-left: 25px; margin-top: 15px;">
+                    <li>The structural distinction between the physical Internet and the World Wide Web software service</li>
+                    <li>The Client-Server architecture model and how browsers render web responses</li>
+                    <li>How HTTP/HTTPS requests and responses exchange data securely</li>
+                    <li>Common HTTP methods (GET, POST) and status code ranges (2xx, 4xx, 5xx)</li>
+                    <li>The core components of a URL (Protocol, Domain, Path, Query Parameters, Anchor)</li>
+                    <li>The complete multi-stage DNS resolution lookup workflow</li>
+                    <li>Differences across major web hosting models</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             COMPLETION
+             ===================================================== -->
+        <section class="completion">
+            <h2>Lesson 1.2 Complete</h2>
+            <p>
+                Congratulations! You now understand the network mechanisms powering the web. 
+                Next, you'll set up your professional local development environment including code editors, terminals, and version control tools.
+            </p>
+            <a href="lesson-1-3.html" class="next-button">Continue to Lesson 1.3 →</a>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer>
+        © 2026 Golden Healing Solutions LLC. All Rights Reserved.
+        <br><br>
+        Web Development Bootcamp • Module 1 • Lesson 1.2
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+    <script>
+        /* =========================================================
+           READING PROGRESS
+           ========================================================= */
+        const progressBar = document.getElementById("progressBar");
+
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (documentHeight <= 0) {
+                progressBar.style.width = "100%";
+                return;
+            }
+            const progress = (scrollTop / documentHeight) * 100;
+            progressBar.style.width = Math.min(progress, 100) + "%";
+        }
+
+        window.addEventListener("scroll", updateProgress);
+        updateProgress();
+
+        /* =========================================================
+           HTTP SIMULATOR DEMO
+           ========================================================= */
+        const sendHttpBtn = document.getElementById("sendHttpBtn");
+        const httpOutput = document.getElementById("httpOutput");
+
+        sendHttpBtn.addEventListener("click", function () {
+            const method = document.getElementById("httpMethod").value;
+            const endpoint = document.getElementById("httpEndpoint").value;
+
+            let status = "200 OK";
+            let responseBody = "";
+
+            if (method === "GET") {
+                responseBody = `{\n  "status": "success",\n  "lesson": "1.2",\n  "title": "How the Web Works",\n  "completed": true\n}`;
+            } else if (method === "POST") {
+                status = "201 Created";
+                responseBody = `{\n  "status": "created",\n  "message": "Resource successfully added to server database.",\n  "timestamp": "${new Date().toISOString()}"\n}`;
+            } else if (method === "DELETE") {
+                status = "200 OK";
+                responseBody = `{\n  "status": "deleted",\n  "message": "Resource at ${endpoint} successfully removed."\n}`;
+            }
+
+            httpOutput.classList.add("show");
+            httpOutput.innerHTML = `<strong>HTTP/1.1 ${status}</strong><br>Content-Type: application/json<br><br><pre>${responseBody}</pre>`;
+        });
+
+        /* =========================================================
+           DNS SIMULATOR DEMO
+           ========================================================= */
+        const lookupDnsBtn = document.getElementById("lookupDnsBtn");
+        const dnsOutput = document.getElementById("dnsOutput");
+
+        lookupDnsBtn.addEventListener("click", function () {
+            const domain = document.getElementById("dnsInput").value.trim() || "goldenhealing.com";
+            dnsOutput.classList.add("show");
+            dnsOutput.innerHTML = `
+                Resolving <strong>${domain}</strong>...<br><br>
+                1. Checking local browser cache... <em>[MISS]</em><br>
+                2. Querying ISP Recursive Resolver...<br>
+                3. Root Server (<code>.</code>) -> Directing to <code>.com</code> TLD Server<br>
+                4. TLD Server (<code>.com</code>) -> Directing to Authoritative Nameserver<br>
+                5. Authoritative Nameserver -> <strong>Match Found!</strong><br><br>
+                <strong>Result:</strong> ${domain} &#8594; <span style="color:var(--green);">192.0.2.142</span> (IPv4)
+            `;
+        });
+
+        /* =========================================================
+           KNOWLEDGE CHECK
+           ========================================================= */
+        const quiz = document.getElementById("lessonQuiz");
+        const quizResult = document.getElementById("quizResult");
+
+        const correctAnswers = {
+            q1: "b",
+            q2: "c",
+            q3: "c",
+            q4: "c",
+            q5: "b"
+        };
+
+        const explanations = {
+            q1: "The Internet is the hardware network; the World Wide Web is an HTTP service running on it.",
+            q2: "404 Not Found indicates that the server cannot locate the requested resource.",
+            q3: "DNS maps human-readable domain names to machine IP addresses.",
+            q4: "The portion starting with ? represents query parameters passed to the server.",
+            q5: "POST is the primary HTTP method used to send data to create new records on a server."
+        };
+
+        quiz.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let score = 0;
+            let answered = 0;
+
+            Object.keys(correctAnswers).forEach(function(question) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    answered++;
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                    }
+                }
+            });
+
+            if (answered < 5) {
+                quizResult.classList.add("show");
+                quizResult.innerHTML = `
+                    <div class="score">Please answer all 5 questions.</div>
+                    <p>You answered ${answered} of 5 questions. Complete all questions before submitting.</p>
+                `;
+                return;
+            }
+
+            const percentage = Math.round((score / 5) * 100);
+            let message = percentage === 100 ? "Outstanding! You fully master web infrastructure concepts." :
+                          percentage >= 80 ? "Great job! You have a solid grasp on how the web works." :
+                          "Review the lesson material and try again.";
+
+            quizResult.classList.add("show");
+            quizResult.innerHTML = `
+                <div class="score">Score: ${score}/5 — ${percentage}%</div>
+                <p>${message}</p><br>
+                <strong>Explanations:</strong>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>Q1: ${explanations.q1}</li>
+                    <li>Q2: ${explanations.q2}</li>
+                    <li>Q3: ${explanations.q3}</li>
+                    <li>Q4: ${explanations.q4}</li>
+                    <li>Q5: ${explanations.q5}</li>
+                </ul>
+            `;
+
+            quizResult.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    </script>
+</body>
+</html>
