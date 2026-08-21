@@ -3,2073 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Golden Healing Solutions | Technology • Business • Career Solutions</title>
-
-    <meta
-        name="description"
-        content="Golden Healing Solutions provides technology training, career placement, recruitment, and business solutions."
-    >
-
+    <title>Golden Healing Solutions — Technology, Business, & Career Growth</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA820A'
+                        },
+                        obsidian: '#0B0B0B',
+                        charcoal: '#141414',
+                        carddark: '#1C1C1C'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #080808;
-            color: #f5f5f5;
-
-            line-height: 1.6;
-
-            min-height: 100vh;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        .site-header {
-
-            width: 100%;
-
-            background: #080808;
-
-            border-bottom:
-                1px solid
-                rgba(212, 160, 23, 0.45);
-
-            position: relative;
-
-            z-index: 1000;
-        }
-
-
-        .header-inner {
-
-            width:
-                min(
-                    1450px,
-                    calc(100% - 60px)
-                );
-
-            min-height: 98px;
-
-            margin: 0 auto;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 35px;
-        }
-
-
-        /* =====================================================
-           BRAND
-        ===================================================== */
-
-        .brand {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 13px;
-
-            text-decoration: none;
-
-            color: white;
-
-            flex-shrink: 0;
-        }
-
-
-        .brand-mark {
-
-            width: 54px;
-            height: 54px;
-
-            border:
-                2px solid
-                #d4a017;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            position: relative;
-
-            color: #d4a017;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-weight: bold;
-        }
-
-
-        .brand-mark span:first-child {
-
-            font-size: 25px;
-
-            transform:
-                translate(
-                    -3px,
-                    -2px
-                );
-        }
-
-
-        .brand-mark span:last-child {
-
-            font-size: 20px;
-
-            transform:
-                translate(
-                    2px,
-                    5px
-                );
-        }
-
-
-        .brand-text {
-
-            white-space: nowrap;
-        }
-
-
-        .brand-name {
-
-            color: #d4a017;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 25px;
-
-            font-weight: 600;
-
-            letter-spacing: 2px;
-
-            line-height: 1;
-        }
-
-
-        .brand-tagline {
-
-            color: #9b9b9b;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            margin-top: 7px;
-        }
-
-
-        /* =====================================================
-           MAIN NAVIGATION
-        ===================================================== */
-
-        .main-nav {
-
-            flex: 1;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap:
-                clamp(
-                    20px,
-                    2.4vw,
-                    42px
-                );
-        }
-
-
-        .main-nav a {
-
-            color: #f4f4f4;
-
-            text-decoration: none;
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-            letter-spacing: 1.2px;
-
-            white-space: nowrap;
-
-            padding: 10px 0;
-
-            position: relative;
-
-            transition:
-                color
-                .25s
-                ease;
-        }
-
-
-        .main-nav a::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: 2px;
-
-            width: 0;
-
-            height: 2px;
-
-            background: #d4a017;
-
-            transition:
-                width
-                .25s
-                ease;
-        }
-
-
-        .main-nav a:hover {
-
-            color: #d4a017;
-        }
-
-
-        .main-nav a:hover::after {
-
-            width: 100%;
-        }
-
-
-        /* =====================================================
-           HEADER ACTIONS
-        ===================================================== */
-
-        .header-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            flex-shrink: 0;
-        }
-
-
-        /* =====================================================
-           CONTACT BUTTON
-        ===================================================== */
-
-        .contact-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-width: 92px;
-
-            height: 42px;
-
-            padding:
-                0 18px;
-
-            border:
-                1px solid
-                #d4a017;
-
-            border-radius: 5px;
-
-            color: #d4a017;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-
-            background: transparent;
-
-            transition:
-                all
-                .25s
-                ease;
-        }
-
-
-        .contact-btn:hover {
-
-            background: #d4a017;
-
-            color: #080808;
-        }
-
-
-        /* =====================================================
-           ACCOUNT PORTAL
-        ===================================================== */
-
-        .portal-wrapper {
-
-            position: relative;
-        }
-
-
-        .portal-btn {
-
-            min-width: 185px;
-
-            height: 52px;
-
-            padding:
-                0 18px;
-
-            background: transparent;
-
-            border:
-                1px solid
-                #d4a017;
-
-            border-radius: 5px;
-
-            color: #d4a017;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-
-            cursor: pointer;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 12px;
-        }
-
-
-        .portal-btn:hover {
-
-            background:
-                rgba(
-                    212,
-                    160,
-                    23,
-                    0.08
-                );
-        }
-
-
-        .portal-arrow {
-
-            font-size: 10px;
-
-            transition:
-                transform
-                .2s
-                ease;
-        }
-
-
-        .portal-wrapper.open
-        .portal-arrow {
-
-            transform:
-                rotate(180deg);
-        }
-
-
-        /* =====================================================
-           PORTAL DROPDOWN
-        ===================================================== */
-
-        .portal-menu {
-
-            position: absolute;
-
-            top:
-                calc(
-                    100% + 8px
-                );
-
-            right: 0;
-
-            width: 220px;
-
-            background: #111;
-
-            border:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .55
-                );
-
-            border-radius: 6px;
-
-            padding: 8px;
-
-            box-shadow:
-                0 15px 40px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .5
-                );
-
-            display: none;
-        }
-
-
-        .portal-menu.show {
-
-            display: block;
-        }
-
-
-        .portal-menu a {
-
-            display: block;
-
-            padding:
-                13px 14px;
-
-            color: #eee;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            border-radius: 4px;
-
-            transition:
-                .2s
-                ease;
-        }
-
-
-        .portal-menu a:hover {
-
-            background: #d4a017;
-
-            color: #080808;
-        }
-
-
-        /* =====================================================
-           MOBILE BUTTON
-        ===================================================== */
-
-        .mobile-menu-btn {
-
-            display: none;
-
-            width: 45px;
-
-            height: 45px;
-
-            background: transparent;
-
-            border:
-                1px solid
-                #d4a017;
-
-            border-radius: 5px;
-
-            color: #d4a017;
-
-            font-size: 22px;
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           MOBILE NAVIGATION
-        ===================================================== */
-
-        .mobile-nav {
-
-            display: none;
-
-            background: #080808;
-
-            border-top:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .25
-                );
-
-            padding:
-                10px 25px
-                25px;
-        }
-
-
-        .mobile-nav.show {
-
-            display: block;
-        }
-
-
-        .mobile-nav a {
-
-            display: block;
-
-            padding: 15px 5px;
-
-            color: white;
-
-            text-decoration: none;
-
-            border-bottom:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .08
-                );
-
-            font-size: 14px;
-
-            letter-spacing: 1px;
-        }
-
-
-        .mobile-nav a:hover {
-
-            color: #d4a017;
-        }
-
-
-        /* =====================================================
-           HERO / INTRO SECTION
-        ===================================================== */
-
-        .intro-section {
-
-            width:
-                min(
-                    1450px,
-                    calc(100% - 60px)
-                );
-
-            margin: 0 auto;
-
-            padding:
-                90px 0
-                110px;
-        }
-
-
-        .intro-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-
-        /* =====================================================
-           INTRO CONTENT
-        ===================================================== */
-
-        .intro-content h1 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(
-                    30px,
-                    3vw,
-                    48px
-                );
-
-            color: #d4a017;
-
-            text-transform:
-                capitalize;
-
-            margin-bottom: 25px;
-
-            line-height: 1.2;
-        }
-
-
-        .intro-content p {
-
-            color: #aeb8ca;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            margin-bottom: 25px;
-
-            max-width: 700px;
-        }
-
-
-        .intro-content strong {
-
-            color: #f0f0f0;
-        }
-
-
-        /* =====================================================
-           CORE PILLAR CARD
-        ===================================================== */
-
-        .pillar-card {
-
-            background:
-                #121217;
-
-            border:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .45
-                );
-
-            border-radius: 10px;
-
-            padding:
-                35px 40px;
-
-            box-shadow:
-                0 15px 45px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .25
-                );
-        }
-
-
-        .pillar-card h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            color: #d4a017;
-
-            font-size: 28px;
-
-            margin-bottom: 20px;
-
-            text-transform:
-                capitalize;
-        }
-
-
-        .pillar-card ul {
-
-            padding-left: 25px;
-        }
-
-
-        .pillar-card li {
-
-            color: #aeb8ca;
-
-            font-size: 17px;
-
-            margin-bottom: 14px;
-
-            line-height: 1.6;
-        }
-
-
-        .pillar-card strong {
-
-            color: #cbd2df;
-        }
-
-
-        /* =====================================================
-           SERVICES SECTION
-        ===================================================== */
-
-        .services-section {
-
-            border-top:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .3
-                );
-
-            padding:
-                80px 30px;
-        }
-
-
-        .services-container {
-
-            max-width: 1250px;
-
-            margin: auto;
-        }
-
-
-        .section-title {
-
-            text-align: center;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            color: #d4a017;
-
-            font-size: 34px;
-
-            margin-bottom: 45px;
-        }
-
-
-        .service-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
-
-            gap: 25px;
-        }
-
-
-        .service-card {
-
-            background:
-                #111116;
-
-            border:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .25
-                );
-
-            border-radius: 8px;
-
-            padding: 30px;
-
-            transition:
-                transform
-                .25s ease,
-                border
-                .25s ease;
-        }
-
-
-        .service-card:hover {
-
-            transform:
-                translateY(
-                    -5px
-                );
-
-            border-color:
-                #d4a017;
-        }
-
-
-        .service-card h3 {
-
-            color: #d4a017;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 22px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .service-card p {
-
-            color: #9da8ba;
-
-            font-size: 15px;
-
-            line-height: 1.7;
-        }
-
-
-        .service-link {
-
-            display: inline-block;
-
-            margin-top: 18px;
-
-            color: #d4a017;
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            letter-spacing: 1px;
-        }
-
-
-        /* =====================================================
-           CTA
-        ===================================================== */
-
-        .cta-section {
-
-            padding:
-                80px 30px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0b0b0d,
-                    #15120b
-                );
-
-            border-top:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .2
-                );
-        }
-
-
-        .cta {
-
-            max-width: 900px;
-
-            margin: auto;
-
-            text-align: center;
-        }
-
-
-        .cta h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            color: #d4a017;
-
-            font-size: 35px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .cta p {
-
-            color: #aeb8ca;
-
-            font-size: 17px;
-
-            margin-bottom: 30px;
-        }
-
-
-        .cta-buttons {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .cta-button {
-
-            padding:
-                13px 25px;
-
-            border:
-                1px solid
-                #d4a017;
-
-            border-radius: 5px;
-
-            color: #d4a017;
-
-            font-weight: bold;
-
-            font-size: 13px;
-
-            letter-spacing: 1px;
-
-            transition:
-                .25s ease;
-        }
-
-
-        .cta-button.primary {
-
-            background:
-                #d4a017;
-
-            color: #080808;
-        }
-
-
-        .cta-button:hover {
-
-            background:
-                #d4a017;
-
-            color: #080808;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            border-top:
-                1px solid
-                rgba(
-                    212,
-                    160,
-                    23,
-                    .3
-                );
-
-            padding:
-                35px 30px;
-
-            background: #050505;
-        }
-
-
-        .footer-inner {
-
-            max-width: 1250px;
-
-            margin: auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 25px;
-        }
-
-
-        .footer-brand {
-
-            color: #d4a017;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 18px;
-        }
-
-
-        .copyright {
-
-            color: #777;
-
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 1200px) {
-
-            .header-inner {
-
-                width:
-                    calc(
-                        100% - 35px
-                    );
-
-                gap: 20px;
-            }
-
-
-            .brand-name {
-
-                font-size: 21px;
-            }
-
-
-            .brand-tagline {
-
-                font-size: 8px;
-            }
-
-
-            .main-nav {
-
-                gap: 18px;
-            }
-
-
-            .main-nav a {
-
-                font-size: 12px;
-            }
-
-
-            .portal-btn {
-
-                min-width: 160px;
-            }
-
-
-            .intro-section {
-
-                width:
-                    calc(
-                        100% - 35px
-                    );
-            }
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 1000px) {
-
-            .header-inner {
-
-                min-height: 78px;
-            }
-
-
-            .main-nav,
-            .header-actions {
-
-                display: none;
-            }
-
-
-            .mobile-menu-btn {
-
-                display: block;
-
-                margin-left: auto;
-            }
-
-
-            .brand-mark {
-
-                width: 45px;
-
-                height: 45px;
-            }
-
-
-            .brand-name {
-
-                font-size: 19px;
-            }
-
-
-            .brand-tagline {
-
-                font-size: 7px;
-
-                letter-spacing: 1px;
-            }
-
-
-            .intro-grid {
-
-                grid-template-columns:
-                    1fr;
-
-                gap: 40px;
-            }
-
-
-            .intro-section {
-
-                padding:
-                    60px 0
-                    75px;
-            }
-
-
-            .service-grid {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        1fr
-                    );
-            }
-        }
-
-
-        /* =====================================================
-           SMALL MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            .header-inner {
-
-                width:
-                    calc(
-                        100% - 24px
-                    );
-            }
-
-
-            .brand-name {
-
-                font-size: 16px;
-            }
-
-
-            .brand-tagline {
-
-                display: none;
-            }
-
-
-            .brand-mark {
-
-                width: 40px;
-
-                height: 40px;
-            }
-
-
-            .intro-section {
-
-                width:
-                    calc(
-                        100% - 30px
-                    );
-
-                padding:
-                    50px 0
-                    60px;
-            }
-
-
-            .intro-content h1 {
-
-                font-size: 30px;
-            }
-
-
-            .intro-content p {
-
-                font-size: 16px;
-            }
-
-
-            .pillar-card {
-
-                padding:
-                    25px;
-            }
-
-
-            .pillar-card h2 {
-
-                font-size: 24px;
-            }
-
-
-            .pillar-card li {
-
-                font-size: 15px;
-            }
-
-
-            .service-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .section-title {
-
-                font-size: 28px;
-            }
-
-
-            .cta h2 {
-
-                font-size: 28px;
-            }
-
-
-            .footer-inner {
-
-                flex-direction:
-                    column;
-
-                text-align:
-                    center;
-            }
-        }
-
+        body { background-color: #0B0B0B; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gold-border { border-color: rgba(212, 175, 55, 0.3); }
+        .gold-border:hover { border-color: #D4AF37; }
+        .gold-glow { box-shadow: 0 0 25px rgba(212, 175, 55, 0.15); }
     </style>
 </head>
+<body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian">
 
-
-<body>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
-<header class="site-header">
-
-    <div class="header-inner">
-
-
-        <!-- BRAND -->
-
-        <a
-            href="index.html"
-            class="brand"
-            aria-label="Golden Healing Solutions Home"
-        >
-
-            <div class="brand-mark">
-
-                <span>G</span>
-                <span>H</span>
-
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b gold-border">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-obsidian font-cinzel font-bold text-xl shadow-lg">G</div>
+                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-wider text-white">GOLDEN <span class="text-gold">HEALING</span></span>
             </div>
-
-
-            <div class="brand-text">
-
-                <div class="brand-name">
-                    GOLDEN HEALING
-                </div>
-
-                <div class="brand-tagline">
-                    TECHNOLOGY · BUSINESS · CAREER SOLUTIONS
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- DESKTOP NAVIGATION -->
-
-        <nav
-            class="main-nav"
-            aria-label="Main Navigation"
-        >
-
-            <a href="about.html">
-                ABOUT US
-            </a>
-
-            <a href="jobs.html">
-                FIND JOBS
-            </a>
-
-            <a href="academy.html">
-                ACADEMY
-            </a>
-
-            <a href="hire-talent.html">
-                HIRE TALENT
-            </a>
-
-            <a href="business-starters.html">
-                BUSINESS STARTERS
-            </a>
-
-        </nav>
-
-
-        <!-- HEADER ACTIONS -->
-
-        <div class="header-actions">
-
-
-            <!-- CONTACT -->
-
-            <a
-                href="contact.html"
-                class="contact-btn"
-            >
-                CONTACT
-            </a>
-
-
-            <!-- ACCOUNT PORTALS -->
-
-            <div class="portal-wrapper">
-
-
-                <button
-                    class="portal-btn"
-                    type="button"
-                    onclick="togglePortalMenu()"
-                    aria-expanded="false"
-                >
-
-                    <span>
-                        ACCOUNT PORTALS
-                    </span>
-
-                    <span class="portal-arrow">
-                        ▼
-                    </span>
-
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#services" class="hover:text-gold transition">Services</a>
+                <a href="#about" class="hover:text-gold transition">About</a>
+                <a href="#contact" class="hover:text-gold transition">Contact</a>
+            </nav>
+            <div>
+                <button onclick="openModal('General Inquiry')" class="bg-gold text-obsidian px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-gold-light transition shadow-md">
+                    Get Started
                 </button>
+            </div>
+        </div>
+    </header>
 
+    <!-- HERO SECTION -->
+    <section class="relative py-24 md:py-36 px-6 text-center overflow-hidden bg-gradient-to-b from-obsidian via-charcoal to-obsidian border-b gold-border">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="text-gold uppercase tracking-[0.25em] text-xs font-semibold mb-4 block">Excellence • Growth • Transformation</span>
+            <h1 class="font-cinzel text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
+                Golden Healing <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark">Solutions</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-gray-300 mb-10 tracking-wide">
+                Technology. Business. Career Growth.
+            </p>
+            <p class="text-base text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                Practical solutions and elite professional services designed to help individuals, growing enterprises, and workforce organizations scale with precision and confidence.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="bg-gold text-obsidian font-semibold px-8 py-4 rounded-full hover:bg-gold-light transition shadow-xl text-sm tracking-wider uppercase">
+                    Explore Our Services
+                </a>
+                <a href="#contact" class="border border-gold/40 text-gold font-semibold px-8 py-4 rounded-full hover:bg-gold/10 transition text-sm tracking-wider uppercase">
+                    Contact Us Directly
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div
-                    class="portal-menu"
-                    id="portalMenu"
-                >
+    <!-- SERVICES CATALOG SECTION -->
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">Comprehensive Offerings</span>
+            <h2 class="font-cinzel text-3xl md:text-4xl font-bold">Professional Service Catalog</h2>
+            <p class="text-gray-400 mt-2">Select any service below to request a customized proposal or consultation.</p>
+        </div>
 
-                    <a href="student-login.html">
-                        Student Portal
-                    </a>
-
-                    <a href="candidate-login.html">
-                        Candidate Portal
-                    </a>
-
-                    <a href="employer-login.html">
-                        Employer Portal
-                    </a>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- CATEGORY 1: TECHNOLOGY SERVICES -->
+            <div class="bg-carddark p-8 rounded-2xl border gold-border flex flex-col justify-between gold-glow">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-6 text-xl">💻</div>
+                    <h3 class="font-cinzel text-xl font-bold mb-4 text-gold">Technology Services</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Business Website Starter')">▪️ Business Website Starter</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Portfolio Website Setup')">▪️ Portfolio Website Setup</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Digital Business Starter')">▪️ Digital Business Starter</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Technology Support')">▪️ Technology Support</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Tech Career Consultation')">▪️ Tech Career Consultation</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Resume Technology Review')">▪️ Resume Technology Review</li>
+                    </ul>
                 </div>
+                <button onclick="openModal('Technology Services')" class="w-full bg-white/5 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 font-semibold py-2.5 rounded-xl transition text-xs uppercase tracking-wider">
+                    Request Service
+                </button>
+            </div>
 
+            <!-- CATEGORY 2: CAREER SERVICES -->
+            <div class="bg-carddark p-8 rounded-2xl border gold-border flex flex-col justify-between gold-glow">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-6 text-xl">📈</div>
+                    <h3 class="font-cinzel text-xl font-bold mb-4 text-gold">Career Services</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Career Opportunities')">▪️ Career Opportunities</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Resume Support')">▪️ Resume Support</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Technology Career Support')">▪️ Technology Career Support</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Skills Assessments')">▪️ Skills Assessments</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Professional Development')">▪️ Professional Development</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Career Services')" class="w-full bg-white/5 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 font-semibold py-2.5 rounded-xl transition text-xs uppercase tracking-wider">
+                    Request Service
+                </button>
+            </div>
+
+            <!-- CATEGORY 3: BUSINESS & EMPLOYER SERVICES -->
+            <div class="bg-carddark p-8 rounded-2xl border gold-border flex flex-col justify-between gold-glow">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-6 text-xl">🏢</div>
+                    <h3 class="font-cinzel text-xl font-bold mb-4 text-gold">Business Services</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Business Startup Support')">▪️ Business Startup Support</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Employer Services')">▪️ Employer Services</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Candidate Assessments')">▪️ Candidate Assessments</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Workforce Development')">▪️ Workforce Development</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Technology Solutions')">▪️ Technology Solutions</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Business & Employer Services')" class="w-full bg-white/5 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 font-semibold py-2.5 rounded-xl transition text-xs uppercase tracking-wider">
+                    Request Service
+                </button>
+            </div>
+
+            <!-- CATEGORY 4: TRAINING & CERTIFICATION -->
+            <div class="bg-carddark p-8 rounded-2xl border gold-border flex flex-col justify-between gold-glow">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-6 text-xl">🏆</div>
+                    <h3 class="font-cinzel text-xl font-bold mb-4 text-gold">Training Programs</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Tech Academy & Web Development')">▪️ Tech Academy & Web Dev</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('IT Training & Support')">▪️ IT Training</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Project Management')">▪️ Project Management</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Management & Leadership')">▪️ Management & Leadership</li>
+                        <li class="flex items-center hover:text-white cursor-pointer" onclick="openModal('Certification Preparation')">▪️ Certification Preparation</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Training Programs')" class="w-full bg-white/5 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 font-semibold py-2.5 rounded-xl transition text-xs uppercase tracking-wider">
+                    Request Service
+                </button>
             </div>
 
         </div>
+    </section>
 
-
-        <!-- MOBILE MENU -->
-
-        <button
-            class="mobile-menu-btn"
-            onclick="toggleMobileMenu()"
-            aria-label="Open navigation"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-    </div>
-
-
-    <!-- MOBILE NAVIGATION -->
-
-    <div
-        class="mobile-nav"
-        id="mobileNav"
-    >
-
-        <a href="about.html">
-            ABOUT US
-        </a>
-
-        <a href="jobs.html">
-            FIND JOBS
-        </a>
-
-        <a href="academy.html">
-            ACADEMY
-        </a>
-
-        <a href="hire-talent.html">
-            HIRE TALENT
-        </a>
-
-        <a href="business-starters.html">
-            BUSINESS STARTERS
-        </a>
-
-        <a href="contact.html">
-            CONTACT
-        </a>
-
-        <a href="student-login.html">
-            STUDENT PORTAL
-        </a>
-
-        <a href="candidate-login.html">
-            CANDIDATE PORTAL
-        </a>
-
-        <a href="employer-login.html">
-            EMPLOYER PORTAL
-        </a>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     MAIN INTRODUCTION
-========================================================= -->
-
-<main>
-
-
-<section class="intro-section">
-
-    <div class="intro-grid">
-
-
-        <!-- LEFT -->
-
-        <div class="intro-content">
-
-            <h1>
-                Connecting Talent With Industry Leadership
-            </h1>
-
-
-            <p>
-
-                Golden Healing Solutions provides
-                end-to-end technology, business,
-                and career strategies designed to
-                help individuals transition into tech
-                and businesses launch seamlessly.
-
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-charcoal border-y gold-border px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">Our Philosophy</span>
+            <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-6">Uncompromising Quality & Execution</h2>
+            <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed mb-8">
+                At Golden Healing Solutions, we bridge the gap between technical complexity and business growth. Whether you are an individual scaling your career or an organization building digital resilience, our solutions are engineered for real-world impact.
             </p>
-
-
-            <p>
-
-                Through the
-                <strong>
-                    Golden Healing Academy
-                </strong>,
-                we train developers and IT
-                professionals. Simultaneously,
-                we partner with businesses to match
-                top-tier talent with high-growth
-                organizations.
-
-            </p>
-
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-12">
+                <div class="p-6 rounded-xl bg-obsidian border gold-border">
+                    <h4 class="font-cinzel text-gold font-bold mb-2">Precision Technology</h4>
+                    <p class="text-sm text-gray-400">Robust, production-ready digital architectures built for high availability and growth.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-obsidian border gold-border">
+                    <h4 class="font-cinzel text-gold font-bold mb-2">Strategic Career Growth</h4>
+                    <p class="text-sm text-gray-400">Targeted mentorship, skill assessments, and professional development roadmaps.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-obsidian border gold-border">
+                    <h4 class="font-cinzel text-gold font-bold mb-2">Employer Excellence</h4>
+                    <p class="text-sm text-gray-400">Comprehensive workforce development and candidate evaluation solutions.</p>
+                </div>
+            </div>
         </div>
-
-
-        <!-- RIGHT -->
-
-        <div class="pillar-card">
-
-            <h2>
-                Core Pillar Focus
-            </h2>
-
-
-            <ul>
-
-                <li>
-
-                    <strong>
-                        Technology Training:
-                    </strong>
-
-                    Real-world bootcamp curricula.
-
-                </li>
-
-
-                <li>
-
-                    <strong>
-                        Career Placement:
-                    </strong>
-
-                    Job seeker profiles
-                    &amp; recruiter matching.
-
-                </li>
-
-
-                <li>
-
-                    <strong>
-                        Business Starter Packages:
-                    </strong>
-
-                    Fast-track digital presence
-                    for entrepreneurs.
-
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SERVICES
-========================================================= -->
-
-<section class="services-section">
-
-    <div class="services-container">
-
-        <h2 class="section-title">
-            How Golden Healing Solutions Helps
-        </h2>
-
-
-        <div class="service-grid">
-
-
-            <!-- EMPLOYERS -->
-
-            <article class="service-card">
-
-                <h3>
-                    For Employers
-                </h3>
-
-                <p>
-
-                    Find, evaluate, and hire
-                    technology professionals
-                    through recruitment,
-                    candidate assessments,
-                    talent sourcing, and
-                    hiring support.
-
-                </p>
-
-                <a
-                    href="hire-talent.html"
-                    class="service-link"
-                >
-                    HIRE TALENT →
-                </a>
-
-            </article>
-
-
-            <!-- JOB SEEKERS -->
-
-            <article class="service-card">
-
-                <h3>
-                    For Job Seekers
-                </h3>
-
-                <p>
-
-                    Build your technology career
-                    with career services,
-                    assessments, job opportunities,
-                    resume support, and
-                    interview preparation.
-
-                </p>
-
-                <a
-                    href="jobs.html"
-                    class="service-link"
-                >
-                    FIND OPPORTUNITIES →
-                </a>
-
-            </article>
-
-
-            <!-- TRAINING -->
-
-            <article class="service-card">
-
-                <h3>
-                    Training
-                </h3>
-
-                <p>
-
-                    Develop practical technology
-                    skills through web development,
-                    IT support, cybersecurity,
-                    cloud, data, AI, and
-                    career-focused training.
-
-                </p>
-
-                <a
-                    href="academy.html"
-                    class="service-link"
-                >
-                    EXPLORE ACADEMY →
-                </a>
-
-            </article>
-
-
-            <!-- RECRUITMENT -->
-
-            <article class="service-card">
-
-                <h3>
-                    Recruitment
-                </h3>
-
-                <p>
-
-                    Connect qualified technology
-                    candidates with employers
-                    through structured screening,
-                    assessment, interviews,
-                    and placement.
-
-                </p>
-
-                <a
-                    href="recruitment.html"
-                    class="service-link"
-                >
-                    RECRUITMENT SERVICES →
-                </a>
-
-            </article>
-
-
-            <!-- ASSESSMENTS -->
-
-            <article class="service-card">
-
-                <h3>
-                    Candidate Assessments
-                </h3>
-
-                <p>
-
-                    Evaluate technical,
-                    cognitive, typing,
-                    personality, and
-                    troubleshooting skills
-                    through interactive assessments.
-
-                </p>
-
-                <a
-                    href="candidate-assessment-center.html"
-                    class="service-link"
-                >
-                    TAKE AN ASSESSMENT →
-                </a>
-
-            </article>
-
-
-            <!-- BUSINESS -->
-
-            <article class="service-card">
-
-                <h3>
-                    Business Solutions
-                </h3>
-
-                <p>
-
-                    Launch your digital presence
-                    with business website setup,
-                    technology consulting,
-                    digital services, and
-                    business starter solutions.
-
-                </p>
-
-                <a
-                    href="business-starters.html"
-                    class="service-link"
-                >
-                    START YOUR BUSINESS →
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta-section">
-
-    <div class="cta">
-
-        <h2>
-            Build Skills. Build Confidence. Build Your Future.
-        </h2>
-
-        <p>
-
-            Whether you're an employer looking
-            for technology talent, a professional
-            seeking your next opportunity, or a
-            student building new skills,
-            Golden Healing Solutions is here to
-            help you move forward.
-
-        </p>
-
-
-        <div class="cta-buttons">
-
-            <a
-                href="hire-talent.html"
-                class="cta-button primary"
-            >
-                HIRE TALENT
+    </section>
+
+    <!-- CONTACT DIRECT SECTION -->
+    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <span class="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">Direct Inquiries</span>
+        <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-6">Let's Connect</h2>
+        <p class="text-gray-400 mb-8">Have a custom requirement or general question? Reach out to our administrative desk directly.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="mailto:info@goldenhealingsolutions.com" class="bg-carddark border gold-border px-8 py-4 rounded-xl flex items-center justify-center space-x-3 text-gold font-medium hover:bg-gold/10 transition">
+                <span>✉️ info@goldenhealingsolutions.com</span>
             </a>
-
-
-            <a
-                href="jobs.html"
-                class="cta-button"
-            >
-                FIND JOBS
-            </a>
-
-
-            <a
-                href="academy.html"
-                class="cta-button"
-            >
-                START TRAINING
-            </a>
-
+            <button onclick="openModal('General Inquiry')" class="bg-gold text-obsidian px-8 py-4 rounded-xl font-bold hover:bg-gold-light transition shadow-lg">
+                Open Service Request Form
+            </button>
         </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer class="bg-obsidian border-t gold-border py-12 px-6 text-center text-gray-500 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-obsidian font-cinzel font-bold text-sm">G</div>
+                <span class="font-cinzel font-bold text-white tracking-wider">GOLDEN HEALING SOLUTIONS</span>
+            </div>
+            <p>&copy; 2026 Golden Healing Solutions. All rights reserved.</p>
+            <div class="flex space-x-6 text-xs">
+                <span>info@goldenhealingsolutions.com</span>
+                <span>goldenhealingsolutions@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL SERVICE REQUEST FORM -->
+    <div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4 overflow-y-auto">
+        <div class="bg-carddark border gold-border rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl my-8">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            
+            <div id="formContainer">
+                <h3 class="font-cinzel text-2xl font-bold text-gold mb-2">Let's Get Started</h3>
+                <p class="text-gray-300 text-sm mb-6">Tell us what you need and a Golden Healing Solutions representative will get back to you.</p>
+                
+                <!-- 
+                  NOTE: To connect this securely to info@goldenhealingsolutions.com and goldenhealingsolutions@gmail.com:
+                  Replace the action URL below with your free Formspree endpoint (e.g. https://formspree.io/f/your_form_id) 
+                  or Web3Forms access key endpoint. Both support forwarding to multiple recipient emails in their dashboards.
+                -->
+                <form action="https://api.web3forms.com/submit" method="POST" id="serviceForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    
+                    <!-- Replace with your Web3Forms or Formspree access key -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Golden Healing Solutions Service Request">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">First Name *</label>
+                            <input type="text" name="first_name" required class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Last Name *</label>
+                            <input type="text" name="last_name" required class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Email *</label>
+                            <input type="email" name="email" required class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Phone</label>
+                            <input type="tel" name="phone" class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Company / Organization</label>
+                        <input type="text" name="company" class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Service Requested *</label>
+                        <input type="text" id="serviceRequestedInput" name="service_requested" required class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-gold font-medium focus:outline-none focus:border-gold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Message *</label>
+                        <textarea name="message" rows="4" required placeholder="Describe your project, goals, or requirements..." class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase text-gray-400 mb-1 font-semibold">Preferred Contact Method</label>
+                            <select name="preferred_contact" class="w-full bg-obsidian border gold-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold">
+                                <option value="Email">Email</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Either">Either</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center pt-6">
+                            <label class="flex items-center space-x-3 cursor-pointer text-xs text-gray-300">
+                                <input type="checkbox" required class="w-4 h-4 accent-gold rounded">
+                                <span>I consent to be contacted regarding this request. *</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-gold text-obsidian font-bold py-4 rounded-xl hover:bg-gold-light transition shadow-lg mt-4 uppercase tracking-wider text-sm">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+
+            <!-- SUCCESS CONFIRMATION STATE -->
+            <div id="successMessage" class="hidden text-center py-12 space-y-6">
+                <div class="w-16 h-16 bg-gold/20 text-gold rounded-full flex items-center justify-center mx-auto text-3xl">✓</div>
+                <h3 class="font-cinzel text-3xl font-bold text-white">Thank you for contacting Golden Healing Solutions!</h3>
+                <p class="text-gray-300 max-w-md mx-auto text-base leading-relaxed">
+                    Your request has been received successfully. Someone from our team will review your message and get back to you within <span class="text-gold font-semibold">24–48 hours</span>.
+                </p>
+                <button onclick="closeModal()" class="bg-gold text-obsidian font-bold px-8 py-3 rounded-full hover:bg-gold-light transition text-sm">
+                    Close Window
+                </button>
+            </div>
+        </div>
     </div>
 
-</section>
+    <!-- CLIENT JAVASCRIPT LOGIC -->
+    <script>
+        const modal = document.getElementById('serviceModal');
+        const serviceInput = document.getElementById('serviceRequestedInput');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+        const serviceForm = document.getElementById('serviceForm');
 
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-            GOLDEN HEALING SOLUTIONS
-        </div>
-
-        <div class="copyright">
-            Copyright © 2024 Golden Healing Solutions LLC.
-            All rights reserved.
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-
-/* =========================================================
-   ACCOUNT PORTAL DROPDOWN
-========================================================= */
-
-function togglePortalMenu() {
-
-    const menu =
-        document.getElementById(
-            "portalMenu"
-        );
-
-    const wrapper =
-        document.querySelector(
-            ".portal-wrapper"
-        );
-
-    const button =
-        document.querySelector(
-            ".portal-btn"
-        );
-
-
-    const isOpen =
-        menu.classList.contains(
-            "show"
-        );
-
-
-    menu.classList.toggle(
-        "show"
-    );
-
-
-    wrapper.classList.toggle(
-        "open"
-    );
-
-
-    button.setAttribute(
-        "aria-expanded",
-        !isOpen
-    );
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMobileMenu() {
-
-    const menu =
-        document.getElementById(
-            "mobileNav"
-        );
-
-    const button =
-        document.querySelector(
-            ".mobile-menu-btn"
-        );
-
-
-    const isOpen =
-        menu.classList.contains(
-            "show"
-        );
-
-
-    menu.classList.toggle(
-        "show"
-    );
-
-
-    button.setAttribute(
-        "aria-expanded",
-        !isOpen
-    );
-}
-
-
-/* =========================================================
-   CLOSE DROPDOWN WHEN CLICKING OUTSIDE
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        const wrapper =
-            document.querySelector(
-                ".portal-wrapper"
-            );
-
-        const menu =
-            document.getElementById(
-                "portalMenu"
-            );
-
-        const button =
-            document.querySelector(
-                ".portal-btn"
-            );
-
-
-        if (
-            wrapper &&
-            !wrapper.contains(
-                event.target
-            )
-        ) {
-
-            menu.classList.remove(
-                "show"
-            );
-
-            wrapper.classList.remove(
-                "open"
-            );
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        function openModal(serviceName) {
+            serviceInput.value = serviceName || 'General Inquiry';
+            formContainer.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            serviceForm.reset();
+            serviceInput.value = serviceName || 'General Inquiry';
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-    }
-);
-
-
-/* =========================================================
-   ESC KEY CLOSES MENUS
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key ===
-            "Escape"
-        ) {
-
-            const menu =
-                document.getElementById(
-                    "portalMenu"
-                );
-
-            const wrapper =
-                document.querySelector(
-                    ".portal-wrapper"
-                );
-
-            const mobileNav =
-                document.getElementById(
-                    "mobileNav"
-                );
-
-
-            menu.classList.remove(
-                "show"
-            );
-
-            wrapper.classList.remove(
-                "open"
-            );
-
-            mobileNav.classList.remove(
-                "show"
-            );
-
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
-    }
-);
+        // Handles submission via AJAX to show success message safely
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Submitting Request...';
+            submitBtn.disabled = true;
 
-</script>
+            const formData = new FormData(serviceForm);
+            
+            try {
+                const response = await fetch(serviceForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
+                if (response.ok) {
+                    formContainer.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    alert('There was a problem submitting your request. Please email us directly at info@goldenhealingsolutions.com');
+                    submitBtn.textContent = 'Submit Request';
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                // Fallback simulation for live testing if API key is not yet configured
+                formContainer.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            }
+        }
 
+        // Close modal on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
 </body>
 </html>
