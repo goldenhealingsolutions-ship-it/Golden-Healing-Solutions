@@ -1,0 +1,3 @@
+[build]
+  publish = "public"
+  command = "base64 -d public/assets/images/ghs-logo.png.b64 > public/assets/images/ghs-logo.png"
